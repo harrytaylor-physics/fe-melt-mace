@@ -53,8 +53,8 @@ the model (`mace/calculators/elec_temp.py`: "(Tel/10000) lives in that spec's `s
 the checkpoint"; `provenance/tel_mace_elec_temp_lines.txt`). The ARC scripts therefore set
 `atoms.info["elec_temp"]` in kelvin. Upstream mace-torch 0.3.16 loads the same file but does not apply
 the stored scale, so `validation/load_model.py` passes `T_el / 1e4`. On 346 test frames this reproduces
-the predictions stored on ARC: 0.0 meV/atom in energy, at most 4.8e-5 eV/Å per force component on this
-Mac (`validation/out/repro_check.json`).
+the predictions stored on ARC: 0.0 meV/atom in energy and at most 4.6e-5 eV/Å per force component on a
+Mac (`validation/out/repro_check.json`; the force figure varies by a few 1e-6 between runs with CPU threading).
 
 ### Which model the T_el-conditioned coexistence runs loaded
 

@@ -9,6 +9,11 @@ sys.path.insert(0, VAL)
 import paths  # noqa: E402
 
 
+def present(path):
+    """True if the file exists and is not a git-LFS pointer (git lfs pull not run)."""
+    return os.path.exists(path) and open(path, "rb").read(7) != b"version"
+
+
 def run(script, tmp, **env):
     e = dict(os.environ, FE_VAL_OUT=str(tmp), FE_VAL_LEDGER=str(tmp / "ledger.json"), **env)
     r = subprocess.run([sys.executable, script], cwd=VAL, env=e, capture_output=True, text=True)
@@ -64,14 +69,14 @@ def test_pbe_vs_exp_reproduces(tmp_path):
     assert abs(new["dtdp_330"] - old["dtdp_330"]) < 0.01      # 8.41 default when pn_correct.json is absent
 
 
-@pytest.mark.skipif(not os.path.exists(paths.PARITY), reason="parity_tel.npz not present")
+@pytest.mark.skipif(not present(paths.PARITY), reason="parity_tel.npz not present (LFS)")
 def test_stats_reproduce(tmp_path):
     run("stats_test.py", tmp_path)
     close(json.load(open(tmp_path / "test_stats.json")), committed("test_stats.json"), 1e-9)
 
 
-@pytest.mark.skipif(not glob.glob(os.path.join(paths.PHASEE, "runs_tel", "*_ckpt.npz")),
-                    reason="coexistence checkpoints not present")
+@pytest.mark.skipif(not all(present(f) for f in glob.glob(os.path.join(paths.PHASEE, "runs_tel", "*_ckpt.npz")) or [""]),
+                    reason="coexistence checkpoints not present (LFS)")
 def test_cc_check_reproduces(tmp_path):
     run("cc_check.py", tmp_path)
     close(json.load(open(tmp_path / "cc_check.json")), committed("cc_check.json"), 1e-6)
@@ -80,7 +85,7 @@ def test_cc_check_reproduces(tmp_path):
 def _mace_available():
     try:
         import torch, mace  # noqa: F401
-        return os.path.exists(paths.MODEL)
+        return present(paths.MODEL)
     except ImportError:
         return False
 
