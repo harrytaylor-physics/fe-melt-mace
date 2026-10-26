@@ -1,0 +1,21 @@
+&CONTROL
+  calculation = 'scf', prefix = 'fcc_V8.00', outdir = './tmp', pseudo_dir = './pseudo',
+  tstress = .true., tprnfor = .true., disk_io = 'none'
+/
+&SYSTEM
+  ibrav = 0, nat = 1, ntyp = 1, ecutwfc = 100, ecutrho = 1000,
+  occupations = 'smearing', smearing = 'fd', degauss = 0.03800174, nbnd = 20
+/
+&ELECTRONS
+  conv_thr = 1.0d-10, mixing_beta = 0.3
+/
+ATOMIC_SPECIES
+  Fe 55.845 Fe.pbe-spn-kjpaw_psl.1.0.0.UPF
+CELL_PARAMETERS angstrom
+  0.0000000000  1.5874010520  1.5874010520
+  1.5874010520  0.0000000000  1.5874010520
+  1.5874010520  1.5874010520  0.0000000000
+ATOMIC_POSITIONS angstrom
+  Fe  0.0000000000  0.0000000000  0.0000000000
+K_POINTS automatic
+  20 20 20 0 0 0
