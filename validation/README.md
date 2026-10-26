@@ -12,10 +12,22 @@ the training pipeline. Every number is written to `ledger.json` by `ledger.py`.
 | `val_mace.py` | `out/static_compare.json` | `refs/dft/*.json`, model file, torch, mace-torch | about 6 min on 2 CPU threads |
 | `cc_check.py` | `out/cc_check.json` | `phaseE/analysis_live_all_runs_tel.json`, `phaseE/cells/*.json`, `phaseE/runs_tel/*_ckpt.npz`, `phaseE_q6.py` | about 1 min |
 | `pbe_vs_exp.py` | `out/pbe_vs_exp.json` | `refs/eos_pbe_cold/*.json`, `phaseE/pn_correct.json` (optional) | seconds |
-| `ledger.py` | `ledger.json` | `out/*.json` | seconds |
+| `train_table.py` | `out/training.json` | `logs/fe_tel_e3_run-7.log`, `logs/fe_tel_e3_run-7_debug.log`, `phaseD/dataset_report.txt`, `phaseD/train_e3.xyz`, the model file (class name) | 10 s |
+| `tel_check.py` | `out/tel_check.json` | `logs/e3_test_final.out` (same-frame T_el check) | seconds |
+| `coex_cells.py` | `out/coex_cells.json` | `phaseE/analysis_live_all_runs_tel.json` | seconds |
+| `melting_point.py` | `out/melting_point.json` | `phaseE/pn_correct.json` (Simon fit, refitted for its covariance) | seconds |
+| `repro_check.py` | `out/repro_check.json` | the model, `phaseD/test_Tel*.xyz`, `phaseD/parity_tel.npz`; torch, mace-torch | about 8 min on 4 CPU threads |
+| `settings.py` | `out/settings.json` | `refs/*/*.in`, the producers' sources, `pseudo/*.UPF`, `phaseE/cells/*.json`, `labels/ldaX_*.in` | seconds |
+| `ledger.py` | `ledger.json` | `out/*.json`, `refs/literature.json` (committed constants) | seconds |
+| `record_inputs.py` | `ledger_inputs.tsv` | the committed inputs that no producer here rebuilds | seconds |
 
-Paths: `paths.py` (relative to the repository root, laid out as `~/fe_melt`; each overridable
-by an environment variable of the same name).
+Paths: `paths.py`, a thin wrapper over the repository's `layout.py` (paths relative to the repository
+root, which keeps the layout of `~/fe_melt`; each overridable by an environment variable).
+
+`report_numbers.tsv` lists every number of the October 2026 validation report with the ledger key
+it comes from (columns: number as printed, unit, key, ledger value; `keys:` for producer outputs,
+`summary:` for derived numbers; an empty key means no producer). `tests/test_repository.py` checks it
+against `ledger.json`.
 
 ## What each check is
 
@@ -46,8 +58,9 @@ by an environment variable of the same name).
 ## Conventions
 
 - Model input: upstream mace-torch 0.3.16 needs `atoms.info["elec_temp"] = T_el / 1e4` and
-  `info_keys={"elec_temp": "elec_temp", ...}`; float32 reproduces the stored ARC predictions
-  exactly. See `load_model.py`.
+  `info_keys={"elec_temp": "elec_temp", ...}`. The checkpoint stores the scale (`elec_temp` embedding
+  spec, `scale = 1e-4`); the tel-mace fork applies it, upstream does not. float32 reproduces the stored
+  ARC predictions to 0.0 meV/atom and a few 1e-5 eV/A (`out/repro_check.json`). See `load_model.py`.
 - Energies are Mermin free energies at T_el (the training target).
 - QE stress: QE prints the stress with compression positive; physical stress = -sigma_qe;
   pressure P = trace(sigma_qe) / 3.
@@ -57,5 +70,9 @@ rewritten to `./pseudo` and `./tmp` (they pointed at directories of the machine 
 
 ## Tests
 
-`python -m pytest validation/tests -q`. Producers whose inputs are absent skip. The model test
-runs `val_mace.py` and compares with `out/static_compare.json` to 2e-4 relative.
+`python -m pytest validation/tests -q`, or the whole repository from its root. Producers whose
+inputs are absent skip. The model test runs `val_mace.py` and compares with `out/static_compare.json`
+to 2e-4 relative. `out/static_compare.json` sections `tel_response`, `fcc_P_*`, `bcc_P_*` and
+`coa_min` were added on 26 Oct 2026 from a run on a Mac (CPU, float32); the other values are from the
+20-23 Oct run, which that run reproduces to 9e-5 relative. `stats_test.py` matches pytest's
+`*_test.py` pattern; the root `conftest.py` keeps pytest from importing (and so running) it.

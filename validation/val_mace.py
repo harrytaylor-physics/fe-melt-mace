@@ -3,7 +3,7 @@
 float32 as in production; elec_temp input = T_el / 1e4 (upstream mace-torch, see load_model.py).
 Sections: 1 hcp EOS, 2 T_el response, 3 fcc/bcc vs hcp, 4 c/a, 5 clamped-ion stress-strain
 coefficients plus EOS-fit bulk modulus, Voigt moduli and wave speeds, 6 E2g phonon.
-Writes out/static_compare.json. Needs torch, mace-torch and the model file (paths.MODEL).
+Writes out/static_compare.json (every section; sections 2-4 added 26 Oct 2026). Needs torch, mace-torch and the model file (paths.MODEL).
 One 2-atom evaluation takes about 10 s on 2 CPU threads; the 34 structures take about 6 min.
 """
 import glob, json, os, sys
@@ -73,8 +73,12 @@ def report(R):
         for v in ("8.00", "7.00", "6.80")))
     if all(t in R for t in ("tel_T4000", "eos_V7.00", "tel_T8000")):
         print("\n2. Electronic-temperature dependence, hcp 7.00 A^3")
+        out["tel_response"] = {}
         for tag in ("tel_T4000", "eos_V7.00", "tel_T8000"):
             r = R[tag]
+            out["tel_response"][f"{r['tel']:.0f}"] = dict(P_dft=r["P"], P_mace=r["mace"]["P"],
+                                                       dF_dft_meV=1e3 * (r["F_per_atom"] - e0d),
+                                                       dF_mace_meV=1e3 * (r["mace"]["E"] - e0m))
             print(f"   T_el {r['tel']:.0f} K: P_DFT {r['P']:.2f}, P_MACE {r['mace']['P']:.2f} GPa; "
                   f"F - F(6000): DFT {1e3 * (r['F_per_atom'] - e0d):+.1f}, MACE {1e3 * (r['mace']['E'] - e0m):+.1f} meV/atom")
     print("\n3. Phase energy differences at fixed volume, T_el = 6000 K (meV/atom)")
@@ -85,6 +89,7 @@ def report(R):
             if t in R and h in R:
                 dd = 1e3 * (R[t]["F_per_atom"] - R[h]["F_per_atom"]); dm = 1e3 * (R[t]["mace"]["E"] - R[h]["mace"]["E"])
                 out[f"{ph}-hcp_{V}"] = (dd, dm)
+                out[f"{ph}_P_{V}"] = (R[t]["P"], R[t]["mace"]["P"])
                 print(f"   V {V:.2f}: {ph}-hcp DFT {dd:+.1f}, MACE {dm:+.1f}, diff {dm - dd:+.1f};  "
                       f"P {ph}: DFT {R[t]['P']:.1f}, MACE {R[t]['mace']['P']:.1f} GPa")
     if all(t in R for t in ("coa_1.56", "eos_V6.80", "coa_1.64")):
@@ -93,6 +98,7 @@ def report(R):
         for lab, key in (("DFT", None), ("MACE", "mace")):
             y = [R[t]["F_per_atom"] if key is None else R[t]["mace"]["E"] for t in ("coa_1.56", "eos_V6.80", "coa_1.64")]
             c = np.polyfit(x, y, 2)
+            out.setdefault("coa_min", {})[lab.lower()] = float(-c[1] / (2 * c[0]))
             print(f"   {lab}: c/a minimum {-c[1] / (2 * c[0]):.4f}")
     el = [t for t in R if t.startswith("el_")]
     if len(el) == 8:

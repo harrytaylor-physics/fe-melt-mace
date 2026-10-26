@@ -1,0 +1,50 @@
+{
+ "_about": "Published values compared with this work. Transcribed on 26 Oct 2026 from the constants of the producers that used them (pbe_vs_exp.py, analysis/figures/figs_results.py, compare_curves_v1.py, pn_correct.py) and from the comparison table the validation report quotes; not re-checked against the papers here. P in GPa, T in K, dS in k_B per atom, dV in percent of the solid volume, dT/dP in K/GPa; null = not quoted.",
+ "melting_330GPa": [
+  {"id": "Sun2018", "method": "PBE (VASP, PAW with 16 valence electrons), free energies", "P": 330, "Tm": 6170, "Tm_err": 200,
+   "dS": 1.09, "dS_err": 0.03, "dV_pct": 1.7, "dTdP": 8.1, "dTdP_err": 0.2,
+   "paw_valence_shift_K": 440, "paw_valence_shift_between": [8, 16],
+   "citation": "Y. Sun, J. P. Brodholt, Y. Li and L. Vočadlo (as quoted: Sun, Brodholt, Li & Vočadlo 2018), Phys. Rev. B 98, 224301 (2018)"},
+  {"id": "Alfe2002_via_Sun2018", "method": "PW91, free energies (as quoted by Sun et al. 2018)", "P": 330, "Tm": 6350, "Tm_err": null,
+   "dS": 1.05, "dS_err": null, "dV_pct": 1.8, "dTdP": 9.0, "dTdP_err": null,
+   "citation": "D. Alfè, G. D. Price and M. J. Gillan (2002), values as quoted in Sun et al., Phys. Rev. B 98, 224301 (2018)"},
+  {"id": "Alfe2009", "method": "PW91, coexistence", "P": 328, "Tm": 6370, "Tm_err": 100,
+   "citation": "D. Alfè, Phys. Rev. B 79, 060101(R) (2009)"},
+  {"id": "Rao2025", "method": "LDA+DMFT-trained NequIP, 9,216-atom coexistence", "P": 330, "Tm": 6225, "Tm_err": 42, "n_atoms": 9216,
+   "citation": "R. Rao and L. Zhu, arXiv:2512.25061 (v1 Dec 2025; v4 Aug 2026)"},
+  {"id": "Sola2009", "method": "diffusion Monte Carlo correction to DFT", "P": 330, "Tm": 6900, "Tm_err": 400,
+   "citation": "E. Sola and D. Alfè, Phys. Rev. Lett. 103, 078501 (2009)"},
+  {"id": "Anzellini2013", "method": "laser-heated DAC, extrapolated", "P": 330, "Tm": 6230, "Tm_err": 500,
+   "extrapolated_from_T": 5100, "extrapolated_from_P": 220,
+   "citation": "S. Anzellini, A. Dewaele, M. Mezouar, P. Loubeyre and G. Morard, Science 340, 464 (2013)"}
+ ],
+ "melting_curve_figure": [
+  {"id": "Sun2023", "method": "PBE, thermodynamic integration", "points": [[323, 6357, 45], [360, 6692, 45]],
+   "citation": "Y. Sun et al., Geophys. Res. Lett. 50, e2022GL102447 (2023)"},
+  {"id": "Wu2024", "method": "PBE, DeepMD coexistence (+-200 K quoted)", "points": [[330, 6420, 200]],
+   "fit": "T = 3010 + 12.07 P - 0.005410 P^2", "fit_coeffs": [3010, 12.07, -0.005410],
+   "citation": "F. Wu, S. Wu, C.-Z. Wang, K.-M. Ho, R. M. Wentzcovitch and Y. Sun, Geosci. Front. 15, 101925 (2024)"},
+  {"id": "Rao2025", "method": "DFT+DMFT", "points": [[330, 6225, 42]], "fit": "T = 6167 (1 + (P - 323.1)/298.73)^(1/2.43), 307-352 GPa",
+   "fit_coeffs": [6167, 323.1, 298.73, 2.43], "fit_P_range": [307, 352],
+   "citation": "R. Rao and L. Zhu, arXiv:2512.25061 (v1 Dec 2025; v4 Aug 2026)"},
+  {"id": "Alfe2009", "method": "PW91, coexistence", "points": [[328, 6370, 100]], "citation": "D. Alfè, Phys. Rev. B 79, 060101(R) (2009)"},
+  {"id": "Sola2009", "method": "DMC", "points": [[330, 6900, 400]], "citation": "E. Sola and D. Alfè, Phys. Rev. Lett. 103, 078501 (2009)"},
+  {"id": "Anzellini2013", "method": "DAC, extrapolated", "points": [[330, 6230, 500]],
+   "citation": "S. Anzellini, A. Dewaele, M. Mezouar, P. Loubeyre and G. Morard, Science 340, 464 (2013)"},
+  {"id": "Sinmyo2019", "method": "DAC, extrapolated", "points": [[330, 5500, 220]],
+   "citation": "R. Sinmyo, K. Hirose and Y. Ohishi, Earth Planet. Sci. Lett. 510, 45 (2019)"},
+  {"id": "Balugani2024", "method": "shock + XAS, extrapolated", "points": [[330, 6202, 514]],
+   "citation": "S. Balugani et al., Phys. Rev. Lett. 133, 254101 (2024)"}
+ ],
+ "pressure_scales_300K": {
+  "Dewaele2006": {"form": "vinet", "V0_bohr3": 75.7, "K0_GPa": 163.4, "Kp": 5.38,
+                  "citation": "A. Dewaele et al., Phys. Rev. Lett. 97, 215504 (2006)"},
+  "Fei2016": {"form": "bm3", "V0_A3": 11.214, "V0_assumed": true, "K0_GPa": 172.7, "Kp": 4.79,
+              "citation": "Y. Fei et al., Geophys. Res. Lett. 43, 6837 (2016)"},
+  "Hirao2022": {"form": "vinet", "V0_A3": 11.215, "K0_GPa": 159.27, "Kp": 5.86, "scale": "Pt",
+                "citation": "N. Hirao, Y. Akahama and Y. Ohishi, Matter Radiat. Extremes 7, 038403 (2022)"}
+ },
+ "_discrepancies": [
+  "compare_curves_v1.py lists Alfe2009 as 330 GPa, 6200 +- 150 K and Wu2024 as 6415 K without an error; figs_results.py and pn_correct.py use 328 GPa, 6370 +- 100 K and 6420 +- 200 K (here). pn_correct.py also lists GonzalezCataldo2023 (330 GPa, 6523 +- 8 K), which no figure or report uses."
+ ]
+}

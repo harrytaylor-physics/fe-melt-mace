@@ -12,12 +12,23 @@ Producers (run from this directory):
   val_mace.py     -> out/static_compare.json needs torch, mace-torch, the model file
   cc_check.py     -> out/cc_check.json       needs phaseE/ (analysis json, cells, runs_tel checkpoints)
   pbe_vs_exp.py   -> out/pbe_vs_exp.json     needs refs/eos_pbe_cold/*.json (and phaseE/pn_correct.json)
+  train_table.py  -> out/training.json       needs the e3 training logs, phaseD/dataset_report.txt, phaseD/train_e3.xyz
+  tel_check.py    -> out/tel_check.json      needs logs/e3_test_final.out
+  coex_cells.py   -> out/coex_cells.json     needs phaseE/analysis_live_all_runs_tel.json
+  melting_point.py -> out/melting_point.json needs phaseE/pn_correct.json
+  repro_check.py  -> out/repro_check.json    needs torch, mace-torch, the model, phaseD/test_Tel*.xyz, parity_tel.npz
+  settings.py     -> out/settings.json       needs refs/*/*.in, the producers' sources, pseudo/, phaseE/cells, labels/ldaX_*.in
+Committed constants (no producer): refs/literature.json -> keys "literature.*".
 """
 import hashlib, json, os
 import paths
 
 PRODUCER = {"test_stats": "stats_test.py", "static_compare": "val_mace.py",
-            "cc_check": "cc_check.py", "pbe_vs_exp": "pbe_vs_exp.py"}
+            "cc_check": "cc_check.py", "pbe_vs_exp": "pbe_vs_exp.py",
+            "training": "train_table.py", "tel_check": "tel_check.py", "coex_cells": "coex_cells.py",
+            "melting_point": "melting_point.py", "repro_check": "repro_check.py", "settings": "settings.py"}
+CONSTANTS = {"literature": paths.LITERATURE}
+KB_MEV = 8.617333262e-2                                   # k_B in meV/K
 
 
 def flatten(x, pre, out):
@@ -26,7 +37,7 @@ def flatten(x, pre, out):
             flatten(v, f"{pre}.{k}", out)
     elif isinstance(x, list) and x and isinstance(x[0], (dict, list)):
         for i, v in enumerate(x):
-            name = v.get("cell") if isinstance(v, dict) and "cell" in v else (
+            name = v.get("cell") if isinstance(v, dict) and "cell" in v else v["id"] if isinstance(v, dict) and "id" in v else (
                 f"{v['P_lo']:.0f}-{v['P_hi']:.0f}GPa" if isinstance(v, dict) and "P_lo" in v else (
                     f"V{v[0]:.2f}" if isinstance(v, list) else (f"V{v['V']:.2f}" if isinstance(v, dict) and "V" in v else str(i))))
             flatten(v, f"{pre}.{name}", out)
@@ -76,7 +87,73 @@ def summary(J):
         s["pbe_minus_exp_core_GPa"] = p["core_range"]
         s["Tm_true_minus_pbe_K"] = p["dTm_true_minus_pbe_range"]
         s["dTm_dP_330_K_GPa"] = p["dtdp_330"]
+    extra(J, s)
     return s
+
+
+def extra(J, s):
+    """Derived numbers added on 26 Oct 2026 for the quantities the report states as ranges or ratios."""
+    s["K_per_meV_at_dS_0.80"] = 1.0 / (0.80 * KB_MEV)
+    if "test_stats" in J:
+        t = J["test_stats"]
+        s["test_F_rel_range"] = [min(t[f"{T}_all"]["frel"] for T in (4000, 6000, 8000)),
+                                 max(t[f"{T}_all"]["frel"] for T in (4000, 6000, 8000))]
+        s["test_liquid_minus_hcp_mean_K"] = s["test_liquid_minus_hcp_mean_meV"] * s["K_per_meV_at_dS_0.80"]
+        for T in (4000, 6000, 8000):
+            o = [t[f"{T}_{p}"] for p in ("fcc", "bcc", "stackfault")]
+            s[f"test_{T}_fcc_bcc_sf"] = dict(n=sum(x["n"] for x in o), rmse=[min(x["rmse"] for x in o), max(x["rmse"] for x in o)],
+                                           frmse=[min(x["frmse"] for x in o), max(x["frmse"] for x in o)],
+                                           frel=[min(x["frel"] for x in o), max(x["frel"] for x in o)])
+        s["test_n_frames"] = sum(t[f"{T}_all"]["n"] for T in (4000, 6000, 8000))
+    if "static_compare" in J:
+        sc = J["static_compare"]
+        if "tel_response" in sc:
+            tr = sc["tel_response"]
+            s["tel_response_max_abs_dP_GPa"] = max(abs(v["P_mace"] - v["P_dft"]) for v in tr.values())
+            s["tel_response_max_abs_dF_meV"] = max(abs(v["dF_mace_meV"] - v["dF_dft_meV"]) for v in tr.values())
+        s["phase_E_diff_meV"] = {k: v[1] - v[0] for k, v in sc.items() if "-hcp_" in k}
+        s["phase_P_diff_GPa"] = {k: v[1] - v[0] for k, v in sc.items() if "_P_" in k}
+        if "coa_min" in sc:
+            s["coa_rel_err"] = sc["coa_min"]["mace"] / sc["coa_min"]["dft"] - 1
+        allp = [abs(r[3]) for r in sc["eos"]] + [abs(v) for v in s["phase_P_diff_GPa"].values()]
+        if "tel_response" in sc:
+            allp.append(s["tel_response_max_abs_dP_GPa"])
+        s["static_max_abs_dP_all_GPa"] = max(allp)
+        v = sc["voigt"]
+        s["voigt_rel_err"] = {k: v["mace"][k] / v["dft"][k] - 1 for k in ("K_V", "G_V", "vp_km_s", "vs_km_s")}
+        b = sc["bulk_modulus"]["dft"]["K_GPa"]["7.00"], sc["bulk_modulus"]["mace"]["K_GPa"]["7.00"]
+        s["bulk_modulus_7.00_rel_err"] = b[1] / b[0] - 1
+    if "cc_check" in J:
+        iv = J["cc_check"]["intervals"]
+        s["cc_P_range_consistent_GPa"] = [min(r["P_lo"] for r in iv if r["P_lo"] >= 250), max(r["P_hi"] for r in iv)]
+    if "pbe_vs_exp" in J:
+        rows = J["pbe_vs_exp"]["rows"]
+        lo = max(rows, key=lambda r: r["V"])                     # largest volume, lowest pressure
+        s["pbe_minus_exp_lowest_P"] = dict(V=lo["V"], P_exp=lo["P_exp"], diff=lo["diff"])
+        spread = lambda r: max(r["P_exp"].values()) - min(r["P_exp"].values())
+        s["exp_spread_below_55GPa_max_GPa"] = max(spread(r) for r in rows if max(r["P_exp"].values()) < 55)
+        s["exp_spread_at_V_core_GPa"] = spread([r for r in rows if abs(r["V"] - J["pbe_vs_exp"]["V_core"]) < 1e-6][0])
+        s["P_vib_range_GPa"] = [min(r["P_vib"] for r in rows), max(r["P_vib"] for r in rows)]
+        # pressure where PBE + vib - experiment changes sign (linear between computed volumes), per scale
+        z = {}
+        for k in rows[0]["diff"]:
+            pts = sorted((r["P_exp"][k], r["diff"][k]) for r in rows)
+            for (p1, d1), (p2, d2) in zip(pts[:-1], pts[1:]):
+                if d1 * d2 <= 0 and d1 != d2:
+                    z[k] = p1 + (0 - d1) * (p2 - p1) / (d2 - d1)
+                    break
+        s["pbe_minus_exp_zero_crossing_P_GPa"] = z
+    if "melting_point" in J and "test_stats" in J and "static_compare" in J:
+        m = J["melting_point"]
+        s["Tm_330_K"] = m["Tm_330"]
+        s["Tm_error_budget_K"] = (s["eos_max_abs_dP_GPa"] * m["dTdP_330"]
+                                  + s["test_liquid_minus_hcp_mean_meV"] * s["K_per_meV_at_dS_0.80"])
+    if "coex_cells" in J and "cc_check" in J:
+        lit = J.get("literature", {}).get("melting_330GPa", [])
+        dS_lit = [x["dS"] for x in lit if x.get("dS")]
+        if dS_lit:
+            dS330 = J["coex_cells"]["cells"]["coex_hcp_330GPa"]["dS_kB"]
+            s["dS_330_rel_to_literature"] = [dS330 / max(dS_lit) - 1, dS330 / min(dS_lit) - 1]
 
 
 def main():
@@ -89,6 +166,11 @@ def main():
         flatten(J[stem], stem, keys)
         inputs[os.path.relpath(f, os.path.dirname(paths.LEDGER))] = dict(
             sha256=hashlib.sha256(open(f, "rb").read()).hexdigest(), producer=PRODUCER[stem])
+    for stem, f in CONSTANTS.items():
+        J[stem] = json.load(open(f))
+        flatten({k: v for k, v in J[stem].items() if not k.startswith("_")}, stem, keys)
+        inputs[os.path.relpath(f, os.path.dirname(paths.LEDGER))] = dict(
+            sha256=hashlib.sha256(open(f, "rb").read()).hexdigest(), producer="committed constants")
     led = dict(keys=keys, summary=summary(J), inputs=inputs)
     json.dump(led, open(paths.LEDGER, "w"), indent=1, sort_keys=True)
     print(f"{len(keys)} keys, {len(led['summary'])} summary entries from {len(inputs)} producer outputs -> {paths.LEDGER}")

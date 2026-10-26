@@ -1,0 +1,144 @@
+{
+ "dft_refs": {
+  "qe_version": "6.6",
+  "ecutwfc_Ry": [
+   100.0
+  ],
+  "ecutrho_Ry": [
+   1000.0
+  ],
+  "smearing": [
+   "fd"
+  ],
+  "T_el_K": [
+   4000.0,
+   6000.0,
+   8000.0
+  ],
+  "kmesh_hcp": [
+   "12x12x8"
+  ],
+  "kmesh_fcc_bcc": [
+   "20x20x20"
+  ],
+  "eos_volumes": [
+   6.6,
+   6.8,
+   7.0,
+   7.2,
+   7.5,
+   8.0,
+   8.6,
+   8.9
+  ],
+  "eos_n": 8,
+  "eos_c_over_a": [
+   1.6
+  ],
+  "coa_V": [
+   6.8
+  ],
+  "V_by_kind": {
+   "eos": [
+    6.6,
+    6.8,
+    7.0,
+    7.2,
+    7.5,
+    8.0,
+    8.6,
+    8.9
+   ],
+   "tel": [
+    7.0
+   ],
+   "fcc": [
+    7.0,
+    8.0
+   ],
+   "bcc": [
+    7.0,
+    8.0
+   ],
+   "coa": [
+    6.8
+   ],
+   "el": [
+    6.93,
+    7.0,
+    7.07
+   ],
+   "ph": [
+    7.0
+   ]
+  },
+  "nat_by_kind": {
+   "eos": [
+    2
+   ],
+   "fcc": [
+    1
+   ],
+   "bcc": [
+    1
+   ]
+  },
+  "n_refs": 26
+ },
+ "eos_cold": {
+  "ecutwfc_Ry": [
+   100.0
+  ],
+  "ecutrho_Ry": [
+   1000.0
+  ],
+  "smearing": [
+   "mv"
+  ],
+  "degauss_Ry": [
+   0.01
+  ],
+  "kmesh": [
+   "16x16x10"
+  ],
+  "c_over_a": [
+   1.6
+  ],
+  "n": 8
+ },
+ "pseudopotentials": {
+  "Fe.pbe-spn-kjpaw_psl.1.0.0.UPF": 16.0,
+  "Fe.pz-spn-kjpaw_psl.1.0.0.UPF": 16.0
+ },
+ "static": {
+  "strain": 0.01,
+  "phonon_u_A": 0.03,
+  "density_V_A3": 7.0
+ },
+ "slabs": {
+  "n_slabs": 42,
+  "q6_rcut_A": 3.2,
+  "f_solid": 0.85,
+  "f_liquid": 0.15,
+  "pure_neighbours_each_side": 2
+ },
+ "pbe_vs_exp": {
+  "V_core": 7.0,
+  "P_vib_uncertainty_GPa": 1.0
+ },
+ "coexistence": {
+  "atoms_per_cell": [
+   12032,
+   12096
+  ]
+ },
+ "direct_test_330GPa": {
+  "n_hcp": 20,
+  "n_liquid": 20,
+  "n_PBE": 40,
+  "n_LDA": 40,
+  "T_el_K": [
+   6329
+  ]
+ }
+}

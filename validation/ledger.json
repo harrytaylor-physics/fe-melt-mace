@@ -4,17 +4,45 @@
    "producer": "cc_check.py",
    "sha256": "95b674344bfa1a8f1edc985451c33eaf143f05657c33b487fb5585d7553d40f0"
   },
+  "out/coex_cells.json": {
+   "producer": "coex_cells.py",
+   "sha256": "72ee00c83d654776c9ce07bd93b2f2fc721795e71cf3a15ae58c341b3efef35d"
+  },
+  "out/melting_point.json": {
+   "producer": "melting_point.py",
+   "sha256": "4f9c2e8a27d8b0291eeb685654cfff57f06a32dcf01de074d708f167740fe84b"
+  },
   "out/pbe_vs_exp.json": {
    "producer": "pbe_vs_exp.py",
    "sha256": "6a4cc0cd0b4b9c0b86496ca43cca960dd81d224b32f4b3ddd465702b3730ae2e"
   },
+  "out/repro_check.json": {
+   "producer": "repro_check.py",
+   "sha256": "7b857acc7cc9b79c66e1964f780d21a1a809c4bc6ff053b03c54895d0a63eb6d"
+  },
+  "out/settings.json": {
+   "producer": "settings.py",
+   "sha256": "12af41a73869c636b3ff33e34cd1edf28c98042316b80f76457eb6c30c93cfa3"
+  },
   "out/static_compare.json": {
    "producer": "val_mace.py",
-   "sha256": "55c91087f80e64f676d6ea76f7c46f75530bf51e1eea37feb60d02d970a0c018"
+   "sha256": "db44675533063688adf0b6a3890311b041f1f392ffe62d88fa5702cdc257f712"
+  },
+  "out/tel_check.json": {
+   "producer": "tel_check.py",
+   "sha256": "9216eb328f5f105e54ec4993ea172e56da158a8a47d8ea2457b2d9500c0a67cb"
   },
   "out/test_stats.json": {
    "producer": "stats_test.py",
    "sha256": "1f4c24da633dee0bda3327ed0baa08e13d852b3947c850afa15e9277d997538d"
+  },
+  "out/training.json": {
+   "producer": "train_table.py",
+   "sha256": "c8706e53a502be2c471f98ea4002392d92c57193db6e986e30807b21f897704e"
+  },
+  "refs/literature.json": {
+   "producer": "committed constants",
+   "sha256": "c12833b1c4e78ef072ee6d3d1eeb723eb18ff1e4895a3429458aa3aa97f0497c"
   }
  },
  "keys": {
@@ -176,6 +204,387 @@
   "cc_check.intervals.344-366GPa.dV": 0.10647111242801754,
   "cc_check.intervals.344-366GPa.rel_diff": 0.29693815658902895,
   "cc_check.intervals.344-366GPa.z": -1.5466238739751048,
+  "coex_cells.cells.coex_fcc_100GPa.P": 91.04993278781922,
+  "coex_cells.cells.coex_fcc_100GPa.P_nominal": 100,
+  "coex_cells.cells.coex_fcc_100GPa.P_sem": 0.10173141520122186,
+  "coex_cells.cells.coex_fcc_100GPa.Tm": 3657.5742516997534,
+  "coex_cells.cells.coex_fcc_100GPa.Tm_est": 4162.9,
+  "coex_cells.cells.coex_fcc_100GPa.Tm_sem": 9.89542529843561,
+  "coex_cells.cells.coex_fcc_100GPa.branch": "fcc",
+  "coex_cells.cells.coex_fcc_100GPa.dS_kB": 0.7290276082234326,
+  "coex_cells.cells.coex_fcc_100GPa.dS_runs_range": [
+   0.637701084191123,
+   0.7815076666849791
+  ],
+  "coex_cells.cells.coex_fcc_100GPa.n_dS_runs": 6,
+  "coex_cells.cells.coex_fcc_100GPa.runs": 2,
+  "coex_cells.cells.coex_fcc_100GPa.scatter": 13.994244662497472,
+  "coex_cells.cells.coex_fcc_100GPa.verdicts.DRIFTING": 2,
+  "coex_cells.cells.coex_fcc_100GPa.verdicts.MELTED": 4,
+  "coex_cells.cells.coex_hcp_100GPa.P": 102.45038512030881,
+  "coex_cells.cells.coex_hcp_100GPa.P_nominal": 100,
+  "coex_cells.cells.coex_hcp_100GPa.P_sem": 0.671683679583874,
+  "coex_cells.cells.coex_hcp_100GPa.Tm": 3910.898631138864,
+  "coex_cells.cells.coex_hcp_100GPa.Tm_est": 4162.9,
+  "coex_cells.cells.coex_hcp_100GPa.Tm_sem": 7.225329054884755,
+  "coex_cells.cells.coex_hcp_100GPa.branch": "hcp",
+  "coex_cells.cells.coex_hcp_100GPa.dS_kB": 0.8810413307374911,
+  "coex_cells.cells.coex_hcp_100GPa.dS_runs_range": [
+   0.7391616386558271,
+   0.912259794813011
+  ],
+  "coex_cells.cells.coex_hcp_100GPa.n_dS_runs": 4,
+  "coex_cells.cells.coex_hcp_100GPa.runs": 6,
+  "coex_cells.cells.coex_hcp_100GPa.scatter": 17.69836940817348,
+  "coex_cells.cells.coex_hcp_100GPa.verdicts.COEXISTING": 4,
+  "coex_cells.cells.coex_hcp_100GPa.verdicts.DRIFTING": 2,
+  "coex_cells.cells.coex_hcp_150GPa.P": 153.5579900251718,
+  "coex_cells.cells.coex_hcp_150GPa.P_nominal": 150,
+  "coex_cells.cells.coex_hcp_150GPa.P_sem": 0.7300987951600948,
+  "coex_cells.cells.coex_hcp_150GPa.Tm": 4602.21489097681,
+  "coex_cells.cells.coex_hcp_150GPa.Tm_est": 4698.775,
+  "coex_cells.cells.coex_hcp_150GPa.Tm_sem": 11.009194180682234,
+  "coex_cells.cells.coex_hcp_150GPa.branch": "hcp",
+  "coex_cells.cells.coex_hcp_150GPa.dS_kB": 0.9242530293957323,
+  "coex_cells.cells.coex_hcp_150GPa.dS_runs_range": [
+   0.8232377896131599,
+   1.0252682691783046
+  ],
+  "coex_cells.cells.coex_hcp_150GPa.n_dS_runs": 2,
+  "coex_cells.cells.coex_hcp_150GPa.runs": 6,
+  "coex_cells.cells.coex_hcp_150GPa.scatter": 26.966908221889383,
+  "coex_cells.cells.coex_hcp_150GPa.verdicts.COEXISTING": 6,
+  "coex_cells.cells.coex_hcp_200GPa.P": 206.02796544744737,
+  "coex_cells.cells.coex_hcp_200GPa.P_nominal": 200,
+  "coex_cells.cells.coex_hcp_200GPa.P_sem": 0.823786862441188,
+  "coex_cells.cells.coex_hcp_200GPa.Tm": 5195.585003576495,
+  "coex_cells.cells.coex_hcp_200GPa.Tm_est": 5207.6,
+  "coex_cells.cells.coex_hcp_200GPa.Tm_sem": 8.445323048532106,
+  "coex_cells.cells.coex_hcp_200GPa.branch": "hcp",
+  "coex_cells.cells.coex_hcp_200GPa.dS_kB": 0.8608614401012176,
+  "coex_cells.cells.coex_hcp_200GPa.dS_runs_range": [
+   0.8035783263632893,
+   0.9308934430588994
+  ],
+  "coex_cells.cells.coex_hcp_200GPa.n_dS_runs": 4,
+  "coex_cells.cells.coex_hcp_200GPa.runs": 6,
+  "coex_cells.cells.coex_hcp_200GPa.scatter": 20.686732181869754,
+  "coex_cells.cells.coex_hcp_200GPa.verdicts.": 1,
+  "coex_cells.cells.coex_hcp_200GPa.verdicts.COEXISTING": 5,
+  "coex_cells.cells.coex_hcp_250GPa.P": 258.17286466232736,
+  "coex_cells.cells.coex_hcp_250GPa.P_nominal": 250,
+  "coex_cells.cells.coex_hcp_250GPa.P_sem": 0.9147897237594717,
+  "coex_cells.cells.coex_hcp_250GPa.Tm": 5733.76014275471,
+  "coex_cells.cells.coex_hcp_250GPa.Tm_est": 5689.375,
+  "coex_cells.cells.coex_hcp_250GPa.Tm_sem": 6.482861198929839,
+  "coex_cells.cells.coex_hcp_250GPa.branch": "hcp",
+  "coex_cells.cells.coex_hcp_250GPa.dS_kB": 0.8614711510406922,
+  "coex_cells.cells.coex_hcp_250GPa.dS_runs_range": [
+   0.8530309700655808,
+   0.864576195515564
+  ],
+  "coex_cells.cells.coex_hcp_250GPa.n_dS_runs": 3,
+  "coex_cells.cells.coex_hcp_250GPa.runs": 6,
+  "coex_cells.cells.coex_hcp_250GPa.scatter": 15.879702010665694,
+  "coex_cells.cells.coex_hcp_250GPa.verdicts.COEXISTING": 4,
+  "coex_cells.cells.coex_hcp_250GPa.verdicts.DRIFTING": 2,
+  "coex_cells.cells.coex_hcp_300GPa.P": 311.7475139712688,
+  "coex_cells.cells.coex_hcp_300GPa.P_nominal": 300,
+  "coex_cells.cells.coex_hcp_300GPa.P_sem": 0.9810993304991292,
+  "coex_cells.cells.coex_hcp_300GPa.Tm": 6210.872531241676,
+  "coex_cells.cells.coex_hcp_300GPa.Tm_est": 6144.1,
+  "coex_cells.cells.coex_hcp_300GPa.Tm_sem": 10.826923611363817,
+  "coex_cells.cells.coex_hcp_300GPa.branch": "hcp",
+  "coex_cells.cells.coex_hcp_300GPa.dS_kB": 0.9053404613752214,
+  "coex_cells.cells.coex_hcp_300GPa.dS_runs_range": [
+   0.89533855232071,
+   0.9153423704297328
+  ],
+  "coex_cells.cells.coex_hcp_300GPa.n_dS_runs": 2,
+  "coex_cells.cells.coex_hcp_300GPa.runs": 6,
+  "coex_cells.cells.coex_hcp_300GPa.scatter": 26.52043833193267,
+  "coex_cells.cells.coex_hcp_300GPa.verdicts.": 1,
+  "coex_cells.cells.coex_hcp_300GPa.verdicts.COEXISTING": 4,
+  "coex_cells.cells.coex_hcp_300GPa.verdicts.DRIFTING": 1,
+  "coex_cells.cells.coex_hcp_330GPa.P": 343.6620969172198,
+  "coex_cells.cells.coex_hcp_330GPa.P_nominal": 330,
+  "coex_cells.cells.coex_hcp_330GPa.P_sem": 1.0191309037120537,
+  "coex_cells.cells.coex_hcp_330GPa.Tm": 6487.695959394896,
+  "coex_cells.cells.coex_hcp_330GPa.Tm_est": 6403.951,
+  "coex_cells.cells.coex_hcp_330GPa.Tm_sem": 13.453931546903695,
+  "coex_cells.cells.coex_hcp_330GPa.branch": "hcp",
+  "coex_cells.cells.coex_hcp_330GPa.dS_kB": 0.7953325958453861,
+  "coex_cells.cells.coex_hcp_330GPa.dS_runs_range": [
+   0.788108972409227,
+   0.8332874738189255
+  ],
+  "coex_cells.cells.coex_hcp_330GPa.n_dS_runs": 3,
+  "coex_cells.cells.coex_hcp_330GPa.runs": 6,
+  "coex_cells.cells.coex_hcp_330GPa.scatter": 32.955267324247615,
+  "coex_cells.cells.coex_hcp_330GPa.verdicts.COEXISTING": 4,
+  "coex_cells.cells.coex_hcp_330GPa.verdicts.DRIFTING": 2,
+  "coex_cells.cells.coex_hcp_350GPa.P": 365.59730310167794,
+  "coex_cells.cells.coex_hcp_350GPa.P_nominal": 350,
+  "coex_cells.cells.coex_hcp_350GPa.P_sem": 1.044896627176656,
+  "coex_cells.cells.coex_hcp_350GPa.Tm": 6656.335677345444,
+  "coex_cells.cells.coex_hcp_350GPa.Tm_est": 6571.775,
+  "coex_cells.cells.coex_hcp_350GPa.Tm_sem": 14.192988826596716,
+  "coex_cells.cells.coex_hcp_350GPa.branch": "hcp",
+  "coex_cells.cells.coex_hcp_350GPa.dS_kB": 0.7514920775018643,
+  "coex_cells.cells.coex_hcp_350GPa.dS_runs_range": [
+   0.6743579871308649,
+   0.8286261678728637
+  ],
+  "coex_cells.cells.coex_hcp_350GPa.n_dS_runs": 2,
+  "coex_cells.cells.coex_hcp_350GPa.runs": 6,
+  "coex_cells.cells.coex_hcp_350GPa.scatter": 34.76558055018491,
+  "coex_cells.cells.coex_hcp_350GPa.verdicts.": 2,
+  "coex_cells.cells.coex_hcp_350GPa.verdicts.COEXISTING": 2,
+  "coex_cells.cells.coex_hcp_350GPa.verdicts.DRIFTING": 2,
+  "coex_cells.fit_cell_mean_P.T1": 3873.8305680712515,
+  "coex_cells.fit_cell_mean_P.a": 118.1203025744748,
+  "coex_cells.fit_cell_mean_P.c": 2.173616474891197,
+  "coex_cells.fit_cell_mean_P.chi2": 1.120129208734886,
+  "coex_cells.fit_cell_mean_P.dof": 4,
+  "coex_cells.fit_cell_mean_P.err": [
+   10.184851508759026,
+   5.8223438536607235,
+   0.060011050511075886
+  ],
+  "coex_cells.flags": [
+   "coex_fcc_100GPa_ti0.92_s1: mean solid fraction 0.13 outside (0.15, 0.85) (interfaces close)"
+  ],
+  "coex_cells.hcp_runs_per_cell": [
+   6
+  ],
+  "coex_cells.n_runs": 48,
+  "coex_cells.ps_total": 9102,
+  "coex_cells.verdicts.": 4,
+  "coex_cells.verdicts.COEXISTING": 29,
+  "coex_cells.verdicts.DRIFTING": 11,
+  "coex_cells.verdicts.MELTED": 4,
+  "literature.melting_330GPa.Alfe2002_via_Sun2018.P": 330,
+  "literature.melting_330GPa.Alfe2002_via_Sun2018.Tm": 6350,
+  "literature.melting_330GPa.Alfe2002_via_Sun2018.Tm_err": null,
+  "literature.melting_330GPa.Alfe2002_via_Sun2018.citation": "D. Alf\u00e8, G. D. Price and M. J. Gillan (2002), values as quoted in Sun et al., Phys. Rev. B 98, 224301 (2018)",
+  "literature.melting_330GPa.Alfe2002_via_Sun2018.dS": 1.05,
+  "literature.melting_330GPa.Alfe2002_via_Sun2018.dS_err": null,
+  "literature.melting_330GPa.Alfe2002_via_Sun2018.dTdP": 9.0,
+  "literature.melting_330GPa.Alfe2002_via_Sun2018.dTdP_err": null,
+  "literature.melting_330GPa.Alfe2002_via_Sun2018.dV_pct": 1.8,
+  "literature.melting_330GPa.Alfe2002_via_Sun2018.id": "Alfe2002_via_Sun2018",
+  "literature.melting_330GPa.Alfe2002_via_Sun2018.method": "PW91, free energies (as quoted by Sun et al. 2018)",
+  "literature.melting_330GPa.Alfe2009.P": 328,
+  "literature.melting_330GPa.Alfe2009.Tm": 6370,
+  "literature.melting_330GPa.Alfe2009.Tm_err": 100,
+  "literature.melting_330GPa.Alfe2009.citation": "D. Alf\u00e8, Phys. Rev. B 79, 060101(R) (2009)",
+  "literature.melting_330GPa.Alfe2009.id": "Alfe2009",
+  "literature.melting_330GPa.Alfe2009.method": "PW91, coexistence",
+  "literature.melting_330GPa.Anzellini2013.P": 330,
+  "literature.melting_330GPa.Anzellini2013.Tm": 6230,
+  "literature.melting_330GPa.Anzellini2013.Tm_err": 500,
+  "literature.melting_330GPa.Anzellini2013.citation": "S. Anzellini, A. Dewaele, M. Mezouar, P. Loubeyre and G. Morard, Science 340, 464 (2013)",
+  "literature.melting_330GPa.Anzellini2013.extrapolated_from_P": 220,
+  "literature.melting_330GPa.Anzellini2013.extrapolated_from_T": 5100,
+  "literature.melting_330GPa.Anzellini2013.id": "Anzellini2013",
+  "literature.melting_330GPa.Anzellini2013.method": "laser-heated DAC, extrapolated",
+  "literature.melting_330GPa.Rao2025.P": 330,
+  "literature.melting_330GPa.Rao2025.Tm": 6225,
+  "literature.melting_330GPa.Rao2025.Tm_err": 42,
+  "literature.melting_330GPa.Rao2025.citation": "R. Rao and L. Zhu, arXiv:2512.25061 (v1 Dec 2025; v4 Aug 2026)",
+  "literature.melting_330GPa.Rao2025.id": "Rao2025",
+  "literature.melting_330GPa.Rao2025.method": "LDA+DMFT-trained NequIP, 9,216-atom coexistence",
+  "literature.melting_330GPa.Rao2025.n_atoms": 9216,
+  "literature.melting_330GPa.Sola2009.P": 330,
+  "literature.melting_330GPa.Sola2009.Tm": 6900,
+  "literature.melting_330GPa.Sola2009.Tm_err": 400,
+  "literature.melting_330GPa.Sola2009.citation": "E. Sola and D. Alf\u00e8, Phys. Rev. Lett. 103, 078501 (2009)",
+  "literature.melting_330GPa.Sola2009.id": "Sola2009",
+  "literature.melting_330GPa.Sola2009.method": "diffusion Monte Carlo correction to DFT",
+  "literature.melting_330GPa.Sun2018.P": 330,
+  "literature.melting_330GPa.Sun2018.Tm": 6170,
+  "literature.melting_330GPa.Sun2018.Tm_err": 200,
+  "literature.melting_330GPa.Sun2018.citation": "Y. Sun, J. P. Brodholt, Y. Li and L. Vo\u010dadlo (as quoted: Sun, Brodholt, Li & Vo\u010dadlo 2018), Phys. Rev. B 98, 224301 (2018)",
+  "literature.melting_330GPa.Sun2018.dS": 1.09,
+  "literature.melting_330GPa.Sun2018.dS_err": 0.03,
+  "literature.melting_330GPa.Sun2018.dTdP": 8.1,
+  "literature.melting_330GPa.Sun2018.dTdP_err": 0.2,
+  "literature.melting_330GPa.Sun2018.dV_pct": 1.7,
+  "literature.melting_330GPa.Sun2018.id": "Sun2018",
+  "literature.melting_330GPa.Sun2018.method": "PBE (VASP, PAW with 16 valence electrons), free energies",
+  "literature.melting_330GPa.Sun2018.paw_valence_shift_K": 440,
+  "literature.melting_330GPa.Sun2018.paw_valence_shift_between": [
+   8,
+   16
+  ],
+  "literature.melting_curve_figure.Alfe2009.citation": "D. Alf\u00e8, Phys. Rev. B 79, 060101(R) (2009)",
+  "literature.melting_curve_figure.Alfe2009.id": "Alfe2009",
+  "literature.melting_curve_figure.Alfe2009.method": "PW91, coexistence",
+  "literature.melting_curve_figure.Alfe2009.points.V328.00": [
+   328,
+   6370,
+   100
+  ],
+  "literature.melting_curve_figure.Anzellini2013.citation": "S. Anzellini, A. Dewaele, M. Mezouar, P. Loubeyre and G. Morard, Science 340, 464 (2013)",
+  "literature.melting_curve_figure.Anzellini2013.id": "Anzellini2013",
+  "literature.melting_curve_figure.Anzellini2013.method": "DAC, extrapolated",
+  "literature.melting_curve_figure.Anzellini2013.points.V330.00": [
+   330,
+   6230,
+   500
+  ],
+  "literature.melting_curve_figure.Balugani2024.citation": "S. Balugani et al., Phys. Rev. Lett. 133, 254101 (2024)",
+  "literature.melting_curve_figure.Balugani2024.id": "Balugani2024",
+  "literature.melting_curve_figure.Balugani2024.method": "shock + XAS, extrapolated",
+  "literature.melting_curve_figure.Balugani2024.points.V330.00": [
+   330,
+   6202,
+   514
+  ],
+  "literature.melting_curve_figure.Rao2025.citation": "R. Rao and L. Zhu, arXiv:2512.25061 (v1 Dec 2025; v4 Aug 2026)",
+  "literature.melting_curve_figure.Rao2025.fit": "T = 6167 (1 + (P - 323.1)/298.73)^(1/2.43), 307-352 GPa",
+  "literature.melting_curve_figure.Rao2025.fit_P_range": [
+   307,
+   352
+  ],
+  "literature.melting_curve_figure.Rao2025.fit_coeffs": [
+   6167,
+   323.1,
+   298.73,
+   2.43
+  ],
+  "literature.melting_curve_figure.Rao2025.id": "Rao2025",
+  "literature.melting_curve_figure.Rao2025.method": "DFT+DMFT",
+  "literature.melting_curve_figure.Rao2025.points.V330.00": [
+   330,
+   6225,
+   42
+  ],
+  "literature.melting_curve_figure.Sinmyo2019.citation": "R. Sinmyo, K. Hirose and Y. Ohishi, Earth Planet. Sci. Lett. 510, 45 (2019)",
+  "literature.melting_curve_figure.Sinmyo2019.id": "Sinmyo2019",
+  "literature.melting_curve_figure.Sinmyo2019.method": "DAC, extrapolated",
+  "literature.melting_curve_figure.Sinmyo2019.points.V330.00": [
+   330,
+   5500,
+   220
+  ],
+  "literature.melting_curve_figure.Sola2009.citation": "E. Sola and D. Alf\u00e8, Phys. Rev. Lett. 103, 078501 (2009)",
+  "literature.melting_curve_figure.Sola2009.id": "Sola2009",
+  "literature.melting_curve_figure.Sola2009.method": "DMC",
+  "literature.melting_curve_figure.Sola2009.points.V330.00": [
+   330,
+   6900,
+   400
+  ],
+  "literature.melting_curve_figure.Sun2023.citation": "Y. Sun et al., Geophys. Res. Lett. 50, e2022GL102447 (2023)",
+  "literature.melting_curve_figure.Sun2023.id": "Sun2023",
+  "literature.melting_curve_figure.Sun2023.method": "PBE, thermodynamic integration",
+  "literature.melting_curve_figure.Sun2023.points.V323.00": [
+   323,
+   6357,
+   45
+  ],
+  "literature.melting_curve_figure.Sun2023.points.V360.00": [
+   360,
+   6692,
+   45
+  ],
+  "literature.melting_curve_figure.Wu2024.citation": "F. Wu, S. Wu, C.-Z. Wang, K.-M. Ho, R. M. Wentzcovitch and Y. Sun, Geosci. Front. 15, 101925 (2024)",
+  "literature.melting_curve_figure.Wu2024.fit": "T = 3010 + 12.07 P - 0.005410 P^2",
+  "literature.melting_curve_figure.Wu2024.fit_coeffs": [
+   3010,
+   12.07,
+   -0.00541
+  ],
+  "literature.melting_curve_figure.Wu2024.id": "Wu2024",
+  "literature.melting_curve_figure.Wu2024.method": "PBE, DeepMD coexistence (+-200 K quoted)",
+  "literature.melting_curve_figure.Wu2024.points.V330.00": [
+   330,
+   6420,
+   200
+  ],
+  "literature.pressure_scales_300K.Dewaele2006.K0_GPa": 163.4,
+  "literature.pressure_scales_300K.Dewaele2006.Kp": 5.38,
+  "literature.pressure_scales_300K.Dewaele2006.V0_bohr3": 75.7,
+  "literature.pressure_scales_300K.Dewaele2006.citation": "A. Dewaele et al., Phys. Rev. Lett. 97, 215504 (2006)",
+  "literature.pressure_scales_300K.Dewaele2006.form": "vinet",
+  "literature.pressure_scales_300K.Fei2016.K0_GPa": 172.7,
+  "literature.pressure_scales_300K.Fei2016.Kp": 4.79,
+  "literature.pressure_scales_300K.Fei2016.V0_A3": 11.214,
+  "literature.pressure_scales_300K.Fei2016.V0_assumed": true,
+  "literature.pressure_scales_300K.Fei2016.citation": "Y. Fei et al., Geophys. Res. Lett. 43, 6837 (2016)",
+  "literature.pressure_scales_300K.Fei2016.form": "bm3",
+  "literature.pressure_scales_300K.Hirao2022.K0_GPa": 159.27,
+  "literature.pressure_scales_300K.Hirao2022.Kp": 5.86,
+  "literature.pressure_scales_300K.Hirao2022.V0_A3": 11.215,
+  "literature.pressure_scales_300K.Hirao2022.citation": "N. Hirao, Y. Akahama and Y. Ohishi, Matter Radiat. Extremes 7, 038403 (2022)",
+  "literature.pressure_scales_300K.Hirao2022.form": "vinet",
+  "literature.pressure_scales_300K.Hirao2022.scale": "Pt",
+  "melting_point.Tm_330": 6329.038940785724,
+  "melting_point.at.100.Tm": 3845.8135311304254,
+  "melting_point.at.100.Tm_fit_se": 10.623496406403772,
+  "melting_point.at.100.dTdP": 14.933302631652623,
+  "melting_point.at.200.Tm": 5099.756882566549,
+  "melting_point.at.200.Tm_fit_se": 6.6665938930833715,
+  "melting_point.at.200.dTdP": 10.785485518681526,
+  "melting_point.at.323.Tm": 6269.863200543443,
+  "melting_point.at.323.Tm_fit_se": 5.910091966361785,
+  "melting_point.at.323.dTdP": 8.499697386378102,
+  "melting_point.at.328.Tm": 6312.196844193737,
+  "melting_point.at.328.Tm_fit_se": 6.146996352215097,
+  "melting_point.at.328.dTdP": 8.434003657930589,
+  "melting_point.at.330.Tm": 6329.038940785724,
+  "melting_point.at.330.Tm_fit_se": 6.250504077174451,
+  "melting_point.at.330.dTdP": 8.40813092308963,
+  "melting_point.at.360.Tm": 6575.72858152872,
+  "melting_point.at.360.Tm_fit_se": 8.31100171540811,
+  "melting_point.at.360.dTdP": 8.04548457549572,
+  "melting_point.at.364.Tm": 6607.820205600549,
+  "melting_point.at.364.Tm_fit_se": 8.645226005180586,
+  "melting_point.at.364.dTdP": 8.000448273924121,
+  "melting_point.cells.coex_hcp_100GPa.P_mean": 102.45038512030881,
+  "melting_point.cells.coex_hcp_100GPa.P_n": 104.34688009169011,
+  "melting_point.cells.coex_hcp_100GPa.Tm": 3910.898631138864,
+  "melting_point.cells.coex_hcp_100GPa.dP": 1.8964949713812942,
+  "melting_point.cells.coex_hcp_100GPa.sem": 7.225329054884755,
+  "melting_point.cells.coex_hcp_150GPa.P_mean": 153.5579900251718,
+  "melting_point.cells.coex_hcp_150GPa.P_n": 156.49169652066874,
+  "melting_point.cells.coex_hcp_150GPa.Tm": 4602.21489097681,
+  "melting_point.cells.coex_hcp_150GPa.dP": 2.9337064954969585,
+  "melting_point.cells.coex_hcp_150GPa.sem": 11.009194180682234,
+  "melting_point.cells.coex_hcp_200GPa.P_mean": 206.02796544744737,
+  "melting_point.cells.coex_hcp_200GPa.P_n": 209.49626955172255,
+  "melting_point.cells.coex_hcp_200GPa.Tm": 5195.585003576495,
+  "melting_point.cells.coex_hcp_200GPa.dP": 3.468304104275172,
+  "melting_point.cells.coex_hcp_200GPa.sem": 8.445323048532106,
+  "melting_point.cells.coex_hcp_250GPa.P_mean": 258.17286466232736,
+  "melting_point.cells.coex_hcp_250GPa.P_n": 262.1666941775726,
+  "melting_point.cells.coex_hcp_250GPa.Tm": 5733.76014275471,
+  "melting_point.cells.coex_hcp_250GPa.dP": 3.993829515245224,
+  "melting_point.cells.coex_hcp_250GPa.sem": 6.482861198929839,
+  "melting_point.cells.coex_hcp_300GPa.P_mean": 311.7475139712688,
+  "melting_point.cells.coex_hcp_300GPa.P_n": 316.58252916224103,
+  "melting_point.cells.coex_hcp_300GPa.Tm": 6210.872531241676,
+  "melting_point.cells.coex_hcp_300GPa.dP": 4.835015190972219,
+  "melting_point.cells.coex_hcp_300GPa.sem": 10.826923611363817,
+  "melting_point.cells.coex_hcp_330GPa.P_mean": 343.6620969172198,
+  "melting_point.cells.coex_hcp_330GPa.P_n": 348.41651857520594,
+  "melting_point.cells.coex_hcp_330GPa.Tm": 6487.695959394896,
+  "melting_point.cells.coex_hcp_330GPa.dP": 4.754421657986114,
+  "melting_point.cells.coex_hcp_330GPa.sem": 13.453931546903695,
+  "melting_point.cells.coex_hcp_350GPa.P_mean": 365.59730310167794,
+  "melting_point.cells.coex_hcp_350GPa.P_n": 370.78751916613106,
+  "melting_point.cells.coex_hcp_350GPa.Tm": 6656.335677345444,
+  "melting_point.cells.coex_hcp_350GPa.dP": 5.190216064453125,
+  "melting_point.cells.coex_hcp_350GPa.sem": 14.192988826596716,
+  "melting_point.dTdP_330": 8.40813092308963,
+  "melting_point.fit.T1": 3845.8135311304254,
+  "melting_point.fit.a": 119.61435847125522,
+  "melting_point.fit.c": 2.1530248467321997,
+  "melting_point.fit_chi2_dof": 0.3622757788453683,
+  "melting_point.fit_param_se.T1": 10.62349640699714,
+  "melting_point.fit_param_se.a": 6.007868278049699,
+  "melting_point.fit_param_se.c": 0.05992630860055529,
   "pbe_vs_exp.V_core": 7.0,
   "pbe_vs_exp.core_diff.Dewaele2006": 7.266101937801352,
   "pbe_vs_exp.core_diff.Fei2016": 5.584940894180789,
@@ -262,6 +671,145 @@
   "pbe_vs_exp.rows.V9.80.diff.Dewaele2006": -15.278114289240115,
   "pbe_vs_exp.rows.V9.80.diff.Fei2016": -15.920251007796345,
   "pbe_vs_exp.rows.V9.80.diff.Hirao2022": -15.396576096821214,
+  "repro_check.float64_minus_float32_meV_atom.max": 4.050588632708241,
+  "repro_check.float64_minus_float32_meV_atom.mean": 2.5533823019725794,
+  "repro_check.float64_minus_float32_meV_atom.min": 2.200110277044587,
+  "repro_check.float64_minus_float32_meV_atom.std": 0.3912475136161242,
+  "repro_check.mace_version": "0.3.16",
+  "repro_check.max_abs_dE_meV_atom": 0.0,
+  "repro_check.max_abs_dF_eV_A": 4.57763671875e-05,
+  "repro_check.n_force_components": 131424,
+  "repro_check.n_frames": 346,
+  "repro_check.per_tel.4000.max_abs_dE_meV_atom": 0.0,
+  "repro_check.per_tel.4000.max_abs_dF_eV_A": 4.291534423828125e-05,
+  "repro_check.per_tel.6000.max_abs_dE_meV_atom": 0.0,
+  "repro_check.per_tel.6000.max_abs_dF_eV_A": 4.57763671875e-05,
+  "repro_check.per_tel.8000.max_abs_dE_meV_atom": 0.0,
+  "repro_check.per_tel.8000.max_abs_dF_eV_A": 4.464387893676758e-05,
+  "repro_check.rms_dF_eV_A": 6.327759365376551e-06,
+  "repro_check.tel_scale": 10000.0,
+  "settings.coexistence.atoms_per_cell": [
+   12032,
+   12096
+  ],
+  "settings.dft_refs.T_el_K": [
+   4000.0,
+   6000.0,
+   8000.0
+  ],
+  "settings.dft_refs.V_by_kind.bcc": [
+   7.0,
+   8.0
+  ],
+  "settings.dft_refs.V_by_kind.coa": [
+   6.8
+  ],
+  "settings.dft_refs.V_by_kind.el": [
+   6.93,
+   7.0,
+   7.07
+  ],
+  "settings.dft_refs.V_by_kind.eos": [
+   6.6,
+   6.8,
+   7.0,
+   7.2,
+   7.5,
+   8.0,
+   8.6,
+   8.9
+  ],
+  "settings.dft_refs.V_by_kind.fcc": [
+   7.0,
+   8.0
+  ],
+  "settings.dft_refs.V_by_kind.ph": [
+   7.0
+  ],
+  "settings.dft_refs.V_by_kind.tel": [
+   7.0
+  ],
+  "settings.dft_refs.coa_V": [
+   6.8
+  ],
+  "settings.dft_refs.ecutrho_Ry": [
+   1000.0
+  ],
+  "settings.dft_refs.ecutwfc_Ry": [
+   100.0
+  ],
+  "settings.dft_refs.eos_c_over_a": [
+   1.6
+  ],
+  "settings.dft_refs.eos_n": 8,
+  "settings.dft_refs.eos_volumes": [
+   6.6,
+   6.8,
+   7.0,
+   7.2,
+   7.5,
+   8.0,
+   8.6,
+   8.9
+  ],
+  "settings.dft_refs.kmesh_fcc_bcc": [
+   "20x20x20"
+  ],
+  "settings.dft_refs.kmesh_hcp": [
+   "12x12x8"
+  ],
+  "settings.dft_refs.n_refs": 26,
+  "settings.dft_refs.nat_by_kind.bcc": [
+   1
+  ],
+  "settings.dft_refs.nat_by_kind.eos": [
+   2
+  ],
+  "settings.dft_refs.nat_by_kind.fcc": [
+   1
+  ],
+  "settings.dft_refs.qe_version": "6.6",
+  "settings.dft_refs.smearing": [
+   "fd"
+  ],
+  "settings.direct_test_330GPa.T_el_K": [
+   6329
+  ],
+  "settings.direct_test_330GPa.n_LDA": 40,
+  "settings.direct_test_330GPa.n_PBE": 40,
+  "settings.direct_test_330GPa.n_hcp": 20,
+  "settings.direct_test_330GPa.n_liquid": 20,
+  "settings.eos_cold.c_over_a": [
+   1.6
+  ],
+  "settings.eos_cold.degauss_Ry": [
+   0.01
+  ],
+  "settings.eos_cold.ecutrho_Ry": [
+   1000.0
+  ],
+  "settings.eos_cold.ecutwfc_Ry": [
+   100.0
+  ],
+  "settings.eos_cold.kmesh": [
+   "16x16x10"
+  ],
+  "settings.eos_cold.n": 8,
+  "settings.eos_cold.smearing": [
+   "mv"
+  ],
+  "settings.pbe_vs_exp.P_vib_uncertainty_GPa": 1.0,
+  "settings.pbe_vs_exp.V_core": 7.0,
+  "settings.pseudopotentials.Fe.pbe-spn-kjpaw_psl.1.0.0.UPF": 16.0,
+  "settings.pseudopotentials.Fe.pz-spn-kjpaw_psl.1.0.0.UPF": 16.0,
+  "settings.slabs.f_liquid": 0.15,
+  "settings.slabs.f_solid": 0.85,
+  "settings.slabs.n_slabs": 42,
+  "settings.slabs.pure_neighbours_each_side": 2,
+  "settings.slabs.q6_rcut_A": 3.2,
+  "settings.static.density_V_A3": 7.0,
+  "settings.static.phonon_u_A": 0.03,
+  "settings.static.strain": 0.01,
   "static_compare.E2g_DFT": 333.76388548733894,
   "static_compare.E2g_MACE": 337.0312740329899,
   "static_compare.bcc-hcp_7.0": [
@@ -272,6 +820,14 @@
    251.09755646371923,
    250.0
   ],
+  "static_compare.bcc_P_7.0": [
+   290.356,
+   290.9866943359375
+  ],
+  "static_compare.bcc_P_8.0": [
+   152.834,
+   152.67922973632812
+  ],
   "static_compare.bulk_modulus.dft.K_GPa.6.80": 1355.1199215255563,
   "static_compare.bulk_modulus.dft.K_GPa.7.00": 1231.8579098578653,
   "static_compare.bulk_modulus.dft.K_GPa.8.00": 774.2494113972498,
@@ -280,6 +836,8 @@
   "static_compare.bulk_modulus.mace.K_GPa.7.00": 1232.1811993777487,
   "static_compare.bulk_modulus.mace.K_GPa.8.00": 775.6348552243253,
   "static_compare.bulk_modulus.mace.fit_rms_GPa": 0.11289852717650097,
+  "static_compare.coa_min.dft": 1.6022409754306979,
+  "static_compare.coa_min.mace": 1.5977777777763202,
   "static_compare.elastic.dft.C11": 1934.1596376510906,
   "static_compare.elastic.dft.C12": 927.9682560839802,
   "static_compare.elastic.dft.C13": 837.9031717830088,
@@ -364,6 +922,26 @@
    43.85495852875465,
    46.38671875
   ],
+  "static_compare.fcc_P_7.0": [
+   274.83000000000004,
+   274.92645263671875
+  ],
+  "static_compare.fcc_P_8.0": [
+   141.752,
+   141.83450317382812
+  ],
+  "static_compare.tel_response.4000.P_dft": 263.024,
+  "static_compare.tel_response.4000.P_mace": 263.5851745605469,
+  "static_compare.tel_response.4000.dF_dft_meV": 222.4346468465228,
+  "static_compare.tel_response.4000.dF_mace_meV": 222.16796875,
+  "static_compare.tel_response.6000.P_dft": 270.84499999999997,
+  "static_compare.tel_response.6000.P_mace": 271.2034606933594,
+  "static_compare.tel_response.6000.dF_dft_meV": 0.0,
+  "static_compare.tel_response.6000.dF_mace_meV": 0.0,
+  "static_compare.tel_response.8000.P_dft": 281.15700000000004,
+  "static_compare.tel_response.8000.P_mace": 281.3777770996094,
+  "static_compare.tel_response.8000.dF_dft_meV": -325.02953232506115,
+  "static_compare.tel_response.8000.dF_mace_meV": -323.73046875,
   "static_compare.voigt.dft.G_V": 573.5082721246462,
   "static_compare.voigt.dft.K_V": 1233.0617371056023,
   "static_compare.voigt.dft.density_g_cm3": 13.247543480592856,
@@ -376,6 +954,74 @@
   "static_compare.voigt.mace.half_C11_minus_C12": 527.9415130615234,
   "static_compare.voigt.mace.vp_km_s": 12.34311125429666,
   "static_compare.voigt.mace.vs_km_s": 6.6508749719603815,
+  "tel_check.abs_diff_range_meV": [
+   0.04999999999999982,
+   0.5
+  ],
+  "tel_check.cells.100GPa.dft_4000": -5.07,
+  "tel_check.cells.100GPa.dft_4000_se": 0.72,
+  "tel_check.cells.100GPa.dft_8000": 13.39,
+  "tel_check.cells.100GPa.dft_8000_se": 0.67,
+  "tel_check.cells.100GPa.diff_4000": 0.33999999999999986,
+  "tel_check.cells.100GPa.diff_8000": 0.3699999999999992,
+  "tel_check.cells.100GPa.model_4000": -4.73,
+  "tel_check.cells.100GPa.model_4000_se": 0.72,
+  "tel_check.cells.100GPa.model_8000": 13.76,
+  "tel_check.cells.100GPa.model_8000_se": 0.71,
+  "tel_check.cells.100GPa.n_hcp": 109,
+  "tel_check.cells.100GPa.n_liquid": 102,
+  "tel_check.cells.150GPa.dft_4000": -4.22,
+  "tel_check.cells.150GPa.dft_4000_se": 0.4,
+  "tel_check.cells.150GPa.dft_8000": 11.68,
+  "tel_check.cells.150GPa.dft_8000_se": 0.35,
+  "tel_check.cells.150GPa.diff_4000": 0.04999999999999982,
+  "tel_check.cells.150GPa.diff_8000": 0.09999999999999964,
+  "tel_check.cells.150GPa.model_4000": -4.17,
+  "tel_check.cells.150GPa.model_4000_se": 0.39,
+  "tel_check.cells.150GPa.model_8000": 11.78,
+  "tel_check.cells.150GPa.model_8000_se": 0.35,
+  "tel_check.cells.150GPa.n_hcp": 122,
+  "tel_check.cells.150GPa.n_liquid": 108,
+  "tel_check.cells.250GPa.dft_4000": 13.27,
+  "tel_check.cells.250GPa.dft_4000_se": 0.75,
+  "tel_check.cells.250GPa.dft_8000": -9.58,
+  "tel_check.cells.250GPa.dft_8000_se": 0.73,
+  "tel_check.cells.250GPa.diff_4000": 0.5,
+  "tel_check.cells.250GPa.diff_8000": -0.23000000000000043,
+  "tel_check.cells.250GPa.model_4000": 13.77,
+  "tel_check.cells.250GPa.model_4000_se": 0.75,
+  "tel_check.cells.250GPa.model_8000": -9.81,
+  "tel_check.cells.250GPa.model_8000_se": 0.73,
+  "tel_check.cells.250GPa.n_hcp": 105,
+  "tel_check.cells.250GPa.n_liquid": 232,
+  "tel_check.cells.330GPa.dft_4000": 18.04,
+  "tel_check.cells.330GPa.dft_4000_se": 0.72,
+  "tel_check.cells.330GPa.dft_8000": -15.76,
+  "tel_check.cells.330GPa.dft_8000_se": 0.71,
+  "tel_check.cells.330GPa.diff_4000": 0.38000000000000256,
+  "tel_check.cells.330GPa.diff_8000": 0.129999999999999,
+  "tel_check.cells.330GPa.model_4000": 18.42,
+  "tel_check.cells.330GPa.model_4000_se": 0.73,
+  "tel_check.cells.330GPa.model_8000": -15.63,
+  "tel_check.cells.330GPa.model_8000_se": 0.71,
+  "tel_check.cells.330GPa.n_hcp": 117,
+  "tel_check.cells.330GPa.n_liquid": 116,
+  "tel_check.dS_kB": 0.84,
+  "tel_check.dU_error_4000.mean": 1.29,
+  "tel_check.dU_error_4000.rmse_after_mean": 0.71,
+  "tel_check.dU_error_8000.mean": 0.63,
+  "tel_check.dU_error_8000.rmse_after_mean": 0.89,
+  "tel_check.dft_range_meV": [
+   -15.76,
+   18.04
+  ],
+  "tel_check.max_abs_diff_K": 6.907451262943801,
+  "tel_check.model": "phaseD/models/fe_tel_e3_stagetwo.model",
+  "tel_check.model_range_meV": [
+   -15.63,
+   18.42
+  ],
+  "tel_check.n_frames_all_three_tel": 2009,
   "test_stats.4000_all.bias": -1.8698493046318425e-16,
   "test_stats.4000_all.fmax": 0.7465150824157716,
   "test_stats.4000_all.frel": 0.027872344117544853,
@@ -548,19 +1194,130 @@
   "test_stats.Pbin_50-150.liquid_minus_hcp": 0.9199752899377891,
   "test_stats.Pbin_50-150.n": 109,
   "test_stats.Pbin_50-150.rmse": 1.282949190463725,
-  "test_stats.n_without_P": 38
+  "test_stats.n_without_P": 38,
+  "training.T_el_K": [
+   4000,
+   6000,
+   8000
+  ],
+  "training.args.batch_size": 4,
+  "training.args.default_dtype": "float32",
+  "training.args.elec_temp_embedding.emb_dim": 32,
+  "training.args.elec_temp_embedding.in_dim": 1,
+  "training.args.elec_temp_embedding.per": "graph",
+  "training.args.elec_temp_embedding.scale": 0.0001,
+  "training.args.elec_temp_embedding.type": "continuous",
+  "training.args.elec_temp_embedding.zero_init": true,
+  "training.args.energy_weight": 1.0,
+  "training.args.forces_weight": 100.0,
+  "training.args.max_num_epochs": 150,
+  "training.args.seed": 7,
+  "training.args.swa_energy_weight": 1000.0,
+  "training.args.swa_forces_weight": 100.0,
+  "training.args.valid_fraction": 0.05,
+  "training.dataset_report.4000.by_phase.bcc": 181,
+  "training.dataset_report.4000.by_phase.fcc": 198,
+  "training.dataset_report.4000.by_phase.hcp": 858,
+  "training.dataset_report.4000.by_phase.liquid": 816,
+  "training.dataset_report.4000.by_phase.stackfault": 234,
+  "training.dataset_report.4000.test": 114,
+  "training.dataset_report.4000.train": 2173,
+  "training.dataset_report.6000.by_phase.bcc": 181,
+  "training.dataset_report.6000.by_phase.fcc": 198,
+  "training.dataset_report.6000.by_phase.hcp": 866,
+  "training.dataset_report.6000.by_phase.liquid": 848,
+  "training.dataset_report.6000.by_phase.stackfault": 241,
+  "training.dataset_report.6000.test": 116,
+  "training.dataset_report.6000.train": 2218,
+  "training.dataset_report.8000.by_phase.bcc": 181,
+  "training.dataset_report.8000.by_phase.fcc": 198,
+  "training.dataset_report.8000.by_phase.hcp": 869,
+  "training.dataset_report.8000.by_phase.liquid": 842,
+  "training.dataset_report.8000.by_phase.stackfault": 244,
+  "training.dataset_report.8000.test": 116,
+  "training.dataset_report.8000.train": 2218,
+  "training.model.avg_num_neighbors": 123.3,
+  "training.model.body_order": 4,
+  "training.model.channels": 128,
+  "training.model.class": "ScaleShiftMACE",
+  "training.model.correlation": 3,
+  "training.model.final_errors.stage_one.train_E_meV_atom": 23.3,
+  "training.model.final_errors.stage_one.train_F_meV_A": 89.2,
+  "training.model.final_errors.stage_one.train_F_rel_pct": 2.11,
+  "training.model.final_errors.stage_one.valid_E_meV_atom": 23.4,
+  "training.model.final_errors.stage_one.valid_F_meV_A": 92.1,
+  "training.model.final_errors.stage_one.valid_F_rel_pct": 2.17,
+  "training.model.final_errors.stage_two.train_E_meV_atom": 1.5,
+  "training.model.final_errors.stage_two.train_F_meV_A": 89.1,
+  "training.model.final_errors.stage_two.train_F_rel_pct": 2.11,
+  "training.model.final_errors.stage_two.valid_E_meV_atom": 1.5,
+  "training.model.final_errors.stage_two.valid_F_meV_A": 92.4,
+  "training.model.final_errors.stage_two.valid_F_rel_pct": 2.18,
+  "training.model.foundation_model": "MACE-matpes-pbe-omat-ft.model",
+  "training.model.hidden_irreps": "128x0e+128x1o",
+  "training.model.interactions": 2,
+  "training.model.max_ell": 3,
+  "training.model.n_train_file": 6609,
+  "training.model.n_train_split": 6279,
+  "training.model.n_valid_split": 330,
+  "training.model.r_max_A": 6.0,
+  "training.model.stage_one_epoch": 109,
+  "training.model.stage_two_after_epochs": 110,
+  "training.model.stage_two_epoch": 149,
+  "training.test_frames.4000": 114,
+  "training.test_frames.6000": 116,
+  "training.test_frames.8000": 116,
+  "training.train_file.atoms_per_frame": [
+   108,
+   128
+  ],
+  "training.train_file.n_frames": 6609,
+  "training.train_file.per_phase.bcc": 516,
+  "training.train_file.per_phase.fcc": 570,
+  "training.train_file.per_phase.hcp": 2457,
+  "training.train_file.per_phase.liquid": 2385,
+  "training.train_file.per_phase.stackfault": 681,
+  "training.train_file.per_tel.4000": 2173,
+  "training.train_file.per_tel.6000": 2218,
+  "training.train_file.per_tel.8000": 2218,
+  "training.train_file.phase_pct.bcc": 7.807535179300953,
+  "training.train_file.phase_pct.fcc": 8.624602814344076,
+  "training.train_file.phase_pct.hcp": 37.1765773944621,
+  "training.train_file.phase_pct.liquid": 36.087153881071266,
+  "training.train_file.phase_pct.stackfault": 10.304130730821607,
+  "training.train_frames_range": [
+   2173,
+   2218
+  ]
  },
  "summary": {
   "E2g_rel_err": 0.009789520938972092,
+  "K_per_meV_at_dS_0.80": 14.50564765218198,
+  "P_vib_range_GPa": [
+   2.5,
+   3.5
+  ],
+  "Tm_330_K": 6329.038940785724,
+  "Tm_error_budget_K": 18.2820926422037,
   "Tm_true_minus_pbe_K": [
    -112.20802965331872,
    61.09433639354903
   ],
+  "bulk_modulus_7.00_rel_err": 0.0002624405926172635,
   "bulk_modulus_max_abs_rel_err": 0.0017894024931517372,
+  "cc_P_range_consistent_GPa": [
+   258.17286466232736,
+   365.59730310167794
+  ],
   "cc_max_abs_z_above_258GPa": 1.5466238739751048,
   "cc_rel_diff_range_below_258GPa": [
    -0.48394267498287646,
    -0.28442500267759985
+  ],
+  "coa_rel_err": -0.002785596999963058,
+  "dS_330_rel_to_literature": [
+   -0.27033706803175594,
+   -0.2425403849091562
   ],
   "dTm_dP_330_K_GPa": 8.40813092308963,
   "elastic_max_abs_rel_err_excl_C66": 0.020848254484368417,
@@ -579,24 +1336,115 @@
   ],
   "eos_max_abs_dE_meV": 1.221775404701475,
   "eos_max_abs_dP_GPa": 0.423187255859375,
+  "exp_spread_at_V_core_GPa": 20.611283010705847,
+  "exp_spread_below_55GPa_max_GPa": 0.6421367185562303,
   "pbe_minus_exp_core_GPa": [
    -13.345181072904495,
    7.266101937801352
   ],
+  "pbe_minus_exp_lowest_P": {
+   "P_exp": {
+    "Dewaele2006": 15.126359553677203,
+    "Fei2016": 15.594673525535697,
+    "Hirao2022": 14.955298256870602
+   },
+   "V": 10.4,
+   "diff": {
+    "Dewaele2006": -17.335359553677204,
+    "Fei2016": -17.803673525535697,
+    "Hirao2022": -17.1642982568706
+   }
+  },
+  "pbe_minus_exp_zero_crossing_P_GPa": {
+   "Dewaele2006": 175.410698458895,
+   "Fei2016": 180.36454056527276
+  },
+  "phase_E_diff_meV": {
+   "bcc-hcp_7.0": -1.699089915746299,
+   "bcc-hcp_8.0": -1.0975564637192292,
+   "fcc-hcp_7.0": -2.055938711237104,
+   "fcc-hcp_8.0": 2.5317602212453494
+  },
+  "phase_P_diff_GPa": {
+   "bcc_P_7.0": 0.6306943359375055,
+   "bcc_P_8.0": -0.15477026367187818,
+   "fcc_P_7.0": 0.09645263671870907,
+   "fcc_P_8.0": 0.08250317382811545
+  },
   "phase_max_abs_diff_meV": 2.5317602212453494,
   "phase_min_abs_diff_meV": 1.0975564637192292,
+  "static_max_abs_dP_all_GPa": 0.6306943359375055,
+  "tel_response_max_abs_dF_meV": 1.2990635750611546,
+  "tel_response_max_abs_dP_GPa": 0.5611745605468741,
+  "test_4000_fcc_bcc_sf": {
+   "frel": [
+    0.022514803206978927,
+    0.026606270599666592
+   ],
+   "frmse": [
+    75.430601424522,
+    102.6369618704215
+   ],
+   "n": 31,
+   "rmse": [
+    1.0579565492768461,
+    1.6014209761070726
+   ]
+  },
+  "test_6000_fcc_bcc_sf": {
+   "frel": [
+    0.014692818590243939,
+    0.017058676653971386
+   ],
+   "frmse": [
+    44.30895750342584,
+    67.07947965086493
+   ],
+   "n": 26,
+   "rmse": [
+    0.6233664236030828,
+    0.8605253583905359
+   ]
+  },
+  "test_8000_fcc_bcc_sf": {
+   "frel": [
+    0.010436094768180916,
+    0.01335997494005086
+   ],
+   "frmse": [
+    31.721424792685443,
+    54.38413536834627
+   ],
+   "n": 32,
+   "rmse": [
+    0.4745129485143176,
+    1.667583288280608
+   ]
+  },
   "test_E_rmse_range": [
    1.2626411083848532,
    1.5243924238363225
+  ],
+  "test_F_rel_range": [
+   0.015265403320028322,
+   0.027872344117544853
   ],
   "test_F_rmse_range_meV_A": [
    66.39278746827421,
    116.86613769153246
   ],
+  "test_liquid_minus_hcp_mean_K": 14.723878789955045,
   "test_liquid_minus_hcp_mean_meV": 1.0150445635386875,
   "test_liquid_minus_hcp_range_meV": [
    0.8381972194417245,
    1.3182161849047556
-  ]
+  ],
+  "test_n_frames": 346,
+  "voigt_rel_err": {
+   "G_V": 0.021770205490685424,
+   "K_V": 0.0031696377732484127,
+   "vp_km_s": 0.005131536049988172,
+   "vs_km_s": 0.010826496234979777
+  }
  }
 }
