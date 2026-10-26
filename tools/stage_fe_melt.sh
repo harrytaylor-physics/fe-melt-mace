@@ -35,7 +35,7 @@
 # files listed in credential_scan.txt.
 set -u
 SRC=${SRC:-$HOME/fe_melt}
-DATA=${DATA:-/data/phys-plasma-dft/shug7909}
+DATA=${DATA:?DATA is not set: ARC sets it to the project data directory; or export DATA=<dir>}
 OUT=${OUT:-$DATA/fe_melt_stage}
 TELSRC=${TELSRC:-$HOME/tel-mace-src}
 TELENV=${TELENV:-$HOME/tel_env}

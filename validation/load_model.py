@@ -7,9 +7,11 @@ mace-torch 0.3.16 (upstream) reads the electronic temperature from atoms.info th
 info_keys and expects it in units of 10^4 K: set atoms.info["elec_temp"] = T_el / 1e4.
 Raw kelvin gives energies that are wrong by orders of magnitude. float32 reproduces the
 stored test-set predictions exactly; float64 shifts every energy by a uniform +2.27 meV/atom.
-Production scripts on ARC (tel-mace fork) set atoms.info["elec_temp"] = T_el in kelvin; the
-fork must therefore apply the 10^4 scaling itself. That is inferred from the exact agreement
-of upstream-with-T_el/1e4 against the stored ARC predictions, not yet read from the fork's code.
+Production scripts on ARC (tel-mace fork, commit 5168bc0) set atoms.info["elec_temp"] = T_el in
+kelvin; the fork applies the 10^4 scaling itself. The checkpoint stores it: the elec_temp embedding
+spec has scale = 1e-4 (logs/fe_tel_e3_run-7.log, "Embedding specifications"), and the fork's
+mace/calculators/elec_temp.py says the Tel/10000 scale lives in that spec (provenance/
+tel_mace_elec_temp_lines.txt of the snapshot). Upstream 0.3.16 does not apply the stored scale.
 """
 import os, warnings
 
@@ -31,8 +33,8 @@ import paths  # noqa: E402
 TEL_SCALE = float(os.environ.get("FE_TEL_SCALE", "1e4"))
 
 
-def calc(dtype="float32", device=None, threads=2):
+def calc(dtype="float32", device=None, threads=2, model=None):
     torch.set_num_threads(threads)
     device = device or ("cuda" if torch.cuda.is_available() else "cpu")
-    return MACECalculator(model_paths=paths.MODEL, device=device, default_dtype=dtype,
+    return MACECalculator(model_paths=model or paths.MODEL, device=device, default_dtype=dtype,
                           info_keys={"elec_temp": "elec_temp", "total_spin": "spin", "total_charge": "charge"})

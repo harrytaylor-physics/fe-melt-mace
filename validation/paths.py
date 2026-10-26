@@ -1,33 +1,33 @@
-"""paths.py - every file the validation producers read or write.
+"""paths.py - the names the validation producers use, taken from the repository's layout module.
 
-Defaults are relative to the repository root, laid out as ~/fe_melt on ARC.
-Any path can be overridden with the environment variable of the same name;
-the repository's own layout module can replace this file.
+Every path is defined once, in ../layout.py, and can be overridden there by the environment
+variable of the same name (FE_MODEL, FE_PARITY, FE_PHASEE, FE_VAL_OUT, FE_VAL_LEDGER, ...).
 """
-import os
+import os, sys
 
-ROOT = os.environ.get("FE_ROOT", os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.dirname(HERE))
+import layout  # noqa: E402
 
-
-def _p(env, rel):
-    return os.environ.get(env, os.path.join(ROOT, rel))
-
+ROOT = layout.ROOT
 
 # inputs produced elsewhere in the pipeline
-MODEL = _p("FE_MODEL", "phaseD/models/fe_tel_e3_stagetwo.model")      # production T_el-conditioned potential
-PARITY = _p("FE_PARITY", "parity_tel.npz")                            # held-out test-set predictions (parity_tel.py)
-PHASEE = _p("FE_PHASEE", "phaseE")                                    # analysis_live_all_runs_tel.json, cells/, runs_tel/
-Q6_MODULE_DIR = _p("FE_Q6_DIR", ".")                                  # directory holding phaseE_q6.py
+MODEL = layout.MODEL                  # production T_el-conditioned potential
+MODEL_STAGE_ONE = layout.MODEL_STAGE_ONE
+PARITY = layout.PARITY                # held-out test-set predictions (parity_tel.py)
+PHASEE = layout.PHASEE                # analysis_live_all_runs_tel.json, cells/, runs_tel/
+Q6_MODULE_DIR = layout.Q6_MODULE_DIR  # directory holding phaseE_q6.py
 
 # inputs committed with this directory
-HERE = os.path.dirname(os.path.abspath(__file__))
-DFT_REFS = os.environ.get("FE_VAL_DFT", os.path.join(HERE, "refs", "dft"))           # val_dft.py output
-EOS_COLD = os.environ.get("FE_VAL_EOS", os.path.join(HERE, "refs", "eos_pbe_cold"))  # static PBE, 300 K comparison
+DFT_REFS = layout.DFT_REFS            # val_dft.py output
+EOS_COLD = layout.EOS_COLD            # static PBE, 300 K comparison
+LITERATURE = layout.LITERATURE
+METHOD_SETTINGS = layout.METHOD_SETTINGS
 
 # outputs
-OUT = os.environ.get("FE_VAL_OUT", os.path.join(HERE, "out"))
-LEDGER = os.environ.get("FE_VAL_LEDGER", os.path.join(HERE, "ledger.json"))
+OUT = layout.VAL_OUT
+LEDGER = layout.LEDGER
 
 # DFT engine for val_dft.py
-QE_PW = os.environ.get("FE_QE_PW", "pw.x")
-PSEUDO_DIR = _p("FE_PSEUDO", "pseudo")
+QE_PW = layout.QE_PW
+PSEUDO_DIR = layout.PSEUDO
