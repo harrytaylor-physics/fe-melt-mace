@@ -1,0 +1,125 @@
+# CHANGELOG
+
+Oldest first. `~/fe_melt` had no version control, so this history is rebuilt from three sources:
+- the file times in the 25 Oct 2026 snapshot archive (see [MIGRATION.md](MIGRATION.md));
+- the dated logs and result files;
+- the amendment numbers (A*n*) that the script headers cite.
+
+No amendment register exists in `~/fe_melt`; each A*n* below is quoted from the header that cites it.
+Entries from 20 Oct onwards follow `HANDOFF.md` of the iron chat.
+
+## 2026-08-04 to 2026-08-27 — Phase C: sampling and PBE labels
+
+- **Sampling.** Started from the MACE-MATPES-PBE foundation model fine-tuned on OMAT
+  (`MACE-matpes-pbe-omat-ft.model`, 4 Aug), which A4 chose as the base. Sampled bcc, fcc, hcp and liquid
+  iron (`phaseC_sample.py`, `fe_sampleC.sbatch`, `logs/sampleC_*`, 4 Aug). The fcc volumes weight
+  80-130 GPa (A2).
+- **Tethered resampling and fill runs.** `phaseC_tether.py`, `phaseC_fill.py` (4-5 Aug).
+- **Frame selection.** `selected/` (5 Aug); stacking-fault frames added 27 Aug.
+- **QE inputs.** PBE Mermin free-energy labels at T_el = 4,000, 6,000 and 8,000 K: 128-atom cells
+  (108 for fcc), pslibrary 1.0.0 PAW with 16 valence electrons, ecutwfc 100 Ry
+  (`phaseC_qe_labels.py`, `labels/*.in`, 18 Aug).
+
+## 2026-08-18 to 2026-09-13 — Phase D: datasets and the first potentials
+
+- **Datasets.** `phaseD_dataset.py` (18 Aug) matched the labels to the frames and split 95/5 into
+  `phaseD/train_Tel*.xyz` and `test_Tel*.xyz`, written 13 Sep. Per T_el: 2,173-2,218 training and
+  114-116 test frames (`phaseD/dataset_report.txt`).
+- **v0** (float64, T_el = 6,000 K). `fe_ft_Tel6000.model`, 2 Sep. Gates `phaseD/gates_v0_*.txt`
+  (`phaseD_gates.py`, 2 Sep).
+
+## 2026-09-14 to 2026-09-22 — v1: one float32 potential per T_el
+
+- **Training.** `fe_ft_Tel6000_f32.model` (16 Sep), `fe_ft_Tel4000_f32.model` (17 Sep) and
+  `fe_ft_Tel8000_f32.model` (21 Sep), all stage one (`phaseD_train_f32.sbatch`).
+- **Gates.** `phaseD/gates_static_Tel*.txt`, `gates_v1_*.txt`, `gates_d4_Tel6000.txt` (16-22 Sep).
+- **SWA failure.** An SWA continuation at 6,000 K (`phaseD_train_f32swa.sbatch`, 16 Sep) stopped with
+  `KeyError: 'swa_lr'` and wrote no model.
+
+## 2026-09-17 to 2026-10-05 — Phase E: coexistence with the T_el = 6,000 K potential
+
+- **Cells.** Eight two-phase cells: hcp at 100-350 GPa and fcc at 100 GPa, 12,096 and 12,032 atoms
+  (`phaseE_build.py`, `phaseE/cells/`, 20-25 Sep).
+- **Runs.** 48 NVE runs of 200 ps, segmented and self-resubmitting (`phaseE_coex.py`, `fe_phaseE.sbatch`,
+  `phaseE/runs/`, `logs/coex_*`, 22-28 Sep).
+- **Analysis.** `phaseE/analysis_live_all.json` (5 Oct).
+- **Reweighting.** Reweighting to T_el = 4,000 and 8,000 K with the three v1 potentials (A21, step 3):
+  `phaseE_reweight.py`, `phaseE/reweight/` (2-3 Oct).
+
+## 2026-09-28 to 2026-10-04 — the T_el-conditioned potential
+
+- **Fork.** tel-mace `tel-conditioning`, commit 5168bc0 (22 Sep): T_el enters as a learned
+  per-structure embedding, kelvin in, with the 1e-4 scale stored in the checkpoint and zero
+  initialisation. It runs only in its own environment `~/tel_env` (A12 rule).
+- **E2.** Trained on 4,000 and 8,000 K only, judged on the held-out 6,000 K set (A12, A14; criteria
+  registered 29 Sep, A17). Runs `fe_tel_e2`, `fe_tel_e2b` (with SWA stage two) on 28 Sep-1 Oct;
+  `logs/e2_result.out`, `logs/e2b_result.out`, `logs/e2b_stagetwo_result.out`.
+- **e3, the production potential.** Trained on all three T_el (`phaseD/train_e3.xyz`, 6,609 frames;
+  `phaseD_train_e3.sbatch`, 2-4 Oct). The SWA stage two output `fe_tel_e3_stagetwo.model` was saved
+  4 Oct 01:07. Final errors: 1.5 / 1.5 meV/atom and 89.1 / 92.4 meV/Å (train / validation).
+- **Checks (A21, A22).**
+  - Spot check against new DFT frames: `spot_md_gen.py`, `spot_dft_gen.py`, `spot_eval.py`.
+  - Same-frame T_el check on the 2,009 frames labelled at all three T_el: `tel_diff_check.py`,
+    `logs/e3_test_final.out` (4 Oct).
+
+## 2026-10-04 to 2026-10-14 — coexistence with the T_el-conditioned potential
+
+- **Runs.** The same 48 runs with `fe_tel_e3_stagetwo.model`, each cell at the T_el of its 6,000 K
+  melting temperature (A26). `fe_phaseE_tel.sbatch`, `phaseE_coex_tel.py`, `phaseE/runs_tel/`,
+  `logs/coxT_*`, 4-13 Oct. On 12 Oct the segment wall time was tied to the job's remaining time.
+- **Analysis.** Kinetic pressure term included (A27): `phaseE/analysis_live_all_runs_tel.json`, 13 Oct.
+- **Decomposition (A29).** First-order T_el and model decomposition, and the 350 GPa energy-conservation
+  check: `decomp_tel.py`, `decomp_tel.sbatch`, `phaseE/decomp_tel_*.json`, 13 Oct.
+- **Melting point.** Interface-normal pressure P_n (A29c) and the Simon fit: `pn_correct.py`,
+  `phaseE/pn_correct.json`, 13 Oct. T_m(330 GPa) = 6,329 K, dT_m/dP = 8.41 K/GPa.
+- **Held-out test set.** Predictions of the production potential: `parity_tel.py`,
+  `phaseD/parity_tel.npz`, 14 Oct.
+
+## 2026-10-17 — DFT+DMFT pilot (exploratory)
+
+- hcp Fe at 7.05 Å³/atom, 5,800 K, TRIQS + QE (`dmft/pilot/`, now `exploratory/dmft_pilot/`). The QE
+  step stopped with an MPI pool error. It feeds no result.
+
+## 2026-10-20 — validation suite (iron chat)
+
+- `validation/` compares the potential with PBE and PBE with experiment:
+  - 26 new static PBE references (QE 6.6, `val_dft.py`) and 8 cold-EOS references;
+  - the held-out test statistics (`stats_test.py`), the static comparison (`val_mace.py`), the
+    Clausius-Clapeyron check (`cc_check.py`) and PBE against three 300 K EOS (`pbe_vs_exp.py`);
+  - every number written to `ledger.json` (`ledger.py`), with 6 tests.
+
+## 2026-10-21 to 2026-10-22 — LDA PAW, the LDA − PBE test, EOS anchor (iron chat, then ARC)
+
+- **LDA PAW.** An LDA PAW file in the pslibrary 1.0.0 construction (`pseudo/Fe.pz-spn-kjpaw_psl.1.0.0.UPF`,
+  ld1.x inputs and logs in `pseudo/lda_generation/`), checked against the official PBE file
+  (`upf_compare.py`).
+- **LDA − PBE test.** `ldashift.py`, `phaseF_common.py`, `ldashift_md.sbatch`, `RUN_LDASHIFT.md`
+  (21 Oct): 20 hcp and 20 liquid snapshots at 330 GPa and T_el = 6,329 K (`phaseX/ldashift/`), labelled
+  with PBE and with LDA (`labels/ldaX_*`, 80 calculations).
+- **EOS anchor.** The 28 runs (`eos_anchor.py`, `labels/eosA_*`) were submitted on 22 Oct. They have
+  since failed and will be rerun; nothing from them is in this repository.
+
+## 2026-10-23 — three report numbers corrected (iron chat)
+
+- Bulk modulus "within 0.1%" became 0.2%: at 8.0 Å³/atom it is 774.2 vs 775.6 GPa.
+- E2g "+0.9%" became +1.0%: 333.8 vs 337.0 cm⁻¹.
+- The Clausius-Clapeyron shortfall below 258 GPa "30-50%" became 28-48%.
+
+## 2026-10-26 — this repository
+
+- **Import.** `~/fe_melt` imported from the 25 Oct snapshot without history (MIGRATION.md). The chat's
+  validation, LDA generation and figure producers were added and wired to one layout module (`layout.py`).
+- **New producers** for the numbers that had none:
+  - the training table (`train_table.py`);
+  - the same-frame T_el check (`tel_check.py`);
+  - the coexistence cells (`coex_cells.py`);
+  - T_m(330 GPa) and dT_m/dP (`melting_point.py`);
+  - the reproduction of the stored predictions and the float64 offset (`repro_check.py`);
+  - the method settings (`settings.py`);
+  - the literature values (`refs/literature.json`).
+- **Report numbers.** Every number in the validation report is listed with its ledger key
+  (`validation/report_numbers.tsv`).
+- **Guards and tests.**
+  - A staleness guard over the inputs no producer here rebuilds (`validation/ledger_inputs.tsv`).
+  - A GPU test of which model the T_el-conditioned runs loaded (`tests/test_runs_tel_model.py`).
+- **Figures.** Rebuilt as PDF plus 200-dpi PNG in `docs/figures/`.
