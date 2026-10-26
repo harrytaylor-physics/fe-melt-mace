@@ -1,0 +1,3 @@
+Tel 4000: 2173 train / 114 test   by phase: {'liquid': 816, 'hcp': 858, 'stackfault': 234, 'bcc': 181, 'fcc': 198}
+Tel 6000: 2218 train / 116 test   by phase: {'liquid': 848, 'hcp': 866, 'stackfault': 241, 'bcc': 181, 'fcc': 198}
+Tel 8000: 2218 train / 116 test   by phase: {'liquid': 842, 'hcp': 869, 'bcc': 181, 'fcc': 198, 'stackfault': 244}

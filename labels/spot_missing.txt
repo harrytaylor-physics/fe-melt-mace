@@ -1,0 +1,4 @@
+spot_h03_T4600.in
+spot_h04_T4600.in
+spot_l06_T4600.in
+spot_l08_T6500.in

@@ -1,0 +1,19 @@
+&CONTROL
+  calculation = 'scf', prefix = 'eosA_LDA_hot_V6.75', outdir = './tmp_eosA/eosA_LDA_hot_V6.75',
+  pseudo_dir = './pseudo', tstress = .true., tprnfor = .true., disk_io = 'nowf'
+/
+&SYSTEM
+  ibrav = 4, celldm(1) = 4.0360814175, celldm(3) = 1.600000,
+  nat = 2, ntyp = 1, ecutwfc = 100, ecutrho = 1000,
+  occupations = 'smearing', smearing = 'fd', degauss = 0.04008550, nbnd = 32
+/
+&ELECTRONS
+  conv_thr = 1.0d-10, mixing_beta = 0.3
+/
+ATOMIC_SPECIES
+  Fe 55.845 Fe.pz-spn-kjpaw_psl.1.0.0.UPF
+ATOMIC_POSITIONS crystal
+  Fe 0.3333333333 0.6666666667 0.25
+  Fe 0.6666666667 0.3333333333 0.75
+K_POINTS automatic
+  14 14 9 0 0 0

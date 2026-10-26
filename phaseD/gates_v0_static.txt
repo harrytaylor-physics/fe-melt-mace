@@ -1,0 +1,18 @@
+/home/shug7909/.local/lib/python3.13/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/home/shug7909/.local/lib/python3.13/site-packages/mace/calculators/mace.py:226: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+model: phaseD/models/fe_ft_Tel6000.model   Tel: 6000
+G-D2p force/energy parity (held-out test set):
+  bcc         n= 14  F_RMSE=  66.7 meV/A (lim 80)  E_RMSE= 2.34 meV/atom  -> pass
+  fcc         n= 11  F_RMSE=  55.9 meV/A (lim 80)  E_RMSE= 3.60 meV/atom  -> pass
+  hcp         n= 23  F_RMSE=  81.1 meV/A (lim 80)  E_RMSE= 2.68 meV/atom  -> FAIL
+  liquid      n=  8  F_RMSE= 133.6 meV/A (lim 120)  E_RMSE= 3.07 meV/atom  -> FAIL
+  stackfault  n=  3  F_RMSE=  72.7 meV/A (lim 80)  E_RMSE= 0.16 meV/atom  -> pass
+G-D3 hcp EOS: max|dP| = 1.15 GPa over 100-350  -> pass
+G-D1 @200 GPa: fcc-hcp +51 (DFT +61), bcc-hcp +296 (DFT +299) meV/atom -> pass
+G-D1 @300 GPa: fcc-hcp +68 (DFT +69), bcc-hcp +370 (DFT +383) meV/atom -> pass
+c/a @V=6.8: 1.5959 (DFT 1.604)  -> pass
+
+STATIC VERDICT: FAILURES PRESENT

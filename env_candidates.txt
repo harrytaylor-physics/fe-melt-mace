@@ -1,0 +1,1 @@
+/home/shug7909/radis_env/bin/activate

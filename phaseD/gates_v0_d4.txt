@@ -1,0 +1,10 @@
+/home/shug7909/.local/lib/python3.13/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/home/shug7909/.local/lib/python3.13/site-packages/mace/calculators/mace.py:226: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/home/shug7909/fe_melt/phaseD_gates.py:125: FutureWarning: NPT thermostat has been moved/renamed to ase.md.melchionna.MelchionnaNPT. Please use this class instead (or a newer NPT thermostat!)
+  dyn = NPT(at, 2.0 * units.fs, temperature_K=T,
+WARNING: NPT: Setting the center-of-mass momentum to zero (was 6.78244 22.9632 -50.8321)
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+model: phaseD/models/fe_ft_Tel6000.model   Tel: 6000
+G-D4 FAIL at 1 ps: c/a=1.693, max angle drift=2.4 deg

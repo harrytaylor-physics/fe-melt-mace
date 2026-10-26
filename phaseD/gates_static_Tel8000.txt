@@ -1,0 +1,13 @@
+model: phaseD/models/fe_ft_Tel8000_f32.model   Tel: 8000
+G-D2p force/energy parity (held-out test set):
+  bcc         n= 11  F_RMSE=  40.6 meV/A (lim 80)  E_RMSE= 2.48 meV/atom  -> pass
+  fcc         n=  7  F_RMSE=  34.2 meV/A (lim 80)  E_RMSE= 4.53 meV/atom  -> pass
+  hcp         n= 46  F_RMSE=  59.3 meV/A (lim 80)  E_RMSE= 2.50 meV/atom  -> pass
+  liquid      n= 38  F_RMSE=  98.3 meV/A (lim 120)  E_RMSE= 3.17 meV/atom  -> pass
+  stackfault  n= 14  F_RMSE=  59.5 meV/A (lim 80)  E_RMSE= 2.72 meV/atom  -> pass
+G-D3 hcp EOS: max|dP| = 11.49 GPa over 100-350  -> FAIL
+G-D1 @200 GPa: fcc-hcp +34 (DFT +61), bcc-hcp +200 (DFT +299) meV/atom -> FAIL
+G-D1 @300 GPa: fcc-hcp +47 (DFT +69), bcc-hcp +267 (DFT +383) meV/atom -> FAIL
+c/a @V=6.8: 1.6019 (DFT 1.604)  -> pass
+
+STATIC VERDICT: FAILURES PRESENT
