@@ -1,0 +1,20 @@
+{
+ "tag": "coex_hcp_300GPa",
+ "run": "coex_hcp_300GPa_ti1.00_s9",
+ "elec_temp": 6242.0,
+ "status": "complete",
+ "seed": 9,
+ "tinit_frac": 1.0,
+ "verdict": "DRIFTING",
+ "T": 6060.372853558058,
+ "T_err": NaN,
+ "P": 300.70660400390625,
+ "P_err": NaN,
+ "solid_frac": [
+  [
+   0,
+   0.6154100529100529
+  ]
+ ],
+ "ps": 2
+}

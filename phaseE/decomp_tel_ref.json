@@ -1,0 +1,590 @@
+[
+ {
+  "cell": "coex_hcp_100GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_100GPa_ti0.92_s0",
+  "x": 0.4340897817460318,
+  "e_ref": -4478.806547619048
+ },
+ {
+  "cell": "coex_hcp_100GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_100GPa_ti0.92_s1",
+  "x": 0.4478546626984127,
+  "e_ref": -4478.80787037037
+ },
+ {
+  "cell": "coex_hcp_100GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_100GPa_ti1.00_s0",
+  "x": 0.3383969907407407,
+  "e_ref": -4478.775462962963
+ },
+ {
+  "cell": "coex_hcp_100GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_100GPa_ti1.00_s1",
+  "x": 0.3253968253968254,
+  "e_ref": -4478.778108465608
+ },
+ {
+  "cell": "coex_hcp_100GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_100GPa_ti1.08_s0",
+  "x": 0.19603587962962962,
+  "e_ref": -4478.727843915344
+ },
+ {
+  "cell": "coex_hcp_100GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_100GPa_ti1.08_s1",
+  "x": 0.19700727513227514,
+  "e_ref": -4478.724206349207
+ },
+ {
+  "cell": "coex_hcp_100GPa",
+  "src": "runs",
+  "tag": "coex_hcp_100GPa_ti0.92_s0",
+  "x": 0.4205522486772487,
+  "e_ref": -4478.811507936508
+ },
+ {
+  "cell": "coex_hcp_100GPa",
+  "src": "runs",
+  "tag": "coex_hcp_100GPa_ti0.92_s1",
+  "x": 0.4658151455026455,
+  "e_ref": -4478.814814814815
+ },
+ {
+  "cell": "coex_hcp_100GPa",
+  "src": "runs",
+  "tag": "coex_hcp_100GPa_ti1.00_s0",
+  "x": 0.2960482804232804,
+  "e_ref": -4478.773809523809
+ },
+ {
+  "cell": "coex_hcp_100GPa",
+  "src": "runs",
+  "tag": "coex_hcp_100GPa_ti1.00_s1",
+  "x": 0.2914393187830688,
+  "e_ref": -4478.7744708994705
+ },
+ {
+  "cell": "coex_hcp_100GPa",
+  "src": "runs",
+  "tag": "coex_hcp_100GPa_ti1.08_s0",
+  "x": 0.18078290343915343,
+  "e_ref": -4478.736772486773
+ },
+ {
+  "cell": "coex_hcp_100GPa",
+  "src": "runs",
+  "tag": "coex_hcp_100GPa_ti1.08_s1",
+  "x": 0.20868468915343913,
+  "e_ref": -4478.737764550265
+ },
+ {
+  "cell": "coex_hcp_150GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_150GPa_ti0.92_s0",
+  "x": 0.60536541005291,
+  "e_ref": -4478.378968253968
+ },
+ {
+  "cell": "coex_hcp_150GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_150GPa_ti0.92_s1",
+  "x": 0.627087466931217,
+  "e_ref": -4478.389219576719
+ },
+ {
+  "cell": "coex_hcp_150GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_150GPa_ti1.00_s0",
+  "x": 0.5481564153439153,
+  "e_ref": -4478.346560846561
+ },
+ {
+  "cell": "coex_hcp_150GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_150GPa_ti1.00_s1",
+  "x": 0.5050636574074074,
+  "e_ref": -4478.332341269841
+ },
+ {
+  "cell": "coex_hcp_150GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_150GPa_ti1.08_s0",
+  "x": 0.3840732473544974,
+  "e_ref": -4478.287037037037
+ },
+ {
+  "cell": "coex_hcp_150GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_150GPa_ti1.08_s1",
+  "x": 0.38436259920634924,
+  "e_ref": -4478.2880291005295
+ },
+ {
+  "cell": "coex_hcp_150GPa",
+  "src": "runs",
+  "tag": "coex_hcp_150GPa_ti0.92_s0",
+  "x": 0.671606316137566,
+  "e_ref": -4478.386904761905
+ },
+ {
+  "cell": "coex_hcp_150GPa",
+  "src": "runs",
+  "tag": "coex_hcp_150GPa_ti0.92_s1",
+  "x": 0.646453373015873,
+  "e_ref": -4478.379298941799
+ },
+ {
+  "cell": "coex_hcp_150GPa",
+  "src": "runs",
+  "tag": "coex_hcp_150GPa_ti1.00_s0",
+  "x": 0.50010333994709,
+  "e_ref": -4478.334325396825
+ },
+ {
+  "cell": "coex_hcp_150GPa",
+  "src": "runs",
+  "tag": "coex_hcp_150GPa_ti1.00_s1",
+  "x": 0.5209160052910053,
+  "e_ref": -4478.337962962963
+ },
+ {
+  "cell": "coex_hcp_150GPa",
+  "src": "runs",
+  "tag": "coex_hcp_150GPa_ti1.08_s0",
+  "x": 0.40261243386243384,
+  "e_ref": -4478.291666666667
+ },
+ {
+  "cell": "coex_hcp_150GPa",
+  "src": "runs",
+  "tag": "coex_hcp_150GPa_ti1.08_s1",
+  "x": 0.3856646825396825,
+  "e_ref": -4478.291997354498
+ },
+ {
+  "cell": "coex_hcp_200GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_200GPa_ti0.92_s0",
+  "x": 0.6826223544973544,
+  "e_ref": -4477.910052910053
+ },
+ {
+  "cell": "coex_hcp_200GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_200GPa_ti0.92_s1",
+  "x": 0.6842551256613756,
+  "e_ref": -4477.896164021164
+ },
+ {
+  "cell": "coex_hcp_200GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_200GPa_ti1.00_s0",
+  "x": 0.5924685846560848,
+  "e_ref": -4477.857473544974
+ },
+ {
+  "cell": "coex_hcp_200GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_200GPa_ti1.00_s1",
+  "x": 0.5952380952380952,
+  "e_ref": -4477.847883597884
+ },
+ {
+  "cell": "coex_hcp_200GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_200GPa_ti1.08_s0",
+  "x": 0.4739169973544973,
+  "e_ref": -4477.805224867725
+ },
+ {
+  "cell": "coex_hcp_200GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_200GPa_ti1.08_s1",
+  "x": 0.46021412037037035,
+  "e_ref": -4477.796626984127
+ },
+ {
+  "cell": "coex_hcp_200GPa",
+  "src": "runs",
+  "tag": "coex_hcp_200GPa_ti0.92_s0",
+  "x": 0.7393559854497355,
+  "e_ref": -4477.9077380952385
+ },
+ {
+  "cell": "coex_hcp_200GPa",
+  "src": "runs",
+  "tag": "coex_hcp_200GPa_ti0.92_s1",
+  "x": 0.6764839616402116,
+  "e_ref": -4477.900462962963
+ },
+ {
+  "cell": "coex_hcp_200GPa",
+  "src": "runs",
+  "tag": "coex_hcp_200GPa_ti1.00_s0",
+  "x": 0.6001777447089948,
+  "e_ref": -4477.860780423281
+ },
+ {
+  "cell": "coex_hcp_200GPa",
+  "src": "runs",
+  "tag": "coex_hcp_200GPa_ti1.00_s1",
+  "x": 0.5991443452380952,
+  "e_ref": -4477.860119047619
+ },
+ {
+  "cell": "coex_hcp_200GPa",
+  "src": "runs",
+  "tag": "coex_hcp_200GPa_ti1.08_s0",
+  "x": 0.4691220238095238,
+  "e_ref": -4477.797288359789
+ },
+ {
+  "cell": "coex_hcp_200GPa",
+  "src": "runs",
+  "tag": "coex_hcp_200GPa_ti1.08_s1",
+  "x": 0.4588086970899471,
+  "e_ref": -4477.803240740741
+ },
+ {
+  "cell": "coex_hcp_250GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_250GPa_ti0.92_s0",
+  "x": 0.8076016865079365,
+  "e_ref": -4477.43253968254
+ },
+ {
+  "cell": "coex_hcp_250GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_250GPa_ti0.92_s1",
+  "x": 0.7806092923280423,
+  "e_ref": -4477.424933862434
+ },
+ {
+  "cell": "coex_hcp_250GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_250GPa_ti1.00_s0",
+  "x": 0.658316798941799,
+  "e_ref": -4477.369378306878
+ },
+ {
+  "cell": "coex_hcp_250GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_250GPa_ti1.00_s1",
+  "x": 0.6536665013227514,
+  "e_ref": -4477.368716931217
+ },
+ {
+  "cell": "coex_hcp_250GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_250GPa_ti1.08_s0",
+  "x": 0.5543361441798942,
+  "e_ref": -4477.311838624339
+ },
+ {
+  "cell": "coex_hcp_250GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_250GPa_ti1.08_s1",
+  "x": 0.552806712962963,
+  "e_ref": -4477.309523809524
+ },
+ {
+  "cell": "coex_hcp_250GPa",
+  "src": "runs",
+  "tag": "coex_hcp_250GPa_ti0.92_s0",
+  "x": 0.8050181878306879,
+  "e_ref": -4477.435515873016
+ },
+ {
+  "cell": "coex_hcp_250GPa",
+  "src": "runs",
+  "tag": "coex_hcp_250GPa_ti0.92_s1",
+  "x": 0.8091517857142857,
+  "e_ref": -4477.436177248677
+ },
+ {
+  "cell": "coex_hcp_250GPa",
+  "src": "runs",
+  "tag": "coex_hcp_250GPa_ti1.00_s0",
+  "x": 0.7123635912698413,
+  "e_ref": -4477.385582010582
+ },
+ {
+  "cell": "coex_hcp_250GPa",
+  "src": "runs",
+  "tag": "coex_hcp_250GPa_ti1.00_s1",
+  "x": 0.6861979166666667,
+  "e_ref": -4477.380621693122
+ },
+ {
+  "cell": "coex_hcp_250GPa",
+  "src": "runs",
+  "tag": "coex_hcp_250GPa_ti1.08_s0",
+  "x": 0.5669642857142857,
+  "e_ref": -4477.320436507936
+ },
+ {
+  "cell": "coex_hcp_250GPa",
+  "src": "runs",
+  "tag": "coex_hcp_250GPa_ti1.08_s1",
+  "x": 0.5647528108465608,
+  "e_ref": -4477.299933862434
+ },
+ {
+  "cell": "coex_hcp_300GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_300GPa_ti0.92_s0",
+  "x": 0.8050801917989419,
+  "e_ref": -4476.920965608466
+ },
+ {
+  "cell": "coex_hcp_300GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_300GPa_ti0.92_s1",
+  "x": 0.7845775462962964,
+  "e_ref": -4476.915013227514
+ },
+ {
+  "cell": "coex_hcp_300GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_300GPa_ti1.00_s0",
+  "x": 0.6921089616402116,
+  "e_ref": -4476.858465608466
+ },
+ {
+  "cell": "coex_hcp_300GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_300GPa_ti1.00_s1",
+  "x": 0.6834697420634921,
+  "e_ref": -4476.849867724868
+ },
+ {
+  "cell": "coex_hcp_300GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_300GPa_ti1.08_s0",
+  "x": 0.5483837632275133,
+  "e_ref": -4476.783730158731
+ },
+ {
+  "cell": "coex_hcp_300GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_300GPa_ti1.08_s1",
+  "x": 0.554522156084656,
+  "e_ref": -4476.803240740741
+ },
+ {
+  "cell": "coex_hcp_300GPa",
+  "src": "runs",
+  "tag": "coex_hcp_300GPa_ti0.92_s0",
+  "x": 0.7935267857142857,
+  "e_ref": -4476.9130291005295
+ },
+ {
+  "cell": "coex_hcp_300GPa",
+  "src": "runs",
+  "tag": "coex_hcp_300GPa_ti0.92_s1",
+  "x": 0.8030340608465608,
+  "e_ref": -4476.911706349207
+ },
+ {
+  "cell": "coex_hcp_300GPa",
+  "src": "runs",
+  "tag": "coex_hcp_300GPa_ti1.00_s0",
+  "x": 0.7142650462962963,
+  "e_ref": -4476.853505291006
+ },
+ {
+  "cell": "coex_hcp_300GPa",
+  "src": "runs",
+  "tag": "coex_hcp_300GPa_ti1.00_s1",
+  "x": 0.6869419642857144,
+  "e_ref": -4476.848875661376
+ },
+ {
+  "cell": "coex_hcp_300GPa",
+  "src": "runs",
+  "tag": "coex_hcp_300GPa_ti1.08_s0",
+  "x": 0.5875909391534391,
+  "e_ref": -4476.805224867725
+ },
+ {
+  "cell": "coex_hcp_300GPa",
+  "src": "runs",
+  "tag": "coex_hcp_300GPa_ti1.08_s1",
+  "x": 0.552600033068783,
+  "e_ref": -4476.788690476191
+ },
+ {
+  "cell": "coex_hcp_330GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_330GPa_ti0.92_s0",
+  "x": 0.8291997354497355,
+  "e_ref": -4476.617063492064
+ },
+ {
+  "cell": "coex_hcp_330GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_330GPa_ti0.92_s1",
+  "x": 0.7829034391534392,
+  "e_ref": -4476.5942460317465
+ },
+ {
+  "cell": "coex_hcp_330GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_330GPa_ti1.00_s0",
+  "x": 0.6625744047619048,
+  "e_ref": -4476.540674603175
+ },
+ {
+  "cell": "coex_hcp_330GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_330GPa_ti1.00_s1",
+  "x": 0.6642898478835979,
+  "e_ref": -4476.539682539683
+ },
+ {
+  "cell": "coex_hcp_330GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_330GPa_ti1.08_s0",
+  "x": 0.5729373346560847,
+  "e_ref": -4476.481812169312
+ },
+ {
+  "cell": "coex_hcp_330GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_330GPa_ti1.08_s1",
+  "x": 0.5911044973544973,
+  "e_ref": -4476.483465608466
+ },
+ {
+  "cell": "coex_hcp_330GPa",
+  "src": "runs",
+  "tag": "coex_hcp_330GPa_ti0.92_s0",
+  "x": 0.8213045634920635,
+  "e_ref": -4476.623346560847
+ },
+ {
+  "cell": "coex_hcp_330GPa",
+  "src": "runs",
+  "tag": "coex_hcp_330GPa_ti0.92_s1",
+  "x": 0.8542906746031746,
+  "e_ref": -4476.627314814815
+ },
+ {
+  "cell": "coex_hcp_330GPa",
+  "src": "runs",
+  "tag": "coex_hcp_330GPa_ti1.00_s0",
+  "x": 0.7230489417989419,
+  "e_ref": -4476.543650793651
+ },
+ {
+  "cell": "coex_hcp_330GPa",
+  "src": "runs",
+  "tag": "coex_hcp_330GPa_ti1.00_s1",
+  "x": 0.7276165674603174,
+  "e_ref": -4476.5525793650795
+ },
+ {
+  "cell": "coex_hcp_330GPa",
+  "src": "runs",
+  "tag": "coex_hcp_330GPa_ti1.08_s0",
+  "x": 0.6000124007936508,
+  "e_ref": -4476.487433862434
+ },
+ {
+  "cell": "coex_hcp_330GPa",
+  "src": "runs",
+  "tag": "coex_hcp_330GPa_ti1.08_s1",
+  "x": 0.5688657407407407,
+  "e_ref": -4476.475198412699
+ },
+ {
+  "cell": "coex_hcp_350GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_350GPa_ti0.92_s0",
+  "x": 0.7853422619047619,
+  "e_ref": -4476.396164021164
+ },
+ {
+  "cell": "coex_hcp_350GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_350GPa_ti0.92_s1",
+  "x": 0.8032614087301587,
+  "e_ref": -4476.396494708994
+ },
+ {
+  "cell": "coex_hcp_350GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_350GPa_ti1.00_s0",
+  "x": 0.6815476190476191,
+  "e_ref": -4476.335317460317
+ },
+ {
+  "cell": "coex_hcp_350GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_350GPa_ti1.00_s1",
+  "x": 0.6337012235449735,
+  "e_ref": -4476.3161375661375
+ },
+ {
+  "cell": "coex_hcp_350GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_350GPa_ti1.08_s0",
+  "x": 0.5788897156084656,
+  "e_ref": -4476.262896825397
+ },
+ {
+  "cell": "coex_hcp_350GPa",
+  "src": "runs_tel",
+  "tag": "coex_hcp_350GPa_ti1.08_s1",
+  "x": 0.5728753306878307,
+  "e_ref": -4476.261243386243
+ },
+ {
+  "cell": "coex_hcp_350GPa",
+  "src": "runs",
+  "tag": "coex_hcp_350GPa_ti0.92_s0",
+  "x": 0.810598544973545,
+  "e_ref": -4476.406084656084
+ },
+ {
+  "cell": "coex_hcp_350GPa",
+  "src": "runs",
+  "tag": "coex_hcp_350GPa_ti0.92_s1",
+  "x": 0.8308531746031745,
+  "e_ref": -4476.39451058201
+ },
+ {
+  "cell": "coex_hcp_350GPa",
+  "src": "runs",
+  "tag": "coex_hcp_350GPa_ti1.00_s0",
+  "x": 0.704902447089947,
+  "e_ref": -4476.334325396825
+ },
+ {
+  "cell": "coex_hcp_350GPa",
+  "src": "runs",
+  "tag": "coex_hcp_350GPa_ti1.00_s1",
+  "x": 0.6943617724867724,
+  "e_ref": -4476.333002645502
+ },
+ {
+  "cell": "coex_hcp_350GPa",
+  "src": "runs",
+  "tag": "coex_hcp_350GPa_ti1.08_s0",
+  "x": 0.5941013558201058,
+  "e_ref": -4476.272817460317
+ },
+ {
+  "cell": "coex_hcp_350GPa",
+  "src": "runs",
+  "tag": "coex_hcp_350GPa_ti1.08_s1",
+  "x": 0.5836433531746031,
+  "e_ref": -4476.264219576719
+ }
+]
