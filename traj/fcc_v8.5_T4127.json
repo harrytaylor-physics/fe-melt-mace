@@ -1,0 +1,10 @@
+{
+ "tag": "fcc_v8.5_T4127",
+ "phase": "fcc",
+ "vat": 8.5,
+ "P_est": 96.8,
+ "T": 4127.6830016,
+ "frames": 24,
+ "msd_final": 0.20619873834244173,
+ "FLAG_decay": false
+}

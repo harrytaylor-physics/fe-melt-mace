@@ -1,0 +1,11 @@
+{
+ "tag": "hcp_v7.4_T3183_pre",
+ "phase": "hcp",
+ "vat": 7.4,
+ "P_est": 210.04999999999995,
+ "T": 3183.965325885,
+ "frames": 10,
+ "msd_final": 0.41230212180690046,
+ "FLAG_decay": false,
+ "note": "pre-decay salvage"
+}

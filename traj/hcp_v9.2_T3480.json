@@ -1,0 +1,11 @@
+{
+ "tag": "hcp_v9.2_T3480",
+ "phase": "hcp",
+ "vat": 9.2,
+ "P_est": 55.50000000000003,
+ "T": 3480.059805125,
+ "frames": 32,
+ "msd_final": 0.14438976042609125,
+ "FLAG_decay": false,
+ "note": "tethered k=2.0 eV/A^2"
+}

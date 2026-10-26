@@ -1,0 +1,10 @@
+{
+ "tag": "hcp_v8.5_T2476",
+ "phase": "hcp",
+ "vat": 8.5,
+ "P_est": 96.8,
+ "T": 2476.60980096,
+ "frames": 32,
+ "msd_final": 0.1437489418686561,
+ "FLAG_decay": false
+}

@@ -1,0 +1,11 @@
+{
+ "tag": "hcp_v7.0_T3541_sf",
+ "phase": "stackfault",
+ "vat": 7.0,
+ "P_est": 273.0,
+ "T": 3541.144866,
+ "frames": 13,
+ "msd_final": 0.6022084515469676,
+ "FLAG_decay": false,
+ "note": "post-decay stacking-fault class"
+}

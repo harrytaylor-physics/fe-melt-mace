@@ -1,0 +1,10 @@
+{
+ "tag": "liquid_v7.2_T5574",
+ "phase": "liquid",
+ "vat": 7.2,
+ "P_est": 237.8,
+ "T": 5574.3167756,
+ "frames": 50,
+ "msd_final": 1.853974456504319,
+ "FLAG_decay": false
+}

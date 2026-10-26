@@ -1,0 +1,11 @@
+{
+ "tag": "hcp_v8.5_T3302_sf",
+ "phase": "stackfault",
+ "vat": 8.5,
+ "P_est": 96.8,
+ "T": 3302.1464012800006,
+ "frames": 8,
+ "msd_final": 0.6325207037226978,
+ "FLAG_decay": false,
+ "note": "post-decay stacking-fault class"
+}

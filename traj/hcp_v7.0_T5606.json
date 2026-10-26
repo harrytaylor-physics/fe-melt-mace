@@ -1,0 +1,10 @@
+{
+ "tag": "hcp_v7.0_T5606",
+ "phase": "hcp",
+ "vat": 7.0,
+ "P_est": 273.0,
+ "T": 5606.8127045,
+ "frames": 32,
+ "msd_final": 0.3214069764606561,
+ "FLAG_decay": false
+}

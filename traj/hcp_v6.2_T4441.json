@@ -1,0 +1,10 @@
+{
+ "tag": "hcp_v6.2_T4441",
+ "phase": "hcp",
+ "vat": 6.2,
+ "P_est": 458.0,
+ "T": 4441.942056000001,
+ "frames": 32,
+ "msd_final": 0.1060742961331205,
+ "FLAG_decay": false
+}

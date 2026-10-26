@@ -1,0 +1,11 @@
+{
+ "tag": "hcp_v7.0_T3541_pre",
+ "phase": "hcp",
+ "vat": 7.0,
+ "P_est": 273.0,
+ "T": 3541.144866,
+ "frames": 19,
+ "msd_final": 0.4234561972551789,
+ "FLAG_decay": false,
+ "note": "pre-decay salvage"
+}
