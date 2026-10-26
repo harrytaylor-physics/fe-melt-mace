@@ -1,0 +1,209 @@
+=============================================================================
+This module includes execution of the conda shell function.
+There is no need to run conda init. For more details, see:
+https://arc-software-guide.readthedocs.io/en/latest/python/anaconda_venv.html
+=============================================================================
+/home/shug7909/.local/lib/python3.13/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/shug7909/fe_melt/spot_md_gen.py:70: ResourceWarning: unclosed file <_io.TextIOWrapper name='phaseE/analysis_live_all.json' mode='r' encoding='UTF-8'>
+  res = json.load(open("phaseE/analysis_live_all.json"))["cells"]
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/.local/lib/python3.13/site-packages/mace/calculators/mace.py:226: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/mace/modules/models.py:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+/home/shug7909/fe_melt/spot_md_gen.py:79: ResourceWarning: unclosed file <_io.TextIOWrapper name='phaseE/cells/coex_hcp_100GPa.json' mode='r' encoding='UTF-8'>
+  thr = json.load(open(f"phaseE/cells/{cname}.json"))["q6_threshold"]
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:90: FutureWarning: NPT thermostat has been moved/renamed to ase.md.melchionna.MelchionnaNPT. Please use this class instead (or a newer NPT thermostat!)
+  dyn = NPT(at, 2 * units.fs, temperature_K=Tm, externalstress=P * units.GPa,
+WARNING: NPT: Setting the center-of-mass momentum to zero (was -53.9686 -0.319725 78.4662)
+/home/shug7909/fe_melt/phaseE_q6.py:37: DeprecationWarning: `scipy.special.sph_harm` is deprecated as of SciPy 1.15.0 and will be removed in SciPy 1.17.0. Please use `scipy.special.sph_harm_y` instead.
+  y = sph_harm(m, 6, ph, th)
+coex_hcp_100GPa hcp    snapshot 1: solid_frac 1.00 V 8.903 A^3/atom -> kept
+coex_hcp_100GPa hcp    snapshot 2: solid_frac 1.00 V 8.896 A^3/atom -> kept
+/home/shug7909/.local/lib/python3.13/site-packages/ase/md/langevin.py:110: FutureWarning: The implementation of `fixcm=True` in `Langevin` does not strictly sample the correct NVT distributions. The deviations are typically small for large systems but can be more pronounced for small systems. Use `fixcm=False` together with `ase.constraints.FixCom`. `fixcm` is deprecated since ASE 3.28.0 and will be removed in a future release.
+  warnings.warn(msg, FutureWarning)
+WARNING: NPT: Setting the center-of-mass momentum to zero (was -0.206752 0.638138 0.79237)
+coex_hcp_100GPa liquid snapshot 1: solid_frac 0.00 V 9.202 A^3/atom -> kept
+coex_hcp_100GPa liquid snapshot 2: solid_frac 0.00 V 8.965 A^3/atom -> kept
+/home/shug7909/fe_melt/spot_md_gen.py:79: ResourceWarning: unclosed file <_io.TextIOWrapper name='phaseE/cells/coex_hcp_150GPa.json' mode='r' encoding='UTF-8'>
+  thr = json.load(open(f"phaseE/cells/{cname}.json"))["q6_threshold"]
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+WARNING: NPT: Setting the center-of-mass momentum to zero (was -25.1155 30.1798 -40.7815)
+coex_hcp_150GPa hcp    snapshot 1: solid_frac 1.00 V 8.281 A^3/atom -> kept
+coex_hcp_150GPa hcp    snapshot 2: solid_frac 1.00 V 8.327 A^3/atom -> kept
+WARNING: NPT: Setting the center-of-mass momentum to zero (was -0.177284 -3.03067 1.39816)
+coex_hcp_150GPa liquid snapshot 1: solid_frac 0.02 V 8.642 A^3/atom -> kept
+coex_hcp_150GPa liquid snapshot 2: solid_frac 0.00 V 8.323 A^3/atom -> kept
+/home/shug7909/fe_melt/spot_md_gen.py:79: ResourceWarning: unclosed file <_io.TextIOWrapper name='phaseE/cells/coex_hcp_250GPa.json' mode='r' encoding='UTF-8'>
+  thr = json.load(open(f"phaseE/cells/{cname}.json"))["q6_threshold"]
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+WARNING: NPT: Setting the center-of-mass momentum to zero (was 63.5404 114.954 54.5586)
+coex_hcp_250GPa hcp    snapshot 1: solid_frac 1.00 V 7.427 A^3/atom -> kept
+coex_hcp_250GPa hcp    snapshot 2: solid_frac 1.00 V 7.497 A^3/atom -> kept
+WARNING: NPT: Setting the center-of-mass momentum to zero (was 1.09455 -0.277457 1.58272)
+coex_hcp_250GPa liquid snapshot 1: solid_frac 0.03 V 7.477 A^3/atom -> kept
+coex_hcp_250GPa liquid snapshot 2: solid_frac 0.06 V 7.753 A^3/atom -> kept
+/home/shug7909/fe_melt/spot_md_gen.py:79: ResourceWarning: unclosed file <_io.TextIOWrapper name='phaseE/cells/coex_hcp_300GPa.json' mode='r' encoding='UTF-8'>
+  thr = json.load(open(f"phaseE/cells/{cname}.json"))["q6_threshold"]
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+WARNING: NPT: Setting the center-of-mass momentum to zero (was 47.7088 6.83402 40.5513)
+coex_hcp_300GPa hcp    snapshot 1: solid_frac 1.00 V 7.131 A^3/atom -> kept
+coex_hcp_300GPa hcp    snapshot 2: solid_frac 1.00 V 7.164 A^3/atom -> kept
+WARNING: NPT: Setting the center-of-mass momentum to zero (was -1.06368 1.75779 0.128448)
+coex_hcp_300GPa liquid snapshot 1: solid_frac 0.09 V 7.192 A^3/atom -> kept
+coex_hcp_300GPa liquid snapshot 2: solid_frac 0.00 V 7.253 A^3/atom -> kept
+/home/shug7909/fe_melt/spot_md_gen.py:79: ResourceWarning: unclosed file <_io.TextIOWrapper name='phaseE/cells/coex_hcp_350GPa.json' mode='r' encoding='UTF-8'>
+  thr = json.load(open(f"phaseE/cells/{cname}.json"))["q6_threshold"]
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+WARNING: NPT: Setting the center-of-mass momentum to zero (was -69.0456 94.9036 -65.9763)
+coex_hcp_350GPa hcp    snapshot 1: solid_frac 1.00 V 6.882 A^3/atom -> kept
+coex_hcp_350GPa hcp    snapshot 2: solid_frac 1.00 V 6.837 A^3/atom -> kept
+WARNING: NPT: Setting the center-of-mass momentum to zero (was -2.51358 -1.13253 0.076779)
+coex_hcp_350GPa liquid snapshot 1: solid_frac 0.00 V 6.918 A^3/atom -> kept
+coex_hcp_350GPa liquid snapshot 2: solid_frac 0.45 V 6.906 A^3/atom -> skipped
+coex_hcp_350GPa liquid snapshot 3: solid_frac 0.09 V 7.027 A^3/atom -> kept
+/home/shug7909/fe_melt/spot_md_gen.py:43: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/hcp-0000_Tel6000.in' mode='r' encoding='UTF-8'>
+  src = open(tpl_path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_h00_T4600.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_h00_T6500.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_h01_T4600.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_h01_T6500.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:43: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/liquid-0000_Tel6000.in' mode='r' encoding='UTF-8'>
+  src = open(tpl_path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_l00_T4600.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_l00_T6500.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_l01_T4600.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_l01_T6500.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_h02_T4600.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_h02_T6500.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_h03_T4600.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_h03_T6500.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_l02_T4600.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_l02_T6500.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_l03_T4600.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_l03_T6500.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_h04_T4600.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_h04_T6500.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_h05_T4600.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_h05_T6500.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_l04_T4600.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_l04_T6500.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_l05_T4600.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_l05_T6500.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_h06_T4600.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_h06_T6500.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_h07_T4600.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_h07_T6500.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_l06_T4600.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_l06_T6500.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_l07_T4600.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_l07_T6500.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_h08_T4600.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_h08_T6500.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_h09_T4600.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_h09_T6500.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_l08_T4600.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_l08_T6500.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_l09_T4600.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_l09_T6500.in' mode='w' encoding='UTF-8'>
+  open(f"labels/{stem}.in", "w").write(make_input(tpl[f.info["phase"]], f, stem, tel))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/spot_md_gen.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/spot_list.txt' mode='w' encoding='UTF-8'>
+  open("labels/spot_list.txt", "w").write("\n".join(names) + "\n")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+
+frames kept: hcp 10, liquid 10
+wrote 40 inputs and labels/spot_list.txt
+templates: hcp <- hcp-0000_Tel6000.in, liquid <- liquid-0000_Tel6000.in
+degauss: 4600 K = 0.029135 Ry, 6500 K = 0.041169 Ry
+Submitted batch job 8962409

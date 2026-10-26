@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/shug7909/fe_melt/phaseE_coex.py", line 87, in <module>
+    main()
+    ~~~~^^
+  File "/home/shug7909/fe_melt/phaseE_coex.py", line 39, in main
+    meta = json.load(open(a.cell + ".json"))
+                     ~~~~^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'phaseE/cells/coex_hcp_300GPa.json'

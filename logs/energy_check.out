@@ -1,0 +1,110 @@
+=============================================================================
+This module includes execution of the conda shell function.
+There is no need to run conda init. For more details, see:
+https://arc-software-guide.readthedocs.io/en/latest/python/anaconda_venv.html
+=============================================================================
+/home/shug7909/.local/lib/python3.13/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/mace/calculators/mace.py:226: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/mace/modules/models.py:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+runs: 48   ps banked: 8371   CONVERGED: 28  DRIFTING: 15  MELTED: 5
+
+run                                ps         state     T/K   +-   P/GPa  solid sigT/can  dS/kB
+coex_hcp_100GPa_ti0.92_s0         200     CONVERGED    3889    5   100.8   0.42     0.79   0.71
+coex_hcp_100GPa_ti0.92_s1         200     CONVERGED    3926    7   100.8   0.45     0.91    nan
+coex_hcp_100GPa_ti1.00_s0         200      DRIFTING    3924    8   102.4   0.31     0.84   0.79
+coex_hcp_100GPa_ti1.00_s1         200      DRIFTING    3934   10   102.5   0.31     0.77   0.82
+coex_hcp_100GPa_ti1.08_s0         200     CONVERGED    3934    4   104.1   0.18     0.80   0.77
+coex_hcp_100GPa_ti1.08_s1         200     CONVERGED    3965    4   104.2   0.20     0.81   0.78
+coex_hcp_150GPa_ti0.92_s0         200      DRIFTING    4619   13   149.4   0.66     0.85   0.84
+coex_hcp_150GPa_ti0.92_s1         200     CONVERGED    4610    7   149.6   0.64     0.90    nan
+coex_hcp_150GPa_ti1.00_s0         200      DRIFTING    4600   10   151.5   0.51     0.76    nan
+coex_hcp_150GPa_ti1.00_s1         200      DRIFTING    4618   11   151.6   0.52     0.90    nan
+coex_hcp_150GPa_ti1.08_s0         200     CONVERGED    4626    6   153.4   0.41     0.97   0.83
+coex_hcp_150GPa_ti1.08_s1         200     CONVERGED    4642    3   153.5   0.39     0.82   0.87
+coex_hcp_200GPa_ti0.92_s0         200     CONVERGED    5226    6   198.5   0.72     0.79   0.75
+coex_hcp_200GPa_ti0.92_s1         200      DRIFTING    5193    8   198.9   0.69     0.85   0.93
+coex_hcp_200GPa_ti1.00_s0         200     CONVERGED    5242    2   200.7   0.61     0.75    nan
+coex_hcp_200GPa_ti1.00_s1         200      DRIFTING    5241    6   200.9   0.59     0.66    nan
+coex_hcp_200GPa_ti1.08_s0         200     CONVERGED    5226    2   203.1   0.47     0.84    nan
+coex_hcp_200GPa_ti1.08_s1         200     CONVERGED    5236    2   203.2   0.47     0.83    nan
+coex_hcp_250GPa_ti0.92_s0         190     CONVERGED    5709    6   247.1   0.78     0.77   0.84
+coex_hcp_250GPa_ti0.92_s1         180      DRIFTING    5762   15   247.0   0.80     0.83   0.88
+coex_hcp_250GPa_ti1.00_s0         200     CONVERGED    5771    9   249.3   0.69     0.77   0.87
+coex_hcp_250GPa_ti1.00_s1         180      DRIFTING    5761    8   249.6   0.68     0.84   0.86
+coex_hcp_250GPa_ti1.08_s0         200     CONVERGED    5766    3   251.9   0.56     0.87    nan
+coex_hcp_250GPa_ti1.08_s1         200     CONVERGED    5772    5   252.1   0.56     0.88    nan
+coex_hcp_300GPa_ti0.92_s0         198     CONVERGED    6234   11   296.4   0.81     0.89   0.96
+coex_hcp_300GPa_ti0.92_s1         200     CONVERGED    6230   11   296.6   0.80     0.85   0.85
+coex_hcp_300GPa_ti1.00_s0         200      DRIFTING    6271   13   298.9   0.71     0.83   0.97
+coex_hcp_300GPa_ti1.00_s1         190     CONVERGED    6226   10   299.4   0.67     0.86    nan
+coex_hcp_300GPa_ti1.08_s0         200      DRIFTING    6259   14   301.8   0.58     0.79    nan
+coex_hcp_300GPa_ti1.08_s1         200     CONVERGED    6234    5   302.2   0.55     0.85    nan
+coex_hcp_330GPa_ti0.92_s0         160      DRIFTING    6501   24   325.9   0.83     0.82   0.89
+coex_hcp_330GPa_ti0.92_s1         150      DRIFTING    6491    9   326.2   0.81     0.90   0.90
+coex_hcp_330GPa_ti1.00_s0         160     CONVERGED    6545    4   328.5   0.72     0.76   0.88
+coex_hcp_330GPa_ti1.00_s1         150      DRIFTING    6469   10   329.2   0.67     0.71    nan
+coex_hcp_330GPa_ti1.08_s0         152     CONVERGED    6526    6   331.5   0.58     0.81    nan
+coex_hcp_330GPa_ti1.08_s1         160     CONVERGED    6537    7   331.7   0.58     0.85    nan
+coex_hcp_350GPa_ti0.92_s0         145     CONVERGED    6679    7   346.0   0.82     0.88   0.74
+coex_hcp_350GPa_ti0.92_s1         129     CONVERGED    6684    9   346.2   0.80     0.81   0.79
+coex_hcp_350GPa_ti1.00_s0         149     CONVERGED    6716    7   348.8   0.71     0.69    nan
+coex_hcp_350GPa_ti1.00_s1         146     CONVERGED    6711   10   349.1   0.70     0.77    nan
+coex_hcp_350GPa_ti1.08_s0         142      DRIFTING    6728   14   351.7   0.59     0.79    nan
+coex_hcp_350GPa_ti1.08_s1         155     CONVERGED    6713    8   352.1   0.57     0.83    nan
+coex_fcc_100GPa_ti0.92_s0         200     CONVERGED    3715    3    91.1   0.14     0.86   0.75
+coex_fcc_100GPa_ti0.92_s1         151        MELTED
+coex_fcc_100GPa_ti1.00_s0          91        MELTED
+coex_fcc_100GPa_ti1.00_s1          81        MELTED
+coex_fcc_100GPa_ti1.08_s0          56        MELTED
+coex_fcc_100GPa_ti1.08_s1          56        MELTED
+
+cell                n    Tm/K  scat  sem   P/GPa  Tm_est  dev%
+coex_hcp_100GPa     4    3928    31   16   102.5    4163  -5.6
+coex_hcp_150GPa     3    4626    16    9   152.2    4699  -1.5
+coex_hcp_200GPa     4    5233     8    4   201.4    5208   0.5
+coex_hcp_250GPa     4    5755    30   15   250.1    5689   1.1
+coex_hcp_300GPa     4    6231     4    5   298.7    6144   1.4
+coex_hcp_330GPa     3    6536    10    6   330.6    6404   2.1
+coex_hcp_350GPa     5    6701    18    8   348.4    6572   2.0
+coex_fcc_100GPa     1    3715   nan    3    91.1    4163 -10.8
+
+Clapeyron slopes (hcp):
+   102.5 ->  152.2 GPa   dTm/dP =  14.05 K/GPa
+   152.2 ->  201.4 GPa   dTm/dP =  12.32 K/GPa
+   201.4 ->  250.1 GPa   dTm/dP =  10.72 K/GPa
+   250.1 ->  298.7 GPa   dTm/dP =   9.81 K/GPa
+   298.7 ->  330.6 GPa   dTm/dP =   9.55 K/GPa
+   330.6 ->  348.4 GPa   dTm/dP =   9.20 K/GPa
+
+Simon fit  Tm = T1 (1 + (P-100)/a)^(1/c):  T1 = 3891+-15 K, a = 123+-7 GPa, c = 2.03+-0.07   (dof 4, chi2/dof 0.29)
+Comparison near the inner-core boundary:
+  Alfe 2009, DFT coexistence           330 GPa    6200+-150  K   this work   6531 K   diff  +331 K
+  Wu et al. 2024, DeepMD               330 GPa    6415       K   this work   6531 K   diff  +116 K
+  DFT+DMFT MLIP, arXiv 2512.25061      330 GPa    6225       K   this work   6531 K   diff  +306 K
+  Sun et al. 2023                      323 GPa    6357+-45   K   this work   6467 K   diff  +110 K
+
+PHYSICAL CHECKS:
+  WARN coex_fcc_100GPa_ti0.92_s0: mean solid fraction 0.14 outside (0.15, 0.85) (interfaces close)
+
+written phaseE/analysis_live.json
+
+ENERGY CONSERVATION (1000 steps x 2 fs; tolerance 0.17 meV/atom/ps)
+  coex_fcc_100GPa_ti0.92_s0        drift  -0.025 meV/atom/ps   fluct  0.093 meV/atom   ok
+  coex_hcp_100GPa_ti0.92_s0        drift  +0.016 meV/atom/ps   fluct  0.079 meV/atom   ok
+  coex_hcp_150GPa_ti0.92_s1        drift  +0.031 meV/atom/ps   fluct  0.089 meV/atom   ok
+  coex_hcp_200GPa_ti0.92_s0        drift  -0.003 meV/atom/ps   fluct  0.091 meV/atom   ok
+  coex_hcp_250GPa_ti1.00_s0        drift  -0.064 meV/atom/ps   fluct  0.100 meV/atom   ok
+  coex_hcp_300GPa_ti0.92_s1        drift  -0.029 meV/atom/ps   fluct  0.099 meV/atom   ok
+  coex_hcp_330GPa_ti1.00_s0        drift  -0.056 meV/atom/ps   fluct  0.101 meV/atom   ok
+  coex_hcp_350GPa_ti1.08_s1        drift  +0.012 meV/atom/ps   fluct  0.076 meV/atom   ok

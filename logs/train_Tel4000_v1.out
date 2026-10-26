@@ -1,0 +1,38 @@
+/home/shug7909/.local/lib/python3.13/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/cli/run_train.py", line 24, in <module>
+    from mace import data, tools
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/data/__init__.py", line 1, in <module>
+    from .atomic_data import AtomicData
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/data/atomic_data.py", line 12, in <module>
+    from mace.tools import (
+    ...<5 lines>...
+    )
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/tools/__init__.py", line 2, in <module>
+    from .arg_parser_tools import check_args
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/tools/arg_parser_tools.py", line 5, in <module>
+    from e3nn import o3
+  File "/home/shug7909/.local/lib/python3.13/site-packages/e3nn/o3/__init__.py", line 41, in <module>
+    from ._spherical_harmonics import SphericalHarmonics, spherical_harmonics
+  File "/home/shug7909/.local/lib/python3.13/site-packages/e3nn/o3/_spherical_harmonics.py", line 7, in <module>
+    import sympy
+  File "/home/shug7909/.local/lib/python3.13/site-packages/sympy/__init__.py", line 163, in <module>
+    from .simplify import (simplify, hypersimp, hypersimilar, logcombine,
+    ...<4 lines>...
+            ratsimp, ratsimpmodprime)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/sympy/simplify/__init__.py", line 7, in <module>
+    from .simplify import (simplify, hypersimp, hypersimilar,
+        logcombine, separatevars, posify, besselsimp, kroneckersimp,
+        signsimp, nsimplify)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/sympy/simplify/simplify.py", line 47, in <module>
+    from sympy.simplify.trigsimp import trigsimp, exptrigsimp
+  File "/home/shug7909/.local/lib/python3.13/site-packages/sympy/simplify/trigsimp.py", line 22, in <module>
+    from sympy.simplify.cse_main import cse
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1322, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 1256, in _find_spec
+  File "<frozen importlib._bootstrap>", line 1222, in __enter__
+KeyboardInterrupt

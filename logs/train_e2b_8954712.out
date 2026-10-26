@@ -1,0 +1,222 @@
+=============================================================================
+This module includes execution of the conda shell function.
+There is no need to run conda init. For more details, see:
+https://arc-software-guide.readthedocs.io/en/latest/python/anaconda_venv.html
+=============================================================================
+NVIDIA H100 80GB HBM3, 81559 MiB
+mace from /home/shug7909/tel-mace-src/mace/__init__.py
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+2026-10-01 23:40:51.446 INFO: ===========VERIFYING SETTINGS===========
+2026-10-01 23:40:51.446 INFO: Stage Two is activated as start_stage_two was defined
+2026-10-01 23:40:51.446 INFO: MACE version: 0.3.17
+2026-10-01 23:40:51.863 INFO: CUDA version: 13.0, CUDA device: 0
+/home/shug7909/tel-mace-src/mace/cli/run_train.py:206: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  model_foundation = torch.load(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+2026-10-01 23:40:54.743 INFO: Using foundation model /home/shug7909/fe_melt/MACE-matpes-pbe-omat-ft.model as initial checkpoint.
+2026-10-01 23:40:54.864 INFO: ===========LOADING INPUT DATA===========
+2026-10-01 23:40:54.864 INFO: Using heads: ['Default']
+2026-10-01 23:40:54.864 INFO: Using the key specifications to parse data:
+2026-10-01 23:40:54.865 INFO: Default: KeySpecification(info_keys={'energy': 'REF_energy', 'stress': 'REF_stress', 'virials': 'REF_virials', 'dipole': 'dipole', 'head': 'head', 'elec_temp': 'elec_temp', 'total_charge': 'total_charge', 'polarizability': 'polarizability', 'total_spin': 'total_spin'}, arrays_keys={'forces': 'REF_forces', 'charges': 'REF_charges', 'magmom': 'REF_magmom', 'magforces': 'REF_magforces'})
+2026-10-01 23:40:54.865 INFO: =============    Processing head Default     ===========
+2026-10-01 23:40:57.535 INFO: Training set 1/1 [energy: 4391, stress: 0, virials: 0, dipole components: 0, head: 4391, elec_temp: 4391, total_charge: 0, polarizability: 0, total_spin: 0, forces: 4391, charges: 0, magmom: 0, magforces: 0]
+2026-10-01 23:40:57.537 INFO: Total Training set [energy: 4391, stress: 0, virials: 0, dipole components: 0, head: 4391, elec_temp: 4391, total_charge: 0, polarizability: 0, total_spin: 0, forces: 4391, charges: 0, magmom: 0, magforces: 0]
+2026-10-01 23:40:57.537 INFO: No validation set provided, splitting training data instead.
+2026-10-01 23:40:57.539 INFO: Using random 5% of training set for validation with indices saved in: ./fe_tel_e2b_valid_indices_7.txt
+2026-10-01 23:40:57.543 INFO: Random Split Training set [energy: 4172, stress: 0, virials: 0, dipole components: 0, head: 4172, elec_temp: 4172, total_charge: 0, polarizability: 0, total_spin: 0, forces: 4172, charges: 0, magmom: 0, magforces: 0]
+2026-10-01 23:40:57.543 INFO: Random Split Validation set [energy: 219, stress: 0, virials: 0, dipole components: 0, head: 219, elec_temp: 219, total_charge: 0, polarizability: 0, total_spin: 0, forces: 219, charges: 0, magmom: 0, magforces: 0]
+2026-10-01 23:40:57.543 INFO: Total number of configurations: train=4172, valid=219, tests=[],
+2026-10-01 23:40:57.584 INFO: Atomic Numbers used: [np.int64(26)]
+2026-10-01 23:40:57.584 INFO: Isolated Atomic Energies (E0s) not in training file, using command line argument
+2026-10-01 23:40:57.584 INFO: Computing average Atomic Energies using least squares regression
+2026-10-01 23:40:57.843 INFO: Atomic Energies used (z: eV) for head Default: {26: -4477.969845027662}
+2026-10-01 23:40:57.844 INFO: Processing datasets for head 'Default'
+2026-10-01 23:41:25.534 INFO: Combining 1 list datasets for head 'Default'
+2026-10-01 23:41:26.929 INFO: Head 'Default' training dataset size: 4172
+2026-10-01 23:41:26.930 INFO: Computing average number of neighbors
+2026-10-01 23:41:30.625 WARNING: Unusual average number of neighbors: 123.4
+2026-10-01 23:41:30.625 INFO: During training the following quantities will be reported: energy, forces
+2026-10-01 23:41:30.625 INFO: ===========MODEL DETAILS===========
+2026-10-01 23:41:33.698 INFO: Using embedding specifications from command line arguments
+2026-10-01 23:41:33.698 INFO: Embedding specifications: {'elec_temp': {'type': 'continuous', 'per': 'graph', 'in_dim': 1, 'emb_dim': 32, 'scale': 0.0001, 'zero_init': True}}
+2026-10-01 23:41:33.699 INFO: Loading FOUNDATION model
+2026-10-01 23:41:33.699 INFO: Using filtered elements: [np.int64(26)]
+2026-10-01 23:41:33.699 INFO: Model configuration extracted from foundation model
+2026-10-01 23:41:33.699 INFO: Using weighted loss function for fine-tuning
+2026-10-01 23:41:33.699 INFO: Message passing with hidden irreps 128x0e+128x1o)
+2026-10-01 23:41:33.699 INFO: 2 layers, each with correlation order: 3 (body order: 4) and spherical harmonics up to: l=3
+2026-10-01 23:41:33.699 INFO: Radial cutoff: 6.0 A (total receptive field for each atom: 12.0 A)
+2026-10-01 23:41:33.699 INFO: Distance transform for radial basis functions: Agnesi
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+2026-10-01 23:41:35.712 INFO: ===========OPTIMIZER INFORMATION===========
+2026-10-01 23:41:35.712 INFO: Using ADAM as parameter optimizer
+2026-10-01 23:41:35.712 INFO: Batch size: 4
+2026-10-01 23:41:35.712 INFO: Using Exponential Moving Average with decay: 0.999
+2026-10-01 23:41:35.712 INFO: Number of gradient updates: 156450
+2026-10-01 23:41:35.712 INFO: Learning rate: 0.0001, weight decay: 5e-07
+2026-10-01 23:41:35.712 INFO: WeightedEnergyForcesLoss(energy_weight=1.000, forces_weight=100.000)
+2026-10-01 23:41:35.713 INFO: === Layer's learning rates ===
+2026-10-01 23:41:35.713 INFO: Param group 0: lr = 0.0001
+2026-10-01 23:41:35.713 INFO: Param group 1: lr = 0.0001
+2026-10-01 23:41:35.713 INFO: Param group 2: lr = 0.0001
+2026-10-01 23:41:35.714 INFO: Param group 3: lr = 0.0001
+2026-10-01 23:41:35.714 INFO: Param group 4: lr = 0.0001
+2026-10-01 23:41:35.714 INFO: Param group 5: lr = 0.0001
+2026-10-01 23:41:35.714 INFO: Stage Two (after 110 epochs) with loss function: WeightedEnergyForcesLoss(energy_weight=1000.000, forces_weight=100.000), with energy weight : 1000.0, forces weight : 100.0 and learning rate : 0.001
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:89: FutureWarning: `torch.jit.save` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+2026-10-01 23:41:35.815 INFO: Loading checkpoint: phaseD/models/fe_tel_e2b_run-7_epoch-149_swa.pt
+/home/shug7909/tel-mace-src/mace/tools/checkpoint.py:195: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=checkpoint_info.path, map_location=device),
+2026-10-01 23:41:36.146 INFO: Using gradient clipping with tolerance=10.000
+2026-10-01 23:41:36.146 INFO: 
+2026-10-01 23:41:36.146 INFO: ===========TRAINING===========
+2026-10-01 23:41:36.146 INFO: Started training, reporting errors on validation set
+2026-10-01 23:41:36.146 INFO: Loss metrics on validation set
+2026-10-01 23:42:05.522 INFO: Initial: head: Default, loss=0.12879790, RMSE_E_per_atom=    1.89 meV, RMSE_F=  100.44 meV / A
+2026-10-01 23:42:05.522 INFO: Changing loss based on Stage Two Weights
+2026-10-01 23:44:22.190 INFO: Epoch 149: head: Default, loss=0.13061497, RMSE_E_per_atom=    3.19 meV, RMSE_F=  100.65 meV / A
+2026-10-01 23:44:22.230 INFO: Training complete
+2026-10-01 23:44:22.230 INFO: 
+2026-10-01 23:44:22.230 INFO: ===========RESULTS===========
+2026-10-01 23:44:22.234 INFO: Loading checkpoint: phaseD/models/fe_tel_e2b_run-7_epoch-109.pt
+/home/shug7909/tel-mace-src/mace/tools/checkpoint.py:195: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=checkpoint_info.path, map_location=device),
+2026-10-01 23:44:22.539 INFO: Loaded Stage one model from epoch 109 for evaluation
+2026-10-01 23:44:22.540 INFO: Saving model to phaseD/models/fe_tel_e2b_run-7.model
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:89: FutureWarning: `torch.jit.save` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+2026-10-01 23:44:22.730 INFO: Compiling model, saving metadata to phaseD/models/fe_tel_e2b_compiled.model
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_trace.py:1145: FutureWarning: `torch.jit.trace_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+2026-10-01 23:44:23.739 WARNING: Compiling the model failed, so fe_tel_e2b_compiled.model was not written: 
+Module 'GenericJointEmbedding' has no attribute 'specs' (This attribute exists on the Python module, but we failed to convert Python type: 'dict' to a TorchScript type. Dictionary inputs to traced functions must have consistent type. Found str and int. Its type was inferred; try adding a type annotation for the attribute.):
+  File "/home/shug7909/tel-mace-src/mace/modules/embeddings.py", line 105
+        """
+        embs = []
+        for name, spec in self.specs.items():
+                          ~~~~~~~~~~ <--- HERE
+            feat = features[name]
+            if spec["per"] == "graph":
+
+2026-10-01 23:44:23.739 INFO: Computing metrics for training, validation, and test sets
+2026-10-01 23:44:23.740 INFO: Skipping evaluation for heads: ['pt_head']
+2026-10-01 23:44:23.740 INFO: Evaluating train_Default ...
+2026-10-01 23:45:29.380 INFO: Evaluating valid_Default ...
+2026-10-01 23:45:32.957 INFO: Error-table on TRAIN and VALID:
++---------------+---------------------+------------------+-------------------+
+|  config_type  | RMSE E / meV / atom | RMSE F / meV / A | relative F RMSE % |
++---------------+---------------------+------------------+-------------------+
+| train_Default |           23.1      |         96.4     |          2.28     |
+| valid_Default |           25.0      |         99.5     |          2.39     |
++---------------+---------------------+------------------+-------------------+
+2026-10-01 23:47:30.719 INFO: Loading checkpoint: phaseD/models/fe_tel_e2b_run-7_epoch-149_swa.pt
+/home/shug7909/tel-mace-src/mace/tools/checkpoint.py:195: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=checkpoint_info.path, map_location=device),
+2026-10-01 23:47:30.896 INFO: Loaded Stage two model from epoch 149 for evaluation
+2026-10-01 23:47:30.897 INFO: Saving model to phaseD/models/fe_tel_e2b_run-7_stagetwo.model
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:89: FutureWarning: `torch.jit.save` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+2026-10-01 23:47:31.091 INFO: Compiling model, saving metadata phaseD/models/fe_tel_e2b_stagetwo_compiled.model
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_trace.py:1145: FutureWarning: `torch.jit.trace_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+2026-10-01 23:47:31.658 WARNING: Compiling the model failed, so fe_tel_e2b_stagetwo_compiled.model was not written: Can't redefine method: forward on class: __torch__.mace.modules.embeddings.GenericJointEmbedding (of Python compilation unit at: 0x7262fe0)
+2026-10-01 23:47:31.661 INFO: Computing metrics for training, validation, and test sets
+2026-10-01 23:47:31.662 INFO: Skipping evaluation for heads: ['pt_head']
+2026-10-01 23:47:31.662 INFO: Evaluating train_Default ...
+2026-10-01 23:48:38.027 INFO: Evaluating valid_Default ...
+2026-10-01 23:48:40.154 INFO: Error-table on TRAIN and VALID:
++---------------+---------------------+------------------+-------------------+
+|  config_type  | RMSE E / meV / atom | RMSE F / meV / A | relative F RMSE % |
++---------------+---------------------+------------------+-------------------+
+| train_Default |            3.2      |         97.0     |          2.29     |
+| valid_Default |            3.2      |        100.6     |          2.41     |
++---------------+---------------------+------------------+-------------------+
+2026-10-01 23:50:37.801 INFO: Done
+-rw-r--r--. 1 shug7909 internal  5882743 Oct  1 23:44 fe_tel_e2b.model
+-rw-r--r--. 1 shug7909 internal 12463691 Oct  1 19:23 fe_tel_e2b_run-7_epoch-109.pt
+-rw-r--r--. 1 shug7909 internal 12465483 Oct  1 23:44 fe_tel_e2b_run-7_epoch-149_swa.pt
+-rw-r--r--. 1 shug7909 internal  5883391 Oct  1 23:44 fe_tel_e2b_run-7.model
+-rw-r--r--. 1 shug7909 internal  5885195 Oct  1 23:47 fe_tel_e2b_run-7_stagetwo.model
+-rw-r--r--. 1 shug7909 internal  5883715 Oct  1 23:47 fe_tel_e2b_stagetwo.model

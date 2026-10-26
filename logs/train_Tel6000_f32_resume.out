@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/cli/run_train.py", line 16, in <module>
+    import torch.distributed
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/__init__.py", line 444, in <module>
+    from torch._C import *  # noqa: F403
+    ^^^^^^^^^^^^^^^^^^^^^^
+ImportError: libtorch_python.so: failed to map segment from shared object
+training done: phaseD/models/fe_ft_Tel6000.model

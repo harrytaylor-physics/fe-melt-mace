@@ -1,0 +1,48 @@
+=============================================================================
+This module includes execution of the conda shell function.
+There is no need to run conda init. For more details, see:
+https://arc-software-guide.readthedocs.io/en/latest/python/anaconda_venv.html
+=============================================================================
+NVIDIA H100 PCIe, 81559 MiB
+mace from /home/shug7909/tel-mace-src/mace/__init__.py
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/shug7909/tel-mace-src/mace/cli/run_train.py", line 1288, in <module>
+    main()
+    ~~~~^^
+  File "/home/shug7909/tel-mace-src/mace/cli/run_train.py", line 86, in main
+    run(args)
+    ~~~^^^^^^
+  File "/home/shug7909/tel-mace-src/mace/cli/run_train.py", line 94, in run
+    args, input_log_messages = tools.check_args(args)
+                               ~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/shug7909/tel-mace-src/mace/tools/arg_parser_tools.py", line 124, in check_args
+    args.embedding_specs = ast.literal_eval(args.embedding_specs)
+                           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py", line 110, in literal_eval
+    return _convert(node_or_string)
+  File "/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py", line 99, in _convert
+    return dict(zip(map(_convert, node.keys),
+                    map(_convert, node.values)))
+  File "/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py", line 99, in _convert
+    return dict(zip(map(_convert, node.keys),
+                    map(_convert, node.values)))
+  File "/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py", line 109, in _convert
+    return _convert_signed_num(node)
+  File "/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py", line 83, in _convert_signed_num
+    return _convert_num(node)
+  File "/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py", line 74, in _convert_num
+    _raise_malformed_node(node)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py", line 71, in _raise_malformed_node
+    raise ValueError(msg + f': {node!r}')
+ValueError: malformed node or string on line 1: <ast.Name object at 0x147a2d4c2190>

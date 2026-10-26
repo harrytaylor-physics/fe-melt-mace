@@ -1,0 +1,35 @@
+=============================================================================
+This module includes execution of the conda shell function.
+There is no need to run conda init. For more details, see:
+https://arc-software-guide.readthedocs.io/en/latest/python/anaconda_venv.html
+=============================================================================
+NVIDIA H100 80GB HBM3, 81559 MiB
+task 42 -> coex_hcp_350GPa tinit=0.92 seed=0
+/home/shug7909/.local/lib/python3.13/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/mace/calculators/mace.py:226: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/mace/modules/models.py:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+[coex] resumed coex_hcp_350GPa_ti0.92_s0 at 42 ps
+/home/shug7909/fe_melt/phaseE_q6.py:37: DeprecationWarning: `scipy.special.sph_harm` is deprecated as of SciPy 1.15.0 and will be removed in SciPy 1.17.0. Please use `scipy.special.sph_harm_y` instead.
+  y = sph_harm(m, 6, ph, th)
+    45 ps  T=  6658 K  P= 346.1 GPa  solid_frac=0.79
+    50 ps  T=  6603 K  P= 346.5 GPa  solid_frac=0.80
+    55 ps  T=  6587 K  P= 346.6 GPa  solid_frac=0.80
+    60 ps  T=  6663 K  P= 346.1 GPa  solid_frac=0.80
+    65 ps  T=  6693 K  P= 346.0 GPa  solid_frac=0.82
+/home/shug7909/fe_melt/phaseE_coex.py:99: ResourceWarning: unclosed file <_io.TextIOWrapper name='phaseE/runs/coex_hcp_350GPa_ti0.92_s0.json' mode='w' encoding='UTF-8'>
+  json.dump(dict(tag=tag, status="partial", ps_done=b + 1,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+[coex] wall reached at 67/200 ps — checkpointed
+segment done, resubmitting task 42
+Submitted batch job 8895776

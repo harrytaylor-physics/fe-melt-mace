@@ -1,0 +1,70 @@
+=============================================================================
+This module includes execution of the conda shell function.
+There is no need to run conda init. For more details, see:
+https://arc-software-guide.readthedocs.io/en/latest/python/anaconda_venv.html
+=============================================================================
+===== PART 1: SPOT CHECK =====
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+  torch.load(f=model_path, map_location=device)
+  txt = open(path, errors="ignore").read()
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  a.shape = (-1,) + shape
+  txt = open(path, errors="ignore").read()
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  a.shape = (-1,) + shape
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+  txt = open(path, errors="ignore").read()
+convention check: parsed F minus campaign REF_energy over 5 frames: +0.208140 eV (spread 7.90e-06)
+
+Tel 4600 K  (hcp 8, liquid 9 frames)
+  uniform offset +11.77 meV/atom (does not affect Tm)
+  (1) |liquid - hcp| 0.13 +- 1.04 < 2.2 meV/atom (= +2 K)        : pass
+  (2) energy RMSE after offset 2.07 < 5.0 meV/atom : pass
+  (3) force RMSE 110.9 < 110 meV/A                 : FAIL
+
+Tel 6500 K  (hcp 10, liquid 9 frames)
+  uniform offset -11.26 meV/atom (does not affect Tm)
+  (1) |liquid - hcp| 0.54 +- 0.95 < 2.2 meV/atom (= +7 K)        : pass
+  (2) energy RMSE after offset 1.92 < 5.0 meV/atom : pass
+  (3) force RMSE 79.3 < 110 meV/A                 : pass
+
+SPOT CHECK VERDICT: FAIL
+
+===== PART 2: SAME-FRAME CHECK =====
+python: can't open file '/home/shug7909/fe_melt/tel_diff_check.py': [Errno 2] No such file or directory

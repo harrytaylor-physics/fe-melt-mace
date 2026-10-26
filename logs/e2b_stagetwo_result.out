@@ -1,0 +1,35 @@
+=============================================================================
+This module includes execution of the conda shell function.
+There is no need to run conda init. For more details, see:
+https://arc-software-guide.readthedocs.io/en/latest/python/anaconda_venv.html
+=============================================================================
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+  warnings.warn(
+  warnings.warn(
+  warnings.warn(
+  torch.load(f=model_path, map_location=device)
+  warnings.warn(
+  warnings.warn(
+  warnings.warn(
+WARNING:root:Default dtype float64 does not match model dtype float32, converting models to float64.
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  a.shape = (-1,) + shape
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  a.shape = (-1,) + shape
+model                         bcc        fcc        hcp     liquid stackfault        ALL
+Tel-model @6000 (E2)         88.0       69.8       82.3      130.1       85.7      103.3
+specialist Tel6000           66.8       49.2       71.4      124.4       72.9       94.4
+mean(4000,8000)              66.6       52.2       72.0      119.2       73.5       92.2
+
+ENERGY (meV/atom). liq-hcp = liquid mean error minus hcp mean error;
+first-order Tm bias = (liq-hcp) / dS_m with dS_m = 0.84 kB
+model                    rmse  offset rmse-off       liq-hcp  Tm bias
+Tel-model @6000 (E2)    73.73  -70.21    22.51  +0.73+-4.45     +10 K
+specialist Tel6000       8.21   +7.59     3.13  +4.28+-0.56     +59 K
+mean(4000,8000)         49.54  -49.13     6.34  +7.36+-1.13    +102 K
+
+A17 criteria:
+  (1) offset-removed energy RMSE 22.51 < 4.74 meV/atom : FAIL
+  (2) |liq-hcp| 0.73 < 5.82 meV/atom                : pass
+  (3) force RMSE 103.3 < 103.9 meV/A                    : pass
+E2 VERDICT: FAIL

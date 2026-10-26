@@ -1,0 +1,48 @@
+=============================================================================
+This module includes execution of the conda shell function.
+There is no need to run conda init. For more details, see:
+https://arc-software-guide.readthedocs.io/en/latest/python/anaconda_venv.html
+=============================================================================
+NVIDIA L40S, 46068 MiB
+task 11 -> coex_fcc_100GPa tinit=1.08 seed=1 elec_temp=3715
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[coex] elec_temp = 3715 K
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/shug7909/tel-mace-src/mace/calculators/mace.py:266: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/tel-mace-src/mace/modules/models.py:87: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+[coex] resumed coex_fcc_100GPa_ti1.08_s1 at 24 ps
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/ase/md/md.py:128: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  self.masses.shape = (-1, 1)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/ase/atoms.py:432: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  a.shape = (-1,) + shape
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/ase/atoms.py:432: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  a.shape = (-1,) + shape
+    25 ps  T=  3980 K  P=  87.6 GPa  solid_frac=0.10
+    30 ps  T=  3913 K  P=  88.0 GPa  solid_frac=0.08
+    35 ps  T=  3897 K  P=  88.0 GPa  solid_frac=0.06
+    40 ps  T=  3836 K  P=  88.3 GPa  solid_frac=0.00
+    45 ps  T=  3858 K  P=  88.3 GPa  solid_frac=0.00
+    50 ps  T=  3857 K  P=  88.2 GPa  solid_frac=0.00
+    55 ps  T=  3850 K  P=  88.3 GPa  solid_frac=0.00
+    60 ps  T=  3820 K  P=  88.5 GPa  solid_frac=0.00
+/home/shug7909/fe_melt/phaseE_coex_tel.py:118: ResourceWarning: unclosed file <_io.TextIOWrapper name='phaseE/runs_tel/coex_fcc_100GPa_ti1.08_s1.json' mode='w' encoding='UTF-8'>
+  json.dump(dict(tag=meta["tag"], run=tag, elec_temp=a.elec_temp, status="complete", seed=a.seed,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+[coex] MELTED: T=3860(7) K  P=88.2(0.0) GPa

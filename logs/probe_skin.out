@@ -1,0 +1,8 @@
+=============================================================================
+This module includes execution of the conda shell function.
+There is no need to run conda init. For more details, see:
+https://arc-software-guide.readthedocs.io/en/latest/python/anaconda_venv.html
+=============================================================================
+skin 0.0: peak 21.6 GiB  NVIDIA L40S
+skin 0.3: peak 24.2 GiB  NVIDIA L40S
+skin 0.5: peak 26.1 GiB  NVIDIA L40S

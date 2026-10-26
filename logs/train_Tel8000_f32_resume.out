@@ -1,0 +1,169 @@
+/home/shug7909/.local/lib/python3.13/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+2026-09-21 20:24:09.494 INFO: ===========VERIFYING SETTINGS===========
+2026-09-21 20:24:09.495 INFO: MACE version: 0.3.16
+2026-09-21 20:24:09.639 INFO: CUDA version: 12.6, CUDA device: 0
+/home/shug7909/.local/lib/python3.13/site-packages/mace/cli/run_train.py:181: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  model_foundation = torch.load(
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+2026-09-21 20:24:11.129 INFO: Using foundation model /home/shug7909/fe_melt/MACE-matpes-pbe-omat-ft.model as initial checkpoint.
+2026-09-21 20:24:11.134 INFO: ===========LOADING INPUT DATA===========
+2026-09-21 20:24:11.134 INFO: Using heads: ['Default']
+2026-09-21 20:24:11.134 INFO: Using the key specifications to parse data:
+2026-09-21 20:24:11.134 INFO: Default: KeySpecification(info_keys={'energy': 'REF_energy', 'stress': 'REF_stress', 'virials': 'REF_virials', 'dipole': 'dipole', 'head': 'head', 'elec_temp': 'elec_temp', 'total_charge': 'total_charge', 'polarizability': 'polarizability', 'total_spin': 'total_spin'}, arrays_keys={'forces': 'REF_forces', 'charges': 'REF_charges'})
+2026-09-21 20:24:11.134 INFO: =============    Processing head Default     ===========
+2026-09-21 20:24:12.981 INFO: Training set 1/1 [energy: 2218, stress: 0, virials: 0, dipole components: 0, head: 2218, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 2218, charges: 0]
+2026-09-21 20:24:12.990 INFO: Total Training set [energy: 2218, stress: 0, virials: 0, dipole components: 0, head: 2218, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 2218, charges: 0]
+2026-09-21 20:24:12.990 INFO: No validation set provided, splitting training data instead.
+2026-09-21 20:24:12.993 INFO: Using random 5% of training set for validation with indices saved in: ./fe_ft_Tel8000_f32_valid_indices_7.txt
+2026-09-21 20:24:13.003 INFO: Random Split Training set [energy: 2108, stress: 0, virials: 0, dipole components: 0, head: 2108, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 2108, charges: 0]
+2026-09-21 20:24:13.004 INFO: Random Split Validation set [energy: 110, stress: 0, virials: 0, dipole components: 0, head: 110, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 110, charges: 0]
+2026-09-21 20:24:13.004 INFO: Total number of configurations: train=2108, valid=110, tests=[],
+2026-09-21 20:24:13.038 INFO: Atomic Numbers used: [np.int64(26)]
+2026-09-21 20:24:13.039 INFO: Isolated Atomic Energies (E0s) not in training file, using command line argument
+2026-09-21 20:24:13.039 INFO: Computing average Atomic Energies using least squares regression
+2026-09-21 20:24:13.109 INFO: Atomic Energies used (z: eV) for head Default: {26: -4478.320382724408}
+2026-09-21 20:24:13.109 INFO: Processing datasets for head 'Default'
+2026-09-21 20:24:28.044 INFO: Combining 1 list datasets for head 'Default'
+2026-09-21 20:24:28.821 INFO: Head 'Default' training dataset size: 2108
+2026-09-21 20:24:28.822 INFO: Computing average number of neighbors
+2026-09-21 20:24:30.953 WARNING: Unusual average number of neighbors: 123.1
+2026-09-21 20:24:30.953 INFO: During training the following quantities will be reported: energy, forces
+2026-09-21 20:24:30.953 INFO: ===========MODEL DETAILS===========
+2026-09-21 20:24:32.652 INFO: Loading FOUNDATION model
+2026-09-21 20:24:32.653 INFO: Using filtered elements: [np.int64(26)]
+2026-09-21 20:24:32.654 INFO: Model configuration extracted from foundation model
+2026-09-21 20:24:32.654 INFO: Using weighted loss function for fine-tuning
+2026-09-21 20:24:32.654 INFO: Message passing with hidden irreps 128x0e+128x1o)
+2026-09-21 20:24:32.654 INFO: 2 layers, each with correlation order: 3 (body order: 4) and spherical harmonics up to: l=3
+2026-09-21 20:24:32.654 INFO: Radial cutoff: 6.0 A (total receptive field for each atom: 12.0 A)
+2026-09-21 20:24:32.654 INFO: Distance transform for radial basis functions: Agnesi
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+2026-09-21 20:24:34.116 INFO: ===========OPTIMIZER INFORMATION===========
+2026-09-21 20:24:34.116 INFO: Using ADAM as parameter optimizer
+2026-09-21 20:24:34.116 INFO: Batch size: 4
+2026-09-21 20:24:34.116 INFO: Using Exponential Moving Average with decay: 0.999
+2026-09-21 20:24:34.117 INFO: Number of gradient updates: 79050
+2026-09-21 20:24:34.117 INFO: Learning rate: 0.0001, weight decay: 5e-07
+2026-09-21 20:24:34.117 INFO: WeightedEnergyForcesLoss(energy_weight=1.000, forces_weight=100.000)
+2026-09-21 20:24:34.117 INFO: === Layer's learning rates ===
+2026-09-21 20:24:34.118 INFO: Param group 0: lr = 0.0001
+2026-09-21 20:24:34.118 INFO: Param group 1: lr = 0.0001
+2026-09-21 20:24:34.118 INFO: Param group 2: lr = 0.0001
+2026-09-21 20:24:34.118 INFO: Param group 3: lr = 0.0001
+2026-09-21 20:24:34.118 INFO: Param group 4: lr = 0.0001
+2026-09-21 20:24:34.122 WARNING: No SWA checkpoint found, while SWA is enabled. Compare the swa_start parameter and the latest checkpoint.
+2026-09-21 20:24:34.122 INFO: Loading checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-135.pt
+/home/shug7909/.local/lib/python3.13/site-packages/mace/tools/checkpoint.py:187: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=checkpoint_info.path, map_location=device),
+2026-09-21 20:24:34.479 INFO: Using gradient clipping with tolerance=10.000
+2026-09-21 20:24:34.479 INFO: 
+2026-09-21 20:24:34.479 INFO: ===========TRAINING===========
+2026-09-21 20:24:34.479 INFO: Started training, reporting errors on validation set
+2026-09-21 20:24:34.479 INFO: Loss metrics on validation set
+2026-09-21 20:24:44.445 INFO: Initial: head: Default, loss=0.06953683, RMSE_E_per_atom=    3.66 meV, RMSE_F=   74.02 meV / A
+2026-09-21 20:30:09.568 INFO: Epoch 135: head: Default, loss=0.06954055, RMSE_E_per_atom=    3.54 meV, RMSE_F=   74.02 meV / A
+2026-09-21 20:35:31.107 INFO: Epoch 136: head: Default, loss=0.06937653, RMSE_E_per_atom=    4.10 meV, RMSE_F=   73.94 meV / A
+2026-09-21 20:40:52.553 INFO: Epoch 137: head: Default, loss=0.06930409, RMSE_E_per_atom=    3.62 meV, RMSE_F=   73.90 meV / A
+2026-09-21 20:46:14.082 INFO: Epoch 138: head: Default, loss=0.06922796, RMSE_E_per_atom=    3.59 meV, RMSE_F=   73.86 meV / A
+2026-09-21 20:51:35.537 INFO: Epoch 139: head: Default, loss=0.06911758, RMSE_E_per_atom=    3.55 meV, RMSE_F=   73.80 meV / A
+2026-09-21 20:56:57.073 INFO: Epoch 140: head: Default, loss=0.06903490, RMSE_E_per_atom=    3.47 meV, RMSE_F=   73.76 meV / A
+2026-09-21 21:02:18.635 INFO: Epoch 141: head: Default, loss=0.06897360, RMSE_E_per_atom=    3.55 meV, RMSE_F=   73.72 meV / A
+2026-09-21 21:07:40.039 INFO: Epoch 142: head: Default, loss=0.06890108, RMSE_E_per_atom=    3.44 meV, RMSE_F=   73.68 meV / A
+2026-09-21 21:13:01.497 INFO: Epoch 143: head: Default, loss=0.06881008, RMSE_E_per_atom=    3.58 meV, RMSE_F=   73.64 meV / A
+2026-09-21 21:18:23.030 INFO: Epoch 144: head: Default, loss=0.06870314, RMSE_E_per_atom=    3.61 meV, RMSE_F=   73.58 meV / A
+2026-09-21 21:23:44.415 INFO: Epoch 145: head: Default, loss=0.06858135, RMSE_E_per_atom=    3.45 meV, RMSE_F=   73.51 meV / A
+2026-09-21 21:29:05.965 INFO: Epoch 146: head: Default, loss=0.06850827, RMSE_E_per_atom=    3.31 meV, RMSE_F=   73.47 meV / A
+2026-09-21 21:34:27.372 INFO: Epoch 147: head: Default, loss=0.06845516, RMSE_E_per_atom=    3.40 meV, RMSE_F=   73.44 meV / A
+2026-09-21 21:39:48.714 INFO: Epoch 148: head: Default, loss=0.06836585, RMSE_E_per_atom=    3.42 meV, RMSE_F=   73.40 meV / A
+2026-09-21 21:45:09.896 INFO: Epoch 149: head: Default, loss=0.06829767, RMSE_E_per_atom=    3.40 meV, RMSE_F=   73.36 meV / A
+2026-09-21 21:45:09.967 INFO: Training complete
+2026-09-21 21:45:09.968 INFO: 
+2026-09-21 21:45:09.968 INFO: ===========RESULTS===========
+2026-09-21 21:45:09.972 INFO: Loading checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-149.pt
+2026-09-21 21:45:10.014 INFO: Loaded Stage one model from epoch 149 for evaluation
+2026-09-21 21:45:10.014 INFO: Saving model to phaseD/models/fe_ft_Tel8000_f32_run-7.model
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:89: DeprecationWarning: `torch.jit.save` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+2026-09-21 21:45:10.229 INFO: Compiling model, saving metadata to phaseD/models/fe_ft_Tel8000_f32_compiled.model
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_trace.py:1145: DeprecationWarning: `torch.jit.trace_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+2026-09-21 21:45:11.089 INFO: Computing metrics for training, validation, and test sets
+2026-09-21 21:45:11.090 INFO: Skipping evaluation for heads: ['pt_head']
+2026-09-21 21:45:11.091 INFO: Evaluating train_Default ...
+2026-09-21 21:46:58.807 INFO: Evaluating valid_Default ...
+2026-09-21 21:47:04.132 INFO: Error-table on TRAIN and VALID:
++---------------+---------------------+------------------+-------------------+
+|  config_type  | RMSE E / meV / atom | RMSE F / meV / A | relative F RMSE % |
++---------------+---------------------+------------------+-------------------+
+| train_Default |            3.2      |         67.9     |          1.60     |
+| valid_Default |            3.4      |         73.4     |          1.68     |
++---------------+---------------------+------------------+-------------------+
+/home/shug7909/.local/lib/python3.13/site-packages/mace/cli/visualise_train.py:281: MatplotlibDeprecationWarning: Passing label as a length 2 sequence when plotting a single dataset is deprecated in Matplotlib 3.9 and will error in 3.11.  To keep the current behavior, cast the sequence to string before passing.
+  main_ax.plot(
+2026-09-21 21:49:16.922 INFO: Done
+training done: phaseD/models/fe_ft_Tel8000.model

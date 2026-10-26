@@ -1,0 +1,132 @@
+=============================================================================
+This module includes execution of the conda shell function.
+There is no need to run conda init. For more details, see:
+https://arc-software-guide.readthedocs.io/en/latest/python/anaconda_venv.html
+=============================================================================
+NVIDIA A100-PCIE-40GB, 40960 MiB
+task 16 -> coex_hcp_150GPa tinit=1.08 seed=0
+/home/shug7909/.local/lib/python3.13/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/mace/calculators/mace.py:226: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/mace/modules/models.py:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+[coex] resumed coex_hcp_150GPa_ti1.08_s0 at 10 ps
+Traceback (most recent call last):
+  File "/home/shug7909/fe_melt/phaseE_coex.py", line 121, in <module>
+    main()
+    ~~~~^^
+  File "/home/shug7909/fe_melt/phaseE_coex.py", line 83, in main
+    dyn.run(500)                                   # 1 ps
+    ~~~~~~~^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/ase/md/md.py", line 196, in run
+    for converged in self.irun(steps=steps):
+                     ~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/ase/md/md.py", line 163, in irun
+    self.atoms.get_forces()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/ase/atoms.py", line 2008, in get_forces
+    forces = self._calc.get_forces(self)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/ase/calculators/abc.py", line 33, in get_forces
+    return self.get_property('forces', atoms)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/ase/calculators/calculator.py", line 520, in get_property
+    self.calculate(atoms, [name], system_changes)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/calculators/mace.py", line 635, in calculate
+    out = model(
+        batch_dict,
+    ...<3 lines>...
+        compute_atomic_stresses=self.compute_atomic_stresses,
+    )
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/modules/models.py", line 583, in forward
+    forces, virials, stress, hessian, edge_forces = get_outputs(
+                                                    ~~~~~~~~~~~^
+        energy=inter_e,
+        ^^^^^^^^^^^^^^^
+    ...<9 lines>...
+        compute_edge_forces=compute_edge_forces or compute_atomic_stresses,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/modules/utils.py", line 187, in get_outputs
+    forces, virials, stress = compute_forces_virials(
+                              ~~~~~~~~~~~~~~~~~~~~~~^
+        energy=energy,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        training=(training or compute_hessian or compute_edge_forces),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/modules/utils.py", line 50, in compute_forces_virials
+    forces, virials = torch.autograd.grad(
+                      ~~~~~~~~~~~~~~~~~~~^
+        outputs=[energy],  # [n_graphs, ]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        allow_unused=True,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/autograd/__init__.py", line 530, in grad
+    result = _engine_run_backward(
+        outputs,
+    ...<5 lines>...
+        accumulate_grad=False,
+    )
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/autograd/graph.py", line 882, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        t_outputs, *args, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )  # Calls into the C++ engine to run the backward pass
+    ^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/autograd/function.py", line 317, in apply
+    return user_fn(self, *args)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/_library/autograd.py", line 182, in new_backward
+    grad_inputs = orig_backward(ctx, *grads)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/_library/autograd.py", line 78, in backward
+    result = info._backward_fn(ctx, *grads)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/cuequivariance_ops_torch/uniform_1d.py", line 381, in _do_bwd_jit
+    bwd_output = torch.ops.cuequivariance.uniform_1d(
+        bwd_name,
+    ...<19 lines>...
+        bwd_tensors,
+    )
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/_ops.py", line 1275, in __call__
+    return self._op(*args, **kwargs)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/_library/autograd.py", line 112, in autograd_impl
+    result = forward_no_grad(*args, Metadata(keyset, keyword_only_args))
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/_library/autograd.py", line 41, in forward_no_grad
+    result = op.redispatch(keyset & _C._after_autograd_keyset, *args, **kwargs)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/_ops.py", line 878, in redispatch
+    return self._handle.redispatch_boxed(keyset, *args, **kwargs)  # type: ignore[return-value]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/_library/custom_ops.py", line 375, in backend_impl
+    result = self._backend_fns[device_type](*args, **kwargs)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/_compile.py", line 54, in inner
+    return disable_fn(*args, **kwargs)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/_dynamo/eval_frame.py", line 1298, in _fn
+    return fn(*args, **kwargs)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/_library/custom_ops.py", line 410, in wrapped_fn
+    return fn(*args, **kwargs)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/cuequivariance_ops_torch/uniform_1d.py", line 131, in _
+    torch.empty((size_0, size_1), dtype=dtype, device=tensors[0].device)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 14.98 GiB. GPU 0 has a total capacity of 39.49 GiB of which 11.30 GiB is free. Including non-PyTorch memory, this process has 28.18 GiB memory in use. Of the allocated memory 27.58 GiB is allocated by PyTorch, and 110.48 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+ERROR rc=1 for task 16

@@ -1,0 +1,40 @@
+=============================================================================
+This module includes execution of the conda shell function.
+There is no need to run conda init. For more details, see:
+https://arc-software-guide.readthedocs.io/en/latest/python/anaconda_venv.html
+=============================================================================
+===== PART 1: SPOT CHECK =====
+convention check: parsed F minus campaign REF_energy over 5 frames: +0.208140 eV (spread 7.90e-06)
+
+Tel 4600 K  (hcp 10, liquid 10 frames)
+  uniform offset +11.87 meV/atom (does not affect Tm)
+  (1) |liquid - hcp| 0.16 +- 0.94 < 2.2 meV/atom (= +2 K)        : pass
+  (2) energy RMSE after offset 2.00 < 5.0 meV/atom : pass
+  (3) force RMSE 110.3 < 110 meV/A                 : FAIL
+
+Tel 6500 K  (hcp 10, liquid 10 frames)
+  uniform offset -11.08 meV/atom (does not affect Tm)
+  (1) |liquid - hcp| 0.88 +- 0.94 < 2.2 meV/atom (= +12 K)        : pass
+  (2) energy RMSE after offset 2.03 < 5.0 meV/atom : pass
+  (3) force RMSE 81.8 < 110 meV/A                 : pass
+
+SPOT CHECK VERDICT: FAIL
+
+===== PART 2: SAME-FRAME CHECK =====
+  cells = json.load(open("phaseE/analysis_live_all.json"))["cells"]
+frames labelled at all three Tels: 2009
+
+Tel model phaseD/models/fe_tel_e3_stagetwo.model
+per-frame error of dU (model - DFT), meV/atom:
+  Tel 4000: mean  +1.29  rmse after mean  0.71   per phase: bcc  +1.67  fcc  +0.34  hcp  +1.25  liquid  +1.55  stackfault  +1.07
+  Tel 8000: mean  +0.63  rmse after mean  0.89   per phase: bcc  +0.69  fcc  +1.17  hcp  +0.43  liquid  +0.70  stackfault  +0.52
+
+liquid-minus-hcp of dU, same frames, +/-25 GPa bins (meV/atom; K at dS = 0.84 kB)
+cell     n_h  n_l |      DFT 4000    model 4000 |      DFT 8000    model 8000
+ 100GPa  109  102 |   -5.07+-0.72   -4.73+-0.72 |  +13.39+-0.67  +13.76+-0.71
+ 150GPa  122  108 |   -4.22+-0.40   -4.17+-0.39 |  +11.68+-0.35  +11.78+-0.35
+ 200GPa  195    0 | too few frames of one phase
+ 250GPa  105  232 |  +13.27+-0.75  +13.77+-0.75 |   -9.58+-0.73   -9.81+-0.73
+ 300GPa    0  116 | too few frames of one phase
+ 330GPa  117  116 |  +18.04+-0.72  +18.42+-0.73 |  -15.76+-0.71  -15.63+-0.71
+ 350GPa  117    0 | too few frames of one phase
