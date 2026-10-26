@@ -23,5 +23,5 @@ for ax, (title, seq, band) in zip(axes, panels):
 axes[0].text(4.75, 3.5 * 0.62, "ABAB…", fontsize=11, va="center")
 axes[2].text(4.75, 3.5 * 0.62, "ABCABC…", fontsize=11, va="center")
 fig.text(0.5, 0.01, "Close-packed layers viewed edge-on; A, B, C are the three possible lateral positions of a layer.", ha="center", fontsize=10.5, color=MUTED)
-fig.savefig(FIG + "f_stacking.png"); plt.close(fig)
+save(fig, "f_stacking")
 print("ok")

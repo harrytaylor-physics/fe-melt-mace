@@ -4,7 +4,7 @@ sys.path.insert(0, '.')
 from figstyle import *
 import numpy as np
 from matplotlib.colors import LogNorm
-z = np.load(sys.argv[1], allow_pickle=True)
+z = np.load(sys.argv[1] if len(sys.argv) > 1 else layout.PARITY, allow_pickle=True)
 Fr, Fm, fph, ftel = z["F_ref"], z["F_mod"], z["f_phase"], z["f_tel"]
 Er, Em, eph, etel = z["E_ref"], z["E_mod"], z["e_phase"], z["e_tel"]
 x = Fr.ravel(); y = Fm.ravel()
@@ -25,7 +25,7 @@ for tel, c in ((4000, THEORY), (6000, EXPT), (8000, OURS)):
     a2.hist(d, bins=bins, histtype="step", lw=2, color=c, density=True, label=f"T_el = {tel:,} K\nRMSE {rm(Fm[s], Fr[s]):.0f} meV/Å")
 a2.set_xlabel("MACE − DFT, force component (eV/Å)"); a2.set_ylabel("probability density (Å/eV)")
 a2.legend(fontsize=10, loc="upper left", framealpha=1, edgecolor="#D0D4D9"); a2.set_xlim(-0.6, 0.6); a2.set_ylim(0, 10)
-fig.tight_layout(); fig.savefig(FIG + "f_parity.png"); plt.close(fig)
+fig.tight_layout(); save(fig, "f_parity")
 # per-phase table
 rows = []
 for ph in ["hcp", "liquid", "stackfault", "fcc", "bcc", "all"]:

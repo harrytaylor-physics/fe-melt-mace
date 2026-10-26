@@ -35,7 +35,7 @@ ax.text(1050, -1500, "At the ICB solid and liquid iron alloy\nare in contact, so
         va="top", fontsize=12, color=INK, linespacing=1.3)
 ax.text(1050, -6100, f"Radii and pressures: PREM {r('PREM')}", fontsize=10.5, color=MUTED)
 ax.set_xlim(-6600, 6400); ax.set_ylim(-6500, 6600); clean(ax)
-fig.savefig(FIG + "f_earth.png"); plt.close(fig)
+save(fig, "f_earth")
 
 # ---------------- 2. Fermi-Dirac occupation at the three T_el ----------------
 kB = 8.617333e-5
@@ -49,7 +49,7 @@ ax.set_xlim(-3, 3); ax.set_ylim(-0.03, 1.05)
 ax.legend(loc="upper right", fontsize=10, framealpha=1, edgecolor="#D0D4D9")
 ax.text(-2.9, 0.41, r"$f(E) = 1\,/\,[\,e^{(E-\mu)/k_B T_{\rm el}} + 1\,]$", fontsize=12.5, color=INK, va="center")
 ax.text(-2.9, 0.22, "probability that a Kohn–Sham state\nat energy E is occupied;\nμ = chemical potential (Fermi level)", fontsize=10, color=MUTED, va="center", linespacing=1.25)
-fig.savefig(FIG + "f_fermi.png"); plt.close(fig)
+save(fig, "f_fermi")
 
 # ---------------- 3. Free energy vs T: superheating / undercooling ----------------
 fig, ax = plt.subplots(figsize=(7.0, 4.4))
@@ -67,7 +67,7 @@ ax.text(1.33, -0.24, "solid, superheated\n(metastable)", color=THEORY, fontsize=
 ax.text(0.70, 0.74, "liquid, undercooled\n(metastable)", color=OURS, fontsize=10.5)
 ax.set_xlabel("T / T_m"); ax.set_ylabel("Gibbs free energy (arb. units)")
 ax.set_xlim(0.6, 1.5); ax.set_ylim(-1.0, 1.0); ax.set_yticks([]); ax.grid(False)
-fig.savefig(FIG + "f_hysteresis.png"); plt.close(fig)
+save(fig, "f_hysteresis")
 
 # ---------------- 4. Stress in the slab: P_n vs P_mean ----------------
 fig, ax = plt.subplots(figsize=(9.4, 3.9))
@@ -99,7 +99,7 @@ ax.annotate("", xy=(L, -0.45), xytext=(0, -0.45), arrowprops=dict(arrowstyle="-|
 ax.text(5.0, -0.85, "z (interface normal, 145 Å)", ha="center", fontsize=11, color=MUTED)
 ax.text(10.75, 1.5, "x, y\n(25.9 Å)", va="center", fontsize=11, color=MUTED)
 ax.set_xlim(-0.2, 12.0); ax.set_ylim(-1.1, 3.3); clean(ax)
-fig.savefig(FIG + "f_slab.png"); plt.close(fig)
+save(fig, "f_slab")
 
 # ---------------- 5. MACE neighbourhood ----------------
 rng = np.random.default_rng(3)
@@ -130,7 +130,7 @@ ax.annotate("neighbours inside r_c", xy=(1.0, -1.75), xytext=(3.6, -1.6), color=
 ax.annotate("cutoff sphere, radius r_c", xy=(rc * np.cos(0.55), rc * np.sin(0.55)), xytext=(3.6, 0.9), color=THEORY, arrowprops=ln, **lab)
 ax.annotate("atoms outside r_c\n(reached via message passing)", xy=(2.75, -2.55), xytext=(3.6, -2.6), color=MUTED, arrowprops=ln, **lab)
 ax.set_xlim(-3.3, 8.6); ax.set_ylim(-3.1, 3.1); clean(ax)
-fig.savefig(FIG + "f_mace_nbhd.png"); plt.close(fig)
+save(fig, "f_mace_nbhd")
 
 # ---------------- 6. Diamond-anvil cell ----------------
 fig, ax = plt.subplots(figsize=(5.6, 4.6))
@@ -153,7 +153,7 @@ ax.text(2.0, 1.2, "diamond", fontsize=11, color="#4E627C")
 ax.text(2.7, -0.0, "gasket", fontsize=11, color=MUTED, va="center")
 ax.text(0.45, -0.55, "Fe sample", fontsize=11, color=OURS)
 ax.set_xlim(-3.3, 4.6); ax.set_ylim(-3.2, 4.0); clean(ax)
-fig.savefig(FIG + "f_ap_dac.png"); plt.close(fig)
+save(fig, "f_ap_dac")
 
 # ---------------- 7. Dynamic (shock / ramp) compression ----------------
 fig, ax = plt.subplots(figsize=(6.4, 4.2))
@@ -176,12 +176,12 @@ ax.text(1.95, 1.62, "shock\nfront", fontsize=10, va="bottom", color=INK)
 ax.text(4.5, 2.45, "velocimetry (VISAR)\n→ pressure", fontsize=10.5, color=EXPT, va="bottom")
 ax.text(3.95, 3.95, "X-ray probe\n→ XRD / XAS", fontsize=10.5, color=BEYOND, va="top", ha="left")
 ax.set_xlim(-1.6, 6.6); ax.set_ylim(-1.0, 4.2); clean(ax)
-fig.savefig(FIG + "f_ap_shock.png"); plt.close(fig)
+save(fig, "f_ap_shock")
 
 # ---------------- 8. Cell sizes at the same scale ----------------
 from ase.io import read
 at = read(DATA + "cells/coex_hcp_330GPa.extxyz")
-q = np.load("q6_330.npy"); assert len(q) == len(at)
+q = np.load(FIG + "q6_330.npy"); assert len(q) == len(at)   # written by figs_coex.py
 at.wrap()
 P = at.get_positions(); F = at.get_scaled_positions(); Lz = at.cell[2, 2]; Hy = at.cell[1, 1]
 vat = at.get_volume() / len(at)
@@ -201,5 +201,5 @@ ax.plot([Lz - 20, Lz], [Hy + 3, Hy + 3], color=INK, lw=2)
 ax.text(Lz - 10, Hy + 4.2, "20 Å", ha="center", va="bottom", fontsize=10.5)
 Lc = [0, 0, Lz]; nax = 2; oth = 1
 ax.set_xlim(x + 2, Lz + 2); ax.set_ylim(-11, Hy + 10); clean(ax)
-fig.savefig(FIG + "f_scale.png"); plt.close(fig)
+save(fig, "f_scale")
 print("done; vat", vat)

@@ -25,7 +25,11 @@ Run (login node): python3.13 compare_curves.py
 import json, os
 import numpy as np
 
-A6, AT = "phaseE/analysis_live_all.json", "phaseE/analysis_live_all_runs_tel.json"
+import sys
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
+import layout  # noqa: E402
+
+A6, AT = layout.ANALYSIS_T6000, layout.ANALYSIS_TEL
 SECOND_ROUND_K = 15.0
 P_REF = 100.0
 
@@ -121,7 +125,7 @@ def main():
             ax.errorbar(P, T, yerr=e or 0, fmt="D", ms=4, capsize=2, label=key)
         ax.set_xlabel("P (GPa)"); ax.set_ylabel("T$_m$ (K)")
         ax.legend(fontsize=6, loc="lower right")
-        fig.tight_layout(); fig.savefig("phaseE/compare_curves.png", dpi=200)
+        fig.tight_layout(); fig.savefig(os.path.join(layout.FIGURES, "compare_curves.png"), dpi=200)
         print("\nwritten phaseE/compare_curves.png")
     except Exception as e:
         print(f"plot skipped: {e}")

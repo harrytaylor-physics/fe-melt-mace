@@ -35,7 +35,7 @@ ax.plot([], [], "*", color=OURS, ms=13, label="this work (PBE, MACE)")
 ax.legend(loc="lower left", bbox_to_anchor=(0.25, 0.0), fontsize=10.5, framealpha=1, edgecolor="#D0D4D9")
 ax.set_xlim(1990, 2037); ax.set_ylim(4400, 7600); ax.set_xticks(range(1990, 2030, 5))
 ax.set_xlabel("Year of publication"); ax.set_ylabel("T_m of iron at the ICB (K)")
-fig.savefig(FIG + "f_timeline.png"); plt.close(fig)
+save(fig, "f_timeline")
 
 # ---- uncertainty budget at 330 GPa ----
 items = [("Statistics: 6 runs, 100 ps windows", 13, "±"), ("Potential vs DFT, liquid − hcp\n(40 unseen test structures)", 13, "±"),
@@ -55,5 +55,5 @@ ax.set_yticks(y, [i[0] for i in items], fontsize=11.5); ax.set_xlim(-32, 40); ax
 ax.grid(axis="y", visible=False)
 q = np.sqrt(13**2 + 13**2 + 6**2 + 17**2)
 ax.set_title(f"Quadrature sum of the ± terms: ± {q:.0f} K.  Finite size: not yet measured.", fontsize=12)
-fig.savefig(FIG + "f_budget.png"); plt.close(fig)
+save(fig, "f_budget")
 print("quad", q)

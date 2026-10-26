@@ -34,7 +34,7 @@ a1.text(198, 6130, "solid line: seed 0;  dashed line: seed 1", ha="right", fonts
 a2.set_ylabel("Solid fraction\n(q̄6 > 0.142)")
 a2.set_xlabel("Time (ps)"); a2.set_xlim(0, 200); a2.set_ylim(0.4, 1.0)
 a2.axvspan(100, 200, color="#F1F2F4", zorder=0)
-fig.savefig(FIG + "f_330_runs.png"); plt.close(fig)
+save(fig, "f_330_runs")
 
 # ---------- F2: temperature extraction, one run ----------
 d = load("coex_hcp_330GPa_ti1.00_s0"); T = d["T"]; N = d["N"]
@@ -59,7 +59,7 @@ yy = np.linspace(w.min() - 60, w.max() + 60, 200)
 axh.plot(len(w) * bw * np.exp(-(yy - Tm) ** 2 / (2 * sig_can ** 2)) / (sig_can * np.sqrt(2 * np.pi)), yy, color=OURS, lw=1.8)
 axh.set_xlabel("count"); plt.setp(axh.get_yticklabels(), visible=False); axh.grid(False)
 axh.text(0.98, 0.02, f"σ measured {w.std(ddof=1):.0f} K\nσ canonical {sig_can:.0f} K", transform=axh.transAxes, ha="right", va="bottom", fontsize=10.5, color=MUTED)
-fig.savefig(FIG + "f_T_extract.png"); plt.close(fig)
+save(fig, "f_T_extract")
 json.dump(dict(Tm=float(Tm), sem=float(sem), sig_meas=float(w.std(ddof=1)), sig_can=float(sig_can), bm=[float(x) for x in bm], N=int(N)),
           open(FIG + "f_T_extract.json", "w"), indent=1)
 
@@ -69,7 +69,9 @@ at = read(DATA + "cells/coex_hcp_330GPa.extxyz")
 z = np.load(R + "coex_hcp_330GPa_ti1.00_s0_ckpt.npz", allow_pickle=True)
 at.set_cell(z["cell"]); at.set_positions(z["positions"]); at.pbc = True
 at.wrap()
-q = np.load("q6_330.npy") if os.path.exists("q6_330.npy") else q6_per_atom(at)
+Q6 = FIG + "q6_330.npy"                # cache, not committed
+q = np.load(Q6) if os.path.exists(Q6) else q6_per_atom(at)
+np.save(Q6, q)
 pos = at.get_positions(); L = at.cell.lengths()
 fig = plt.figure(figsize=(12.0, 4.6))
 gs = fig.add_gridspec(2, 2, height_ratios=[3.2, 0.9], width_ratios=[40, 0.8], hspace=0.08, wspace=0.03)
@@ -83,7 +85,7 @@ zb = np.linspace(0, L[2], 61); zc = 0.5 * (zb[1:] + zb[:-1])
 fs = [np.mean(q[(pos[:, 2] >= zb[k]) & (pos[:, 2] < zb[k + 1])] > 0.1421) for k in range(60)]
 ax2.plot(zc, fs, color=OURS, lw=1.8); ax2.set_ylim(-0.1, 1.1); ax2.set_ylabel("solid\nfraction", fontsize=10.5)
 ax2.set_yticks([0, 1]); ax2.set_xlabel("z, normal to the interfaces (Å)")
-fig.savefig(FIG + "f_cell_q6.png"); plt.close(fig)
+save(fig, "f_cell_q6")
 json.dump(dict(L=[float(x) for x in L], frac=float((q > 0.1421).mean()), q_solid=float(np.median(q[q > 0.1421])),
                q_liq=float(np.median(q[q <= 0.1421]))), open(FIG + "f_cell_q6.json", "w"), indent=1)
 
@@ -92,5 +94,5 @@ fig, ax = plt.subplots(figsize=(5.4, 3.8))
 ax.hist(q, bins=70, color="#B9BEC5", edgecolor="white")
 ax.axvline(0.1421, color=OURS, lw=2); ax.text(0.146, ax.get_ylim()[1] * 0.9, "threshold 0.142", color=OURS, fontsize=11)
 ax.set_xlabel("q̄6 per atom"); ax.set_ylabel("atoms"); ax.set_title("330 GPa cell, 12,096 atoms, t = 200 ps", fontsize=12)
-fig.savefig(FIG + "f_q6_hist.png"); plt.close(fig)
+save(fig, "f_q6_hist")
 print("done", Tm, sem, sig_can, w.std(ddof=1))

@@ -28,7 +28,7 @@ ax.text(346.5, 2350, "inner\ncore", ha="center", fontsize=10.5, color=MUTED)
 ax.set_xlabel("Pressure of sampling run (GPa)"); ax.set_ylabel("Ionic temperature of sampling run (K)")
 ax.set_xlim(40, 470); ax.set_ylim(1800, 9800)
 ax.legend(loc="upper left", fontsize=9.5, markerscale=0.8, framealpha=1, edgecolor="#D0D4D9")
-fig.savefig(FIG + "f_coverage.png"); plt.close(fig)
+save(fig, "f_coverage")
 
 # ---- force magnitude distribution by phase ----
 edges = np.linspace(0, 12, 61); mid = 0.5 * (edges[1:] + edges[:-1])
@@ -38,7 +38,7 @@ for ph, c, m in PH:
     ax.plot(mid, h / h.sum() / (edges[1] - edges[0]), color=c, lw=2, label=NAME[ph])
 ax.set_xlabel("|F| per atom, DFT (eV/Å)"); ax.set_ylabel("Probability density (Å/eV)")
 ax.set_xlim(0, 10); ax.legend(fontsize=10)
-fig.savefig(FIG + "f_forces.png"); plt.close(fig)
+save(fig, "f_forces")
 for ph, c, m in PH:
     r = [x for x in rows if x["phase"] == ph]
     print(ph, len(r), "mean|F| %.2f" % np.mean([x["fmean"] for x in r]), "P %.0f-%.0f" % (min(x["P"] for x in r), max(x["P"] for x in r)),
@@ -47,7 +47,7 @@ allF = np.sum([x["fhist"] for x in rows], axis=0); print("overall mean |F| appro
 
 # ---- training curve from the MACE log ----
 ep, E, F = [], [], []
-for l in open("arc/logs/fe_tel_e3_run-7.log"):
+for l in open(layout.TRAIN_LOG):
     m = re.search(r"Epoch (\d+): .*RMSE_E_per_atom=\s*([\d.]+) meV, RMSE_F=\s*([\d.]+)", l)
     if m:
         ep.append(int(m.group(1))); E.append(float(m.group(2))); F.append(float(m.group(3)))
@@ -64,11 +64,11 @@ a1.annotate(f"{E[-1]:.1f} meV/atom", (ep[-1], E[-1]), xytext=(-30, 55), textcoor
             arrowprops=dict(arrowstyle="-", color=GREY, lw=0.8))
 a2.annotate(f"{F[-1]:.1f} meV/Å", (ep[-1], F[-1]), xytext=(-30, 45), textcoords="offset points", ha="right", fontsize=10.5,
             arrowprops=dict(arrowstyle="-", color=GREY, lw=0.8))
-fig.tight_layout(); fig.savefig(FIG + "f_train_curve.png"); plt.close(fig)
+fig.tight_layout(); save(fig, "f_train_curve")
 print("epochs", ep[0], ep[-1], "E", E[0], E[-1], "F", F[0], F[-1], "E@109", d[109])
 
 # ---- same-frame electronic-temperature check (e3_test_final.out) ----
-txt = open("arc/logs/e3_test_final.out").read()
+txt = open(layout.TEL_CHECK_LOG).read()
 rows = re.findall(r"\s(\d+)GPa\s+(\d+)\s+(\d+)\s+\|\s+([+-][\d.]+)\+-([\d.]+)\s+([+-][\d.]+)\+-([\d.]+)\s+\|\s+([+-][\d.]+)\+-([\d.]+)\s+([+-][\d.]+)\+-([\d.]+)", txt)
 lab = [f"{r[0]} GPa" for r in rows]; x = np.arange(len(rows)); w = 0.2
 fig, ax = plt.subplots(figsize=(7.6, 4.2))
@@ -79,6 +79,6 @@ for k, (iv, ie, name, c, _) in enumerate(sets):
 ax.axhline(0, color=INK, lw=0.8)
 ax.set_xticks(x, lab); ax.set_ylabel("Liquid minus hcp of\nF(T_el) − F(6,000 K) (meV/atom)")
 ax.legend(ncol=2, fontsize=10, loc="lower left", framealpha=1, edgecolor="#D0D4D9"); ax.grid(axis="x", visible=False)
-fig.savefig(FIG + "f_tel_check.png"); plt.close(fig)
+save(fig, "f_tel_check")
 json.dump(rows, open(FIG + "tel_check.json", "w"))
 print(rows)

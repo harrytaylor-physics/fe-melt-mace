@@ -22,5 +22,5 @@ a2.plot(r, vp, color=OURS, lw=2.2, ls="--", label="pseudopotential (finite at r 
 a2.axvline(rc, color=GREY, lw=1); a2.text(rc + 0.05, -9.3, "r_c", color=MUTED, fontsize=12)
 a2.set_ylim(-10, 0.5); a2.set_xlabel("r (schematic)"); a2.set_ylabel("potential"); a2.set_yticks([]); a2.set_xticks([])
 a2.legend(fontsize=10.5, loc="lower right")
-fig.tight_layout(); fig.savefig(FIG + "f_paw.png"); plt.close(fig)
+fig.tight_layout(); save(fig, "f_paw")
 print("ok")

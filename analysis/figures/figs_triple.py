@@ -23,5 +23,5 @@ ax.text(78, 3020, "triple point expected\nbelow ~91 GPa", fontsize=10.5, color=M
 ax.set_xlim(45, 160); ax.set_ylim(2900, 4900)
 ax.set_xlabel("Pressure (GPa)"); ax.set_ylabel("Temperature (K)")
 ax.legend(loc="upper left", bbox_to_anchor=(0.0, 0.8), fontsize=9.8, framealpha=1, edgecolor="#D0D4D9")
-fig.savefig(FIG + "f_triple.png"); plt.close(fig)
+save(fig, "f_triple")
 print({P: round(float(simon(P))) for P in (60, 80, 91, 104.3)}, P_f, T_f)
