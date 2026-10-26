@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+slurm-*.out
+# QE scratch, wavefunctions, raw outputs and trajectories never enter the repository
+*.save/
+tmp*/
+wfc*
+labels/*.out
+*.traj
+*.dcd
+*.lammpstrj
+*.nc
+*.pt
