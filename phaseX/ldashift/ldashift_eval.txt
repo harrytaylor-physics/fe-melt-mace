@@ -1,0 +1,27 @@
+LDA - PBE free-energy perturbation at 330 GPa, 6329 K (T_el = T)
+  hcp    n=20  a1 = +59868.49 +- 0.91 meV/atom   a2 = -1.94   a3 = -26.78 meV/atom   P_LDA - P_PBE = -37.2 GPa (PBE static P 317.2 GPa)   V = 6.994 A^3/atom, B = 1130 GPa
+  liquid n=20  a1 = +59865.65 +- 0.75 meV/atom   a2 = -1.32   a3 = -23.64 meV/atom   P_LDA - P_PBE = -36.6 GPa (PBE static P 320.2 GPa)   V = 7.089 A^3/atom, B = 1254 GPa
+
+  liquid - hcp, first order:      -2.84 +- 1.18 meV/atom -> dT_m = -41 +- 17 K
+  liquid - hcp, with a2 and a3:   +0.92 meV/atom -> dT_m(LDA - PBE) = +13 +- 17 K
+  split of the first-order term:  pressure part +21.80 meV/atom (+316 K)  [mean dP -36.9 GPa x dV 0.095 A^3/atom]
+                                  equal-volume structure part -24.64 meV/atom (-357 K)
+  T_m(LDA, 330 GPa) ~ 6,329 +13 = 6,342 K
+
+  Rao & Zhu (LDA+DMFT) - this work (PBE) = -104 K (+- 42 K)
+  of which LDA - PBE (this calculation):  +13 +- 17 K
+  remainder (DMFT + cell size + potential + protocol): -117 +- 46 K
+
+  check: MACE - PBE liquid - hcp energy bias at this state point +1.30 +- 0.38 meV/atom (held-out labels gave +1.0 +- 0.2)
+
+  Potential (MACE) vs PBE on the same snapshots, 330 GPa, 6329 K
+    hcp    n=20  P_MACE - P_PBE = +0.32 +- 0.01 GPa (sd 0.05)   force RMSE 75 meV/A (1.5% of the PBE rms force, 4.90 eV/A)   second-order term -0.03 meV/atom
+    liquid n=20  P_MACE - P_PBE = +0.44 +- 0.03 GPa (sd 0.12)   force RMSE 119 meV/A (2.5% of the PBE rms force, 4.80 eV/A)   second-order term -0.31 meV/atom
+    liquid - hcp energy bias +1.30 +- 0.38 meV/atom -> T_m(potential) - T_m(PBE) = +19 +- 6 K
+      from the pressure error, -<dP> dV_m = -0.22 meV/atom (-3 K)  [mean dP +0.38 GPa x dV_m 0.095 A^3/atom]
+      equal-volume part                   +1.53 meV/atom (+22 K)
+      second-order term, liquid - hcp     -0.28 meV/atom (+4 K)
+    total, first + second order: T_m(potential) - T_m(PBE) = +23 +- 6 K
+    PBE T_m(330 GPa) with the potential's error removed: 6,329 -23 = 6,306 +- 8 K
+
+written phaseX/ldashift/ldashift_result.json

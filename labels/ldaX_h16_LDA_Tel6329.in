@@ -8,6 +8,7 @@
   disk_io = 'none'
 /
 &SYSTEM
+input_dft = 'PZ'
   ibrav = 0
   nat = 128
   ntyp = 1
@@ -26,7 +27,7 @@
   electron_maxstep = 250
 /
 ATOMIC_SPECIES
-  Fe 55.845 Fe.pz-spn-kjpaw_psl.1.0.0.UPF
+  Fe 55.845 Fe.pbe-spn-kjpaw_psl.1.0.0.UPF
 CELL_PARAMETERS angstrom
   8.5618010435  0.0057312260  -0.0000288841
   0.0000000000  7.5339692543  -0.0125225990
