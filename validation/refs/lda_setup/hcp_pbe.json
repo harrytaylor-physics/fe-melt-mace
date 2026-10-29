@@ -1,0 +1,17 @@
+{
+ "tag": "hcp_pbe",
+ "structure": "hcp",
+ "nat": 2,
+ "V_per_atom": 7.00000126517104,
+ "upf": "Fe.pbe-spn-kjpaw_psl.1.0.0.UPF",
+ "functional": "PBE (from file)",
+ "qe_xc_line": "SLA PW PBX PBC",
+ "E_Ry": -658.31835459,
+ "E_per_atom_eV": -4478.438754892944,
+ "P_GPa": 273.56,
+ "code": "QE 6.6",
+ "ecutwfc": 100,
+ "ecutrho": 1000,
+ "smearing": "fd",
+ "degauss_Ry": 0.040085500769528125
+}

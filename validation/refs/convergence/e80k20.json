@@ -1,0 +1,14 @@
+{
+ "tag": "e80k20",
+ "ecutwfc": 80.0,
+ "ecutrho": 640.0,
+ "kmesh": [
+  20,
+  20,
+  13
+ ],
+ "E_per_atom": -4477.992088493249,
+ "P": 252.673,
+ "V": 7.00000126517104,
+ "note": "static hcp, c/a 1.60, Marzari-Vanderbilt 0.01 Ry, QE 6.6"
+}

@@ -46,6 +46,9 @@ PN_CORRECT = os.path.join(PHASEE, "pn_correct.json")                           #
 DECOMP_TEL = os.path.join(PHASEE, "decomp_tel_tel.json")
 Q6_MODULE_DIR = _p("FE_Q6_DIR", ".")                                          # phaseE_q6.py
 
+# 330 GPa snapshot test: potential vs PBE, LDA - PBE (ldashift.py; phaseX)
+LDASHIFT = _p("FE_LDASHIFT", "phaseX/ldashift")                              # ldashift_result.json, md_meta.json, frames.xyz
+
 # DFT engine and pseudopotentials
 PSEUDO = _p("FE_PSEUDO", "pseudo")
 QE_PW = os.environ.get("FE_QE_PW", "pw.x")

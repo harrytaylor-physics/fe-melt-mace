@@ -17,6 +17,7 @@ MODEL_STAGE_ONE = layout.MODEL_STAGE_ONE
 PARITY = layout.PARITY                # held-out test-set predictions (parity_tel.py)
 PHASEE = layout.PHASEE                # analysis_live_all_runs_tel.json, cells/, runs_tel/
 Q6_MODULE_DIR = layout.Q6_MODULE_DIR  # directory holding phaseE_q6.py
+LDASHIFT = layout.LDASHIFT            # ldashift.py eval output (ldashift_result.json, md_meta.json)
 
 # inputs committed with this directory
 DFT_REFS = layout.DFT_REFS            # val_dft.py output

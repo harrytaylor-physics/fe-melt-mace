@@ -1,0 +1,12 @@
+{
+ "hcp_P_pz": 236.533,
+ "hcp_P_mix": 236.75500000000002,
+ "hcp_P_pbe": 273.56,
+ "hcp_P_mix_minus_pz": 0.22200000000003683,
+ "fcc_P_mix_minus_pz": 0.6059999999999945,
+ "hcp_P_lda_minus_pbe": -37.027000000000015,
+ "fcc_minus_hcp_pz_meV": 44.915114138275385,
+ "fcc_minus_hcp_mix_meV": 44.77994157653302,
+ "fcc_minus_hcp_mix_minus_pz_meV": -0.13517256174236536,
+ "fcc_minus_hcp_mix_minus_pz_K": 1.9607655528775658
+}

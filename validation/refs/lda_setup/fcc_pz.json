@@ -1,0 +1,17 @@
+{
+ "tag": "fcc_pz",
+ "structure": "fcc",
+ "nat": 1,
+ "V_per_atom": 6.999993855935467,
+ "upf": "Fe.pz-spn-kjpaw_psl.1.0.0.UPF",
+ "functional": "PZ (from file)",
+ "qe_xc_line": "SLA PZ NOGX NOGC",
+ "E_Ry": -324.69076991,
+ "E_per_atom_eV": -4417.642975264113,
+ "P_GPa": 237.76500000000001,
+ "code": "QE 6.6",
+ "ecutwfc": 100,
+ "ecutrho": 1000,
+ "smearing": "fd",
+ "degauss_Ry": 0.040085500769528125
+}

@@ -1,0 +1,17 @@
+{
+ "tag": "hcp_pz",
+ "structure": "hcp",
+ "nat": 2,
+ "V_per_atom": 7.00000126517104,
+ "upf": "Fe.pz-spn-kjpaw_psl.1.0.0.UPF",
+ "functional": "PZ (from file)",
+ "qe_xc_line": "SLA PZ NOGX NOGC",
+ "E_Ry": -649.38814222,
+ "E_per_atom_eV": -4417.687890378252,
+ "P_GPa": 236.533,
+ "code": "QE 6.6",
+ "ecutwfc": 100,
+ "ecutrho": 1000,
+ "smearing": "fd",
+ "degauss_Ry": 0.040085500769528125
+}

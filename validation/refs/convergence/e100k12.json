@@ -1,0 +1,14 @@
+{
+ "tag": "e100k12",
+ "ecutwfc": 100.0,
+ "ecutrho": 1000.0,
+ "kmesh": [
+  12,
+  12,
+  8
+ ],
+ "E_per_atom": -4478.027315673598,
+ "P": 257.43899999999996,
+ "V": 7.00000126517104,
+ "note": "static hcp, c/a 1.60, Marzari-Vanderbilt 0.01 Ry, QE 6.6"
+}
