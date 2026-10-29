@@ -18,15 +18,19 @@ Producers (run from this directory):
   melting_point.py -> out/melting_point.json needs phaseE/pn_correct.json
   repro_check.py  -> out/repro_check.json    needs torch, mace-torch, the model, phaseD/test_Tel*.xyz, parity_tel.npz
   settings.py     -> out/settings.json       needs refs/*/*.in, the producers' sources, pseudo/, phaseE/cells, labels/ldaX_*.in
+  conv_check.py   -> out/convergence.json    needs refs/convergence/*.json (QE 6.6 runs)
+  lda_setup_check.py -> out/lda_setup.json   needs refs/lda_setup/*.json (QE 6.6 runs)
+  ldashift_summary.py -> out/ldashift.json   needs phaseX/ldashift/ldashift_result.json, md_meta.json (ldashift.py eval on ARC)
 Committed constants (no producer): refs/literature.json -> keys "literature.*".
 """
-import hashlib, json, os
+import hashlib, json, math, os
 import paths
 
 PRODUCER = {"test_stats": "stats_test.py", "static_compare": "val_mace.py",
             "cc_check": "cc_check.py", "pbe_vs_exp": "pbe_vs_exp.py",
             "training": "train_table.py", "tel_check": "tel_check.py", "coex_cells": "coex_cells.py",
-            "melting_point": "melting_point.py", "repro_check": "repro_check.py", "settings": "settings.py"}
+            "melting_point": "melting_point.py", "repro_check": "repro_check.py", "settings": "settings.py",
+            "convergence": "conv_check.py", "lda_setup": "lda_setup_check.py", "ldashift": "ldashift_summary.py"}
 CONSTANTS = {"literature": paths.LITERATURE}
 KB_MEV = 8.617333262e-2                                   # k_B in meV/K
 
@@ -37,7 +41,7 @@ def flatten(x, pre, out):
             flatten(v, f"{pre}.{k}", out)
     elif isinstance(x, list) and x and isinstance(x[0], (dict, list)):
         for i, v in enumerate(x):
-            name = v.get("cell") if isinstance(v, dict) and "cell" in v else v["id"] if isinstance(v, dict) and "id" in v else (
+            name = v.get("cell") if isinstance(v, dict) and "cell" in v else v["id"] if isinstance(v, dict) and "id" in v else v["tag"] if isinstance(v, dict) and "tag" in v else (
                 f"{v['P_lo']:.0f}-{v['P_hi']:.0f}GPa" if isinstance(v, dict) and "P_lo" in v else (
                     f"V{v[0]:.2f}" if isinstance(v, list) else (f"V{v['V']:.2f}" if isinstance(v, dict) and "V" in v else str(i))))
             flatten(v, f"{pre}.{name}", out)
@@ -88,6 +92,7 @@ def summary(J):
         s["Tm_true_minus_pbe_K"] = p["dTm_true_minus_pbe_range"]
         s["dTm_dP_330_K_GPa"] = p["dtdp_330"]
     extra(J, s)
+    followup(J, s)
     return s
 
 
@@ -154,6 +159,30 @@ def extra(J, s):
         if dS_lit:
             dS330 = J["coex_cells"]["cells"]["coex_hcp_330GPa"]["dS_kB"]
             s["dS_330_rel_to_literature"] = [dS330 / max(dS_lit) - 1, dS330 / min(dS_lit) - 1]
+
+
+def followup(J, s):
+    """Derived numbers added on 29 Oct 2026: the 330 GPa snapshot test and the statistical error of T_m(330 GPa)."""
+    if "melting_point" in J:
+        m = J["melting_point"]
+        s["Tm_330_stat_err_K"] = m["at"]["330"]["Tm_fit_se"]          # standard error of the Simon fit at 330 GPa
+    if "test_stats" in J:
+        t = J["test_stats"]
+        s["test_liquid_minus_hcp_mean_se_meV"] = sum(t[f"{T}_liquid-hcp"][1] ** 2 for T in (4000, 6000, 8000)) ** 0.5 / 3
+    if "ldashift" in J:
+        x = J["ldashift"]
+        s["direct_test_dE_rel_hcp_meV"] = dict(hcp=0.0, liquid=x["mace_dE_liq_hcp_meV"])
+        s["lda_dP_mean_GPa"] = 0.5 * (x["lda_dP_hcp"] + x["lda_dP_liquid"])
+        # largest |dT_m| within one standard error, over the two bulk-modulus treatments
+        s["lda_dTm_max_abs_within_1se_K"] = max(abs(x["lda_dTm_K"]), abs(x["lda_dTm_equalB_K"])) + x["lda_dTm_se_K"]
+        if "melting_point" in J:
+            # PBE melting temperature: the potential's T_m minus its error found by the direct test
+            s["Tm_PBE_330_K"] = J["melting_point"]["Tm_330"] - x["mace_Tm_total_K"]
+            s["Tm_PBE_330_err_K"] = math.hypot(s["Tm_330_stat_err_K"], x["mace_Tm_se_K"])
+            rz = {r["id"]: r for r in J.get("literature", {}).get("melting_330GPa", [])}.get("Rao2025")
+            if rz:
+                s["RaoZhu_minus_Tm_PBE_330_K"] = rz["Tm"] - s["Tm_PBE_330_K"]
+                s["RaoZhu_minus_Tm_PBE_330_err_K"] = math.hypot(rz["Tm_err"], s["Tm_PBE_330_err_K"])
 
 
 def main():

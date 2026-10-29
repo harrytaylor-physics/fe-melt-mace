@@ -26,8 +26,9 @@ for y, T, e, k, lab, rf, (lx, ly), ha in pts:
     ax.annotate(f"{lab} {rf}", (y, T), xytext=(lx, ly), textcoords="data", fontsize=9.8, color=INK, ha=ha, va="center",
                 linespacing=1.15, arrowprops=dict(arrowstyle="-", color="#9AA0A6", lw=0.8, shrinkA=2, shrinkB=5))
 T330 = res["curve"]["T330"]
-ax.errorbar([2026.9], [T330], yerr=[26], fmt="*", ms=16, color=OURS, capsize=3)
-ax.annotate(f"This work 2026\n{T330:,.0f} ± 26 K", (2026.9, T330), xytext=(2028.0, 6560), textcoords="data", fontsize=11,
+T330_se = json.load(open(os.path.join(layout.VAL_OUT, "melting_point.json")))["at"]["330"]["Tm_fit_se"]  # Simon-fit s.e.
+ax.errorbar([2026.9], [T330], yerr=[T330_se], fmt="*", ms=16, color=OURS, capsize=3)
+ax.annotate(f"This work 2026\n{T330:,.0f} ± {T330_se:.0f} K", (2026.9, T330), xytext=(2028.0, 6560), textcoords="data", fontsize=11,
             color=OURS, ha="left", va="center", weight="bold", arrowprops=dict(arrowstyle="-", color="#9AA0A6", lw=0.8, shrinkA=2, shrinkB=7))
 for k, lab in (("E", "experiment (at or extrapolated to 330 GPa)"), ("T", "DFT (PBE or PW91)"), ("B", "beyond DFT (QMC, DMFT)")):
     ax.plot([], [], mk[k], color=col[k], label=lab, ms=8)
