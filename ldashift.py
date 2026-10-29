@@ -5,7 +5,7 @@ LDA, by free-energy perturbation on PBE-potential snapshots (fe_melt, step X1).
 
 Why
   Rao & Zhu (LDA+DMFT) find T_m(330 GPa) = 6,225 +- 42 K, 104 K below this work
-  (PBE, 6,329 +- 26 K). Their DFT part is LDA and they report no LDA-only
+  (PBE, 6,329 +- 6 K). Their DFT part is LDA and they report no LDA-only
   baseline, so the 104 K mixes the LDA - PBE difference with the correlation
   (DMFT) correction. This calculation measures the LDA - PBE part directly.
 
@@ -249,7 +249,7 @@ def mace_check(rows, res, mb, mbe, dS):
     tp = 6329 - sh
     print(f"    total, first + second order: T_m(potential) - T_m(PBE) = {sh:+.0f} +- {mbe / dS:.0f} K")
     print(f"    PBE T_m(330 GPa) with the potential's error removed: 6,329 {-sh:+.0f} = {tp:,.0f} "
-          f"+- {np.hypot(26, mbe / dS):.0f} K")
+          f"+- {np.hypot(6, mbe / dS):.0f} K")
     out.update(dP_mean=dPm, dV_m=dVm, pressure_part=e_p, structure_part=e_s, second_order=d2,
                T_m_pressure_part_K=e_p / dS, T_m_structure_part_K=e_s / dS, T_m_shift_total_K=sh,
                T_m_PBE_corrected=tp)
@@ -323,10 +323,10 @@ def cmd_eval(a):
     print(f"                                  equal-volume structure part {1000 * e_s:+.2f} meV/atom ({e_s / dS:+.0f} K)")
     print(f"  T_m(LDA, 330 GPa) ~ 6,329 {dT:+.0f} = {6329 + dT:,.0f} K")
     gap = 6225 - 6329
-    print(f"\n  Rao & Zhu (LDA+DMFT) - this work (PBE) = {gap:+d} K (+- {np.hypot(42, 26):.0f} K)")
+    print(f"\n  Rao & Zhu (LDA+DMFT) - this work (PBE) = {gap:+d} K (+- {np.hypot(42, 6):.0f} K)")
     print(f"  of which LDA - PBE (this calculation):  {dT:+.0f} +- {dT_se:.0f} K")
     print(f"  remainder (DMFT + cell size + potential + protocol): {gap - dT:+.0f} +- "
-          f"{np.hypot(np.hypot(42, 26), dT_se):.0f} K")
+          f"{np.hypot(np.hypot(42, 6), dT_se):.0f} K")
     mb = res["liquid"]["mace_bias"] - res["hcp"]["mace_bias"]
     mbe = np.hypot(res["liquid"]["mace_bias_se"], res["hcp"]["mace_bias_se"])
     print(f"\n  check: MACE - PBE liquid - hcp energy bias at this state point "
