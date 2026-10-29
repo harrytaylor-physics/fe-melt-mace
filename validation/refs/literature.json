@@ -11,6 +11,8 @@
   {"id": "Alfe2009", "method": "PW91, coexistence", "P": 328, "Tm": 6370, "Tm_err": 100,
    "citation": "D. Alfè, Phys. Rev. B 79, 060101(R) (2009)"},
   {"id": "Rao2025", "method": "LDA+DMFT-trained NequIP, 9,216-atom coexistence", "P": 330, "Tm": 6225, "Tm_err": 42, "n_atoms": 9216,
+   "dmft_U_eV": 5.0, "dmft_J_eV": 0.93, "potential_energy_mae_meV_atom": 69.2, "label_cell_atoms": [4, 8],
+   "source_v4": "arXiv:2512.25061 v4, Appendix A, Sec. IV A and Appendix B (added 29 Oct 2026; U and J are the DMFT interaction parameters, the MAE is the potential's mean absolute energy error against its labels, the label cells have 4-8 atoms)",
    "citation": "R. Rao and L. Zhu, arXiv:2512.25061 (v1 Dec 2025; v4 Aug 2026)"},
   {"id": "Sola2009", "method": "diffusion Monte Carlo correction to DFT", "P": 330, "Tm": 6900, "Tm_err": 400,
    "citation": "E. Sola and D. Alfè, Phys. Rev. Lett. 103, 078501 (2009)"},

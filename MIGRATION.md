@@ -138,7 +138,7 @@ Added on 29 Oct 2026 to the same branch, from two sources:
 | *chat* `validation/refs/convergence/`, `refs/lda_setup/` | same | QE 6.6 runs (json and inputs) |
 | *chat* `validation/out/convergence.json`, `lda_setup.json` | same | rebuilt here byte-identical; `out/ldashift.json` was written here by `ldashift_summary.py` |
 | *chat* `validation/tests/test_followup.py` | same | the three producers against their outputs |
-| *chat* `NOT_FOR_REPO/awe_validation_report_text_rev46.md` | — | report text; never committed. `validation/report_numbers.tsv` was rebuilt against it |
+| *chat* `NOT_FOR_REPO/awe_validation_report_text_rev46.md` | — | report text; never committed. `validation/report_numbers.tsv` was rebuilt against it, then updated for the two passages rev 47 changed (from Harry's description, 29 Oct) |
 
 Changes made to these and to earlier files:
 - `ldashift.py`: `lda_input()` writes the LDA setup that ran (PBE PAW file, `input_dft = 'PZ'` as the

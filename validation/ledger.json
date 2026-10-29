@@ -54,7 +54,7 @@
   },
   "refs/literature.json": {
    "producer": "committed constants",
-   "sha256": "c12833b1c4e78ef072ee6d3d1eeb723eb18ff1e4895a3429458aa3aa97f0497c"
+   "sha256": "834ae70d0138fd6cbb2cd3b8be3044fa86384bf93c4e737d974e4f9c244b7644"
   }
  },
  "keys": {
@@ -505,9 +505,17 @@
   "literature.melting_330GPa.Rao2025.Tm": 6225,
   "literature.melting_330GPa.Rao2025.Tm_err": 42,
   "literature.melting_330GPa.Rao2025.citation": "R. Rao and L. Zhu, arXiv:2512.25061 (v1 Dec 2025; v4 Aug 2026)",
+  "literature.melting_330GPa.Rao2025.dmft_J_eV": 0.93,
+  "literature.melting_330GPa.Rao2025.dmft_U_eV": 5.0,
   "literature.melting_330GPa.Rao2025.id": "Rao2025",
+  "literature.melting_330GPa.Rao2025.label_cell_atoms": [
+   4,
+   8
+  ],
   "literature.melting_330GPa.Rao2025.method": "LDA+DMFT-trained NequIP, 9,216-atom coexistence",
   "literature.melting_330GPa.Rao2025.n_atoms": 9216,
+  "literature.melting_330GPa.Rao2025.potential_energy_mae_meV_atom": 69.2,
+  "literature.melting_330GPa.Rao2025.source_v4": "arXiv:2512.25061 v4, Appendix A, Sec. IV A and Appendix B (added 29 Oct 2026; U and J are the DMFT interaction parameters, the MAE is the potential's mean absolute energy error against its labels, the label cells have 4-8 atoms)",
   "literature.melting_330GPa.Sola2009.P": 330,
   "literature.melting_330GPa.Sola2009.Tm": 6900,
   "literature.melting_330GPa.Sola2009.Tm_err": 400,

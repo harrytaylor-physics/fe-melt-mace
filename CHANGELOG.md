@@ -145,8 +145,10 @@ Entries from 20 Oct onwards follow `HANDOFF.md` of the iron chat.
 - The 40 LDA inputs were switched to `Fe.pbe-spn-kjpaw_psl.1.0.0.UPF` with `input_dft = 'PZ'`
   (`labels/ldaX_*_LDA_Tel6329.in`). `labels/ldaX_list2.txt` (59 of the 80 inputs) and
   `ldaX_array2.sbatch` date from 27 Oct.
-- The PBE runs had taken at most 58 min, so the time limit went from 6 h to 2 h. The limits were set at
-  submission: both committed array scripts carry `--time=01:30:00`, and `ldaXc.sbatch` sets none.
+- The PBE runs had taken at most 58 min, so the time limit went from 6 h to 2 h. The limits that applied
+  were set on the sbatch command line and override the script headers (`--time=01:30:00` in both array
+  scripts, none in `ldaXc.sbatch`): 2 h for the HTC arrays 9194880, 9196535 and 9205402, and 3 h for the
+  ARC array 13569880 (29 Oct).
 - `ldashift.py` on ARC quotes T_m(330 GPa) with the Simon-fit error, ±6 K, instead of ±26 K.
 
 ## 2026-10-29 — the 330 GPa snapshot test finishes (ARC)
@@ -162,7 +164,7 @@ Entries from 20 Oct onwards follow `HANDOFF.md` of the iron chat.
   `data/excluded_sha256.tsv`.
 - The 28 EOS-anchor runs had been cancelled and dropped. Nothing uses them.
 
-## 2026-10-29 — snapshot test, convergence and report rev 46 in this repository
+## 2026-10-29 — snapshot test, convergence and report rev 46-47 in this repository
 
 - **Snapshot test.** The ARC inputs, job scripts and result are committed. `ldashift.py` is the ARC copy,
   with `lda_input()` changed to write the setup that ran; a test checks it against the 40 committed
@@ -188,3 +190,11 @@ Entries from 20 Oct onwards follow `HANDOFF.md` of the iron chat.
     mixed-setup and snapshot numbers in Methods; the convergence numbers (0.53 and 0.24 GPa); the
     literature row 6,306 ± 8 (potential: 6,329 ± 6); the Rao & Zhu sentence (81 ± 43 K).
   - Constant: 14.5 K per meV/atom at ΔS_m = 0.80 k_B.
+- **Report rev 47.**
+  - The equal-modulus volume term is printed as +0.53 meV/atom, matching `ldashift.lda_d_a3_equalB_meV`.
+  - The Rao & Zhu sentence adds their DMFT U = 5.0 eV and J = 0.93 eV, their potential's mean absolute
+    energy error against its labels (69.2 meV/atom) and their 4-8-atom label cells. These are new
+    constants in `validation/refs/literature.json` (`Rao2025`), from arXiv:2512.25061 v4 (Appendix A,
+    Sec. IV A, Appendix B).
+  - "Within about 40 K of zero" is the larger |δT_m(LDA − PBE)| plus its standard error,
+    `summary.lda_dTm_max_abs_within_1se_K` = 41.7 K.

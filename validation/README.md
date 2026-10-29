@@ -27,7 +27,7 @@ the training pipeline. Every number is written to `ledger.json` by `ledger.py`.
 Paths: `paths.py`, a thin wrapper over the repository's `layout.py` (paths relative to the repository
 root, which keeps the layout of `~/fe_melt`; each overridable by an environment variable).
 
-`report_numbers.tsv` lists every number of the October 2026 validation report (text at rev 46,
+`report_numbers.tsv` lists every number of the October 2026 validation report (text at rev 47,
 29 Oct 2026) with the ledger key it comes from (columns: number as printed, unit, key, ledger value; `keys:` for producer outputs,
 `summary:` for derived numbers; an empty key means no producer). `tests/test_repository.py` checks it
 against `ledger.json`.

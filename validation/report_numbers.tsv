@@ -423,10 +423,14 @@ two	random seeds	keys:settings.coexistence.n_seeds	2
 8	valence electrons	keys:literature.melting_330GPa.Sun2018.paw_valence_shift_between	[8, 16]
 16	valence electrons	keys:literature.melting_330GPa.Sun2018.paw_valence_shift_between	[8, 16]
 16	valence electrons	keys:settings.pseudopotentials.Fe.pbe-spn-kjpaw_psl.1.0.0.UPF	16
+5.0	eV (U, DMFT)	keys:literature.melting_330GPa.Rao2025.dmft_U_eV	5
+0.93	eV (J, DMFT)	keys:literature.melting_330GPa.Rao2025.dmft_J_eV	0.93
 +13	K	keys:ldashift.lda_dTm_K	13.32566197
 17	K	keys:ldashift.lda_dTm_se_K	17.09651228
 81	K	summary:RaoZhu_minus_Tm_PBE_330_K	-81.09977163
 43	K	summary:RaoZhu_minus_Tm_PBE_330_err_K	42.82741784
+69.2	meV/atom (mean absolute)	keys:literature.melting_330GPa.Rao2025.potential_energy_mae_meV_atom	69.2
+4-8	atoms (label cells)	keys:literature.melting_330GPa.Rao2025.label_cell_atoms	[4, 8]
 -13 to +7	GPa	summary:pbe_minus_exp_core_GPa	[-13.345181072904495, 7.266101937801352]
 8.4	K/GPa	summary:dTm_dP_330_K_GPa	8.408130923
 -110 to +60	K	summary:Tm_true_minus_pbe_K	[-112.20802965331872, 61.09433639354903]
@@ -482,7 +486,7 @@ two	random seeds	keys:settings.coexistence.n_seeds	2
 1,130	GPa	keys:ldashift.B_hcp	1130.488586
 1,254	GPa	keys:ldashift.B_liquid	1253.974915
 1	% volume	keys:settings.direct_test_330GPa.bulk_modulus_strain	0.01
-+0.48	meV/atom	keys:ldashift.lda_d_a3_equalB_meV	0.5299043204
++0.53	meV/atom	keys:ldashift.lda_d_a3_equalB_meV	0.5299043204
 -25	K	keys:ldashift.lda_dTm_equalB_K	-24.55502325
 40	K	summary:lda_dTm_max_abs_within_1se_K	41.65153554
 0.3.16	mace-torch version	keys:repro_check.mace_version	"0.3.16"
