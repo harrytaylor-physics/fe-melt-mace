@@ -11,6 +11,7 @@ Columns: `path` (relative to `~/fe_melt`), `bytes`, `sha256`, `reason`.
 | Reason | Files | Size |
 |---|---|---|
 | QE raw output (`labels/*.out`: the PBE labels, the spot checks, the LDA-shift and EOS-anchor jobs) | 15,617 | 978 MB |
+| QE raw output of the 330 GPa snapshot test (`labels/ldaX_*.out`, 29 Oct 2026; no sizes recorded) | 80 | — |
 | sampling trajectory (`traj/*.extxyz`) | 98 | 62 MB |
 | frame pool (`selected/`; the labelled frames are in `phaseD/train_e3.xyz`, `phaseD/test_Tel*.xyz`) | 6 | 52 MB |
 | `labels/labels.jsonl` (over 50 MB; its 6,955 labels are the train and test frames above) | 1 | 55 MB |
@@ -26,10 +27,13 @@ The superseded datasets were checked byte for byte before they were left out:
 - `train_e2.xyz` is the concatenation of the 4,000 K and 8,000 K stamped files.
 - Each `*_stamped.xyz` is its unstamped file with ` elec_temp=<T>` added to every header line.
 
-`labels/inputs_as_run.tgz` holds all 7,445 QE inputs of `labels/` unmodified. The plain `labels/*.in` in
-the repository are 15 templates and the 121 inputs of the spot, LDA-shift and EOS-anchor jobs, with
-`pseudo_dir` rewritten to `./pseudo`.
+`labels/inputs_as_run.tgz` holds all 7,445 QE inputs of `labels/` unmodified, as of 25 Oct.
+`labels/ldaX_LDA_inputs_as_run.tgz` holds the 40 LDA snapshot-test inputs as rerun from 27 Oct (PBE PAW
+file with `input_dft = 'PZ'`); the 22 Oct versions in `inputs_as_run.tgz` are superseded. The plain
+`labels/*.in` in the repository are 15 templates and the 121 inputs of the spot, LDA-shift and EOS-anchor
+jobs, with `pseudo_dir` rewritten to `./pseudo`.
 
-The QE outputs of the 80 LDA-shift (`ldaX_*`) and 28 EOS-anchor (`eosA_*`) jobs were still running when
-the snapshot was taken, and the EOS-anchor runs have since failed and will be rerun. Their results come
-in a later change.
+The 80 QE outputs of the 330 GPa snapshot test (`labels/ldaX_*.out`) finished on 29 Oct, after the
+snapshot. Their sha256 come from `ldaX_out_sha256.txt`, written on ARC; the `bytes` column is empty for
+them because no sizes were recorded. The result is committed (`phaseX/ldashift/ldashift_result.json`).
+The 28 EOS-anchor runs (`eosA_*`) were cancelled; nothing uses them, and no output of theirs is listed.

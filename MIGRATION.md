@@ -6,7 +6,9 @@ contains no `.git`, and no git repository sits inside it (`nested_git_repos.txt`
 repository therefore starts from a **snapshot without history**, staged read-only on ARC at
 2026-10-25T17:46:37Z by [`tools/stage_fe_melt.sh`](tools/stage_fe_melt.sh) (`SUMMARY.txt` of the
 stage). `~/fe_melt` itself was not moved or changed. Jobs were still running in `~/fe_melt/labels`
-(80 LDA-shift snapshot calculations, 28 EOS-anchor calculations); their results come in a later change.
+(80 LDA-shift snapshot calculations, 28 EOS-anchor calculations). The snapshot calculations finished on
+29 Oct and came in with the follow-up below. The EOS-anchor calculations were cancelled: `eos_anchor.py`
+was not run to completion and nothing uses it.
 
 **Dates.** The only record of when each file last changed is the file time stored in the snapshot
 archive `worktree.tgz`, which extraction preserves. `worktree_manifest.tsv` lists every file with size,
@@ -59,7 +61,7 @@ Source paths are relative to `~/fe_melt` unless marked *handoff* (`~/fe_melt_sta
 | `*.py`, `*.sbatch`, `RUN_LDASHIFT.md` (54 files) | same paths | the pipeline as it ran; verbatim (sha256 checked against the manifest) |
 | `*_valid_indices_7.txt`, `coverage_map.txt`, `env_candidates.txt` | same | the validation split of each training run; sampling configuration |
 | `labels/{bcc,fcc,hcp,liquid,stackfault}-0000_Tel{4000,6000,8000}.in` (15) | same | one QE input template per phase and T_el. `labels/*.in` total 52.6 MB, over the 50 MB limit for keeping all of them as plain files |
-| `labels/{spot_,ldaX_,eosA_,mixtest}*.in` (121) | same | inputs of the spot-check, LDA-shift, EOS-anchor and mixing-test jobs |
+| `labels/{spot_,ldaX_,eosA_,mixtest}*.in` (121) | same | inputs of the spot-check, LDA-shift, EOS-anchor and mixing-test jobs (EOS anchor: not run to completion, unused) |
 | all 7,445 `labels/*.in` | `labels/inputs_as_run.tgz` (LFS, 6.4 MB) | every input unmodified, file times kept; members verified against the manifest sha256 |
 | `labels/*.sbatch`, `labels/*.txt`, `labels/collect.py`, `labels/{q,mq}_*`, `labels/old_queue/` | same | label queues and job scripts |
 | `pseudo/*.UPF` | same | the PBE (pslibrary 1.0.0) and LDA PAW files the labels used |
@@ -112,6 +114,45 @@ Source paths are relative to `~/fe_melt` unless marked *handoff* (`~/fe_melt_sta
   - New: `figs_validation.py` and `build_figures.py`.
 - `tools/stage_fe_melt.sh`: `DATA` must now be set in the environment (ARC sets it) instead of
   defaulting to an absolute path.
+
+## Follow-up of 29 Oct 2026: the 330 GPa snapshot test
+
+Added on 29 Oct 2026 to the same branch, from two sources:
+
+| Source | What it is |
+|---|---|
+| `~/fe_melt_stage/followup/arc/` | files copied from `~/fe_melt` on ARC on 29 Oct 2026, at their `~/fe_melt` paths; `fe_melt_followup_arc.tgz` beside it has the same content (checked with `diff -r`) |
+| `~/fe_melt_stage/followup/fe_followup/` | files from the iron chat (29 Oct): `validation/` producers, references, outputs and test; `tools/ldaXc.sbatch` |
+
+| Source | Destination | Reason |
+|---|---|---|
+| *arc* `phaseX/ldashift/ldashift_result.json` | same | `python ldashift.py eval` on ARC, 29 Oct |
+| *arc* `ldashift_eval.txt` | `phaseX/ldashift/ldashift_eval.txt` | stdout of that eval |
+| *arc* `phaseX/ldashift/frames.xyz`, `md_meta.json` | same (already committed) | identical to the 25 Oct snapshot copies |
+| *arc* `ldashift.py` | same | ARC copy of 27 Oct; differs from the snapshot copy only where T_m(330 GPa)'s error was 26 K (now 6 K) |
+| *arc* `labels/ldaX_*_LDA_Tel6329.in` (40) | same, `pseudo_dir` rewritten to `./pseudo` | the 27 Oct LDA inputs (PBE PAW file, `input_dft = 'PZ'`). The originals are in `labels/ldaX_LDA_inputs_as_run.tgz`. `labels/inputs_as_run.tgz` holds the superseded 22 Oct versions, which used the generated PZ file |
+| *arc* `labels/ldaX_*_PBE_Tel6329.in` (40), `ldaX_list.txt`, `ldaX_array.sbatch` | same (already committed) | unchanged since the snapshot (apart from `pseudo_dir`) |
+| *arc* `labels/ldaX_list2.txt`, `ldaX_array2.sbatch`, `ldaXc.sbatch` | same | job scripts of 27-29 Oct. *chat* `tools/ldaXc.sbatch` is byte-identical to `labels/ldaXc.sbatch` and is not committed twice |
+| *arc* `ldaX_out_sha256.txt` | rows of `data/excluded_sha256.tsv` | sha256 of the 80 QE outputs, which are not committed (no sizes were recorded) |
+| *chat* `validation/conv_check.py`, `lda_setup_check.py`, `ldashift_summary.py` | `validation/` | new producers |
+| *chat* `validation/refs/convergence/`, `refs/lda_setup/` | same | QE 6.6 runs (json and inputs) |
+| *chat* `validation/out/convergence.json`, `lda_setup.json` | same | rebuilt here byte-identical; `out/ldashift.json` was written here by `ldashift_summary.py` |
+| *chat* `validation/tests/test_followup.py` | same | the three producers against their outputs |
+| *chat* `NOT_FOR_REPO/awe_validation_report_text_rev46.md` | — | report text; never committed. `validation/report_numbers.tsv` was rebuilt against it |
+
+Changes made to these and to earlier files:
+- `ldashift.py`: `lda_input()` writes the LDA setup that ran (PBE PAW file, `input_dft = 'PZ'` as the
+  first line of `&SYSTEM`); the module docstring explains the mixed setup; the check for the generated
+  PZ file is gone. `RUN_LDASHIFT.md` says the same and quotes the Simon-fit error.
+- `validation/tests/test_followup.py`: puts `validation/` on `sys.path`, so it runs from the repository root.
+- `layout.py`: `LDASHIFT` (`phaseX/ldashift`, `FE_LDASHIFT`), also in `validation/paths.py`.
+- `validation/settings.py`: direct-test, mixed-setup and coexistence-run settings (new keys only).
+- `validation/ledger.py`: reads the three new outputs; derived keys for the PBE T_m(330 GPa), the
+  Rao & Zhu gap and the Simon-fit error. All earlier keys and summary values are unchanged.
+- `validation/record_inputs.py`, `ledger_inputs.tsv`: the new inputs are under the staleness guard.
+- `analysis/figures/figs_lit.py`: draws the Simon-fit error instead of 26 K.
+- `pseudo/lda_generation/README.md`: the generated PZ dataset diverges in displaced configurations and
+  is not used by any result.
 
 ## Snapshot scan and exclusions
 

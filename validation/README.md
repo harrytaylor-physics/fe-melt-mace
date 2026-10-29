@@ -17,15 +17,18 @@ the training pipeline. Every number is written to `ledger.json` by `ledger.py`.
 | `coex_cells.py` | `out/coex_cells.json` | `phaseE/analysis_live_all_runs_tel.json` | seconds |
 | `melting_point.py` | `out/melting_point.json` | `phaseE/pn_correct.json` (Simon fit, refitted for its covariance) | seconds |
 | `repro_check.py` | `out/repro_check.json` | the model, `phaseD/test_Tel*.xyz`, `phaseD/parity_tel.npz`; torch, mace-torch | about 8 min on 4 CPU threads |
-| `settings.py` | `out/settings.json` | `refs/*/*.in`, the producers' sources, `pseudo/*.UPF`, `phaseE/cells/*.json`, `labels/ldaX_*.in` | seconds |
+| `conv_check.py` | `out/convergence.json` | `refs/convergence/*.json` (QE 6.6, hcp at 7.0 A^3/atom) | seconds |
+| `lda_setup_check.py` | `out/lda_setup.json` | `refs/lda_setup/*.json` (QE 6.6, hcp and fcc at 7.0 A^3/atom) | seconds |
+| `ldashift_summary.py` | `out/ldashift.json` | `phaseX/ldashift/ldashift_result.json`, `md_meta.json` (`ldashift.py eval` on ARC) | seconds |
+| `settings.py` | `out/settings.json` | `refs/*/*.in`, the producers' sources, `pseudo/*.UPF`, `phaseE/cells/*.json`, `phaseE/runs_tel/` file names, `labels/ldaX_*`, `../ldashift.py`, `refs/lda_setup/*.json` | seconds |
 | `ledger.py` | `ledger.json` | `out/*.json`, `refs/literature.json` (committed constants) | seconds |
 | `record_inputs.py` | `ledger_inputs.tsv` | the committed inputs that no producer here rebuilds | seconds |
 
 Paths: `paths.py`, a thin wrapper over the repository's `layout.py` (paths relative to the repository
 root, which keeps the layout of `~/fe_melt`; each overridable by an environment variable).
 
-`report_numbers.tsv` lists every number of the October 2026 validation report with the ledger key
-it comes from (columns: number as printed, unit, key, ledger value; `keys:` for producer outputs,
+`report_numbers.tsv` lists every number of the October 2026 validation report (text at rev 46,
+29 Oct 2026) with the ledger key it comes from (columns: number as printed, unit, key, ledger value; `keys:` for producer outputs,
 `summary:` for derived numbers; an empty key means no producer). `tests/test_repository.py` checks it
 against `ledger.json`.
 
@@ -50,6 +53,18 @@ against `ledger.json`.
 - **Clausius-Clapeyron** (`cc_check.py`): dV_m from q-bar-6 slabs of the final coexistence
   configurations, dS_m from the coexistence analysis; slope of T_m(P) between neighbouring
   cells against dV/dS. The dV/dS error includes the dV standard errors only.
+- **Basis and k-point convergence** (`conv_check.py`): static PBE pressure of hcp at 7.0 A^3/atom
+  (c/a 1.60, Marzari-Vanderbilt 0.01 Ry). 100/1,000 -> 130/1,300 Ry changes it by -0.53 GPa;
+  k 12x12x8 -> 16x16x10 by +0.24 GPa.
+- **Mixed LDA setup** (`lda_setup_check.py`): LDA (PZ) on the PBE PAW file, as in the snapshot test,
+  against the generated PZ file in perfect lattices at 7.0 A^3/atom: hcp pressure +0.22 GPa,
+  fcc - hcp energy -0.14 meV/atom (2 K at dS_m = 0.80 k_B).
+- **330 GPa snapshot test** (`ldashift_summary.py`, from `ldashift.py eval`): 20 hcp and 20 liquid
+  snapshots of 128 atoms at 330 GPa and 6,329 K, labelled with PBE and LDA (QE 7.5). The potential
+  against PBE gives the pressure error, the force RMSE and the liquid - hcp energy error as a T_m error
+  (first and second order). LDA - PBE gives the T_m shift by free-energy perturbation (a1 + a2 + a3),
+  with an equal-bulk-modulus variant of a3. The ledger derives T_m(PBE, 330 GPa) = T_m(330 GPa) minus
+  the potential's error.
 - **PBE against experiment** (`pbe_vs_exp.py`): static non-magnetic PBE (k 16x16x10,
   Marzari-Vanderbilt 0.01 Ry) plus a 2.5-3.5 GPa vibrational pressure (Debye-Grueneisen estimate,
   +-1 GPa), minus the 300 K EOS of Dewaele et al. 2006, Fei et al. 2016 and Hirao et al. 2022.

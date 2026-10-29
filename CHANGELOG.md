@@ -96,8 +96,8 @@ Entries from 20 Oct onwards follow `HANDOFF.md` of the iron chat.
 - **LDA − PBE test.** `ldashift.py`, `phaseF_common.py`, `ldashift_md.sbatch`, `RUN_LDASHIFT.md`
   (21 Oct): 20 hcp and 20 liquid snapshots at 330 GPa and T_el = 6,329 K (`phaseX/ldashift/`), labelled
   with PBE and with LDA (`labels/ldaX_*`, 80 calculations).
-- **EOS anchor.** The 28 runs (`eos_anchor.py`, `labels/eosA_*`) were submitted on 22 Oct. They have
-  since failed and will be rerun; nothing from them is in this repository.
+- **EOS anchor.** The 28 runs (`eos_anchor.py`, `labels/eosA_*`) were submitted on 22 Oct. They were
+  later cancelled and dropped (see 29 Oct); nothing uses them.
 
 ## 2026-10-23 — three report numbers corrected (iron chat)
 
@@ -123,3 +123,68 @@ Entries from 20 Oct onwards follow `HANDOFF.md` of the iron chat.
   - A staleness guard over the inputs no producer here rebuilds (`validation/ledger_inputs.tsv`).
   - A GPU test of which model the T_el-conditioned runs loaded (`tests/test_runs_tel_model.py`).
 - **Figures.** Rebuilt as PDF plus 200-dpi PNG in `docs/figures/`.
+
+## 2026-10-26 — the LDA snapshot runs diverge (ARC)
+
+- All 40 LDA runs of the 330 GPa snapshot test timed out with a diverging SCF: the first step's estimated
+  SCF accuracy was about 5,500 Ry, with negative charge.
+- A local cross test on a displaced 16-atom hcp cell (σ = 0.15 Å, 7.0 Å³/atom) located the cause in the
+  PZ PAW dataset generated with ld1.x. First-step SCF accuracy, by PAW file and functional:
+
+  | PAW file | Functional | Ry |
+  |---|---|---|
+  | PBE | PBE | 4.49 |
+  | PBE | PZ | 4.47 |
+  | PZ | PZ | 302.8, negative charge |
+  | PZ | PBE | 8.63, negative charge |
+
+  The perfect-crystal tests of 22 Oct had converged, which hid it (`pseudo/lda_generation/README.md`).
+
+## 2026-10-27 — LDA runs on the PBE PAW file (ARC)
+
+- The 40 LDA inputs were switched to `Fe.pbe-spn-kjpaw_psl.1.0.0.UPF` with `input_dft = 'PZ'`
+  (`labels/ldaX_*_LDA_Tel6329.in`). `labels/ldaX_list2.txt` (59 of the 80 inputs) and
+  `ldaX_array2.sbatch` date from 27 Oct.
+- The PBE runs had taken at most 58 min, so the time limit went from 6 h to 2 h. The limits were set at
+  submission: both committed array scripts carry `--time=01:30:00`, and `ldaXc.sbatch` sets none.
+- `ldashift.py` on ARC quotes T_m(330 GPa) with the Simon-fit error, ±6 K, instead of ±26 K.
+
+## 2026-10-29 — the 330 GPa snapshot test finishes (ARC)
+
+- The HTC queue estimate for the remaining 61 runs was 6 Nov, so they went to the ARC cluster with
+  `labels/ldaXc.sbatch`. Each task claims the next unclaimed input with an atomic `mkdir` in
+  `labels/claims/`, so one array per cluster can run without duplicates.
+- On ARC, `srun` started 48 single-rank copies of pw.x (`Number of MPI processes: 1`, then
+  `invalid number of pools`). The script therefore uses `mpirun -np $SLURM_NTASKS` on ARC and `srun` on
+  HTC. It stops a cluster's tasks after a run that fails in under 5 minutes.
+- All 80 runs finished on 29 Oct. `python ldashift.py eval` wrote `phaseX/ldashift/ldashift_result.json`
+  (stdout in `phaseX/ldashift/ldashift_eval.txt`). The 80 QE outputs stay on ARC; their sha256 are in
+  `data/excluded_sha256.tsv`.
+- The 28 EOS-anchor runs had been cancelled and dropped. Nothing uses them.
+
+## 2026-10-29 — snapshot test, convergence and report rev 46 in this repository
+
+- **Snapshot test.** The ARC inputs, job scripts and result are committed. `ldashift.py` is the ARC copy,
+  with `lda_input()` changed to write the setup that ran; a test checks it against the 40 committed
+  input pairs.
+- **New producers** (iron chat):
+  - `validation/conv_check.py`: basis and k-point convergence of the static PBE pressure. Going from
+    100/1,000 to 130/1,300 Ry changes it by -0.53 GPa; going from k 12×12×8 to 16×16×10, by +0.24 GPa.
+  - `validation/lda_setup_check.py`: what LDA with the PBE PAW file changes. The hcp pressure moves by
+    +0.22 GPa and the fcc − hcp energy by -0.14 meV/atom (2 K).
+  - `validation/ldashift_summary.py`: report numbers of the snapshot test.
+- **Ledger.**
+  - The PBE melting temperature: T_m(PBE, 330 GPa) = 6,329 − 23 = 6,306 ± 8 K (`summary.Tm_PBE_330_K`).
+  - The Rao & Zhu gap: 6,225 − 6,306 = −81 ± 43 K.
+  - The statistical error of T_m(330 GPa) is now the Simon fit's standard error, 6.25 K
+    (`summary.Tm_330_stat_err_K`). The earlier ±26 K had no producer, and every use of it was replaced.
+- **Report numbers** (`validation/report_numbers.tsv`) rebuilt against the report text at rev 46:
+  - Removed: every ΔS_m value, the Clausius-Clapeyron table, chart and bullet, open items 1 and 2 (the
+    direct test and the functional sensitivity, now done), the "about 20 K" budget sentence and ±26 K.
+  - Changed: T_m(330 GPa) = 6,329 ± 6 K (Simon-fit error). The rev 23 numbers that did not match their
+    keys now do, at the printed precision: 36.1/37.2/10.3 %, 108-128 atoms, +18.0 meV/atom, 1,974 GPa,
+    0.26 %, about 15 K, +0.08/−0.15 GPa, 175-180 GPa, 5×10⁻⁵ eV/Å, +2.6 and 0.4 meV/atom.
+  - New: the direct-test section and summary bullet; the LDA sensitivity paragraph and table; the
+    mixed-setup and snapshot numbers in Methods; the convergence numbers (0.53 and 0.24 GPa); the
+    literature row 6,306 ± 8 (potential: 6,329 ± 6); the Rao & Zhu sentence (81 ± 43 K).
+  - Constant: 14.5 K per meV/atom at ΔS_m = 0.80 k_B.

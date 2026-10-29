@@ -3,10 +3,17 @@
 The melting curve of iron to 370 GPa from two-phase coexistence simulations with a MACE potential
 trained on PBE (Mermin free energies) whose input includes the electronic temperature T_el.
 
-**Result:** T_m(330 GPa) = 6,329 K, with dT_m/dP = 8.41 K/GPa at 330 GPa. These are ledger keys
-`melting_point.Tm_330` and `melting_point.dTdP_330` in [`validation/ledger.json`](validation/ledger.json),
-from the Simon fit in `phaseE/pn_correct.json`. Every number quoted from this work has a ledger key;
-the list is [`validation/report_numbers.tsv`](validation/report_numbers.tsv).
+**Result** (keys of [`validation/ledger.json`](validation/ledger.json)):
+- **T_m(330 GPa) = 6,329 ± 6 K from the potential.** The value is `keys.melting_point.Tm_330`, from the
+  Simon fit in `phaseE/pn_correct.json`. The error is statistical, the fit's standard error at 330 GPa:
+  `summary.Tm_330_stat_err_K`. dT_m/dP = 8.41 K/GPa (`keys.melting_point.dTdP_330`).
+- **T_m(330 GPa) = 6,306 ± 8 K for PBE.** A direct PBE test on 40 snapshots at 330 GPa and 6,329 K puts the
+  potential's T_m 23 ± 6 K above PBE (`keys.ldashift.mace_Tm_total_K`). The PBE value is
+  `summary.Tm_PBE_330_K`. Its error, `summary.Tm_PBE_330_err_K`, is the Simon-fit error and the
+  direct test's error added in quadrature.
+
+Every number quoted from this work has a ledger key; the list is
+[`validation/report_numbers.tsv`](validation/report_numbers.tsv).
 
 ## What the pipeline does
 
@@ -29,9 +36,17 @@ the list is [`validation/report_numbers.tsv`](validation/report_numbers.tsv).
    - T_el decomposition: `decomp_tel.py`.
    - Validation against PBE and experiment, and the ledger: [`validation/`](validation/README.md).
    - Figures: [`docs/figures/`](docs/figures/README.md).
+5. **330 GPa snapshot test** (`ldashift.py`, `labels/ldaX_*`, `phaseX/ldashift/`). 20 hcp and 20 liquid
+   snapshots from the potential at 330 GPa and 6,329 K are labelled with PBE and with LDA in QE 7.5. The
+   test gives two results:
+   - the potential's error against PBE at the state point of the result;
+   - the LDA − PBE shift of T_m by free-energy perturbation.
 
-The LDA − PBE test at 330 GPa (`ldashift.py`, `labels/ldaX_*`) and the EOS anchor (`eos_anchor.py`)
-were running on ARC when this repository was made; their results come in a later change.
+   The LDA runs use the PBE PAW file with `input_dft = 'PZ'`, because the generated PZ dataset gives a
+   divergent SCF (`pseudo/lda_generation/README.md`). Report numbers: `validation/ldashift_summary.py`.
+
+The EOS anchor (`eos_anchor.py`, `labels/eosA_*`) was not run to completion and is not used: its 28
+runs were cancelled.
 
 ## Dependencies
 
@@ -78,7 +93,8 @@ use the `phys-plasma-dft` account, `cd ~/fe_melt`, and `~/tel_env` for the fork.
 | Coexistence | `python phaseE_build.py ...` (`build_cells.sbatch`); `sbatch fe_phaseE_tel.sbatch` (48-task array, resubmits itself) |
 | Analysis | `python phaseE_analyze_live.py --rundir phaseE/runs_tel --include-drifting`; `python pn_correct.py` (any machine) |
 | Held-out predictions | `python parity_tel.py --device cuda` (`~/tel_env`) |
-| Validation producers | `cd validation && python stats_test.py && python cc_check.py && python pbe_vs_exp.py && python train_table.py && python tel_check.py && python coex_cells.py && python melting_point.py && python settings.py && python ledger.py` (any machine; `val_mace.py` and `repro_check.py` need mace-torch, `val_dft.py` needs `pw.x`) |
+| 330 GPa snapshot test | `sbatch ldashift_md.sbatch` (GPU; writes `phaseX/ldashift/frames.xyz` and the inputs); `cd labels && sbatch ldaXc.sbatch` (one input per task, any number of tasks); `python ldashift.py eval` |
+| Validation producers | `cd validation && python stats_test.py && python cc_check.py && python pbe_vs_exp.py && python train_table.py && python tel_check.py && python coex_cells.py && python melting_point.py && python conv_check.py && python lda_setup_check.py && python ldashift_summary.py && python settings.py && python ledger.py` (any machine; `val_mace.py` and `repro_check.py` need mace-torch, `val_dft.py` needs `pw.x`) |
 | Figures | `python analysis/figures/build_figures.py` (any machine, about 2 min) |
 
 ## Tests
@@ -95,6 +111,7 @@ What the suites cover:
 - **`validation/tests/`:** the producers reproduce their committed outputs, and the ledger matches them.
 - **`tests/`:**
   - the new producers and `pn_correct.py` reproduce their outputs;
+  - `ldashift.lda_input()` reproduces the committed LDA inputs from the PBE ones;
   - the literature constants match the producers that use them;
   - the report-number list matches the ledger;
   - no committed code holds an absolute path;
@@ -106,11 +123,11 @@ What the suites cover:
 | Where | What |
 |---|---|
 | `*.py`, `*.sbatch` (root) | the ARC pipeline, verbatim |
-| [`labels/`](labels/) | QE input templates, the running jobs' inputs, queues; every input as run in `inputs_as_run.tgz` |
+| [`labels/`](labels/) | QE input templates, the spot-check, snapshot-test and EOS-anchor inputs, queues; every input as run in `inputs_as_run.tgz` and, for the 27 Oct LDA inputs, `ldaX_LDA_inputs_as_run.tgz` |
 | [`pseudo/`](pseudo/) | PAW files; [`lda_generation/`](pseudo/lda_generation/README.md) |
 | `phaseD/` | training and test sets, gates, predictions; `models/` (LFS) |
 | `phaseE/` | coexistence cells, runs, final configurations (LFS), analysis, Simon fit |
-| `phaseX/`, `traj/`, `results/`, `logs/` | LDA-shift frames, sampling metadata, e3 training metrics, every log |
+| `phaseX/`, `traj/`, `results/`, `logs/` | 330 GPa snapshot test (frames, `ldashift.py eval` result and output), sampling metadata, e3 training metrics, every log |
 | [`validation/`](validation/README.md) | checks against PBE and experiment, producers, `ledger.json`, `report_numbers.tsv` |
 | [`analysis/figures/`](analysis/figures/README.md) | figure producers and their intermediate json |
 | [`docs/figures/`](docs/figures/README.md) | figures (PDF + 200-dpi PNG) |
