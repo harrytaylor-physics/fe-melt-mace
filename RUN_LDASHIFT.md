@@ -1,7 +1,7 @@
 # LDA − PBE shift of T_m at 330 GPa (step X1)
 
 **Question.** How much of the 104 K gap between Rao & Zhu (LDA+DMFT, 6,225 ± 42 K) and this
-work (PBE, 6,329 ± 26 K) comes from LDA versus PBE, and how much remains for the correlation
+work (PBE, 6,329 ± 6 K) comes from LDA versus PBE, and how much remains for the correlation
 (DMFT) correction plus their other differences (4–8-atom training cells, potential, protocol)?
 
 **Method.**
@@ -9,7 +9,10 @@ work (PBE, 6,329 ± 26 K) comes from LDA versus PBE, and how much remains for th
    (330 GPa, 6,329 K) from the Tel potential. Each phase is run in NPT to find its mean volume,
    then in NVT at that volume, with snapshots 1 ps apart.
 2. On every snapshot, compute the Mermin free energy at T_el = 6,329 K with PBE and with LDA.
-   Both use the same pslibrary 1.0.0 'spn' PAW construction, cutoffs, k-points and smearing.
+   Both use the same cutoffs, k-points, smearing and PAW file, the official pslibrary 1.0.0 PBE
+   dataset; the LDA runs add `input_dft = 'PZ'`. (Until 27 Oct the LDA inputs used the PZ dataset of
+   step 0, generated with ld1.x; it gives a divergent SCF in these configurations and is not used,
+   see `pseudo/lda_generation/README.md`.)
 3. Per phase:
    - first-order term ⟨ΔU⟩/N;
    - configurational second-order term −(β/2)·var(ΔU)/N;
@@ -21,6 +24,8 @@ work (PBE, 6,329 ± 26 K) comes from LDA versus PBE, and how much remains for th
 Cost: 80 pw.x calculations, about 3,600 core-hours, plus one GPU job of under 3 h.
 
 ## 0. Once: the LDA pseudopotential, next to the PBE one (login node)
+
+Superseded on 27 Oct: the LDA runs use the PBE file with `input_dft = 'PZ'`, so this step is not needed.
 
 ```bash
 cd ~/fe_melt && PD=$(grep -h "pseudo_dir" $(ls labels/hcp-*_Tel4000.in | head -1) | sed "s/.*'\(.*\)'.*/\1/") && PD=${PD/#\~/$HOME} && echo "pseudo_dir: $PD" && \

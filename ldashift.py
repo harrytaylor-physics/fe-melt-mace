@@ -13,8 +13,17 @@ Physics
   Snapshots of bulk hcp and bulk liquid at the PBE melting point
   (P = 330 GPa, T = 6,329 K, T_el = T) are taken from the Tel MACE potential
   in NVT at each phase's NPT mean volume V_p. On each snapshot both functionals
-  give the Mermin free energy F at T_el (same PAW construction, pslibrary 1.0.0
-  'spn', same cutoffs, k-points and smearing; only the functional differs).
+  give the Mermin free energy F at T_el with the same cutoffs, k-points and
+  smearing and the same PAW dataset, the official pslibrary 1.0.0 PBE file
+  (Fe.pbe-spn-kjpaw_psl.1.0.0.UPF); the LDA runs add input_dft = 'PZ'.
+  The PZ dataset generated with ld1.x from the same pslibrary input
+  (pseudo/lda_generation/) is not used: it gives a divergent SCF in displaced
+  and liquid configurations (16-atom hcp cell, 7.0 A^3/atom, displacements
+  of 0.15 A: first-step SCF accuracy 302.8 Ry with negative charge, against
+  4.47 Ry for the PBE file with PZ), which the perfect-lattice tests had not
+  shown. In perfect lattices at 7.0 A^3/atom the mixed setup moves the hcp
+  pressure by +0.22 GPa and the fcc - hcp energy by -0.14 meV/atom (2 K)
+  relative to the PZ dataset (validation/lda_setup_check.py).
   Per phase p, with dU = F_LDA - F_PBE per cell and N atoms:
     first order      a1 = < dU > / N
     configurational  a2 = -(beta / 2) var(dU) / N
@@ -32,8 +41,8 @@ Subcommands
   md      (GPU)   2 phases x 2 runs x 10 snapshots (1 ps apart) = 40
                   snapshots of 128 atoms, plus B_p; then writes the inputs.
   inputs  (login) pw.x inputs for each snapshot: PBE (campaign template) and
-                  LDA (same template, LDA pseudopotential, any input_dft line
-                  removed). labels/ldaX_*, labels/ldaX_list.txt,
+                  LDA (same template and PBE PAW file, input_dft = 'PZ' as the
+                  first line of &SYSTEM). labels/ldaX_*, labels/ldaX_list.txt,
                   labels/ldaX_array.sbatch. 80 calculations, ~3,600 core-hours.
   eval    (login) checks every output used the intended functional, then
                   computes a1, a2, a3, dT_m and its standard error; also the
@@ -44,6 +53,8 @@ Run from ~/fe_melt (tel_env for md):
   sbatch ldashift_md.sbatch
   cd labels && sbatch ldaX_array.sbatch && cd ..
   python ldashift.py eval
+(The runs of 27-29 Oct used labels/ldaX_list2.txt with ldaX_array2.sbatch, then
+labels/ldaXc.sbatch, which claims one unfinished input per task.)
 """
 import argparse, glob, json, os, re, sys
 import numpy as np
@@ -62,7 +73,6 @@ RUNS, SNAPS = 2, 10
 DS_M_KB = 0.80
 KB = 8.617333262e-5                  # eV/K
 EV_A3_PER_GPA = 1.0 / 160.21766      # eV/A^3 per GPa
-LDA_UPF = "Fe.pz-spn-kjpaw_psl.1.0.0.UPF"
 OUT = "phaseX/ldashift"
 FRAMES = f"{OUT}/frames.xyz"
 
@@ -165,10 +175,10 @@ def cmd_md(a):
         cmd_inputs(a)
 
 
-def lda_input(pbe_text, pbe_upf):
-    t = pbe_text.replace(pbe_upf, LDA_UPF)
-    t = re.sub(r"^\s*input_dft\s*=.*\n", "", t, flags=re.M | re.I)
-    return t
+def lda_input(pbe_text):
+    """The LDA input from the PBE one: same PBE PAW file, input_dft = 'PZ' as the first line of &SYSTEM."""
+    t = re.sub(r"^\s*input_dft\s*=.*\n", "", pbe_text, flags=re.M | re.I)
+    return re.sub(r"^&SYSTEM[ \t]*\n", "&SYSTEM\ninput_dft = 'PZ'\n", t, count=1, flags=re.M | re.I)
 
 
 def cmd_inputs(a):
@@ -181,16 +191,10 @@ def cmd_inputs(a):
         tel = float(f.info["tel"])
         stem_p = f"{f.info['name']}_PBE_Tel{int(tel)}"
         txt = make_input(tpls[ph], f, stem_p, tel)
-        upf = re.search(r"ATOMIC_SPECIES\s*\n\s*\S+\s+\S+\s+(\S+)", txt).group(1)
-        pd = os.path.expanduser(re.search(r"pseudo_dir\s*=\s*'([^']+)'", txt).group(1))
-        if not os.path.isabs(pd):
-            pd = os.path.join(a.labels_dir, pd)
-        if not os.path.exists(os.path.join(pd, LDA_UPF)):
-            sys.exit(f"LDA pseudopotential missing: {os.path.join(pd, LDA_UPF)} (see RUN_LDASHIFT.md step 0)")
         stem_l = f"{f.info['name']}_LDA_Tel{int(tel)}"
         open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
         open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
-            lda_input(txt.replace(stem_p, stem_l), upf))
+            lda_input(txt.replace(stem_p, stem_l)))
         names += [stem_p + ".in", stem_l + ".in"]
     open(os.path.join(a.labels_dir, "ldaX_list.txt"), "w").write("\n".join(names) + "\n")
     path, origin = write_array_sbatch(a.labels_dir, "ldaX_list.txt", "ldaX_array.sbatch",
