@@ -7,7 +7,12 @@ Each value comes from the input or code that used it, not from a hand-written li
   val_mace.py, cc_check.py, pbe_vs_exp.py  strain, phonon displacement, slab and q-bar-6 settings,
                                            vibrational pressure and its uncertainty
   phaseE/cells/*.json                      atoms per coexistence cell
-  labels/ldaX_*.in                         the 330 GPa direct-test snapshots (phase, functional, T_el)
+  phaseE/runs_tel/ file names              starting temperatures and seeds of the coexistence runs
+  labels/ldaX_*.in                         the 330 GPa direct-test snapshots (phase, functional, T_el,
+                                           atoms, PAW file, input_dft of the LDA runs)
+  labels/ldaX*.sbatch                      QE version of the direct-test runs
+  ../ldashift.py                           state point, runs and snapshots per phase, bulk-modulus strain
+  refs/lda_setup/*.json                    volume of the mixed-setup (LDA with the PBE PAW file) check
 Output: out/settings.json.
 """
 import glob, json, os, re, sys
@@ -86,13 +91,33 @@ def main():
     out["pbe_vs_exp"] = dict(V_core=float(src_const(pv, "V_CORE")),
                              P_vib_uncertainty_GPa=float(re.search(r"uncertain by about ([\d.]+) GPa", pv_txt).group(1)))
     cells = {os.path.basename(f)[:-5]: json.load(open(f))["N"] for f in glob.glob(os.path.join(layout.CELLS, "*.json"))}
-    out["coexistence"] = dict(atoms_per_cell=sorted(set(cells.values())))
+    runs = [re.match(r"coex_hcp_\d+GPa_ti([\d.]+)_s(\d+)_ckpt\.npz$", os.path.basename(f))
+            for f in glob.glob(os.path.join(layout.RUNS_TEL, "coex_hcp_*_ckpt.npz"))]
+    ti, seeds = sorted({float(m.group(1)) for m in runs}), sorted({int(m.group(2)) for m in runs})
+    out["coexistence"] = dict(atoms_per_cell=sorted(set(cells.values())), tinit_frac=ti,
+                              n_start_T=len(ti), seeds=seeds, n_seeds=len(seeds))
     lx = [re.match(r"ldaX_([hl])\d+_(PBE|LDA)_Tel(\d+)\.in", os.path.basename(f)).groups()
           for f in glob.glob(os.path.join(layout.ROOT, "labels", "ldaX_*.in"))]
+    lin = {fn: [open(f).read() for f in glob.glob(os.path.join(layout.ROOT, "labels", f"ldaX_*_{fn}_Tel*.in"))]
+           for fn in ("PBE", "LDA")}
+    upf = lambda txts: sorted({re.search(r"ATOMIC_SPECIES\s*\n\s*\S+\s+\S+\s+(\S+)", x).group(1) for x in txts})
+    ls_txt = open(os.path.join(layout.ROOT, "ldashift.py")).read()
+    P, T = (float(x) for x in re.search(r"^P_GPA, T_K = ([\d.]+), ([\d.]+)", ls_txt, re.M).groups())
+    runs, snaps = (int(x) for x in re.search(r"^RUNS, SNAPS = (\d+), (\d+)", ls_txt, re.M).groups())
     out["direct_test_330GPa"] = dict(
         n_hcp=sum(1 for p, fn, t in lx if p == "h" and fn == "PBE"), n_liquid=sum(1 for p, fn, t in lx if p == "l" and fn == "PBE"),
         n_PBE=sum(1 for p, fn, t in lx if fn == "PBE"), n_LDA=sum(1 for p, fn, t in lx if fn == "LDA"),
-        T_el_K=sorted({int(t) for *_, t in lx}))
+        T_el_K=sorted({int(t) for *_, t in lx}),
+        atoms=sorted({int(re.search(r"\bnat\s*=\s*(\d+)", x).group(1)) for x in lin["PBE"] + lin["LDA"]}),
+        P_GPa=P, T_K=T, runs_per_phase=runs, snapshots_per_run=snaps,
+        snapshot_gap_ps=float(re.search(r"\((\d+) ps apart\)", ls_txt).group(1)),
+        bulk_modulus_strain=float(re.search(r"cell \* \(1 \+ s \* ([\d.]+)\)", ls_txt).group(1)),
+        qe_version=sorted({m for f in glob.glob(os.path.join(layout.ROOT, "labels", "ldaX*.sbatch"))
+                           for m in re.findall(r"QuantumESPRESSO/([\d.]+)", open(f).read())}),
+        upf_PBE=upf(lin["PBE"]), upf_LDA=upf(lin["LDA"]),
+        input_dft_LDA=sorted({m.group(1) if m else "" for m in (re.search(r"input_dft\s*=\s*'([^']+)'", x) for x in lin["LDA"])}))
+    ls = [json.load(open(f)) for f in glob.glob(os.path.join(paths.HERE, "refs", "lda_setup", "*.json"))]
+    out["lda_setup"] = dict(V_per_atom=sorted({round(r["V_per_atom"], 3) for r in ls}), n=len(ls))
     print(json.dumps(out, indent=1))
     os.makedirs(paths.OUT, exist_ok=True)
     json.dump(out, open(os.path.join(paths.OUT, "settings.json"), "w"), indent=1)

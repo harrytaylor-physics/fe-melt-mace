@@ -130,7 +130,18 @@
   "atoms_per_cell": [
    12032,
    12096
-  ]
+  ],
+  "tinit_frac": [
+   0.92,
+   1.0,
+   1.08
+  ],
+  "n_start_T": 3,
+  "seeds": [
+   0,
+   1
+  ],
+  "n_seeds": 2
  },
  "direct_test_330GPa": {
   "n_hcp": 20,
@@ -139,6 +150,33 @@
   "n_LDA": 40,
   "T_el_K": [
    6329
+  ],
+  "atoms": [
+   128
+  ],
+  "P_GPa": 330.0,
+  "T_K": 6329.0,
+  "runs_per_phase": 2,
+  "snapshots_per_run": 10,
+  "snapshot_gap_ps": 1.0,
+  "bulk_modulus_strain": 0.01,
+  "qe_version": [
+   "7.5"
+  ],
+  "upf_PBE": [
+   "Fe.pbe-spn-kjpaw_psl.1.0.0.UPF"
+  ],
+  "upf_LDA": [
+   "Fe.pbe-spn-kjpaw_psl.1.0.0.UPF"
+  ],
+  "input_dft_LDA": [
+   "PZ"
   ]
+ },
+ "lda_setup": {
+  "V_per_atom": [
+   7.0
+  ],
+  "n": 5
  }
 }
