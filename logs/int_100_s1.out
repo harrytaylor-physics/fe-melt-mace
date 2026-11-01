@@ -1,0 +1,73 @@
+/home/shug7909/.local/lib/python3.13/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/mace/calculators/mace.py:226: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/mace/modules/models.py:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+[coex] resumed coex_hcp_100GPa_ti1.00_s1 at 12 ps
+Traceback (most recent call last):
+  File "/home/shug7909/fe_melt/phaseE_coex.py", line 121, in <module>
+    main()
+    ~~~~^^
+  File "/home/shug7909/fe_melt/phaseE_coex.py", line 83, in main
+    dyn.run(500)                                   # 1 ps
+    ~~~~~~~^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/ase/md/md.py", line 196, in run
+    for converged in self.irun(steps=steps):
+                     ~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/ase/md/md.py", line 171, in irun
+    self.step()
+    ~~~~~~~~~^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/ase/md/verlet.py", line 34, in step
+    forces = atoms.get_forces(md=True)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/ase/atoms.py", line 2008, in get_forces
+    forces = self._calc.get_forces(self)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/ase/calculators/abc.py", line 33, in get_forces
+    return self.get_property('forces', atoms)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/ase/calculators/calculator.py", line 520, in get_property
+    self.calculate(atoms, [name], system_changes)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/calculators/mace.py", line 645, in calculate
+    ret_tensors, node_e0 = self._create_result_tensors(
+                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.num_models, num_real_atoms, batch, out
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/calculators/mace.py", line 503, in _create_result_tensors
+    .detach()
+     ~~~~~~^^
+KeyboardInterrupt
+Exception ignored in atexit callback <function dump_compile_times at 0x14dc85770e00>:
+Traceback (most recent call last):
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/_dynamo/utils.py", line 916, in dump_compile_times
+    log.info(compile_times(repr="str", aggregate=True))
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/_dynamo/utils.py", line 902, in compile_times
+    out += tabulate(rows, headers=("Function", "Runtimes (s)"))
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/_dynamo/utils.py", line 252, in tabulate
+    import tabulate
+  File "/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/site-packages/tabulate/__init__.py", line 15, in <module>
+    import wcwidth  # optional wide-character (CJK) support
+  File "/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/site-packages/wcwidth/__init__.py", line 12, in <module>
+    from .wcwidth import ZERO_WIDTH  # noqa
+  File "/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/site-packages/wcwidth/wcwidth.py", line 71, in <module>
+    from .table_wide import WIDE_EASTASIAN
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1322, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 1262, in _find_spec
+  File "<frozen importlib._bootstrap_external>", line 1559, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 1533, in _get_spec
+  File "<frozen importlib._bootstrap_external>", line 1665, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 166, in _path_isfile
+  File "<frozen importlib._bootstrap_external>", line 158, in _path_is_mode_type
+  File "<frozen importlib._bootstrap_external>", line 152, in _path_stat
+KeyboardInterrupt: 

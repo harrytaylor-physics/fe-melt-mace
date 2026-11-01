@@ -1,0 +1,10 @@
+{
+ "tag": "liquid_v7.7_T4920",
+ "phase": "liquid",
+ "vat": 7.7,
+ "P_est": 171.44999999999996,
+ "T": 4920.373995475,
+ "frames": 50,
+ "msd_final": 6.425606171633211,
+ "FLAG_decay": false
+}

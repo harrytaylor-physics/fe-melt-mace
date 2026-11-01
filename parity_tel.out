@@ -1,0 +1,85 @@
+Lmod Warning: Unknown Option: "protected_vars"
+
+
+
+Lmod Warning: Unknown Option: "protected_vars"
+
+
+
+=============================================================================
+This module includes execution of the conda shell function.
+There is no need to run conda init. For more details, see:
+https://arc-software-guide.readthedocs.io/en/latest/python/anaconda_venv.html
+=============================================================================
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/shug7909/tel-mace-src/mace/calculators/mace.py:266: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+T_el 4000 K: 114 frames
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/ase/atoms.py:432: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  a.shape = (-1,) + shape
+     0  liquid      F_rmse  150.1 meV/A
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/ase/atoms.py:432: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  a.shape = (-1,) + shape
+    20  liquid      F_rmse  119.4 meV/A
+    40  bcc         F_rmse   66.3 meV/A
+    60  bcc         F_rmse  102.9 meV/A
+    80  bcc         F_rmse  133.5 meV/A
+   100  liquid      F_rmse  129.4 meV/A
+T_el 6000 K: 116 frames
+     0  liquid      F_rmse   69.7 meV/A
+    20  hcp         F_rmse   33.1 meV/A
+    40  liquid      F_rmse  122.9 meV/A
+    60  stackfault  F_rmse   60.1 meV/A
+    80  hcp         F_rmse   54.9 meV/A
+   100  liquid      F_rmse  105.5 meV/A
+T_el 8000 K: 116 frames
+     0  liquid      F_rmse   96.9 meV/A
+    20  hcp         F_rmse   24.6 meV/A
+    40  fcc         F_rmse   29.1 meV/A
+    60  hcp         F_rmse   37.0 meV/A
+    80  hcp         F_rmse   42.7 meV/A
+   100  liquid      F_rmse   66.9 meV/A
+
+RMSE against DFT (forces: meV/A per component; energy: meV/atom, offset removed per T_el)
+  T_el phase        frames   F_RMSE   E_RMSE  E_offset
+  4000 bcc               9     86.9     1.06     +1.01
+  4000 fcc              10     75.4     1.60     +1.01
+  4000 hcp              44     88.7     1.36     +1.01
+  4000 liquid           39    155.9     1.82     +1.01
+  4000 stackfault       12    102.6     1.26     +1.01
+  4000 all             114    116.9     1.52     +1.01
+  6000 bcc               7     59.6     0.72     -0.04
+  6000 fcc               7     44.3     0.62     -0.04
+  6000 hcp              46     64.7     1.06     -0.04
+  6000 liquid           44    112.4     1.69     -0.04
+  6000 stackfault       12     67.1     0.86     -0.04
+  6000 all             116     85.4     1.29     -0.04
+  8000 bcc              11     36.3     0.47     +0.41
+  8000 fcc               7     31.7     1.67     +0.41
+  8000 hcp              46     54.9     0.92     +0.41
+  8000 liquid           38     89.8     1.63     +0.41
+  8000 stackfault       14     54.4     1.28     +0.41
+  8000 all             116     66.4     1.26     +0.41
+   all bcc              27     63.0     0.97     +0.46
+   all fcc              24     56.9     1.33     +0.46
+   all hcp             136     70.5     1.25     +0.46
+   all liquid          121    122.3     1.75     +0.46
+   all stackfault       38     76.4     1.21     +0.46
+   all all             346     91.7     1.43     +0.46
+
+written phaseD/parity_tel.npz

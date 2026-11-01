@@ -1,0 +1,11 @@
+{
+ "tag": "hcp_v7.65_T5224",
+ "phase": "hcp",
+ "vat": 7.65,
+ "P_est": 176.87499999999994,
+ "T": 5224.412201367188,
+ "frames": 32,
+ "msd_final": 0.17380647516195624,
+ "FLAG_decay": false,
+ "note": "fill run, tethered k=2.0"
+}

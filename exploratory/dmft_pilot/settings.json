@@ -1,0 +1,8 @@
+{
+ "pseudo_dir": "/home/shug7909/fe_melt/pseudo",
+ "upf": "Fe.pbe-spn-kjpaw_psl.1.0.0.UPF",
+ "mass": "55.845",
+ "ecutwfc": "100",
+ "ecutrho": "1000",
+ "template": "hcp-0000_Tel4000.in"
+}

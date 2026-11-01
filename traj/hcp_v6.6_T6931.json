@@ -1,0 +1,11 @@
+{
+ "tag": "hcp_v6.6_T6931",
+ "phase": "hcp",
+ "vat": 6.6,
+ "P_est": 353.6000000000001,
+ "T": 6931.5998707200015,
+ "frames": 32,
+ "msd_final": 0.19327443637929215,
+ "FLAG_decay": false,
+ "note": "tethered k=2.0 eV/A^2"
+}

@@ -1,0 +1,10 @@
+{
+ "tag": "bcc_v7.0_T5901",
+ "phase": "bcc",
+ "vat": 7.0,
+ "P_est": 273.0,
+ "T": 5901.90811,
+ "frames": 25,
+ "msd_final": 0.13712829664302503,
+ "FLAG_decay": false
+}

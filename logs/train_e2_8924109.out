@@ -1,0 +1,19 @@
+=============================================================================
+This module includes execution of the conda shell function.
+There is no need to run conda init. For more details, see:
+https://arc-software-guide.readthedocs.io/en/latest/python/anaconda_venv.html
+=============================================================================
+NVIDIA H100 80GB HBM3, 81559 MiB
+mace from /home/shug7909/tel-mace-src/mace/__init__.py
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/shug7909/tel-mace-src/mace/cli/run_train.py", line 24, in <module>
+    from mace import data, tools
+ImportError: cannot import name 'data' from 'mace' (/home/shug7909/tel-mace-src/mace/__init__.py)

@@ -12,3 +12,5 @@ labels/*.out
 *.lammpstrj
 *.nc
 *.pt
+tests/out/
+analysis/figures/inputs/q6_330.npy

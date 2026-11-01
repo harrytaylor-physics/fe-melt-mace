@@ -1,0 +1,11 @@
+{
+ "tag": "hcp_v8.5_T3302_pre",
+ "phase": "hcp",
+ "vat": 8.5,
+ "P_est": 96.8,
+ "T": 3302.1464012800006,
+ "frames": 24,
+ "msd_final": 0.1895683308053938,
+ "FLAG_decay": false,
+ "note": "pre-decay salvage"
+}

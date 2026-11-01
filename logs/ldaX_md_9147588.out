@@ -1,0 +1,312 @@
+=============================================================================
+This module includes execution of the conda shell function.
+There is no need to run conda init. For more details, see:
+https://arc-software-guide.readthedocs.io/en/latest/python/anaconda_venv.html
+=============================================================================
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/shug7909/tel-mace-src/mace/calculators/mace.py:266: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/fe_melt/phaseF_common.py:114: ResourceWarning: unclosed file <_io.TextIOWrapper name='phaseE/cells/coex_hcp_100GPa.json' mode='r' encoding='UTF-8'>
+  thr = float(json.load(open(js))["q6_threshold"])
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/ase/atoms.py:432: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  a.shape = (-1,) + shape
+/home/shug7909/fe_melt/ldashift.py:109: DeprecationWarning: Use thermalize_momenta
+  MBD(at, temperature_K=T_K, rng=rng)
+/home/shug7909/fe_melt/ldashift.py:110: FutureWarning: NPT thermostat has been moved/renamed to ase.md.melchionna.MelchionnaNPT. Please use this class instead (or a newer NPT thermostat!)
+  dyn = NPT(at, 2 * units.fs, temperature_K=T_K, externalstress=P_GPA * units.GPa,
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/ase/md/md.py:128: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  self.masses.shape = (-1, 1)
+WARNING: NPT: Setting the center-of-mass momentum to zero (was -4.66028 -17.5917 -75.673)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/ase/atoms.py:432: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  a.shape = (-1,) + shape
+/home/shug7909/fe_melt/ldashift.py:125: DeprecationWarning: Use thermalize_momenta
+  MBD(b, temperature_K=T_K, rng=np.random.RandomState(50 + s))
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/ase/md/langevin.py:102: FutureWarning: The implementation of `fixcm=True` in `Langevin` does not strictly sample the correct NVT distributions. The deviations are typically small for large systems but can be more pronounced for small systems. Use `fixcm=False` together with `ase.constraints.FixCom`. `fixcm` is deprecated since ASE 3.28.0 and will be removed in a future release.
+  warnings.warn(msg, FutureWarning)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/ase/md/md.py:128: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  self.masses.shape = (-1, 1)
+hcp: V = 6.9941 A^3/atom, B_T = 1130 GPa, 20 snapshots
+/home/shug7909/fe_melt/ldashift.py:110: FutureWarning: NPT thermostat has been moved/renamed to ase.md.melchionna.MelchionnaNPT. Please use this class instead (or a newer NPT thermostat!)
+  dyn = NPT(at, 2 * units.fs, temperature_K=T_K, externalstress=P_GPA * units.GPa,
+WARNING: NPT: Setting the center-of-mass momentum to zero (was -1.94333 0.680476 1.54854)
+  liquid run 0 snap 1: solid_frac 0.25 MSD -1.00 -> skipped
+liquid: V = 7.0886 A^3/atom, B_T = 1254 GPa, 20 snapshots
+/home/shug7909/fe_melt/ldashift.py:162: ResourceWarning: unclosed file <_io.TextIOWrapper name='phaseX/ldashift/md_meta.json' mode='w' encoding='UTF-8'>
+  json.dump(meta, open(f"{OUT}/md_meta.json", "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/phaseF_common.py:143: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/hcp-0000_Tel4000.in' mode='r' encoding='UTF-8'>
+  m = re.search(r"nat\s*=\s*(\d+)", open(t).read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h00_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h00_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h01_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h01_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h02_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h02_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h03_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h03_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h04_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h04_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h05_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h05_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h06_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h06_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h07_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h07_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h08_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h08_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h09_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h09_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h10_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h10_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h11_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h11_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h12_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h12_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h13_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h13_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h14_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h14_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h15_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h15_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h16_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h16_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h17_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h17_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h18_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h18_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h19_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_h19_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/phaseF_common.py:143: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/liquid-0000_Tel4000.in' mode='r' encoding='UTF-8'>
+  m = re.search(r"nat\s*=\s*(\d+)", open(t).read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l00_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l00_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l01_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l01_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l02_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l02_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l03_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l03_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l04_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l04_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l05_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l05_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l06_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l06_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l07_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l07_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l08_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l08_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l09_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l09_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l10_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l10_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l11_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l11_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l12_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l12_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l13_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l13_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l14_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l14_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l15_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l15_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l16_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l16_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l17_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l17_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l18_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l18_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:191: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l19_PBE_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_p + ".in"), "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:192: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_l19_LDA_Tel6329.in' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, stem_l + ".in"), "w").write(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/ldashift.py:195: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_list.txt' mode='w' encoding='UTF-8'>
+  open(os.path.join(a.labels_dir, "ldaX_list.txt"), "w").write("\n".join(names) + "\n")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/phaseF_common.py:206: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/run_array.sbatch' mode='r' encoding='UTF-8'>
+  txt = open(src).read() if os.path.exists(src) else ""
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/phaseF_common.py:217: ResourceWarning: unclosed file <_io.TextIOWrapper name='labels/ldaX_array.sbatch' mode='w' encoding='UTF-8'>
+  open(path, "w").write(txt)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+written phaseX/ldashift/frames.xyz (40 snapshots) and phaseX/ldashift/md_meta.json
+wrote 80 inputs (40 snapshots x PBE, LDA), labels/ldaX_array.sbatch (copied from labels/run_array.sbatch)
+  estimated cost ~3,600 core-hours

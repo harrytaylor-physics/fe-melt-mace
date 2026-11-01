@@ -1,0 +1,10 @@
+{
+ "tag": "liquid_v8.3_T5820",
+ "phase": "liquid",
+ "vat": 8.3,
+ "P_est": 113.63999999999994,
+ "T": 5820.889218746401,
+ "frames": 50,
+ "msd_final": 23.774763911267165,
+ "FLAG_decay": false
+}

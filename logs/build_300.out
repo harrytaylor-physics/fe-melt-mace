@@ -1,0 +1,91 @@
+/home/shug7909/.local/lib/python3.13/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/home/shug7909/.local/lib/python3.13/site-packages/mace/calculators/mace.py:226: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/home/shug7909/.local/lib/python3.13/site-packages/ase/md/langevin.py:110: FutureWarning: The implementation of `fixcm=True` in `Langevin` does not strictly sample the correct NVT distributions. The deviations are typically small for large systems but can be more pronounced for small systems. Use `fixcm=False` together with `ase.constraints.FixCom`. `fixcm` is deprecated since ASE 3.28.0 and will be removed in a future release.
+  warnings.warn(msg, FutureWarning)
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+[build] lattice a=2.1753  N=6048
+Traceback (most recent call last):
+  File "/home/shug7909/fe_melt/phaseE_build.py", line 144, in <module>
+    main()
+    ~~~~^^
+  File "/home/shug7909/fe_melt/phaseE_build.py", line 117, in main
+    Langevin(solid, 2*units.fs, temperature_K=2.2*T0, friction=0.05).run(4000)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/ase/md/md.py", line 196, in run
+    for converged in self.irun(steps=steps):
+                     ~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/ase/md/md.py", line 163, in irun
+    self.atoms.get_forces()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/ase/atoms.py", line 2008, in get_forces
+    forces = self._calc.get_forces(self)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/ase/calculators/abc.py", line 33, in get_forces
+    return self.get_property('forces', atoms)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/ase/calculators/calculator.py", line 520, in get_property
+    self.calculate(atoms, [name], system_changes)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/calculators/mace.py", line 635, in calculate
+    out = model(
+        batch_dict,
+    ...<3 lines>...
+        compute_atomic_stresses=self.compute_atomic_stresses,
+    )
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/modules/models.py", line 549, in forward
+    node_feats, sc = interaction(
+                     ~~~~~~~~~~~^
+        node_attrs=node_attrs_slice,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+        lammps_natoms=lammps_natoms,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/modules/blocks.py", line 1034, in forward
+    mji = self.conv_tp(
+        node_feats[edge_index[0]], edge_attrs, tp_weights
+    )  # [n_nodes, irreps]
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/e3nn/o3/_tensor_product/_tensor_product.py", line 529, in forward
+    return self._compiled_main_left_right(x, y, real_weight)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+RuntimeError: The following operation failed in the TorchScript interpreter.
+Traceback of TorchScript, serialized code (most recent call last):
+  File "code/__torch__/torch/fx/graph_module/___torch_mangle_11.py", line 144, in forward
+    reshape_34 = torch.reshape(einsum_23, [getitem_4, 896])
+    _17 = [reshape_12, reshape_14, reshape_17, reshape_20, reshape_22, reshape_25, reshape_27, reshape_29, reshape_32, reshape_34]
+    cat = torch.cat(_17, 1)
+          ~~~~~~~~~ <--- HERE
+    return torch.reshape(cat, add_3)
+
+Traceback of TorchScript, original code (most recent call last):
+  File "<eval_with_key>.157", line 115, in forward
+    einsum_23 = torch.functional.einsum('dbca,dbc->dba', tensordot_3, reshape_33);  tensordot_3 = reshape_33 = None
+    reshape_34 = einsum_23.reshape(getitem_4, 896);  einsum_23 = getitem_4 = None
+    cat = torch.cat([reshape_12, reshape_14, reshape_17, reshape_20, reshape_22, reshape_25, reshape_27, reshape_29, reshape_32, reshape_34], dim = 1);  reshape_12 = reshape_14 = reshape_17 = reshape_20 = reshape_22 = reshape_25 = reshape_27 = reshape_29 = reshape_32 = reshape_34 = None
+          ~~~~~~~~~ <--- HERE
+    reshape_35 = cat.reshape(add_3);  cat = add_3 = None
+    return reshape_35
+RuntimeError: CUDA out of memory. Tried to allocate 15.46 GiB. GPU 0 has a total capacity of 44.29 GiB of which 7.68 GiB is free. Including non-PyTorch memory, this process has 36.62 GiB memory in use. Of the allocated memory 36.25 GiB is allocated by PyTorch, and 130.71 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+

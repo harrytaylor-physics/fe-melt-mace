@@ -1,0 +1,11 @@
+{
+ "tag": "hcp_v7.9_T4930_pre",
+ "phase": "hcp",
+ "vat": 7.9,
+ "P_est": 149.74999999999994,
+ "T": 4930.971057468749,
+ "frames": 16,
+ "msd_final": 0.3717825865000071,
+ "FLAG_decay": false,
+ "note": "pre-decay salvage"
+}

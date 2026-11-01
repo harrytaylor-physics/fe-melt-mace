@@ -1,0 +1,538 @@
+number_as_printed	unit	key	ledger_value
+0.5	GPa	summary:eos_max_abs_dP_GPa	0.4231872559
+1	meV/atom	summary:test_liquid_minus_hcp_mean_meV	1.015044564
+330	GPa	keys:settings.direct_test_330GPa.P_GPa	330
+23	K	keys:ldashift.mace_Tm_total_K	22.93916915
+6	K	keys:ldashift.mace_Tm_se_K	5.578433282
+6,329	K	keys:melting_point.Tm_330	6329.038941
+6	K	summary:Tm_330_stat_err_K	6.250504077
+6,306	K	summary:Tm_PBE_330_K	6306.099772
+8	K	summary:Tm_PBE_330_err_K	8.377811116
+346	frames	summary:test_n_frames	346
+108-128	atoms	keys:training.train_file.atoms_per_frame	[108, 128]
+4,000-8,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+1.3-1.5	meV/atom	summary:test_E_rmse_range	[1.2626411083848532, 1.5243924238363225]
+66-117	meV/A	summary:test_F_rmse_range_meV_A	[66.39278746827421, 116.86613769153246]
+1.5-2.8	%	summary:test_F_rel_range	[0.015265403320028322, 0.027872344117544853]
+330	GPa	keys:settings.direct_test_330GPa.P_GPa	330
+40	snapshots	keys:settings.direct_test_330GPa.n_PBE	40
+330	GPa	keys:settings.direct_test_330GPa.P_GPa	330
+6,329	K	keys:settings.direct_test_330GPa.T_K	6329
++1.30	meV/atom	keys:ldashift.mace_dE_liq_hcp_meV	1.303598259
+0.38	meV/atom	keys:ldashift.mace_dE_liq_hcp_se_meV	0.3845697494
++0.8 to +1.3	meV/atom	summary:test_liquid_minus_hcp_range_meV	[0.8381972194417245, 1.3182161849047556]
++0.32	GPa	keys:ldashift.mace_dP_hcp	0.3160734375
++0.44	GPa	keys:ldashift.mace_dP_liquid	0.4437570557
+1.5-2.5	%	keys:ldashift.mace_F_rel_hcp_pct	1.536175088
+1.5-2.5	%	keys:ldashift.mace_F_rel_liquid_pct	2.484455405
+23	K	keys:ldashift.mace_Tm_total_K	22.93916915
+6	K	keys:ldashift.mace_Tm_se_K	5.578433282
+0.42	GPa	summary:eos_max_abs_dP_GPa	0.4231872559
+70 to 350	GPa	summary:eos_P_range_GPa	[70.76, 350.831]
+0.6	GPa	summary:tel_response_max_abs_dP_GPa	0.5611745605
+1.3	meV/atom	summary:tel_response_max_abs_dF_meV	1.299063575
+1-2.5	meV/atom	summary:phase_min_abs_diff_meV	1.097556464
+1-2.5	meV/atom	summary:phase_max_abs_diff_meV	2.531760221
+0.3	%	summary:coa_rel_err	-0.002785597
+0.2	%	summary:bulk_modulus_max_abs_rel_err	0.001789402493
+2.1	%	summary:elastic_max_abs_rel_err_excl_C66	0.02084825448
++5.1	%	summary:elastic_rel_err/C66	0.05124507238
+1.0	%	summary:E2g_rel_err	0.009789520939
+-13 to +7	GPa	summary:pbe_minus_exp_core_GPa	[-13.345181072904495, 7.266101937801352]
+-110 to +60	K	summary:Tm_true_minus_pbe_K	[-112.20802965331872, 61.09433639354903]
++13	K	keys:ldashift.lda_dTm_K	13.32566197
+17	K	keys:ldashift.lda_dTm_se_K	17.09651228
+-25	K	keys:ldashift.lda_dTm_equalB_K	-24.55502325
+-37	GPa	summary:lda_dP_mean_GPa	-36.92675
+4,000-8,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+2	interaction layers	keys:training.model.interactions	2
+128	channels	keys:training.model.channels	128
+6.0	A	keys:training.model.r_max_A	6
+2,173-2,218	frames	keys:training.train_frames_range	[2173, 2218]
+128	atoms	keys:training.train_file.atoms_per_frame[1]	128
+108	atoms (fcc)	keys:training.train_file.atoms_per_frame[0]	108
+4,000, 6,000 and 8,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+36.1	%	keys:training.train_file.phase_pct.liquid	36.08715388
+37.2	%	keys:training.train_file.phase_pct.hcp	37.17657739
+10.3	%	keys:training.train_file.phase_pct.stackfault	10.30413073
+8.6	%	keys:training.train_file.phase_pct.fcc	8.624602814
+7.8	%	keys:training.train_file.phase_pct.bcc	7.807535179
+6,609	frames	keys:training.train_file.n_frames	6609
+1.5	meV/atom	keys:training.model.final_errors.stage_two.train_E_meV_atom	1.5
+1.5	meV/atom	keys:training.model.final_errors.stage_two.valid_E_meV_atom	1.5
+89.1	meV/A	keys:training.model.final_errors.stage_two.train_F_meV_A	89.1
+92.4	meV/A	keys:training.model.final_errors.stage_two.valid_F_meV_A	92.4
+114	frames	keys:training.test_frames.4000	114
+116	frames	keys:training.test_frames.6000	116
+116	frames	keys:training.test_frames.8000	116
+4,000, 6,000 and 8,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+1.0.0	pslibrary version	keys:settings.pseudopotentials.Fe.pbe-spn-kjpaw_psl.1.0.0.UPF	16
+16	valence electrons	keys:settings.pseudopotentials.Fe.pbe-spn-kjpaw_psl.1.0.0.UPF	16
+346	frames	summary:test_n_frames	346
+1.3-1.5	meV/atom	summary:test_E_rmse_range	[1.2626411083848532, 1.5243924238363225]
+1.5-2.8	%	summary:test_F_rel_range	[0.015265403320028322, 0.027872344117544853]
+0.0	meV/atom	keys:repro_check.max_abs_dE_meV_atom	0
+5e-5	eV/A	keys:repro_check.max_abs_dF_eV_A	4.577636719e-05
+4,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+44	frames	keys:test_stats.4000_hcp.n	44
+1.36	meV/atom	keys:test_stats.4000_hcp.rmse	1.361473199
+89	meV/A	keys:test_stats.4000_hcp.frmse	88.65613126
+2.3	%	keys:test_stats.4000_hcp.frel	0.02266152654
+4,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+39	frames	keys:test_stats.4000_liquid.n	39
+1.82	meV/atom	keys:test_stats.4000_liquid.rmse	1.816025248
+156	meV/A	keys:test_stats.4000_liquid.frmse	155.8656033
+3.3	%	keys:test_stats.4000_liquid.frel	0.03261030301
+4,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+31	frames	summary:test_4000_fcc_bcc_sf/n	31
+1.06-1.60	meV/atom	summary:test_4000_fcc_bcc_sf/rmse	[1.0579565492768461, 1.6014209761070726]
+75-103	meV/A	summary:test_4000_fcc_bcc_sf/frmse	[75.430601424522, 102.6369618704215]
+2.3-2.7	%	summary:test_4000_fcc_bcc_sf/frel	[0.022514803206978927, 0.026606270599666592]
+4,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+114	frames	keys:test_stats.4000_all.n	114
+1.52	meV/atom	keys:test_stats.4000_all.rmse	1.524392424
+117	meV/A	keys:test_stats.4000_all.frmse	116.8661377
+2.8	%	keys:test_stats.4000_all.frel	0.02787234412
+6,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+46	frames	keys:test_stats.6000_hcp.n	46
+1.06	meV/atom	keys:test_stats.6000_hcp.rmse	1.055440346
+65	meV/A	keys:test_stats.6000_hcp.frmse	64.68264982
+1.6	%	keys:test_stats.6000_hcp.frel	0.01604963458
+6,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+44	frames	keys:test_stats.6000_liquid.n	44
+1.69	meV/atom	keys:test_stats.6000_liquid.rmse	1.686908706
+112	meV/A	keys:test_stats.6000_liquid.frmse	112.3625726
+2.4	%	keys:test_stats.6000_liquid.frel	0.0241639187
+6,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+26	frames	summary:test_6000_fcc_bcc_sf/n	26
+0.62-0.86	meV/atom	summary:test_6000_fcc_bcc_sf/rmse	[0.6233664236030828, 0.8605253583905359]
+44-67	meV/A	summary:test_6000_fcc_bcc_sf/frmse	[44.30895750342584, 67.07947965086493]
+1.5-1.7	%	summary:test_6000_fcc_bcc_sf/frel	[0.014692818590243939, 0.017058676653971386]
+6,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+116	frames	keys:test_stats.6000_all.n	116
+1.29	meV/atom	keys:test_stats.6000_all.rmse	1.285390877
+85	meV/A	keys:test_stats.6000_all.frmse	85.41904687
+2.0	%	keys:test_stats.6000_all.frel	0.02022852196
+8,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+46	frames	keys:test_stats.8000_hcp.n	46
+0.92	meV/atom	keys:test_stats.8000_hcp.rmse	0.9198767688
+55	meV/A	keys:test_stats.8000_hcp.frmse	54.85009856
+1.3	%	keys:test_stats.8000_hcp.frel	0.01265158068
+8,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+38	frames	keys:test_stats.8000_liquid.n	38
+1.63	meV/atom	keys:test_stats.8000_liquid.rmse	1.632779781
+90	meV/A	keys:test_stats.8000_liquid.frmse	89.78063009
+1.8	%	keys:test_stats.8000_liquid.frel	0.01849920297
+8,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+32	frames	summary:test_8000_fcc_bcc_sf/n	32
+0.47-1.67	meV/atom	summary:test_8000_fcc_bcc_sf/rmse	[0.4745129485143176, 1.667583288280608]
+32-54	meV/A	summary:test_8000_fcc_bcc_sf/frmse	[31.721424792685443, 54.38413536834627]
+1.0-1.3	%	summary:test_8000_fcc_bcc_sf/frel	[0.010436094768180916, 0.01335997494005086]
+8,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+116	frames	keys:test_stats.8000_all.n	116
+1.26	meV/atom	keys:test_stats.8000_all.rmse	1.262641108
+66	meV/A	keys:test_stats.8000_all.frmse	66.39278747
+1.5	%	keys:test_stats.8000_all.frel	0.01526540332
+1.28	meV/atom	keys:test_stats.Pbin_50-150.rmse	1.28294919
+1.31	meV/atom	keys:test_stats.Pbin_150-250.rmse	1.307027219
+1.44	meV/atom	keys:test_stats.Pbin_250-320.rmse	1.438245265
+1.63	meV/atom	keys:test_stats.Pbin_320-400.rmse	1.63310865
+50-150	GPa	keys:test_stats.Pbin_50-150.n	109
+150-250	GPa	keys:test_stats.Pbin_150-250.n	82
+250-320	GPa	keys:test_stats.Pbin_250-320.n	60
+320-400	GPa	keys:test_stats.Pbin_320-400.n	44
+1	meV/atom	summary:K_per_meV_at_dS_0.80	14.50564765
+14.5	K	summary:K_per_meV_at_dS_0.80	14.50564765
+0.80	k_B	summary:K_per_meV_at_dS_0.80	14.50564765
+4,000	K	keys:training.T_el_K	[4000, 6000, 8000]
++0.84	meV/atom	keys:test_stats.4000_liquid-hcp[0]	0.8381972194
+0.34	meV/atom	keys:test_stats.4000_liquid-hcp[1]	0.3443894089
+-0.87	meV/atom	keys:test_stats.4000_fcc-hcp[0]	-0.8722269649
+0.44	meV/atom	keys:test_stats.4000_fcc-hcp[1]	0.4422621941
++0.38	meV/atom	keys:test_stats.4000_bcc-hcp[0]	0.3825814724
+0.42	meV/atom	keys:test_stats.4000_bcc-hcp[1]	0.4224175406
+-0.24	meV/atom	keys:test_stats.4000_stackfault-hcp[0]	-0.2399855738
+0.41	meV/atom	keys:test_stats.4000_stackfault-hcp[1]	0.408936164
+6,000	K	keys:training.T_el_K	[4000, 6000, 8000]
++1.32	meV/atom	keys:test_stats.6000_liquid-hcp[0]	1.318216185
+0.27	meV/atom	keys:test_stats.6000_liquid-hcp[1]	0.2653904944
++0.25	meV/atom	keys:test_stats.6000_fcc-hcp[0]	0.2452945507
+0.26	meV/atom	keys:test_stats.6000_fcc-hcp[1]	0.2605913413
++0.10	meV/atom	keys:test_stats.6000_bcc-hcp[0]	0.09686223105
+0.27	meV/atom	keys:test_stats.6000_bcc-hcp[1]	0.2652874135
++0.24	meV/atom	keys:test_stats.6000_stackfault-hcp[0]	0.2383853906
+0.28	meV/atom	keys:test_stats.6000_stackfault-hcp[1]	0.277308938
+8,000	K	keys:training.T_el_K	[4000, 6000, 8000]
++0.89	meV/atom	keys:test_stats.8000_liquid-hcp[0]	0.8887202863
+0.28	meV/atom	keys:test_stats.8000_liquid-hcp[1]	0.2846671529
++1.23	meV/atom	keys:test_stats.8000_fcc-hcp[0]	1.228900679
+0.61	meV/atom	keys:test_stats.8000_fcc-hcp[1]	0.6088631884
++0.32	meV/atom	keys:test_stats.8000_bcc-hcp[0]	0.3232172982
+0.19	meV/atom	keys:test_stats.8000_bcc-hcp[1]	0.1903805095
++0.25	meV/atom	keys:test_stats.8000_stackfault-hcp[0]	0.246154938
+0.37	meV/atom	keys:test_stats.8000_stackfault-hcp[1]	0.370620942
++1.0	meV/atom	summary:test_liquid_minus_hcp_mean_meV	1.015044564
+15	K	summary:test_liquid_minus_hcp_mean_K	14.72387879
+2,009	frames	keys:tel_check.n_frames_all_three_tel	2009
+100	GPa	keys:tel_check.cells.100GPa.n_hcp	109
+150	GPa	keys:tel_check.cells.150GPa.n_hcp	122
+250	GPa	keys:tel_check.cells.250GPa.n_hcp	105
+330	GPa	keys:tel_check.cells.330GPa.n_hcp	117
+6,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+4,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+8,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+-15.8	meV/atom	keys:tel_check.dft_range_meV[0]	-15.76
++18.0	meV/atom	keys:tel_check.dft_range_meV[1]	18.04
+0.05-0.5	meV/atom	keys:tel_check.abs_diff_range_meV	[0.04999999999999982, 0.5]
+7	K	keys:tel_check.max_abs_diff_K	6.907451263
+0.6	GPa	summary:static_max_abs_dP_all_GPa	0.6306943359
+2.5	meV/atom	summary:phase_max_abs_diff_meV	2.531760221
+2.1	%	summary:elastic_max_abs_rel_err_excl_C66	0.02084825448
+5.1	%	summary:elastic_rel_err/C66	0.05124507238
+0.53	GPa	keys:convergence.cutoff_dP_100_to_130	-0.529
+100	Ry	keys:settings.dft_refs.ecutwfc_Ry	[100.0]
+1,000	Ry	keys:settings.dft_refs.ecutrho_Ry	[1000.0]
+1.60	c/a	keys:settings.dft_refs.eos_c_over_a	[1.6]
+6,000	K	keys:settings.dft_refs.T_el_K	[4000.0, 6000.0, 8000.0]
+2.6	eV/atom	summary:eos_E_span_eV	2.583527719
+6.6 to 8.9	A^3/atom	keys:settings.dft_refs.eos_volumes	[6.6, 6.8, 7.0, 7.2, 7.5, 8.0, 8.6, 8.9]
+1.2	meV/atom	summary:eos_max_abs_dE_meV	1.221775405
+6.6	QE version	keys:settings.dft_refs.qe_version	"6.6"
+100	Ry	keys:settings.dft_refs.ecutwfc_Ry	[100.0]
+1,000	Ry	keys:settings.dft_refs.ecutrho_Ry	[1000.0]
+12x12x8	k-mesh	keys:settings.dft_refs.kmesh_hcp	["12x12x8"]
+8	volumes	keys:settings.dft_refs.eos_n	8
+6.6 to 8.9	A^3/atom	keys:settings.dft_refs.eos_volumes	[6.6, 6.8, 7.0, 7.2, 7.5, 8.0, 8.6, 8.9]
+8	errors	keys:settings.dft_refs.eos_n	8
+7.0	A^3/atom	keys:settings.dft_refs.V_by_kind.tel	[7.0]
+4,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+263.02	GPa	keys:static_compare.tel_response.4000.P_dft	263.024
+263.59	GPa	keys:static_compare.tel_response.4000.P_mace	263.5851746
++222.4	meV/atom	keys:static_compare.tel_response.4000.dF_dft_meV	222.4346468
++222.2	meV/atom	keys:static_compare.tel_response.4000.dF_mace_meV	222.1679688
+6,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+270.84	GPa	keys:static_compare.tel_response.6000.P_dft	270.845
+271.20	GPa	keys:static_compare.tel_response.6000.P_mace	271.2034607
+0	meV/atom	keys:static_compare.tel_response.6000.dF_dft_meV	0
+0	meV/atom	keys:static_compare.tel_response.6000.dF_mace_meV	0
+8,000	K	keys:training.T_el_K	[4000, 6000, 8000]
+281.16	GPa	keys:static_compare.tel_response.8000.P_dft	281.157
+281.38	GPa	keys:static_compare.tel_response.8000.P_mace	281.3777771
+-325.0	meV/atom	keys:static_compare.tel_response.8000.dF_dft_meV	-325.0295323
+-323.7	meV/atom	keys:static_compare.tel_response.8000.dF_mace_meV	-323.7304688
+6,000	K	keys:settings.dft_refs.T_el_K	[4000.0, 6000.0, 8000.0]
+7.0	A^3/atom	keys:settings.dft_refs.V_by_kind.fcc	[7.0, 8.0]
++65.5	meV/atom	keys:static_compare.fcc-hcp_7.0[0]	65.53250121
++63.5	meV/atom	keys:static_compare.fcc-hcp_7.0[1]	63.4765625
+-2.1	meV/atom	summary:phase_E_diff_meV/fcc-hcp_7.0	-2.055938711
+7.0	A^3/atom	keys:settings.dft_refs.V_by_kind.bcc	[7.0, 8.0]
++355.2	meV/atom	keys:static_compare.bcc-hcp_7.0[0]	355.2147149
++353.5	meV/atom	keys:static_compare.bcc-hcp_7.0[1]	353.515625
+-1.7	meV/atom	summary:phase_E_diff_meV/bcc-hcp_7.0	-1.699089916
+8.0	A^3/atom	keys:settings.dft_refs.V_by_kind.fcc	[7.0, 8.0]
++43.9	meV/atom	keys:static_compare.fcc-hcp_8.0[0]	43.85495853
++46.4	meV/atom	keys:static_compare.fcc-hcp_8.0[1]	46.38671875
++2.5	meV/atom	summary:phase_E_diff_meV/fcc-hcp_8.0	2.531760221
+8.0	A^3/atom	keys:settings.dft_refs.V_by_kind.bcc	[7.0, 8.0]
++251.1	meV/atom	keys:static_compare.bcc-hcp_8.0[0]	251.0975565
++250.0	meV/atom	keys:static_compare.bcc-hcp_8.0[1]	250
+-1.1	meV/atom	summary:phase_E_diff_meV/bcc-hcp_8.0	-1.097556464
+7.0	A^3/atom	keys:settings.dft_refs.V_by_kind.fcc	[7.0, 8.0]
+274.8	GPa	keys:static_compare.fcc_P_7.0[0]	274.83
+274.9	GPa	keys:static_compare.fcc_P_7.0[1]	274.9264526
++0.1	GPa	summary:phase_P_diff_GPa/fcc_P_7.0	0.09645263672
+7.0	A^3/atom	keys:settings.dft_refs.V_by_kind.bcc	[7.0, 8.0]
+290.4	GPa	keys:static_compare.bcc_P_7.0[0]	290.356
+291.0	GPa	keys:static_compare.bcc_P_7.0[1]	290.9866943
++0.6	GPa	summary:phase_P_diff_GPa/bcc_P_7.0	0.6306943359
+8.0	A^3/atom	keys:settings.dft_refs.V_by_kind.fcc	[7.0, 8.0]
+141.8	GPa	keys:static_compare.fcc_P_8.0[0]	141.752
+141.8	GPa	keys:static_compare.fcc_P_8.0[1]	141.8345032
++0.08	GPa	summary:phase_P_diff_GPa/fcc_P_8.0	0.08250317383
+8.0	A^3/atom	keys:settings.dft_refs.V_by_kind.bcc	[7.0, 8.0]
+152.8	GPa	keys:static_compare.bcc_P_8.0[0]	152.834
+152.7	GPa	keys:static_compare.bcc_P_8.0[1]	152.6792297
+-0.15	GPa	summary:phase_P_diff_GPa/bcc_P_8.0	-0.1547702637
+6.8	A^3/atom	keys:settings.dft_refs.coa_V	[6.8]
+1.6022	c/a	keys:static_compare.coa_min.dft	1.602240975
+1.5978	c/a	keys:static_compare.coa_min.mace	1.597777778
+-0.3	%	summary:coa_rel_err	-0.002785597
+7.0	A^3/atom	keys:settings.dft_refs.V_by_kind.ph	[7.0]
+271	GPa	keys:static_compare.eos.V7.00[1]	270.845
+6,000	K	keys:settings.dft_refs.T_el_K	[4000.0, 6000.0, 8000.0]
+1	% strain	keys:settings.static.strain	0.01
+0.03	A	keys:settings.static.phonon_u_A	0.03
+13.25	g/cm^3	keys:static_compare.voigt.dft.density_g_cm3	13.24754348
+1,934	GPa	keys:static_compare.elastic.dft.C11	1934.159638
+1,974	GPa	keys:static_compare.elastic.mace.C11	1974.48349
++2.1	%	summary:elastic_rel_err/C11	0.02084825448
+928	GPa	keys:static_compare.elastic.dft.C12	927.9682561
+919	GPa	keys:static_compare.elastic.mace.C12	918.6004639
+-1.0	%	summary:elastic_rel_err/C12	-0.010094949
+838	GPa	keys:static_compare.elastic.dft.C13	837.9031718
+838	GPa	keys:static_compare.elastic.mace.C13	838.168335
+0.0	%	summary:elastic_rel_err/C13	0.000316460406
+2,022	GPa	keys:static_compare.elastic.dft.C33	2021.687159
+1,994	GPa	keys:static_compare.elastic.mace.C33	1993.889618
+-1.4	%	summary:elastic_rel_err/C33	-0.01374967502
+384	GPa	keys:static_compare.elastic.dft.C44	383.5029396
+379	GPa	keys:static_compare.elastic.mace.C44	378.6813021
+-1.3	%	summary:elastic_rel_err/C44	-0.0125726221
+503	GPa	keys:static_compare.elastic.dft.C66	502.5624349
+528	GPa	keys:static_compare.elastic.mace.C66	528.3162832
++5.1	%	summary:elastic_rel_err/C66	0.05124507238
+1,232	GPa	keys:static_compare.bulk_modulus.dft.K_GPa.7.00	1231.85791
+1,232	GPa	keys:static_compare.bulk_modulus.mace.K_GPa.7.00	1232.181199
+0.0	%	summary:bulk_modulus_7.00_rel_err	0.0002624405926
+574	GPa	keys:static_compare.voigt.dft.G_V	573.5082721
+586	GPa	keys:static_compare.voigt.mace.G_V	585.9936651
++2.2	%	summary:voigt_rel_err/G_V	0.02177020549
+12.28	km/s	keys:static_compare.voigt.dft.vp_km_s	12.2800955
+12.34	km/s	keys:static_compare.voigt.mace.vp_km_s	12.34311125
++0.5	%	summary:voigt_rel_err/vp_km_s	0.00513153605
+6.58	km/s	keys:static_compare.voigt.dft.vs_km_s	6.579640519
+6.65	km/s	keys:static_compare.voigt.mace.vs_km_s	6.650874972
++1.1	%	summary:voigt_rel_err/vs_km_s	0.01082649623
+334	cm^-1	keys:static_compare.E2g_DFT	333.7638855
+337	cm^-1	keys:static_compare.E2g_MACE	337.031274
++1.0	%	summary:E2g_rel_err	0.009789520939
+2.1	%	summary:elastic_max_abs_rel_err_excl_C66	0.02084825448
+1,233	GPa	keys:static_compare.voigt.dft.K_V	1233.061737
+1,232	GPa	keys:static_compare.bulk_modulus.dft.K_GPa.7.00	1231.85791
+330	GPa	keys:settings.direct_test_330GPa.P_GPa	330
+23	K	keys:ldashift.mace_Tm_total_K	22.93916915
+6	K	keys:ldashift.mace_Tm_se_K	5.578433282
+6,329	K	keys:melting_point.Tm_330	6329.038941
+23	K	keys:ldashift.mace_Tm_total_K	22.93916915
+6,306	K	summary:Tm_PBE_330_K	6306.099772
+8	K	summary:Tm_PBE_330_err_K	8.377811116
+20	hcp snapshots	keys:settings.direct_test_330GPa.n_hcp	20
+20	liquid snapshots	keys:settings.direct_test_330GPa.n_liquid	20
+128	atoms	keys:settings.direct_test_330GPa.atoms	[128]
+330	GPa	keys:settings.direct_test_330GPa.P_GPa	330
+6,329	K	keys:settings.direct_test_330GPa.T_K	6329
+6,329	K	keys:settings.direct_test_330GPa.T_el_K	[6329]
+6.994	A^3/atom	keys:ldashift.V_hcp	6.994062851
+7.089	A^3/atom	keys:ldashift.V_liquid	7.08863965
++0.32	GPa	keys:ldashift.mace_dP_hcp	0.3160734375
+0.01	GPa	keys:ldashift.mace_dP_hcp_se	0.01219006474
++0.44	GPa	keys:ldashift.mace_dP_liquid	0.4437570557
+0.03	GPa	keys:ldashift.mace_dP_liquid_se	0.02622133968
+75	meV/A	keys:ldashift.mace_F_rmse_hcp_meV	75.27738989
+1.5	%	keys:ldashift.mace_F_rel_hcp_pct	1.536175088
+4.90	eV/A	keys:ldashift.mace_F_rms_pbe_hcp	4.900313154
+119	meV/A	keys:ldashift.mace_F_rmse_liquid_meV	119.1427329
+2.5	%	keys:ldashift.mace_F_rel_liquid_pct	2.484455405
+4.80	eV/A	keys:ldashift.mace_F_rms_pbe_liquid	4.795527126
+0	meV/atom	summary:direct_test_dE_rel_hcp_meV/hcp	0
++1.30	meV/atom	summary:direct_test_dE_rel_hcp_meV/liquid	1.303598259
+0.38	meV/atom	keys:ldashift.mace_dE_liq_hcp_se_meV	0.3845697494
++1.0	meV/atom	summary:test_liquid_minus_hcp_mean_meV	1.015044564
+0.2	meV/atom	summary:test_liquid_minus_hcp_mean_se_meV	0.1732280345
+0.80	k_B	summary:K_per_meV_at_dS_0.80	14.50564765
++22	K	keys:ldashift.mace_Tm_equal_volume_part_K	22.16264198
+-3	K	keys:ldashift.mace_Tm_pressure_part_K	-3.253104955
+0.095	A^3/atom	keys:ldashift.dV_m	0.09457679939
++4	K	keys:ldashift.mace_Tm_second_order_K	4.029632126
+12,096	atoms	keys:settings.coexistence.atoms_per_cell	[12032, 12096]
+six	runs per pressure	keys:coex_cells.hcp_runs_per_cell	[6]
+three	starting temperatures	keys:settings.coexistence.n_start_T	3
+two	random seeds	keys:settings.coexistence.n_seeds	2
+42	slabs	keys:settings.slabs.n_slabs	42
+100	GPa	keys:coex_cells.cells.coex_hcp_100GPa.P_nominal	100
+102.5	GPa	keys:coex_cells.cells.coex_hcp_100GPa.P	102.4503851
+3,911	K	keys:coex_cells.cells.coex_hcp_100GPa.Tm	3910.898631
+8.929	A^3/atom	keys:cc_check.cells.coex_hcp_100GPa.Vs	8.929347931
+8.984	A^3/atom	keys:cc_check.cells.coex_hcp_100GPa.Vl	8.983919546
+0.61	%	keys:cc_check.cells.coex_hcp_100GPa.dV_pct	0.6111489333
+0.18	%	keys:cc_check.cells.coex_hcp_100GPa.dV_pct_se	0.1839630381
+150	GPa	keys:coex_cells.cells.coex_hcp_150GPa.P_nominal	150
+153.6	GPa	keys:coex_cells.cells.coex_hcp_150GPa.P	153.55799
+4,602	K	keys:coex_cells.cells.coex_hcp_150GPa.Tm	4602.214891
+8.234	A^3/atom	keys:cc_check.cells.coex_hcp_150GPa.Vs	8.233536427
+8.353	A^3/atom	keys:cc_check.cells.coex_hcp_150GPa.Vl	8.352953294
+1.45	%	keys:cc_check.cells.coex_hcp_150GPa.dV_pct	1.450371514
+0.22	%	keys:cc_check.cells.coex_hcp_150GPa.dV_pct_se	0.2226739827
+200	GPa	keys:coex_cells.cells.coex_hcp_200GPa.P_nominal	200
+206.0	GPa	keys:coex_cells.cells.coex_hcp_200GPa.P	206.0279654
+5,196	K	keys:coex_cells.cells.coex_hcp_200GPa.Tm	5195.585004
+7.802	A^3/atom	keys:cc_check.cells.coex_hcp_200GPa.Vs	7.801603838
+7.882	A^3/atom	keys:cc_check.cells.coex_hcp_200GPa.Vl	7.881630209
+1.03	%	keys:cc_check.cells.coex_hcp_200GPa.dV_pct	1.025768204
+0.19	%	keys:cc_check.cells.coex_hcp_200GPa.dV_pct_se	0.1857890169
+250	GPa	keys:coex_cells.cells.coex_hcp_250GPa.P_nominal	250
+258.2	GPa	keys:coex_cells.cells.coex_hcp_250GPa.P	258.1728647
+5,734	K	keys:coex_cells.cells.coex_hcp_250GPa.Tm	5733.760143
+7.407	A^3/atom	keys:cc_check.cells.coex_hcp_250GPa.Vs	7.407113812
+7.499	A^3/atom	keys:cc_check.cells.coex_hcp_250GPa.Vl	7.498782779
+1.24	%	keys:cc_check.cells.coex_hcp_250GPa.dV_pct	1.237580105
+0.29	%	keys:cc_check.cells.coex_hcp_250GPa.dV_pct_se	0.2935884476
+300	GPa	keys:coex_cells.cells.coex_hcp_300GPa.P_nominal	300
+311.7	GPa	keys:coex_cells.cells.coex_hcp_300GPa.P	311.747514
+6,211	K	keys:coex_cells.cells.coex_hcp_300GPa.Tm	6210.872531
+7.095	A^3/atom	keys:cc_check.cells.coex_hcp_300GPa.Vs	7.094858818
+7.192	A^3/atom	keys:cc_check.cells.coex_hcp_300GPa.Vl	7.191861419
+1.37	%	keys:cc_check.cells.coex_hcp_300GPa.dV_pct	1.367223831
+0.26	%	keys:cc_check.cells.coex_hcp_300GPa.dV_pct_se	0.2649357837
+330	GPa	keys:coex_cells.cells.coex_hcp_330GPa.P_nominal	330
+343.7	GPa	keys:coex_cells.cells.coex_hcp_330GPa.P	343.6620969
+6,488	K	keys:coex_cells.cells.coex_hcp_330GPa.Tm	6487.695959
+6.919	A^3/atom	keys:cc_check.cells.coex_hcp_330GPa.Vs	6.918880559
+7.023	A^3/atom	keys:cc_check.cells.coex_hcp_330GPa.Vl	7.022844456
+1.50	%	keys:cc_check.cells.coex_hcp_330GPa.dV_pct	1.502611527
+0.26	%	keys:cc_check.cells.coex_hcp_330GPa.dV_pct_se	0.2599775706
+350	GPa	keys:coex_cells.cells.coex_hcp_350GPa.P_nominal	350
+365.6	GPa	keys:coex_cells.cells.coex_hcp_350GPa.P	365.5973031
+6,656	K	keys:coex_cells.cells.coex_hcp_350GPa.Tm	6656.335677
+6.820	A^3/atom	keys:cc_check.cells.coex_hcp_350GPa.Vs	6.820055551
+6.929	A^3/atom	keys:cc_check.cells.coex_hcp_350GPa.Vl	6.929033879
+1.60	%	keys:cc_check.cells.coex_hcp_350GPa.dV_pct	1.597909683
+0.26	%	keys:cc_check.cells.coex_hcp_350GPa.dV_pct_se	0.2571632004
+6,329	K	keys:melting_point.Tm_330	6329.038941
+330	GPa	keys:coex_cells.cells.coex_hcp_330GPa.P_nominal	330
+12,096	atoms	keys:settings.coexistence.atoms_per_cell	[12032, 12096]
+6,306	K	summary:Tm_PBE_330_K	6306.099772
+8	K	summary:Tm_PBE_330_err_K	8.377811116
+6,329	K	keys:melting_point.Tm_330	6329.038941
+6	K	summary:Tm_330_stat_err_K	6.250504077
+1.5	%	keys:cc_check.cells.coex_hcp_330GPa.dV_pct	1.502611527
+0.3	%	keys:cc_check.cells.coex_hcp_330GPa.dV_pct_se	0.2599775706
+8.7	K/GPa	keys:cc_check.intervals.312-344GPa.curve	8.673885184
+16	valence electrons (PAW-16)	keys:literature.melting_330GPa.Sun2018.paw_valence_shift_between	[8, 16]
+6,170	K	keys:literature.melting_330GPa.Sun2018.Tm	6170
+200	K	keys:literature.melting_330GPa.Sun2018.Tm_err	200
+1.7	%	keys:literature.melting_330GPa.Sun2018.dV_pct	1.7
+8.1	K/GPa	keys:literature.melting_330GPa.Sun2018.dTdP	8.1
+0.2	K/GPa	keys:literature.melting_330GPa.Sun2018.dTdP_err	0.2
+6,350	K	keys:literature.melting_330GPa.Alfe2002_via_Sun2018.Tm	6350
+1.8	%	keys:literature.melting_330GPa.Alfe2002_via_Sun2018.dV_pct	1.8
+9.0	K/GPa	keys:literature.melting_330GPa.Alfe2002_via_Sun2018.dTdP	9
+6,370	K	keys:literature.melting_330GPa.Alfe2009.Tm	6370
+100	K	keys:literature.melting_330GPa.Alfe2009.Tm_err	100
+328	GPa	keys:literature.melting_330GPa.Alfe2009.P	328
+9,216	atoms	keys:literature.melting_330GPa.Rao2025.n_atoms	9216
+6,225	K	keys:literature.melting_330GPa.Rao2025.Tm	6225
+42	K	keys:literature.melting_330GPa.Rao2025.Tm_err	42
+6,900	K	keys:literature.melting_330GPa.Sola2009.Tm	6900
+400	K	keys:literature.melting_330GPa.Sola2009.Tm_err	400
+5,100	K	keys:literature.melting_330GPa.Anzellini2013.extrapolated_from_T	5100
+220	GPa	keys:literature.melting_330GPa.Anzellini2013.extrapolated_from_P	220
+6,230	K	keys:literature.melting_330GPa.Anzellini2013.Tm	6230
+500	K	keys:literature.melting_330GPa.Anzellini2013.Tm_err	500
+440	K	keys:literature.melting_330GPa.Sun2018.paw_valence_shift_K	440
+8	valence electrons	keys:literature.melting_330GPa.Sun2018.paw_valence_shift_between	[8, 16]
+16	valence electrons	keys:literature.melting_330GPa.Sun2018.paw_valence_shift_between	[8, 16]
+16	valence electrons	keys:settings.pseudopotentials.Fe.pbe-spn-kjpaw_psl.1.0.0.UPF	16
+5.0	eV (U, DMFT)	keys:literature.melting_330GPa.Rao2025.dmft_U_eV	5
+0.93	eV (J, DMFT)	keys:literature.melting_330GPa.Rao2025.dmft_J_eV	0.93
++13	K	keys:ldashift.lda_dTm_K	13.32566197
+17	K	keys:ldashift.lda_dTm_se_K	17.09651228
+81	K	summary:RaoZhu_minus_Tm_PBE_330_K	-81.09977163
+43	K	summary:RaoZhu_minus_Tm_PBE_330_err_K	42.82741784
+69.2	meV/atom (mean absolute)	keys:literature.melting_330GPa.Rao2025.potential_energy_mae_meV_atom	69.2
+4-8	atoms (label cells)	keys:literature.melting_330GPa.Rao2025.label_cell_atoms	[4, 8]
+-13 to +7	GPa	summary:pbe_minus_exp_core_GPa	[-13.345181072904495, 7.266101937801352]
+8.4	K/GPa	summary:dTm_dP_330_K_GPa	8.408130923
+-110 to +60	K	summary:Tm_true_minus_pbe_K	[-112.20802965331872, 61.09433639354903]
+300	K	keys:literature.pressure_scales_300K.Dewaele2006.form	"vinet"
+100	Ry	keys:settings.eos_cold.ecutwfc_Ry	[100.0]
+1,000	Ry	keys:settings.eos_cold.ecutrho_Ry	[1000.0]
+1.60	c/a	keys:settings.eos_cold.c_over_a	[1.6]
+2.5-3.5	GPa	summary:P_vib_range_GPa	[2.5, 3.5]
+300	K	keys:literature.pressure_scales_300K.Dewaele2006.form	"vinet"
+55	GPa	summary:exp_spread_below_55GPa_max_GPa	0.6421367186
+1	GPa	summary:exp_spread_below_55GPa_max_GPa	0.6421367186
+7.0	A^3/atom	keys:pbe_vs_exp.V_core	7
+21	GPa	summary:exp_spread_at_V_core_GPa	20.61128301
+6.6	QE version	keys:settings.dft_refs.qe_version	"6.6"
+100	Ry	keys:settings.eos_cold.ecutwfc_Ry	[100.0]
+1,000	Ry	keys:settings.eos_cold.ecutrho_Ry	[1000.0]
+1.60	c/a	keys:settings.eos_cold.c_over_a	[1.6]
+2.5-3.5	GPa	summary:P_vib_range_GPa	[2.5, 3.5]
+300	K	keys:literature.pressure_scales_300K.Dewaele2006.form	"vinet"
+17	GPa	summary:pbe_minus_exp_lowest_P/diff/Dewaele2006	-17.33535955
+15	GPa	summary:pbe_minus_exp_lowest_P/P_exp/Dewaele2006	15.12635955
+175-180	GPa	summary:pbe_minus_exp_zero_crossing_P_GPa/Dewaele2006	175.4106985
+175-180	GPa	summary:pbe_minus_exp_zero_crossing_P_GPa/Fei2016	180.3645406
+3.4	eV		
+0.94	eV		
+3	GPa		
+15	GPa		
+90	GPa		
+9-11	GPa		
+130	GPa		
+40	snapshots	keys:settings.direct_test_330GPa.n_LDA	40
++13	K	keys:ldashift.lda_dTm_K	13.32566197
+17	K	keys:ldashift.lda_dTm_se_K	17.09651228
+37.2	GPa	keys:ldashift.lda_dP_hcp	-37.2454
+36.6	GPa	keys:ldashift.lda_dP_liquid	-36.6081
+330	GPa	keys:settings.direct_test_330GPa.P_GPa	330
+-2.84	meV/atom	keys:ldashift.lda_d_a1_meV	-2.843355855
+1.18	meV/atom	keys:ldashift.lda_d_a1_se_meV	1.178610752
+-41	K	keys:ldashift.lda_dTm_first_order_K	-41.24471819
+17	K	keys:ldashift.lda_dTm_se_K	17.09651228
++0.62	meV/atom	keys:ldashift.lda_d_a2_meV	0.6206609859
++9	K	keys:ldashift.lda_dTm_a2_K	9.003089573
++3.14	meV/atom	keys:ldashift.lda_d_a3_meV	3.14134823
++46	K	keys:ldashift.lda_dTm_a3_K	45.56729058
++0.92	meV/atom	keys:ldashift.lda_dG_meV	0.9186533609
++13	K	keys:ldashift.lda_dTm_K	13.32566197
+17	K	keys:ldashift.lda_dTm_se_K	17.09651228
++316	K	keys:ldashift.lda_pressure_part_K	316.1931365
+-357	K	keys:ldashift.lda_equal_volume_part_K	-357.4378546
+-110 to +60	K	summary:Tm_true_minus_pbe_K	[-112.20802965331872, 61.09433639354903]
+330	GPa	keys:settings.direct_test_330GPa.P_GPa	330
+6,329	K	keys:settings.direct_test_330GPa.T_K	6329
+1,130	GPa	keys:ldashift.B_hcp	1130.488586
+1,254	GPa	keys:ldashift.B_liquid	1253.974915
+1	% volume	keys:settings.direct_test_330GPa.bulk_modulus_strain	0.01
++0.53	meV/atom	keys:ldashift.lda_d_a3_equalB_meV	0.5299043204
+-25	K	keys:ldashift.lda_dTm_equalB_K	-24.55502325
+40	K	summary:lda_dTm_max_abs_within_1se_K	41.65153554
+0.3.16	mace-torch version	keys:repro_check.mace_version	"0.3.16"
+10,000	K	keys:repro_check.tel_scale	10000
+0.0	meV/atom	keys:repro_check.max_abs_dE_meV_atom	0
++2.6	meV/atom	keys:repro_check.float64_minus_float32_meV_atom.mean	2.553382302
+0.4	meV/atom	keys:repro_check.float64_minus_float32_meV_atom.std	0.3912475136
+6.6	QE version	keys:settings.dft_refs.qe_version	"6.6"
+1.0.0	pslibrary version	keys:settings.pseudopotentials.Fe.pbe-spn-kjpaw_psl.1.0.0.UPF	16
+100	Ry	keys:settings.dft_refs.ecutwfc_Ry	[100.0]
+1,000	Ry	keys:settings.dft_refs.ecutrho_Ry	[1000.0]
+0.53	GPa	keys:convergence.cutoff_dP_100_to_130	-0.529
+130	Ry	keys:convergence.rows.e130k16.ecutwfc	130
+1,300	Ry	keys:convergence.rows.e130k16.ecutrho	1300
+12x12x8	k-mesh	keys:convergence.rows.e100k12.kmesh	[12, 12, 8]
+0.24	GPa	keys:convergence.kpoint_dP_12_to_16	0.242
+16x16x10	k-mesh	keys:convergence.rows.e100k16.kmesh	[16, 16, 10]
+12x12x8	k-mesh	keys:settings.dft_refs.kmesh_hcp	["12x12x8"]
+2	atoms (hcp cell)	keys:settings.dft_refs.nat_by_kind.eos	[2]
+20x20x20	k-mesh	keys:settings.dft_refs.kmesh_fcc_bcc	["20x20x20"]
+1	atom (fcc, bcc cell)	keys:settings.dft_refs.nat_by_kind.fcc	[1]
+42	slabs	keys:settings.slabs.n_slabs	42
+3.2	A	keys:settings.slabs.q6_rcut_A	3.2
+128	atoms	keys:settings.direct_test_330GPa.atoms	[128]
+330	GPa	keys:settings.direct_test_330GPa.P_GPa	330
+6,329	K	keys:settings.direct_test_330GPa.T_K	6329
+6.994	A^3/atom	keys:ldashift.V_hcp	6.994062851
+7.089	A^3/atom	keys:ldashift.V_liquid	7.08863965
+two	runs per phase	keys:settings.direct_test_330GPa.runs_per_phase	2
+10	snapshots per run	keys:settings.direct_test_330GPa.snapshots_per_run	10
+1	ps apart	keys:settings.direct_test_330GPa.snapshot_gap_ps	1
+7.5	QE version	keys:settings.direct_test_330GPa.qe_version	["7.5"]
+6,329	K	keys:settings.direct_test_330GPa.T_el_K	[6329]
+1.0.0	pslibrary version	keys:settings.direct_test_330GPa.upf_LDA	["Fe.pbe-spn-kjpaw_psl.1.0.0.UPF"]
+7.0	A^3/atom	keys:settings.lda_setup.V_per_atom	[7.0]
+0.2	GPa	keys:lda_setup.hcp_P_mix_minus_pz	0.222
+0.14	meV/atom	keys:lda_setup.fcc_minus_hcp_mix_minus_pz_meV	-0.1351725617
+2	K	keys:lda_setup.fcc_minus_hcp_mix_minus_pz_K	1.960765553
+0.80	k_B	summary:K_per_meV_at_dS_0.80	14.50564765
+75.7	bohr^3	keys:literature.pressure_scales_300K.Dewaele2006.V0_bohr3	75.7
+163.4	GPa	keys:literature.pressure_scales_300K.Dewaele2006.K0_GPa	163.4
+5.38		keys:literature.pressure_scales_300K.Dewaele2006.Kp	5.38
+172.7	GPa	keys:literature.pressure_scales_300K.Fei2016.K0_GPa	172.7
+4.79		keys:literature.pressure_scales_300K.Fei2016.Kp	4.79
+11.214	A^3	keys:literature.pressure_scales_300K.Fei2016.V0_A3	11.214
+11.215	A^3	keys:literature.pressure_scales_300K.Hirao2022.V0_A3	11.215
+159.27	GPa	keys:literature.pressure_scales_300K.Hirao2022.K0_GPa	159.27
+5.86		keys:literature.pressure_scales_300K.Hirao2022.Kp	5.86
+1	GPa	keys:settings.pbe_vs_exp.P_vib_uncertainty_GPa	1

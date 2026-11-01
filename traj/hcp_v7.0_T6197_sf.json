@@ -1,0 +1,11 @@
+{
+ "tag": "hcp_v7.0_T6197_sf",
+ "phase": "stackfault",
+ "vat": 7.0,
+ "P_est": 273.0,
+ "T": 6197.0035155000005,
+ "frames": 17,
+ "msd_final": 0.6061657260226765,
+ "FLAG_decay": false,
+ "note": "post-decay stacking-fault class"
+}

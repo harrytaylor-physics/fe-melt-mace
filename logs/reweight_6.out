@@ -1,0 +1,58 @@
+=============================================================================
+This module includes execution of the conda shell function.
+There is no need to run conda init. For more details, see:
+https://arc-software-guide.readthedocs.io/en/latest/python/anaconda_venv.html
+=============================================================================
+/home/shug7909/.local/lib/python3.13/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/shug7909/fe_melt/phaseE_reweight.py:57: ResourceWarning: unclosed file <_io.TextIOWrapper name='phaseE/analysis_live_all.json' mode='r' encoding='UTF-8'>
+  res = json.load(open("phaseE/analysis_live_all.json"))["cells"][cellname]
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/fe_melt/phaseE_reweight.py:59: ResourceWarning: unclosed file <_io.TextIOWrapper name='phaseE/cells/coex_hcp_350GPa.json' mode='r' encoding='UTF-8'>
+  meta = json.load(open(f"phaseE/cells/{cellname}.json"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/shug7909/.local/lib/python3.13/site-packages/mace/calculators/mace.py:226: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/mace/modules/models.py:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+/home/shug7909/.local/lib/python3.13/site-packages/mace/calculators/mace.py:226: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/mace/modules/models.py:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+/home/shug7909/.local/lib/python3.13/site-packages/mace/calculators/mace.py:226: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/torch/jit/_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/.local/lib/python3.13/site-packages/mace/modules/models.py:86: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+/home/shug7909/fe_melt/phaseE_reweight.py:78: FutureWarning: NPT thermostat has been moved/renamed to ase.md.melchionna.MelchionnaNPT. Please use this class instead (or a newer NPT thermostat!)
+  dyn = NPT(at, 2 * units.fs, temperature_K=Tm, externalstress=P * units.GPa,
+WARNING: NPT: Setting the center-of-mass momentum to zero (was -94.5934 206.056 107.674)
+/home/shug7909/fe_melt/phaseE_q6.py:37: DeprecationWarning: `scipy.special.sph_harm` is deprecated as of SciPy 1.15.0 and will be removed in SciPy 1.17.0. Please use `scipy.special.sph_harm_y` instead.
+  y = sph_harm(m, 6, ph, th)
+[coex_hcp_350GPa] solid: V=6.901 A^3/atom T=6716 K solid_frac=0.99 dU4000=+363.22 dU8000=-352.98 meV/atom
+/home/shug7909/.local/lib/python3.13/site-packages/ase/md/langevin.py:110: FutureWarning: The implementation of `fixcm=True` in `Langevin` does not strictly sample the correct NVT distributions. The deviations are typically small for large systems but can be more pronounced for small systems. Use `fixcm=False` together with `ase.constraints.FixCom`. `fixcm` is deprecated since ASE 3.28.0 and will be removed in a future release.
+  warnings.warn(msg, FutureWarning)
+WARNING: NPT: Setting the center-of-mass momentum to zero (was 0.0966053 -0.148642 -1.3578)
+[coex_hcp_350GPa] liquid: V=7.028 A^3/atom T=6728 K solid_frac=0.02 dU4000=+375.71 dU8000=-363.01 meV/atom
+/home/shug7909/fe_melt/phaseE_reweight.py:104: ResourceWarning: unclosed file <_io.TextIOWrapper name='phaseE/reweight/coex_hcp_350GPa.json' mode='w' encoding='UTF-8'>
+  json.dump(out, open(f"phaseE/reweight/{cellname}.json", "w"), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback

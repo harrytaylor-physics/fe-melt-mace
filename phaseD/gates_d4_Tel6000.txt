@@ -1,0 +1,7 @@
+model: phaseD/models/fe_ft_Tel6000_f32.model   Tel: 6000
+  5 ps: c/a=1.632 angdrift=0.5
+  15 ps: c/a=1.615 angdrift=0.9
+  25 ps: c/a=1.580 angdrift=0.5
+  35 ps: c/a=1.609 angdrift=0.6
+  45 ps: c/a=1.649 angdrift=1.4
+G-D4 pass: hcp intact over 50 ps NPT at 0.9 Tm, 300 GPa (final block c/a=1.654)

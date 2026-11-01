@@ -1,0 +1,11 @@
+{
+ "tag": "hcp_v6.6_T6271_pre",
+ "phase": "hcp",
+ "vat": 6.6,
+ "P_est": 353.6000000000001,
+ "T": 6271.44750208,
+ "frames": 11,
+ "msd_final": 0.2177728437126572,
+ "FLAG_decay": false,
+ "note": "pre-decay salvage"
+}

@@ -1,0 +1,11 @@
+{
+ "tag": "hcp_v7.9_T4461_sf",
+ "phase": "stackfault",
+ "vat": 7.9,
+ "P_est": 149.74999999999994,
+ "T": 4461.354766281249,
+ "frames": 20,
+ "msd_final": 1.2008259271331991,
+ "FLAG_decay": false,
+ "note": "post-decay stacking-fault class"
+}

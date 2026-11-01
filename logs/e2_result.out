@@ -1,0 +1,73 @@
+=============================================================================
+This module includes execution of the conda shell function.
+There is no need to run conda init. For more details, see:
+https://arc-software-guide.readthedocs.io/en/latest/python/anaconda_venv.html
+=============================================================================
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+  warnings.warn(
+  warnings.warn(
+  warnings.warn(
+  torch.load(f=model_path, map_location=device)
+  warnings.warn(
+  warnings.warn(
+  warnings.warn(
+WARNING:root:Default dtype float64 does not match model dtype float32, converting models to float64.
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  a.shape = (-1,) + shape
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  a.shape = (-1,) + shape
+model                         bcc        fcc        hcp     liquid stackfault        ALL
+Tel-model @6000 (E2)         65.3       58.1       71.5      113.6       73.1       89.3
+specialist Tel6000           66.8       49.2       71.4      124.4       72.9       94.4
+mean(4000,8000)              66.6       52.2       72.0      119.2       73.5       92.2
+
+ENERGY (meV/atom). liq-hcp = liquid mean error minus hcp mean error;
+first-order Tm bias = (liq-hcp) / dS_m with dS_m = 0.84 kB
+model                    rmse  offset rmse-off       liq-hcp  Tm bias
+Tel-model @6000 (E2)    37.02  -31.44    19.54  +9.51+-3.75    +131 K
+specialist Tel6000       8.21   +7.59     3.13  +4.28+-0.56     +59 K
+mean(4000,8000)         49.54  -49.13     6.34  +7.36+-1.13    +102 K
+
+A17 criteria:
+  (1) offset-removed energy RMSE 19.54 < 4.74 meV/atom : FAIL
+  (2) |liq-hcp| 9.51 < 5.82 meV/atom                : FAIL
+  (3) force RMSE 89.3 < 103.9 meV/A                    : pass
+E2 VERDICT: FAIL
+
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+  warnings.warn(
+  warnings.warn(
+  warnings.warn(
+  torch.load(f=model_path, map_location=device)
+  warnings.warn(
+  warnings.warn(
+  warnings.warn(
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  a.shape = (-1,) + shape
+  torch.load(f=model_path, map_location=device)
+  warnings.warn(
+  warnings.warn(
+  warnings.warn(
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  a.shape = (-1,) + shape
+  torch.load(f=model_path, map_location=device)
+  warnings.warn(
+  warnings.warn(
+  warnings.warn(
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  a.shape = (-1,) + shape
+1. cuEquivariance identity (128-atom frame, Tel = 6000 K)
+   cueq=False: E = -4477.788574 eV/atom
+   cueq=True : E = -4477.788574 eV/atom
+   difference: dE = 0.0000 meV/atom, max dF = 0.008 meV/A  -> ok
+
+2. Tel response (same frame)
+   Tel   4000 K: F = -4477.47070 eV/atom
+   Tel   6000 K: F = -4477.78857 eV/atom
+   Tel   8000 K: F = -4478.14648 eV/atom
+   falls with Tel: yes;  midpoint curvature (mean of ends minus middle) = -20.0 meV/atom (negative expected: F is concave in Tel)
+
+3. memory, 12,096-atom 300 GPa cell, Tel = 6000 K
+   peak 21.7 GiB on NVIDIA H100 80GB HBM3 (fixed-Tel model: 21.6 GiB)

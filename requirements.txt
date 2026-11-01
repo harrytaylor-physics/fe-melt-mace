@@ -1,0 +1,7 @@
+numpy
+scipy
+ase>=3.23
+matplotlib
+pytest
+# model checks (validation/val_mace.py, repro_check.py, tests/test_runs_tel_model.py): torch and upstream mace-torch 0.3.16
+# mace-torch==0.3.16

@@ -1,0 +1,132 @@
+{
+ "model": {
+  "r_max_A": 6.0,
+  "hidden_irreps": "128x0e+128x1o",
+  "channels": 128,
+  "interactions": 2,
+  "correlation": 3,
+  "body_order": 4,
+  "max_ell": 3,
+  "n_train_split": 6279,
+  "n_valid_split": 330,
+  "n_train_file": 6609,
+  "foundation_model": "MACE-matpes-pbe-omat-ft.model",
+  "stage_two_after_epochs": 110,
+  "avg_num_neighbors": 123.3,
+  "final_errors": {
+   "stage_one": {
+    "train_E_meV_atom": 23.3,
+    "train_F_meV_A": 89.2,
+    "train_F_rel_pct": 2.11,
+    "valid_E_meV_atom": 23.4,
+    "valid_F_meV_A": 92.1,
+    "valid_F_rel_pct": 2.17
+   },
+   "stage_two": {
+    "train_E_meV_atom": 1.5,
+    "train_F_meV_A": 89.1,
+    "train_F_rel_pct": 2.11,
+    "valid_E_meV_atom": 1.5,
+    "valid_F_meV_A": 92.4,
+    "valid_F_rel_pct": 2.18
+   }
+  },
+  "stage_one_epoch": 109,
+  "stage_two_epoch": 149,
+  "class": "ScaleShiftMACE"
+ },
+ "args": {
+  "default_dtype": "float32",
+  "max_num_epochs": 150,
+  "batch_size": 4,
+  "seed": 7,
+  "valid_fraction": 0.05,
+  "energy_weight": 1.0,
+  "forces_weight": 100.0,
+  "swa_energy_weight": 1000.0,
+  "swa_forces_weight": 100.0,
+  "elec_temp_embedding": {
+   "type": "continuous",
+   "per": "graph",
+   "in_dim": 1,
+   "emb_dim": 32,
+   "scale": 0.0001,
+   "zero_init": true
+  }
+ },
+ "dataset_report": {
+  "4000": {
+   "train": 2173,
+   "test": 114,
+   "by_phase": {
+    "liquid": 816,
+    "hcp": 858,
+    "stackfault": 234,
+    "bcc": 181,
+    "fcc": 198
+   }
+  },
+  "6000": {
+   "train": 2218,
+   "test": 116,
+   "by_phase": {
+    "liquid": 848,
+    "hcp": 866,
+    "stackfault": 241,
+    "bcc": 181,
+    "fcc": 198
+   }
+  },
+  "8000": {
+   "train": 2218,
+   "test": 116,
+   "by_phase": {
+    "liquid": 842,
+    "hcp": 869,
+    "bcc": 181,
+    "fcc": 198,
+    "stackfault": 244
+   }
+  }
+ },
+ "T_el_K": [
+  4000,
+  6000,
+  8000
+ ],
+ "test_frames": {
+  "4000": 114,
+  "6000": 116,
+  "8000": 116
+ },
+ "train_frames_range": [
+  2173,
+  2218
+ ],
+ "train_file": {
+  "n_frames": 6609,
+  "per_tel": {
+   "4000": 2173,
+   "6000": 2218,
+   "8000": 2218
+  },
+  "per_phase": {
+   "hcp": 2457,
+   "liquid": 2385,
+   "stackfault": 681,
+   "bcc": 516,
+   "fcc": 570
+  },
+  "phase_pct": {
+   "hcp": 37.1765773944621,
+   "liquid": 36.087153881071266,
+   "stackfault": 10.304130730821607,
+   "bcc": 7.807535179300953,
+   "fcc": 8.624602814344076
+  },
+  "atoms_per_frame": [
+   108,
+   128
+  ]
+ }
+}

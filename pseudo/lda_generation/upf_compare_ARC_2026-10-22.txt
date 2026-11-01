@@ -1,0 +1,15 @@
+$ python upf_compare.py pseudo/Fe.pbe-spn-kjpaw_psl.1.0.0.UPF Fe.pbe-spn-kjpaw_psl.1.0.0.regen.UPF
+A: pseudo/Fe.pbe-spn-kjpaw_psl.1.0.0.UPF
+   Generated using "atomic" code by A. Dal Corso  v.6.3
+   functional ['SLA', 'PW', 'PBX', 'PBC']  z_valence 1.600000000000e1
+B: Fe.pbe-spn-kjpaw_psl.1.0.0.regen.UPF
+   Generated using "atomic" code by A. Dal Corso  v.6.6
+   functional ['SLA', 'PW', 'PBX', 'PBC']  z_valence 1.600000000000e1
+total_psenergy: -328.60578004 vs -328.60578006 Ry  (diff 1.22e-08)
+arrays in one file only: ['PP_GIPAW_CORE_ORBITAL.1', 'PP_GIPAW_CORE_ORBITAL.2', 'PP_GIPAW_CORE_ORBITAL.3']
+67 numeric arrays compared; listed below are those differing by more than 1e-6 relative
+  PP_BETA.1                    size   1191  max rel diff 1.59e-06
+  PP_BETA.2                    size   1191  max rel diff 2.15e-06
+  PP_CHI.2                     size   1191  max rel diff 2.00e+00
+largest relative difference 2.00e+00 (tolerance 1e-04)
+MISMATCH

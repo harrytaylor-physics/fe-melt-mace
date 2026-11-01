@@ -1,0 +1,594 @@
+2026-09-17 14:58:28.966 INFO: ===========VERIFYING SETTINGS===========
+2026-09-17 14:58:28.966 INFO: MACE version: 0.3.16
+2026-09-17 14:58:28.966 DEBUG: Configuration: Namespace(config=None, name='fe_ft_Tel8000_f32', seed=7, work_dir='.', log_dir='logs', model_dir='phaseD/models', checkpoints_dir='phaseD/models', results_dir='./results', downloads_dir='./downloads', device='cuda', default_dtype='float32', distributed=False, launcher='slurm', log_level='INFO', plot=True, plot_frequency=0, plot_interaction_e=False, error_table='PerAtomRMSE', model='MACE', r_max=5.0, radial_type='bessel', num_radial_basis=8, num_cutoff_basis=5, pair_repulsion=False, distance_transform='None', apply_cutoff=True, use_last_readout_only=False, use_embedding_readout=False, interaction='RealAgnosticResidualInteractionBlock', interaction_first='RealAgnosticResidualInteractionBlock', max_ell=3, correlation=3, use_reduced_cg=False, use_so3=False, use_agnostic_product=False, num_interactions=2, MLP_irreps='16x0e', radial_MLP='[64, 64, 64]', hidden_irreps='128x0e + 128x1o', edge_irreps=None, use_edge_irreps_first=False, num_channels=128, max_L=1, gate='silu', kspace_cutoff_factor=1.5, atomic_multipoles_max_l=0, atomic_multipoles_smearing_width=1.0, field_feature_max_l=0, field_feature_widths='[1.0]', field_feature_norms=None, num_recursion_steps=1, field_si=False, include_electrostatic_self_interaction=False, add_local_electron_energy=False, quadrupole_feature_corrections=False, return_electrostatic_potentials=False, field_norm_factor=0.02, fixedpoint_update_config=None, field_readout_config=None, scaling='rms_forces_scaling', avg_num_neighbors=1, compute_avg_num_neighbors=True, compute_stress=False, compute_forces=True, compute_polarizability=False, compute_atomic_dipole=False, train_file='phaseD/train_Tel8000.xyz', valid_file=None, valid_fraction=0.05, test_file=None, test_dir=None, multi_processed_test=False, num_workers=0, pin_memory=True, atomic_numbers=None, mean=None, std=None, statistics_file=None, les_arguments=None, E0s='average', pseudolabel_replay=False, pseudolabel_replay_compute_stress=False, foundation_filter_elements=True, heads=None, multiheads_finetuning=False, foundation_head=None, weight_pt_head=1.0, real_pt_data_ratio_threshold=0.1, num_samples_pt=10000, force_mh_ft_lr=False, subselect_pt='random', filter_type_pt='none', allow_random_padding_pt=True, pt_train_file=None, pt_valid_file=None, foundation_model_elements=False, keep_isolated_atoms=False, lora=False, lora_rank=4, lora_alpha=1.0, energy_key='REF_energy', forces_key='REF_forces', virials_key='REF_virials', stress_key='REF_stress', dipole_key='dipole', polarizability_key='polarizability', head_key='head', charges_key='REF_charges', elec_temp_key='elec_temp', total_spin_key='total_spin', total_charge_key='total_charge', embedding_specs=None, skip_evaluate_heads='pt_head', loss='weighted', forces_weight=100.0, swa_forces_weight=100.0, energy_weight=1.0, swa_energy_weight=1000.0, virials_weight=1.0, swa_virials_weight=10.0, stress_weight=1.0, swa_stress_weight=10.0, dipole_weight=1.0, swa_dipole_weight=1.0, swa_polarizability_weight=1.0, polarizability_weight=1.0, config_type_weights='{"Default":1.0}', huber_delta=0.01, optimizer='adam', beta=0.9, beta1_schedulefree=0.9, beta2_schedulefree=0.98, batch_size=4, valid_batch_size=8, lr=0.0001, swa_lr=0.001, weight_decay=5e-07, lr_params_factors='{"embedding_lr_factor": 1.0, "interactions_lr_factor": 1.0, "products_lr_factor": 1.0, "readouts_lr_factor": 1.0}', freeze=None, amsgrad=True, scheduler='ReduceLROnPlateau', lr_factor=0.8, scheduler_patience=50, lr_scheduler_gamma=0.9993, swa=False, start_swa=None, lbfgs=False, ema=True, ema_decay=0.999, max_num_epochs=150, patience=30, foundation_model='/home/shug7909/fe_melt/MACE-matpes-pbe-omat-ft.model', foundation_model_kwargs='{}', foundation_model_readout=True, eval_interval=1, keep_checkpoints=False, save_all_checkpoints=False, restart_latest=False, save_cpu=False, clip_grad=10.0, dry_run=False, enable_cueq=False, only_cueq=False, enable_oeq=False, wandb=False, wandb_dir=None, wandb_project='', wandb_entity='', wandb_name='', wandb_log_hypers=['num_channels', 'max_L', 'correlation', 'lr', 'swa_lr', 'weight_decay', 'batch_size', 'max_num_epochs', 'start_swa', 'energy_weight', 'forces_weight'], key_specification=KeySpecification(info_keys={'energy': 'REF_energy', 'stress': 'REF_stress', 'virials': 'REF_virials', 'dipole': 'dipole', 'head': 'head', 'elec_temp': 'elec_temp', 'total_charge': 'total_charge', 'polarizability': 'polarizability', 'total_spin': 'total_spin'}, arrays_keys={'forces': 'REF_forces', 'charges': 'REF_charges'}))
+2026-09-17 14:58:29.105 INFO: CUDA version: 12.6, CUDA device: 0
+2026-09-17 14:58:29.199 DEBUG: Popen(['git', 'version'], cwd=/home/shug7909/fe_melt, stdin=None, shell=False, universal_newlines=False)
+2026-09-17 14:58:29.205 DEBUG: Popen(['git', 'version'], cwd=/home/shug7909/fe_melt, stdin=None, shell=False, universal_newlines=False)
+2026-09-17 14:58:29.243 DEBUG: Error accessing Git repository: /home/shug7909/fe_melt
+2026-09-17 14:58:30.148 INFO: Using foundation model /home/shug7909/fe_melt/MACE-matpes-pbe-omat-ft.model as initial checkpoint.
+2026-09-17 14:58:30.191 INFO: ===========LOADING INPUT DATA===========
+2026-09-17 14:58:30.191 INFO: Using heads: ['Default']
+2026-09-17 14:58:30.191 INFO: Using the key specifications to parse data:
+2026-09-17 14:58:30.191 INFO: Default: KeySpecification(info_keys={'energy': 'REF_energy', 'stress': 'REF_stress', 'virials': 'REF_virials', 'dipole': 'dipole', 'head': 'head', 'elec_temp': 'elec_temp', 'total_charge': 'total_charge', 'polarizability': 'polarizability', 'total_spin': 'total_spin'}, arrays_keys={'forces': 'REF_forces', 'charges': 'REF_charges'})
+2026-09-17 14:58:30.191 INFO: =============    Processing head Default     ===========
+2026-09-17 14:58:30.192 DEBUG: Loading training file: phaseD/train_Tel8000.xyz
+2026-09-17 14:58:32.069 INFO: Training set 1/1 [energy: 2218, stress: 0, virials: 0, dipole components: 0, head: 2218, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 2218, charges: 0]
+2026-09-17 14:58:32.079 INFO: Total Training set [energy: 2218, stress: 0, virials: 0, dipole components: 0, head: 2218, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 2218, charges: 0]
+2026-09-17 14:58:32.079 INFO: No validation set provided, splitting training data instead.
+2026-09-17 14:58:32.081 INFO: Using random 5% of training set for validation with indices saved in: ./fe_ft_Tel8000_f32_valid_indices_7.txt
+2026-09-17 14:58:32.091 INFO: Random Split Training set [energy: 2108, stress: 0, virials: 0, dipole components: 0, head: 2108, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 2108, charges: 0]
+2026-09-17 14:58:32.092 INFO: Random Split Validation set [energy: 110, stress: 0, virials: 0, dipole components: 0, head: 110, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 110, charges: 0]
+2026-09-17 14:58:32.092 INFO: Total number of configurations: train=2108, valid=110, tests=[],
+2026-09-17 14:58:32.121 INFO: Atomic Numbers used: [np.int64(26)]
+2026-09-17 14:58:32.121 INFO: Isolated Atomic Energies (E0s) not in training file, using command line argument
+2026-09-17 14:58:32.121 INFO: Computing average Atomic Energies using least squares regression
+2026-09-17 14:58:32.175 INFO: Atomic Energies used (z: eV) for head Default: {26: -4478.320382724408}
+2026-09-17 14:58:32.175 INFO: Processing datasets for head 'Default'
+2026-09-17 14:58:47.653 DEBUG: Successfully loaded dataset from ASE files: ['phaseD/train_Tel8000.xyz']
+2026-09-17 14:58:47.653 INFO: Combining 1 list datasets for head 'Default'
+2026-09-17 14:58:48.440 INFO: Head 'Default' training dataset size: 2108
+2026-09-17 14:58:48.441 INFO: Computing average number of neighbors
+2026-09-17 14:58:50.134 WARNING: Unusual average number of neighbors: 123.1
+2026-09-17 14:58:50.134 INFO: During training the following quantities will be reported: energy, forces
+2026-09-17 14:58:50.134 INFO: ===========MODEL DETAILS===========
+2026-09-17 14:58:51.579 INFO: Loading FOUNDATION model
+2026-09-17 14:58:51.580 INFO: Using filtered elements: [np.int64(26)]
+2026-09-17 14:58:51.580 INFO: Model configuration extracted from foundation model
+2026-09-17 14:58:51.581 INFO: Using weighted loss function for fine-tuning
+2026-09-17 14:58:51.581 INFO: Message passing with hidden irreps 128x0e+128x1o)
+2026-09-17 14:58:51.581 INFO: 2 layers, each with correlation order: 3 (body order: 4) and spherical harmonics up to: l=3
+2026-09-17 14:58:51.581 INFO: Radial cutoff: 6.0 A (total receptive field for each atom: 12.0 A)
+2026-09-17 14:58:51.581 INFO: Distance transform for radial basis functions: Agnesi
+2026-09-17 14:58:52.975 INFO: ===========OPTIMIZER INFORMATION===========
+2026-09-17 14:58:52.975 INFO: Using ADAM as parameter optimizer
+2026-09-17 14:58:52.975 INFO: Batch size: 4
+2026-09-17 14:58:52.975 INFO: Using Exponential Moving Average with decay: 0.999
+2026-09-17 14:58:52.975 INFO: Number of gradient updates: 79050
+2026-09-17 14:58:52.975 INFO: Learning rate: 0.0001, weight decay: 5e-07
+2026-09-17 14:58:52.976 INFO: WeightedEnergyForcesLoss(energy_weight=1.000, forces_weight=100.000)
+2026-09-17 14:58:52.976 INFO: === Layer's learning rates ===
+2026-09-17 14:58:52.976 INFO: Param group 0: lr = 0.0001
+2026-09-17 14:58:52.977 INFO: Param group 1: lr = 0.0001
+2026-09-17 14:58:52.977 INFO: Param group 2: lr = 0.0001
+2026-09-17 14:58:52.977 INFO: Param group 3: lr = 0.0001
+2026-09-17 14:58:52.977 INFO: Param group 4: lr = 0.0001
+2026-09-17 14:58:52.978 INFO: Using gradient clipping with tolerance=10.000
+2026-09-17 14:58:52.978 INFO: 
+2026-09-17 14:58:52.978 INFO: ===========TRAINING===========
+2026-09-17 14:58:52.978 INFO: Started training, reporting errors on validation set
+2026-09-17 14:58:52.978 INFO: Loss metrics on validation set
+2026-09-17 14:59:02.485 INFO: Initial: head: Default, loss=8.02043438, RMSE_E_per_atom= 2581.74 meV, RMSE_F=  752.14 meV / A
+2026-09-17 15:04:23.543 INFO: Epoch 0: head: Default, loss=0.44968134, RMSE_E_per_atom=  314.23 meV, RMSE_F=  185.97 meV / A
+2026-09-17 15:04:23.546 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-0.pt
+2026-09-17 15:09:41.879 INFO: Epoch 1: head: Default, loss=0.28718361, RMSE_E_per_atom=  215.13 meV, RMSE_F=  149.11 meV / A
+2026-09-17 15:09:41.882 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-0.pt
+2026-09-17 15:09:41.883 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-1.pt
+2026-09-17 15:14:59.877 INFO: Epoch 2: head: Default, loss=0.22435965, RMSE_E_per_atom=  144.87 meV, RMSE_F=  132.30 meV / A
+2026-09-17 15:14:59.880 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-1.pt
+2026-09-17 15:14:59.882 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-2.pt
+2026-09-17 15:20:17.681 INFO: Epoch 3: head: Default, loss=0.19234170, RMSE_E_per_atom=   95.85 meV, RMSE_F=  122.83 meV / A
+2026-09-17 15:20:17.684 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-2.pt
+2026-09-17 15:20:17.687 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-3.pt
+2026-09-17 15:25:35.805 INFO: Epoch 4: head: Default, loss=0.17470197, RMSE_E_per_atom=   69.32 meV, RMSE_F=  117.19 meV / A
+2026-09-17 15:25:35.808 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-3.pt
+2026-09-17 15:25:35.812 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-4.pt
+2026-09-17 15:30:53.761 INFO: Epoch 5: head: Default, loss=0.16204546, RMSE_E_per_atom=   52.25 meV, RMSE_F=  112.93 meV / A
+2026-09-17 15:30:53.764 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-4.pt
+2026-09-17 15:30:53.768 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-5.pt
+2026-09-17 15:36:12.241 INFO: Epoch 6: head: Default, loss=0.15260601, RMSE_E_per_atom=   41.49 meV, RMSE_F=  109.63 meV / A
+2026-09-17 15:36:12.244 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-5.pt
+2026-09-17 15:36:12.245 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-6.pt
+2026-09-17 15:41:30.422 INFO: Epoch 7: head: Default, loss=0.14537734, RMSE_E_per_atom=   33.31 meV, RMSE_F=  107.02 meV / A
+2026-09-17 15:41:30.424 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-6.pt
+2026-09-17 15:41:30.426 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-7.pt
+2026-09-17 15:46:49.200 INFO: Epoch 8: head: Default, loss=0.13922292, RMSE_E_per_atom=   27.09 meV, RMSE_F=  104.75 meV / A
+2026-09-17 15:46:49.202 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-7.pt
+2026-09-17 15:46:49.205 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-8.pt
+2026-09-17 15:52:07.309 INFO: Epoch 9: head: Default, loss=0.13384953, RMSE_E_per_atom=   21.61 meV, RMSE_F=  102.72 meV / A
+2026-09-17 15:52:07.311 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-8.pt
+2026-09-17 15:52:07.312 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-9.pt
+2026-09-17 15:57:25.248 INFO: Epoch 10: head: Default, loss=0.12944302, RMSE_E_per_atom=   18.40 meV, RMSE_F=  101.02 meV / A
+2026-09-17 15:57:25.250 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-9.pt
+2026-09-17 15:57:25.252 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-10.pt
+2026-09-17 16:02:42.849 INFO: Epoch 11: head: Default, loss=0.12576526, RMSE_E_per_atom=   15.07 meV, RMSE_F=   99.58 meV / A
+2026-09-17 16:02:42.851 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-10.pt
+2026-09-17 16:02:42.854 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-11.pt
+2026-09-17 16:08:00.250 INFO: Epoch 12: head: Default, loss=0.12268483, RMSE_E_per_atom=   12.90 meV, RMSE_F=   98.35 meV / A
+2026-09-17 16:08:00.252 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-11.pt
+2026-09-17 16:08:00.256 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-12.pt
+2026-09-17 16:13:17.973 INFO: Epoch 13: head: Default, loss=0.12001377, RMSE_E_per_atom=   11.12 meV, RMSE_F=   97.28 meV / A
+2026-09-17 16:13:17.975 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-12.pt
+2026-09-17 16:13:17.978 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-13.pt
+2026-09-17 16:18:35.601 INFO: Epoch 14: head: Default, loss=0.11765442, RMSE_E_per_atom=    9.90 meV, RMSE_F=   96.31 meV / A
+2026-09-17 16:18:35.603 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-13.pt
+2026-09-17 16:18:35.605 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-14.pt
+2026-09-17 16:23:53.121 INFO: Epoch 15: head: Default, loss=0.11542757, RMSE_E_per_atom=    8.85 meV, RMSE_F=   95.40 meV / A
+2026-09-17 16:23:53.124 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-14.pt
+2026-09-17 16:23:53.126 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-15.pt
+2026-09-17 16:29:10.615 INFO: Epoch 16: head: Default, loss=0.11342443, RMSE_E_per_atom=    8.01 meV, RMSE_F=   94.57 meV / A
+2026-09-17 16:29:10.618 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-15.pt
+2026-09-17 16:29:10.619 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-16.pt
+2026-09-17 16:34:28.097 INFO: Epoch 17: head: Default, loss=0.11159313, RMSE_E_per_atom=    7.28 meV, RMSE_F=   93.80 meV / A
+2026-09-17 16:34:28.099 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-16.pt
+2026-09-17 16:34:28.104 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-17.pt
+2026-09-17 16:39:45.560 INFO: Epoch 18: head: Default, loss=0.10983892, RMSE_E_per_atom=    6.51 meV, RMSE_F=   93.06 meV / A
+2026-09-17 16:39:45.563 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-17.pt
+2026-09-17 16:39:45.564 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-18.pt
+2026-09-17 16:45:03.206 INFO: Epoch 19: head: Default, loss=0.10823627, RMSE_E_per_atom=    6.15 meV, RMSE_F=   92.38 meV / A
+2026-09-17 16:45:03.210 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-18.pt
+2026-09-17 16:45:03.215 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-19.pt
+2026-09-17 16:50:21.169 INFO: Epoch 20: head: Default, loss=0.10672485, RMSE_E_per_atom=    5.93 meV, RMSE_F=   91.73 meV / A
+2026-09-17 16:50:21.172 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-19.pt
+2026-09-17 16:50:21.175 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-20.pt
+2026-09-17 16:55:38.749 INFO: Epoch 21: head: Default, loss=0.10531849, RMSE_E_per_atom=    5.96 meV, RMSE_F=   91.12 meV / A
+2026-09-17 16:55:38.752 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-20.pt
+2026-09-17 16:55:38.757 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-21.pt
+2026-09-17 17:00:56.009 INFO: Epoch 22: head: Default, loss=0.10408887, RMSE_E_per_atom=    5.64 meV, RMSE_F=   90.59 meV / A
+2026-09-17 17:00:56.012 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-21.pt
+2026-09-17 17:00:56.016 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-22.pt
+2026-09-17 17:06:13.208 INFO: Epoch 23: head: Default, loss=0.10290983, RMSE_E_per_atom=    5.52 meV, RMSE_F=   90.08 meV / A
+2026-09-17 17:06:13.211 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-22.pt
+2026-09-17 17:06:13.213 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-23.pt
+2026-09-17 17:11:30.580 INFO: Epoch 24: head: Default, loss=0.10178509, RMSE_E_per_atom=    5.48 meV, RMSE_F=   89.58 meV / A
+2026-09-17 17:11:30.583 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-23.pt
+2026-09-17 17:11:30.585 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-24.pt
+2026-09-17 17:16:47.692 INFO: Epoch 25: head: Default, loss=0.10077652, RMSE_E_per_atom=    5.35 meV, RMSE_F=   89.14 meV / A
+2026-09-17 17:16:47.695 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-24.pt
+2026-09-17 17:16:47.699 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-25.pt
+2026-09-17 17:22:04.950 INFO: Epoch 26: head: Default, loss=0.09980360, RMSE_E_per_atom=    5.19 meV, RMSE_F=   88.70 meV / A
+2026-09-17 17:22:04.953 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-25.pt
+2026-09-17 17:22:04.978 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-26.pt
+2026-09-17 17:27:21.771 INFO: Epoch 27: head: Default, loss=0.09890572, RMSE_E_per_atom=    5.17 meV, RMSE_F=   88.30 meV / A
+2026-09-17 17:27:21.774 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-26.pt
+2026-09-17 17:27:21.786 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-27.pt
+2026-09-17 17:32:38.580 INFO: Epoch 28: head: Default, loss=0.09799407, RMSE_E_per_atom=    5.14 meV, RMSE_F=   87.90 meV / A
+2026-09-17 17:32:38.583 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-27.pt
+2026-09-17 17:32:38.605 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-28.pt
+2026-09-17 17:37:55.373 INFO: Epoch 29: head: Default, loss=0.09718361, RMSE_E_per_atom=    5.22 meV, RMSE_F=   87.53 meV / A
+2026-09-17 17:37:55.376 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-28.pt
+2026-09-17 17:37:55.381 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-29.pt
+2026-09-17 17:43:12.180 INFO: Epoch 30: head: Default, loss=0.09642257, RMSE_E_per_atom=    5.14 meV, RMSE_F=   87.19 meV / A
+2026-09-17 17:43:12.183 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-29.pt
+2026-09-17 17:43:12.187 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-30.pt
+2026-09-17 17:48:29.059 INFO: Epoch 31: head: Default, loss=0.09573290, RMSE_E_per_atom=    5.19 meV, RMSE_F=   86.87 meV / A
+2026-09-17 17:48:29.062 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-30.pt
+2026-09-17 17:48:29.066 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-31.pt
+2026-09-17 17:53:45.948 INFO: Epoch 32: head: Default, loss=0.09503048, RMSE_E_per_atom=    5.22 meV, RMSE_F=   86.56 meV / A
+2026-09-17 17:53:45.951 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-31.pt
+2026-09-17 17:53:45.954 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-32.pt
+2026-09-17 17:59:02.834 INFO: Epoch 33: head: Default, loss=0.09434912, RMSE_E_per_atom=    5.23 meV, RMSE_F=   86.25 meV / A
+2026-09-17 17:59:02.837 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-32.pt
+2026-09-17 17:59:02.856 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-33.pt
+2026-09-17 18:04:19.659 INFO: Epoch 34: head: Default, loss=0.09372185, RMSE_E_per_atom=    5.23 meV, RMSE_F=   85.96 meV / A
+2026-09-17 18:04:19.661 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-33.pt
+2026-09-17 18:04:19.664 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-34.pt
+2026-09-17 18:09:36.404 INFO: Epoch 35: head: Default, loss=0.09308618, RMSE_E_per_atom=    5.12 meV, RMSE_F=   85.67 meV / A
+2026-09-17 18:09:36.407 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-34.pt
+2026-09-17 18:09:36.430 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-35.pt
+2026-09-17 18:14:53.186 INFO: Epoch 36: head: Default, loss=0.09249874, RMSE_E_per_atom=    5.09 meV, RMSE_F=   85.40 meV / A
+2026-09-17 18:14:53.189 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-35.pt
+2026-09-17 18:14:53.193 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-36.pt
+2026-09-17 18:20:10.068 INFO: Epoch 37: head: Default, loss=0.09194921, RMSE_E_per_atom=    5.05 meV, RMSE_F=   85.14 meV / A
+2026-09-17 18:20:10.070 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-36.pt
+2026-09-17 18:20:10.072 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-37.pt
+2026-09-17 18:25:26.845 INFO: Epoch 38: head: Default, loss=0.09142455, RMSE_E_per_atom=    5.16 meV, RMSE_F=   84.90 meV / A
+2026-09-17 18:25:26.848 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-37.pt
+2026-09-17 18:25:26.850 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-38.pt
+2026-09-17 18:30:43.598 INFO: Epoch 39: head: Default, loss=0.09091234, RMSE_E_per_atom=    5.24 meV, RMSE_F=   84.66 meV / A
+2026-09-17 18:30:43.600 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-38.pt
+2026-09-17 18:30:43.604 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-39.pt
+2026-09-17 18:36:00.411 INFO: Epoch 40: head: Default, loss=0.09038439, RMSE_E_per_atom=    5.35 meV, RMSE_F=   84.41 meV / A
+2026-09-17 18:36:00.414 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-39.pt
+2026-09-17 18:36:00.416 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-40.pt
+2026-09-17 18:41:17.180 INFO: Epoch 41: head: Default, loss=0.08982413, RMSE_E_per_atom=    5.27 meV, RMSE_F=   84.15 meV / A
+2026-09-17 18:41:17.182 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-40.pt
+2026-09-17 18:41:17.185 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-41.pt
+2026-09-17 18:46:33.812 INFO: Epoch 42: head: Default, loss=0.08934689, RMSE_E_per_atom=    5.03 meV, RMSE_F=   83.93 meV / A
+2026-09-17 18:46:33.814 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-41.pt
+2026-09-17 18:46:33.819 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-42.pt
+2026-09-17 18:51:50.550 INFO: Epoch 43: head: Default, loss=0.08884582, RMSE_E_per_atom=    4.99 meV, RMSE_F=   83.69 meV / A
+2026-09-17 18:51:50.553 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-42.pt
+2026-09-17 18:51:50.555 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-43.pt
+2026-09-17 18:57:07.309 INFO: Epoch 44: head: Default, loss=0.08839022, RMSE_E_per_atom=    4.96 meV, RMSE_F=   83.48 meV / A
+2026-09-17 18:57:07.312 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-43.pt
+2026-09-17 18:57:07.316 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-44.pt
+2026-09-17 19:02:24.545 INFO: Epoch 45: head: Default, loss=0.08794031, RMSE_E_per_atom=    4.94 meV, RMSE_F=   83.26 meV / A
+2026-09-17 19:02:24.547 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-44.pt
+2026-09-17 19:02:24.551 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-45.pt
+2026-09-17 19:07:44.456 INFO: Epoch 46: head: Default, loss=0.08746105, RMSE_E_per_atom=    5.04 meV, RMSE_F=   83.04 meV / A
+2026-09-17 19:07:44.459 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-45.pt
+2026-09-17 19:07:44.460 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-46.pt
+2026-09-17 19:13:02.568 INFO: Epoch 47: head: Default, loss=0.08702976, RMSE_E_per_atom=    4.99 meV, RMSE_F=   82.83 meV / A
+2026-09-17 19:13:02.571 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-46.pt
+2026-09-17 19:13:02.574 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-47.pt
+2026-09-17 19:18:19.436 INFO: Epoch 48: head: Default, loss=0.08663285, RMSE_E_per_atom=    5.05 meV, RMSE_F=   82.64 meV / A
+2026-09-17 19:18:19.439 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-47.pt
+2026-09-17 19:18:19.444 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-48.pt
+2026-09-17 19:23:36.690 INFO: Epoch 49: head: Default, loss=0.08620421, RMSE_E_per_atom=    5.00 meV, RMSE_F=   82.44 meV / A
+2026-09-17 19:23:36.693 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-48.pt
+2026-09-17 19:23:36.695 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-49.pt
+2026-09-17 19:28:53.322 INFO: Epoch 50: head: Default, loss=0.08581728, RMSE_E_per_atom=    4.95 meV, RMSE_F=   82.25 meV / A
+2026-09-17 19:28:53.324 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-49.pt
+2026-09-17 19:28:53.328 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-50.pt
+2026-09-17 19:34:10.100 INFO: Epoch 51: head: Default, loss=0.08546846, RMSE_E_per_atom=    4.92 meV, RMSE_F=   82.08 meV / A
+2026-09-17 19:34:10.102 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-50.pt
+2026-09-17 19:34:10.106 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-51.pt
+2026-09-17 19:39:27.206 INFO: Epoch 52: head: Default, loss=0.08512935, RMSE_E_per_atom=    4.86 meV, RMSE_F=   81.92 meV / A
+2026-09-17 19:39:27.208 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-51.pt
+2026-09-17 19:39:27.210 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-52.pt
+2026-09-17 19:44:43.900 INFO: Epoch 53: head: Default, loss=0.08476818, RMSE_E_per_atom=    4.95 meV, RMSE_F=   81.75 meV / A
+2026-09-17 19:44:43.902 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-52.pt
+2026-09-17 19:44:43.905 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-53.pt
+2026-09-17 19:50:00.708 INFO: Epoch 54: head: Default, loss=0.08442755, RMSE_E_per_atom=    4.97 meV, RMSE_F=   81.58 meV / A
+2026-09-17 19:50:00.710 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-53.pt
+2026-09-17 19:50:00.713 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-54.pt
+2026-09-17 19:55:17.482 INFO: Epoch 55: head: Default, loss=0.08410643, RMSE_E_per_atom=    5.00 meV, RMSE_F=   81.43 meV / A
+2026-09-17 19:55:17.484 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-54.pt
+2026-09-17 19:55:17.486 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-55.pt
+2026-09-17 20:00:34.149 INFO: Epoch 56: head: Default, loss=0.08378261, RMSE_E_per_atom=    5.04 meV, RMSE_F=   81.27 meV / A
+2026-09-17 20:00:34.151 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-55.pt
+2026-09-17 20:00:34.153 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-56.pt
+2026-09-17 20:05:50.894 INFO: Epoch 57: head: Default, loss=0.08347997, RMSE_E_per_atom=    4.94 meV, RMSE_F=   81.12 meV / A
+2026-09-17 20:05:50.896 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-56.pt
+2026-09-17 20:05:50.899 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-57.pt
+2026-09-17 20:11:07.857 INFO: Epoch 58: head: Default, loss=0.08314327, RMSE_E_per_atom=    4.93 meV, RMSE_F=   80.96 meV / A
+2026-09-17 20:11:07.859 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-57.pt
+2026-09-17 20:11:07.862 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-58.pt
+2026-09-17 20:16:24.709 INFO: Epoch 59: head: Default, loss=0.08281417, RMSE_E_per_atom=    4.98 meV, RMSE_F=   80.80 meV / A
+2026-09-17 20:16:24.711 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-58.pt
+2026-09-17 20:16:24.713 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-59.pt
+2026-09-17 20:21:41.353 INFO: Epoch 60: head: Default, loss=0.08249546, RMSE_E_per_atom=    4.93 meV, RMSE_F=   80.64 meV / A
+2026-09-17 20:21:41.356 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-59.pt
+2026-09-17 20:21:41.358 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-60.pt
+2026-09-17 20:26:58.525 INFO: Epoch 61: head: Default, loss=0.08221366, RMSE_E_per_atom=    4.95 meV, RMSE_F=   80.50 meV / A
+2026-09-17 20:26:58.528 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-60.pt
+2026-09-17 20:26:58.530 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-61.pt
+2026-09-17 20:32:15.374 INFO: Epoch 62: head: Default, loss=0.08191767, RMSE_E_per_atom=    4.80 meV, RMSE_F=   80.36 meV / A
+2026-09-17 20:32:15.376 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-61.pt
+2026-09-17 20:32:15.379 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-62.pt
+2026-09-17 20:37:31.967 INFO: Epoch 63: head: Default, loss=0.08161985, RMSE_E_per_atom=    4.93 meV, RMSE_F=   80.21 meV / A
+2026-09-17 20:37:31.969 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-62.pt
+2026-09-17 20:37:31.972 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-63.pt
+2026-09-17 20:42:48.784 INFO: Epoch 64: head: Default, loss=0.08133680, RMSE_E_per_atom=    4.89 meV, RMSE_F=   80.07 meV / A
+2026-09-17 20:42:48.787 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-63.pt
+2026-09-17 20:42:48.789 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-64.pt
+2026-09-17 20:48:05.609 INFO: Epoch 65: head: Default, loss=0.08107493, RMSE_E_per_atom=    5.02 meV, RMSE_F=   79.94 meV / A
+2026-09-17 20:48:05.612 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-64.pt
+2026-09-17 20:48:05.615 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-65.pt
+2026-09-17 20:53:22.411 INFO: Epoch 66: head: Default, loss=0.08081236, RMSE_E_per_atom=    4.95 meV, RMSE_F=   79.81 meV / A
+2026-09-17 20:53:22.413 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-65.pt
+2026-09-17 20:53:22.415 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-66.pt
+2026-09-17 20:58:39.832 INFO: Epoch 67: head: Default, loss=0.08057992, RMSE_E_per_atom=    4.84 meV, RMSE_F=   79.70 meV / A
+2026-09-17 20:58:39.834 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-66.pt
+2026-09-17 20:58:39.836 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-67.pt
+2026-09-17 21:03:57.600 INFO: Epoch 68: head: Default, loss=0.08032236, RMSE_E_per_atom=    5.03 meV, RMSE_F=   79.57 meV / A
+2026-09-17 21:03:57.603 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-67.pt
+2026-09-17 21:03:57.604 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-68.pt
+2026-09-17 21:09:14.276 INFO: Epoch 69: head: Default, loss=0.08007371, RMSE_E_per_atom=    5.07 meV, RMSE_F=   79.45 meV / A
+2026-09-17 21:09:14.278 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-68.pt
+2026-09-17 21:09:14.282 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-69.pt
+2026-09-17 21:14:31.024 INFO: Epoch 70: head: Default, loss=0.07980976, RMSE_E_per_atom=    5.05 meV, RMSE_F=   79.32 meV / A
+2026-09-17 21:14:31.026 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-69.pt
+2026-09-17 21:14:31.029 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-70.pt
+2026-09-17 21:19:48.048 INFO: Epoch 71: head: Default, loss=0.07956435, RMSE_E_per_atom=    4.92 meV, RMSE_F=   79.19 meV / A
+2026-09-17 21:19:48.050 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-70.pt
+2026-09-17 21:19:48.052 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-71.pt
+2026-09-17 21:25:04.902 INFO: Epoch 72: head: Default, loss=0.07933895, RMSE_E_per_atom=    4.79 meV, RMSE_F=   79.08 meV / A
+2026-09-17 21:25:04.904 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-71.pt
+2026-09-17 21:25:04.906 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-72.pt
+2026-09-17 21:30:21.615 INFO: Epoch 73: head: Default, loss=0.07906991, RMSE_E_per_atom=    4.78 meV, RMSE_F=   78.95 meV / A
+2026-09-17 21:30:21.618 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-72.pt
+2026-09-17 21:30:21.621 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-73.pt
+2026-09-17 21:35:38.302 INFO: Epoch 74: head: Default, loss=0.07885433, RMSE_E_per_atom=    4.77 meV, RMSE_F=   78.84 meV / A
+2026-09-17 21:35:38.304 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-73.pt
+2026-09-17 21:35:38.308 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-74.pt
+2026-09-17 21:40:55.047 INFO: Epoch 75: head: Default, loss=0.07866559, RMSE_E_per_atom=    4.90 meV, RMSE_F=   78.74 meV / A
+2026-09-17 21:40:55.049 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-74.pt
+2026-09-17 21:40:55.051 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-75.pt
+2026-09-17 21:46:11.690 INFO: Epoch 76: head: Default, loss=0.07844891, RMSE_E_per_atom=    4.80 meV, RMSE_F=   78.64 meV / A
+2026-09-17 21:46:11.693 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-75.pt
+2026-09-17 21:46:11.697 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-76.pt
+2026-09-17 21:51:28.382 INFO: Epoch 77: head: Default, loss=0.07821300, RMSE_E_per_atom=    4.66 meV, RMSE_F=   78.52 meV / A
+2026-09-17 21:51:28.385 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-76.pt
+2026-09-17 21:51:28.388 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-77.pt
+2026-09-17 21:56:45.153 INFO: Epoch 78: head: Default, loss=0.07798254, RMSE_E_per_atom=    4.64 meV, RMSE_F=   78.40 meV / A
+2026-09-17 21:56:45.155 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-77.pt
+2026-09-17 21:56:45.158 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-78.pt
+2026-09-17 22:02:01.969 INFO: Epoch 79: head: Default, loss=0.07775104, RMSE_E_per_atom=    4.66 meV, RMSE_F=   78.28 meV / A
+2026-09-17 22:02:01.973 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-78.pt
+2026-09-17 22:02:01.976 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-79.pt
+2026-09-17 22:07:18.863 INFO: Epoch 80: head: Default, loss=0.07754938, RMSE_E_per_atom=    4.62 meV, RMSE_F=   78.18 meV / A
+2026-09-17 22:07:18.866 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-79.pt
+2026-09-17 22:07:18.879 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-80.pt
+2026-09-17 22:12:35.615 INFO: Epoch 81: head: Default, loss=0.07735955, RMSE_E_per_atom=    4.72 meV, RMSE_F=   78.09 meV / A
+2026-09-17 22:12:35.618 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-80.pt
+2026-09-17 22:12:35.622 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-81.pt
+2026-09-17 22:17:52.670 INFO: Epoch 82: head: Default, loss=0.07716268, RMSE_E_per_atom=    4.50 meV, RMSE_F=   77.99 meV / A
+2026-09-17 22:17:52.673 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-81.pt
+2026-09-17 22:17:52.675 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-82.pt
+2026-09-17 22:23:09.419 INFO: Epoch 83: head: Default, loss=0.07699770, RMSE_E_per_atom=    4.59 meV, RMSE_F=   77.90 meV / A
+2026-09-17 22:23:09.422 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-82.pt
+2026-09-17 22:23:09.427 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-83.pt
+2026-09-17 22:28:26.160 INFO: Epoch 84: head: Default, loss=0.07680448, RMSE_E_per_atom=    4.61 meV, RMSE_F=   77.81 meV / A
+2026-09-17 22:28:26.163 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-83.pt
+2026-09-17 22:28:26.165 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-84.pt
+2026-09-17 22:33:42.851 INFO: Epoch 85: head: Default, loss=0.07659676, RMSE_E_per_atom=    4.58 meV, RMSE_F=   77.70 meV / A
+2026-09-17 22:33:42.854 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-84.pt
+2026-09-17 22:33:42.856 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-85.pt
+2026-09-17 22:38:59.594 INFO: Epoch 86: head: Default, loss=0.07638591, RMSE_E_per_atom=    4.70 meV, RMSE_F=   77.59 meV / A
+2026-09-17 22:38:59.597 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-85.pt
+2026-09-17 22:38:59.601 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-86.pt
+2026-09-17 22:44:16.296 INFO: Epoch 87: head: Default, loss=0.07619119, RMSE_E_per_atom=    4.68 meV, RMSE_F=   77.49 meV / A
+2026-09-17 22:44:16.300 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-86.pt
+2026-09-17 22:44:16.303 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-87.pt
+2026-09-17 22:49:33.128 INFO: Epoch 88: head: Default, loss=0.07602077, RMSE_E_per_atom=    4.60 meV, RMSE_F=   77.40 meV / A
+2026-09-17 22:49:33.130 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-87.pt
+2026-09-17 22:49:33.132 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-88.pt
+2026-09-17 22:54:50.022 INFO: Epoch 89: head: Default, loss=0.07586261, RMSE_E_per_atom=    4.59 meV, RMSE_F=   77.32 meV / A
+2026-09-17 22:54:50.024 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-88.pt
+2026-09-17 22:54:50.027 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-89.pt
+2026-09-17 23:00:06.826 INFO: Epoch 90: head: Default, loss=0.07568107, RMSE_E_per_atom=    4.49 meV, RMSE_F=   77.23 meV / A
+2026-09-17 23:00:06.829 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-89.pt
+2026-09-17 23:00:06.833 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-90.pt
+2026-09-17 23:05:23.693 INFO: Epoch 91: head: Default, loss=0.07549689, RMSE_E_per_atom=    4.49 meV, RMSE_F=   77.14 meV / A
+2026-09-17 23:05:23.695 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-90.pt
+2026-09-17 23:05:23.698 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-91.pt
+2026-09-17 23:10:40.488 INFO: Epoch 92: head: Default, loss=0.07529873, RMSE_E_per_atom=    4.40 meV, RMSE_F=   77.04 meV / A
+2026-09-17 23:10:40.490 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-91.pt
+2026-09-17 23:10:40.492 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-92.pt
+2026-09-17 23:15:57.288 INFO: Epoch 93: head: Default, loss=0.07515254, RMSE_E_per_atom=    4.35 meV, RMSE_F=   76.96 meV / A
+2026-09-17 23:15:57.290 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-92.pt
+2026-09-17 23:15:57.292 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-93.pt
+2026-09-17 23:21:14.030 INFO: Epoch 94: head: Default, loss=0.07496654, RMSE_E_per_atom=    4.44 meV, RMSE_F=   76.87 meV / A
+2026-09-17 23:21:14.032 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-93.pt
+2026-09-17 23:21:14.036 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-94.pt
+2026-09-17 23:26:31.096 INFO: Epoch 95: head: Default, loss=0.07480723, RMSE_E_per_atom=    4.40 meV, RMSE_F=   76.78 meV / A
+2026-09-17 23:26:31.098 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-94.pt
+2026-09-17 23:26:31.102 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-95.pt
+2026-09-17 23:31:48.089 INFO: Epoch 96: head: Default, loss=0.07468089, RMSE_E_per_atom=    4.34 meV, RMSE_F=   76.72 meV / A
+2026-09-17 23:31:48.091 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-95.pt
+2026-09-17 23:31:48.093 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-96.pt
+2026-09-17 23:37:04.942 INFO: Epoch 97: head: Default, loss=0.07452041, RMSE_E_per_atom=    4.26 meV, RMSE_F=   76.63 meV / A
+2026-09-17 23:37:04.944 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-96.pt
+2026-09-17 23:37:04.946 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-97.pt
+2026-09-17 23:42:21.857 INFO: Epoch 98: head: Default, loss=0.07435244, RMSE_E_per_atom=    4.34 meV, RMSE_F=   76.55 meV / A
+2026-09-17 23:42:21.860 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-97.pt
+2026-09-17 23:42:21.862 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-98.pt
+2026-09-17 23:47:38.605 INFO: Epoch 99: head: Default, loss=0.07418199, RMSE_E_per_atom=    4.33 meV, RMSE_F=   76.46 meV / A
+2026-09-17 23:47:38.607 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-98.pt
+2026-09-17 23:47:38.611 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-99.pt
+2026-09-17 23:52:55.155 INFO: Epoch 100: head: Default, loss=0.07403052, RMSE_E_per_atom=    4.24 meV, RMSE_F=   76.38 meV / A
+2026-09-17 23:52:55.157 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-99.pt
+2026-09-17 23:52:55.161 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-100.pt
+2026-09-17 23:58:12.242 INFO: Epoch 101: head: Default, loss=0.07384125, RMSE_E_per_atom=    4.28 meV, RMSE_F=   76.28 meV / A
+2026-09-17 23:58:12.244 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-100.pt
+2026-09-17 23:58:12.248 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-101.pt
+2026-09-18 00:03:29.162 INFO: Epoch 102: head: Default, loss=0.07369339, RMSE_E_per_atom=    4.30 meV, RMSE_F=   76.21 meV / A
+2026-09-18 00:03:29.165 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-101.pt
+2026-09-18 00:03:29.167 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-102.pt
+2026-09-18 00:08:45.787 INFO: Epoch 103: head: Default, loss=0.07355847, RMSE_E_per_atom=    4.21 meV, RMSE_F=   76.14 meV / A
+2026-09-18 00:08:45.789 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-102.pt
+2026-09-18 00:08:45.793 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-103.pt
+2026-09-18 00:14:02.874 INFO: Epoch 104: head: Default, loss=0.07339291, RMSE_E_per_atom=    4.14 meV, RMSE_F=   76.05 meV / A
+2026-09-18 00:14:02.876 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-103.pt
+2026-09-18 00:14:02.878 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-104.pt
+2026-09-18 00:19:21.923 INFO: Epoch 105: head: Default, loss=0.07321051, RMSE_E_per_atom=    4.04 meV, RMSE_F=   75.96 meV / A
+2026-09-18 00:19:21.925 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-104.pt
+2026-09-18 00:19:21.929 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-105.pt
+2026-09-18 00:24:38.566 INFO: Epoch 106: head: Default, loss=0.07307131, RMSE_E_per_atom=    4.20 meV, RMSE_F=   75.88 meV / A
+2026-09-18 00:24:38.568 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-105.pt
+2026-09-18 00:24:38.571 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-106.pt
+2026-09-18 00:29:55.158 INFO: Epoch 107: head: Default, loss=0.07295748, RMSE_E_per_atom=    4.15 meV, RMSE_F=   75.83 meV / A
+2026-09-18 00:29:55.161 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-106.pt
+2026-09-18 00:29:55.165 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-107.pt
+2026-09-18 00:35:12.113 INFO: Epoch 108: head: Default, loss=0.07283237, RMSE_E_per_atom=    4.11 meV, RMSE_F=   75.76 meV / A
+2026-09-18 00:35:12.115 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-107.pt
+2026-09-18 00:35:12.117 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-108.pt
+2026-09-18 00:40:28.986 INFO: Epoch 109: head: Default, loss=0.07270667, RMSE_E_per_atom=    4.19 meV, RMSE_F=   75.69 meV / A
+2026-09-18 00:40:28.987 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-108.pt
+2026-09-18 00:40:28.989 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-109.pt
+2026-09-18 00:45:45.795 INFO: Epoch 110: head: Default, loss=0.07254355, RMSE_E_per_atom=    4.05 meV, RMSE_F=   75.61 meV / A
+2026-09-18 00:45:45.797 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-109.pt
+2026-09-18 00:45:45.801 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-110.pt
+2026-09-18 00:51:02.560 INFO: Epoch 111: head: Default, loss=0.07238347, RMSE_E_per_atom=    4.01 meV, RMSE_F=   75.53 meV / A
+2026-09-18 00:51:02.563 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-110.pt
+2026-09-18 00:51:02.567 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-111.pt
+2026-09-18 00:56:19.196 INFO: Epoch 112: head: Default, loss=0.07222176, RMSE_E_per_atom=    3.92 meV, RMSE_F=   75.44 meV / A
+2026-09-18 00:56:19.199 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-111.pt
+2026-09-18 00:56:19.201 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-112.pt
+2026-09-18 01:01:35.972 INFO: Epoch 113: head: Default, loss=0.07209952, RMSE_E_per_atom=    3.86 meV, RMSE_F=   75.38 meV / A
+2026-09-18 01:01:35.974 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-112.pt
+2026-09-18 01:01:35.977 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-113.pt
+2026-09-18 01:06:52.565 INFO: Epoch 114: head: Default, loss=0.07197190, RMSE_E_per_atom=    3.78 meV, RMSE_F=   75.31 meV / A
+2026-09-18 01:06:52.568 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-113.pt
+2026-09-18 01:06:52.571 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-114.pt
+2026-09-18 01:12:09.268 INFO: Epoch 115: head: Default, loss=0.07184959, RMSE_E_per_atom=    3.92 meV, RMSE_F=   75.25 meV / A
+2026-09-18 01:12:09.270 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-114.pt
+2026-09-18 01:12:09.274 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-115.pt
+2026-09-18 01:17:25.863 INFO: Epoch 116: head: Default, loss=0.07171107, RMSE_E_per_atom=    3.97 meV, RMSE_F=   75.17 meV / A
+2026-09-18 01:17:25.865 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-115.pt
+2026-09-18 01:17:25.867 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-116.pt
+2026-09-18 01:22:42.512 INFO: Epoch 117: head: Default, loss=0.07158379, RMSE_E_per_atom=    3.91 meV, RMSE_F=   75.11 meV / A
+2026-09-18 01:22:42.515 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-116.pt
+2026-09-18 01:22:42.518 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-117.pt
+2026-09-18 01:27:59.729 INFO: Epoch 118: head: Default, loss=0.07143719, RMSE_E_per_atom=    3.95 meV, RMSE_F=   75.03 meV / A
+2026-09-18 01:27:59.731 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-117.pt
+2026-09-18 01:27:59.735 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-118.pt
+2026-09-18 01:33:16.589 INFO: Epoch 119: head: Default, loss=0.07130755, RMSE_E_per_atom=    3.98 meV, RMSE_F=   74.96 meV / A
+2026-09-18 01:33:16.592 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-118.pt
+2026-09-18 01:33:16.594 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-119.pt
+2026-09-18 01:38:33.248 INFO: Epoch 120: head: Default, loss=0.07119763, RMSE_E_per_atom=    3.95 meV, RMSE_F=   74.90 meV / A
+2026-09-18 01:38:33.250 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-119.pt
+2026-09-18 01:38:33.253 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-120.pt
+2026-09-18 01:43:50.141 INFO: Epoch 121: head: Default, loss=0.07108671, RMSE_E_per_atom=    3.94 meV, RMSE_F=   74.84 meV / A
+2026-09-18 01:43:50.144 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-120.pt
+2026-09-18 01:43:50.148 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-121.pt
+2026-09-18 01:49:06.929 INFO: Epoch 122: head: Default, loss=0.07097937, RMSE_E_per_atom=    3.90 meV, RMSE_F=   74.79 meV / A
+2026-09-18 01:49:06.932 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-121.pt
+2026-09-18 01:49:06.938 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-122.pt
+2026-09-18 01:54:23.850 INFO: Epoch 123: head: Default, loss=0.07085931, RMSE_E_per_atom=    3.88 meV, RMSE_F=   74.72 meV / A
+2026-09-18 01:54:23.851 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-122.pt
+2026-09-18 01:54:23.855 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-123.pt
+2026-09-18 01:59:40.535 INFO: Epoch 124: head: Default, loss=0.07076821, RMSE_E_per_atom=    3.85 meV, RMSE_F=   74.68 meV / A
+2026-09-18 01:59:40.537 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-123.pt
+2026-09-18 01:59:40.542 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-124.pt
+2026-09-18 02:05:01.395 INFO: Epoch 125: head: Default, loss=0.07065562, RMSE_E_per_atom=    3.76 meV, RMSE_F=   74.62 meV / A
+2026-09-18 02:05:01.397 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-124.pt
+2026-09-18 02:05:01.399 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-125.pt
+2026-09-18 02:10:18.129 INFO: Epoch 126: head: Default, loss=0.07054681, RMSE_E_per_atom=    3.79 meV, RMSE_F=   74.56 meV / A
+2026-09-18 02:10:18.130 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-125.pt
+2026-09-18 02:10:18.134 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-126.pt
+2026-09-18 02:15:35.154 INFO: Epoch 127: head: Default, loss=0.07044847, RMSE_E_per_atom=    3.73 meV, RMSE_F=   74.51 meV / A
+2026-09-18 02:15:35.156 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-126.pt
+2026-09-18 02:15:35.160 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-127.pt
+2026-09-18 02:20:51.888 INFO: Epoch 128: head: Default, loss=0.07034824, RMSE_E_per_atom=    3.65 meV, RMSE_F=   74.45 meV / A
+2026-09-18 02:20:51.889 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-127.pt
+2026-09-18 02:20:51.893 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-128.pt
+2026-09-18 02:26:08.786 INFO: Epoch 129: head: Default, loss=0.07023496, RMSE_E_per_atom=    3.63 meV, RMSE_F=   74.39 meV / A
+2026-09-18 02:26:08.789 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-128.pt
+2026-09-18 02:26:08.791 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-129.pt
+2026-09-18 02:31:25.681 INFO: Epoch 130: head: Default, loss=0.07010734, RMSE_E_per_atom=    3.68 meV, RMSE_F=   74.33 meV / A
+2026-09-18 02:31:25.684 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-129.pt
+2026-09-18 02:31:25.688 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-130.pt
+2026-09-18 02:36:42.533 INFO: Epoch 131: head: Default, loss=0.06998453, RMSE_E_per_atom=    3.75 meV, RMSE_F=   74.26 meV / A
+2026-09-18 02:36:42.535 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-130.pt
+2026-09-18 02:36:42.538 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-131.pt
+2026-09-18 02:41:59.628 INFO: Epoch 132: head: Default, loss=0.06986386, RMSE_E_per_atom=    3.70 meV, RMSE_F=   74.20 meV / A
+2026-09-18 02:41:59.630 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-131.pt
+2026-09-18 02:41:59.634 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-132.pt
+2026-09-18 02:47:16.424 INFO: Epoch 133: head: Default, loss=0.06975336, RMSE_E_per_atom=    3.55 meV, RMSE_F=   74.14 meV / A
+2026-09-18 02:47:16.426 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-132.pt
+2026-09-18 02:47:16.430 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-133.pt
+2026-09-18 02:52:33.567 INFO: Epoch 134: head: Default, loss=0.06964938, RMSE_E_per_atom=    3.62 meV, RMSE_F=   74.08 meV / A
+2026-09-18 02:52:33.570 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-133.pt
+2026-09-18 02:52:33.575 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-134.pt
+2026-09-18 02:57:50.571 INFO: Epoch 135: head: Default, loss=0.06953686, RMSE_E_per_atom=    3.66 meV, RMSE_F=   74.02 meV / A
+2026-09-18 02:57:50.574 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-134.pt
+2026-09-18 02:57:50.578 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-135.pt
+2026-09-21 20:24:09.494 INFO: ===========VERIFYING SETTINGS===========
+2026-09-21 20:24:09.495 INFO: MACE version: 0.3.16
+2026-09-21 20:24:09.495 DEBUG: Configuration: Namespace(config=None, name='fe_ft_Tel8000_f32', seed=7, work_dir='.', log_dir='logs', model_dir='phaseD/models', checkpoints_dir='phaseD/models', results_dir='./results', downloads_dir='./downloads', device='cuda', default_dtype='float32', distributed=False, launcher='slurm', log_level='INFO', plot=True, plot_frequency=0, plot_interaction_e=False, error_table='PerAtomRMSE', model='MACE', r_max=5.0, radial_type='bessel', num_radial_basis=8, num_cutoff_basis=5, pair_repulsion=False, distance_transform='None', apply_cutoff=True, use_last_readout_only=False, use_embedding_readout=False, interaction='RealAgnosticResidualInteractionBlock', interaction_first='RealAgnosticResidualInteractionBlock', max_ell=3, correlation=3, use_reduced_cg=False, use_so3=False, use_agnostic_product=False, num_interactions=2, MLP_irreps='16x0e', radial_MLP='[64, 64, 64]', hidden_irreps='128x0e + 128x1o', edge_irreps=None, use_edge_irreps_first=False, num_channels=128, max_L=1, gate='silu', kspace_cutoff_factor=1.5, atomic_multipoles_max_l=0, atomic_multipoles_smearing_width=1.0, field_feature_max_l=0, field_feature_widths='[1.0]', field_feature_norms=None, num_recursion_steps=1, field_si=False, include_electrostatic_self_interaction=False, add_local_electron_energy=False, quadrupole_feature_corrections=False, return_electrostatic_potentials=False, field_norm_factor=0.02, fixedpoint_update_config=None, field_readout_config=None, scaling='rms_forces_scaling', avg_num_neighbors=1, compute_avg_num_neighbors=True, compute_stress=False, compute_forces=True, compute_polarizability=False, compute_atomic_dipole=False, train_file='phaseD/train_Tel8000.xyz', valid_file=None, valid_fraction=0.05, test_file=None, test_dir=None, multi_processed_test=False, num_workers=0, pin_memory=True, atomic_numbers=None, mean=None, std=None, statistics_file=None, les_arguments=None, E0s='average', pseudolabel_replay=False, pseudolabel_replay_compute_stress=False, foundation_filter_elements=True, heads=None, multiheads_finetuning=False, foundation_head=None, weight_pt_head=1.0, real_pt_data_ratio_threshold=0.1, num_samples_pt=10000, force_mh_ft_lr=False, subselect_pt='random', filter_type_pt='none', allow_random_padding_pt=True, pt_train_file=None, pt_valid_file=None, foundation_model_elements=False, keep_isolated_atoms=False, lora=False, lora_rank=4, lora_alpha=1.0, energy_key='REF_energy', forces_key='REF_forces', virials_key='REF_virials', stress_key='REF_stress', dipole_key='dipole', polarizability_key='polarizability', head_key='head', charges_key='REF_charges', elec_temp_key='elec_temp', total_spin_key='total_spin', total_charge_key='total_charge', embedding_specs=None, skip_evaluate_heads='pt_head', loss='weighted', forces_weight=100.0, swa_forces_weight=100.0, energy_weight=1.0, swa_energy_weight=1000.0, virials_weight=1.0, swa_virials_weight=10.0, stress_weight=1.0, swa_stress_weight=10.0, dipole_weight=1.0, swa_dipole_weight=1.0, swa_polarizability_weight=1.0, polarizability_weight=1.0, config_type_weights='{"Default":1.0}', huber_delta=0.01, optimizer='adam', beta=0.9, beta1_schedulefree=0.9, beta2_schedulefree=0.98, batch_size=4, valid_batch_size=8, lr=0.0001, swa_lr=0.001, weight_decay=5e-07, lr_params_factors='{"embedding_lr_factor": 1.0, "interactions_lr_factor": 1.0, "products_lr_factor": 1.0, "readouts_lr_factor": 1.0}', freeze=None, amsgrad=True, scheduler='ReduceLROnPlateau', lr_factor=0.8, scheduler_patience=50, lr_scheduler_gamma=0.9993, swa=False, start_swa=None, lbfgs=False, ema=True, ema_decay=0.999, max_num_epochs=150, patience=30, foundation_model='/home/shug7909/fe_melt/MACE-matpes-pbe-omat-ft.model', foundation_model_kwargs='{}', foundation_model_readout=True, eval_interval=1, keep_checkpoints=False, save_all_checkpoints=False, restart_latest=True, save_cpu=False, clip_grad=10.0, dry_run=False, enable_cueq=False, only_cueq=False, enable_oeq=False, wandb=False, wandb_dir=None, wandb_project='', wandb_entity='', wandb_name='', wandb_log_hypers=['num_channels', 'max_L', 'correlation', 'lr', 'swa_lr', 'weight_decay', 'batch_size', 'max_num_epochs', 'start_swa', 'energy_weight', 'forces_weight'], key_specification=KeySpecification(info_keys={'energy': 'REF_energy', 'stress': 'REF_stress', 'virials': 'REF_virials', 'dipole': 'dipole', 'head': 'head', 'elec_temp': 'elec_temp', 'total_charge': 'total_charge', 'polarizability': 'polarizability', 'total_spin': 'total_spin'}, arrays_keys={'forces': 'REF_forces', 'charges': 'REF_charges'}))
+2026-09-21 20:24:09.639 INFO: CUDA version: 12.6, CUDA device: 0
+2026-09-21 20:24:09.776 DEBUG: Popen(['git', 'version'], cwd=/home/shug7909/fe_melt, stdin=None, shell=False, universal_newlines=False)
+2026-09-21 20:24:09.783 DEBUG: Popen(['git', 'version'], cwd=/home/shug7909/fe_melt, stdin=None, shell=False, universal_newlines=False)
+2026-09-21 20:24:09.819 DEBUG: Error accessing Git repository: /home/shug7909/fe_melt
+2026-09-21 20:24:11.129 INFO: Using foundation model /home/shug7909/fe_melt/MACE-matpes-pbe-omat-ft.model as initial checkpoint.
+2026-09-21 20:24:11.134 INFO: ===========LOADING INPUT DATA===========
+2026-09-21 20:24:11.134 INFO: Using heads: ['Default']
+2026-09-21 20:24:11.134 INFO: Using the key specifications to parse data:
+2026-09-21 20:24:11.134 INFO: Default: KeySpecification(info_keys={'energy': 'REF_energy', 'stress': 'REF_stress', 'virials': 'REF_virials', 'dipole': 'dipole', 'head': 'head', 'elec_temp': 'elec_temp', 'total_charge': 'total_charge', 'polarizability': 'polarizability', 'total_spin': 'total_spin'}, arrays_keys={'forces': 'REF_forces', 'charges': 'REF_charges'})
+2026-09-21 20:24:11.134 INFO: =============    Processing head Default     ===========
+2026-09-21 20:24:11.135 DEBUG: Loading training file: phaseD/train_Tel8000.xyz
+2026-09-21 20:24:12.981 INFO: Training set 1/1 [energy: 2218, stress: 0, virials: 0, dipole components: 0, head: 2218, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 2218, charges: 0]
+2026-09-21 20:24:12.990 INFO: Total Training set [energy: 2218, stress: 0, virials: 0, dipole components: 0, head: 2218, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 2218, charges: 0]
+2026-09-21 20:24:12.990 INFO: No validation set provided, splitting training data instead.
+2026-09-21 20:24:12.993 INFO: Using random 5% of training set for validation with indices saved in: ./fe_ft_Tel8000_f32_valid_indices_7.txt
+2026-09-21 20:24:13.003 INFO: Random Split Training set [energy: 2108, stress: 0, virials: 0, dipole components: 0, head: 2108, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 2108, charges: 0]
+2026-09-21 20:24:13.004 INFO: Random Split Validation set [energy: 110, stress: 0, virials: 0, dipole components: 0, head: 110, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 110, charges: 0]
+2026-09-21 20:24:13.004 INFO: Total number of configurations: train=2108, valid=110, tests=[],
+2026-09-21 20:24:13.038 INFO: Atomic Numbers used: [np.int64(26)]
+2026-09-21 20:24:13.039 INFO: Isolated Atomic Energies (E0s) not in training file, using command line argument
+2026-09-21 20:24:13.039 INFO: Computing average Atomic Energies using least squares regression
+2026-09-21 20:24:13.109 INFO: Atomic Energies used (z: eV) for head Default: {26: -4478.320382724408}
+2026-09-21 20:24:13.109 INFO: Processing datasets for head 'Default'
+2026-09-21 20:24:28.043 DEBUG: Successfully loaded dataset from ASE files: ['phaseD/train_Tel8000.xyz']
+2026-09-21 20:24:28.044 INFO: Combining 1 list datasets for head 'Default'
+2026-09-21 20:24:28.821 INFO: Head 'Default' training dataset size: 2108
+2026-09-21 20:24:28.822 INFO: Computing average number of neighbors
+2026-09-21 20:24:30.953 WARNING: Unusual average number of neighbors: 123.1
+2026-09-21 20:24:30.953 INFO: During training the following quantities will be reported: energy, forces
+2026-09-21 20:24:30.953 INFO: ===========MODEL DETAILS===========
+2026-09-21 20:24:32.652 INFO: Loading FOUNDATION model
+2026-09-21 20:24:32.653 INFO: Using filtered elements: [np.int64(26)]
+2026-09-21 20:24:32.654 INFO: Model configuration extracted from foundation model
+2026-09-21 20:24:32.654 INFO: Using weighted loss function for fine-tuning
+2026-09-21 20:24:32.654 INFO: Message passing with hidden irreps 128x0e+128x1o)
+2026-09-21 20:24:32.654 INFO: 2 layers, each with correlation order: 3 (body order: 4) and spherical harmonics up to: l=3
+2026-09-21 20:24:32.654 INFO: Radial cutoff: 6.0 A (total receptive field for each atom: 12.0 A)
+2026-09-21 20:24:32.654 INFO: Distance transform for radial basis functions: Agnesi
+2026-09-21 20:24:34.116 INFO: ===========OPTIMIZER INFORMATION===========
+2026-09-21 20:24:34.116 INFO: Using ADAM as parameter optimizer
+2026-09-21 20:24:34.116 INFO: Batch size: 4
+2026-09-21 20:24:34.116 INFO: Using Exponential Moving Average with decay: 0.999
+2026-09-21 20:24:34.117 INFO: Number of gradient updates: 79050
+2026-09-21 20:24:34.117 INFO: Learning rate: 0.0001, weight decay: 5e-07
+2026-09-21 20:24:34.117 INFO: WeightedEnergyForcesLoss(energy_weight=1.000, forces_weight=100.000)
+2026-09-21 20:24:34.117 INFO: === Layer's learning rates ===
+2026-09-21 20:24:34.118 INFO: Param group 0: lr = 0.0001
+2026-09-21 20:24:34.118 INFO: Param group 1: lr = 0.0001
+2026-09-21 20:24:34.118 INFO: Param group 2: lr = 0.0001
+2026-09-21 20:24:34.118 INFO: Param group 3: lr = 0.0001
+2026-09-21 20:24:34.118 INFO: Param group 4: lr = 0.0001
+2026-09-21 20:24:34.122 WARNING: No SWA checkpoint found, while SWA is enabled. Compare the swa_start parameter and the latest checkpoint.
+2026-09-21 20:24:34.122 INFO: Loading checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-135.pt
+2026-09-21 20:24:34.479 INFO: Using gradient clipping with tolerance=10.000
+2026-09-21 20:24:34.479 INFO: 
+2026-09-21 20:24:34.479 INFO: ===========TRAINING===========
+2026-09-21 20:24:34.479 INFO: Started training, reporting errors on validation set
+2026-09-21 20:24:34.479 INFO: Loss metrics on validation set
+2026-09-21 20:24:44.445 INFO: Initial: head: Default, loss=0.06953683, RMSE_E_per_atom=    3.66 meV, RMSE_F=   74.02 meV / A
+2026-09-21 20:30:09.568 INFO: Epoch 135: head: Default, loss=0.06954055, RMSE_E_per_atom=    3.54 meV, RMSE_F=   74.02 meV / A
+2026-09-21 20:30:09.573 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-135.pt
+2026-09-21 20:35:31.107 INFO: Epoch 136: head: Default, loss=0.06937653, RMSE_E_per_atom=    4.10 meV, RMSE_F=   73.94 meV / A
+2026-09-21 20:35:31.109 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-135.pt
+2026-09-21 20:35:31.113 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-136.pt
+2026-09-21 20:40:52.553 INFO: Epoch 137: head: Default, loss=0.06930409, RMSE_E_per_atom=    3.62 meV, RMSE_F=   73.90 meV / A
+2026-09-21 20:40:52.556 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-136.pt
+2026-09-21 20:40:52.561 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-137.pt
+2026-09-21 20:46:14.082 INFO: Epoch 138: head: Default, loss=0.06922796, RMSE_E_per_atom=    3.59 meV, RMSE_F=   73.86 meV / A
+2026-09-21 20:46:14.084 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-137.pt
+2026-09-21 20:46:14.088 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-138.pt
+2026-09-21 20:51:35.537 INFO: Epoch 139: head: Default, loss=0.06911758, RMSE_E_per_atom=    3.55 meV, RMSE_F=   73.80 meV / A
+2026-09-21 20:51:35.539 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-138.pt
+2026-09-21 20:51:35.544 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-139.pt
+2026-09-21 20:56:57.073 INFO: Epoch 140: head: Default, loss=0.06903490, RMSE_E_per_atom=    3.47 meV, RMSE_F=   73.76 meV / A
+2026-09-21 20:56:57.075 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-139.pt
+2026-09-21 20:56:57.077 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-140.pt
+2026-09-21 21:02:18.635 INFO: Epoch 141: head: Default, loss=0.06897360, RMSE_E_per_atom=    3.55 meV, RMSE_F=   73.72 meV / A
+2026-09-21 21:02:18.638 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-140.pt
+2026-09-21 21:02:18.640 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-141.pt
+2026-09-21 21:07:40.039 INFO: Epoch 142: head: Default, loss=0.06890108, RMSE_E_per_atom=    3.44 meV, RMSE_F=   73.68 meV / A
+2026-09-21 21:07:40.044 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-141.pt
+2026-09-21 21:07:40.049 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-142.pt
+2026-09-21 21:13:01.497 INFO: Epoch 143: head: Default, loss=0.06881008, RMSE_E_per_atom=    3.58 meV, RMSE_F=   73.64 meV / A
+2026-09-21 21:13:01.500 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-142.pt
+2026-09-21 21:13:01.504 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-143.pt
+2026-09-21 21:18:23.030 INFO: Epoch 144: head: Default, loss=0.06870314, RMSE_E_per_atom=    3.61 meV, RMSE_F=   73.58 meV / A
+2026-09-21 21:18:23.033 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-143.pt
+2026-09-21 21:18:23.036 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-144.pt
+2026-09-21 21:23:44.415 INFO: Epoch 145: head: Default, loss=0.06858135, RMSE_E_per_atom=    3.45 meV, RMSE_F=   73.51 meV / A
+2026-09-21 21:23:44.418 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-144.pt
+2026-09-21 21:23:44.420 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-145.pt
+2026-09-21 21:29:05.965 INFO: Epoch 146: head: Default, loss=0.06850827, RMSE_E_per_atom=    3.31 meV, RMSE_F=   73.47 meV / A
+2026-09-21 21:29:05.967 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-145.pt
+2026-09-21 21:29:05.969 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-146.pt
+2026-09-21 21:34:27.372 INFO: Epoch 147: head: Default, loss=0.06845516, RMSE_E_per_atom=    3.40 meV, RMSE_F=   73.44 meV / A
+2026-09-21 21:34:27.375 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-146.pt
+2026-09-21 21:34:27.379 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-147.pt
+2026-09-21 21:39:48.714 INFO: Epoch 148: head: Default, loss=0.06836585, RMSE_E_per_atom=    3.42 meV, RMSE_F=   73.40 meV / A
+2026-09-21 21:39:48.716 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-147.pt
+2026-09-21 21:39:48.720 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-148.pt
+2026-09-21 21:45:09.896 INFO: Epoch 149: head: Default, loss=0.06829767, RMSE_E_per_atom=    3.40 meV, RMSE_F=   73.36 meV / A
+2026-09-21 21:45:09.900 DEBUG: Deleting old checkpoint file: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-148.pt
+2026-09-21 21:45:09.904 DEBUG: Saving checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-149.pt
+2026-09-21 21:45:09.967 INFO: Training complete
+2026-09-21 21:45:09.968 INFO: 
+2026-09-21 21:45:09.968 INFO: ===========RESULTS===========
+2026-09-21 21:45:09.972 INFO: Loading checkpoint: phaseD/models/fe_ft_Tel8000_f32_run-7_epoch-149.pt
+2026-09-21 21:45:10.014 INFO: Loaded Stage one model from epoch 149 for evaluation
+2026-09-21 21:45:10.014 INFO: Saving model to phaseD/models/fe_ft_Tel8000_f32_run-7.model
+2026-09-21 21:45:10.229 INFO: Compiling model, saving metadata to phaseD/models/fe_ft_Tel8000_f32_compiled.model
+2026-09-21 21:45:11.089 INFO: Computing metrics for training, validation, and test sets
+2026-09-21 21:45:11.090 INFO: Skipping evaluation for heads: ['pt_head']
+2026-09-21 21:45:11.091 INFO: Evaluating train_Default ...
+2026-09-21 21:46:58.807 INFO: Evaluating valid_Default ...
+2026-09-21 21:47:04.132 INFO: Error-table on TRAIN and VALID:
++---------------+---------------------+------------------+-------------------+
+|  config_type  | RMSE E / meV / atom | RMSE F / meV / A | relative F RMSE % |
++---------------+---------------------+------------------+-------------------+
+| train_Default |            3.2      |         67.9     |          1.60     |
+| valid_Default |            3.4      |         73.4     |          1.68     |
++---------------+---------------------+------------------+-------------------+
+2026-09-21 21:47:04.133 DEBUG: Running inference on train_Default dataset
+2026-09-21 21:49:02.821 DEBUG: Running inference on valid_Default dataset
+2026-09-21 21:49:16.922 INFO: Done

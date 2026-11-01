@@ -1,0 +1,10 @@
+{
+ "tag": "bcc_v6.4_T4178",
+ "phase": "bcc",
+ "vat": 6.4,
+ "P_est": 399.0,
+ "T": 4178.791554,
+ "frames": 25,
+ "msd_final": 0.07471966316256884,
+ "FLAG_decay": false
+}

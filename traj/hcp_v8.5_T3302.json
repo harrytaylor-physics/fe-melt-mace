@@ -1,0 +1,11 @@
+{
+ "tag": "hcp_v8.5_T3302",
+ "phase": "hcp",
+ "vat": 8.5,
+ "P_est": 96.8,
+ "T": 3302.1464012800006,
+ "frames": 32,
+ "msd_final": 0.13584067834580632,
+ "FLAG_decay": false,
+ "note": "tethered k=2.0 eV/A^2"
+}

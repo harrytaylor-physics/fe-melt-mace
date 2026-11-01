@@ -1,0 +1,17 @@
+{
+ "tag": "fcc_mix",
+ "structure": "fcc",
+ "nat": 1,
+ "V_per_atom": 6.999993855935467,
+ "upf": "Fe.pbe-spn-kjpaw_psl.1.0.0.UPF",
+ "functional": "PZ (input_dft)",
+ "qe_xc_line": "PZ",
+ "E_Ry": -324.75225847,
+ "E_per_atom_eV": -4418.479569742049,
+ "P_GPa": 238.371,
+ "code": "QE 6.6",
+ "ecutwfc": 100,
+ "ecutrho": 1000,
+ "smearing": "fd",
+ "degauss_Ry": 0.040085500769528125
+}

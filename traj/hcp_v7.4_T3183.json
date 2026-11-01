@@ -1,0 +1,11 @@
+{
+ "tag": "hcp_v7.4_T3183",
+ "phase": "hcp",
+ "vat": 7.4,
+ "P_est": 210.04999999999995,
+ "T": 3183.965325885,
+ "frames": 32,
+ "msd_final": 0.09932259039287938,
+ "FLAG_decay": false,
+ "note": "tethered k=2.0 eV/A^2"
+}

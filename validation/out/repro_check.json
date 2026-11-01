@@ -1,0 +1,29 @@
+{
+ "n_frames": 346,
+ "n_force_components": 131424,
+ "max_abs_dE_meV_atom": 0.0,
+ "max_abs_dF_eV_A": 4.57763671875e-05,
+ "rms_dF_eV_A": 6.327759365376551e-06,
+ "per_tel": {
+  "4000": {
+   "max_abs_dE_meV_atom": 0.0,
+   "max_abs_dF_eV_A": 4.291534423828125e-05
+  },
+  "6000": {
+   "max_abs_dE_meV_atom": 0.0,
+   "max_abs_dF_eV_A": 4.57763671875e-05
+  },
+  "8000": {
+   "max_abs_dE_meV_atom": 0.0,
+   "max_abs_dF_eV_A": 4.464387893676758e-05
+  }
+ },
+ "float64_minus_float32_meV_atom": {
+  "mean": 2.5533823019725794,
+  "min": 2.200110277044587,
+  "max": 4.050588632708241,
+  "std": 0.3912475136161242
+ },
+ "tel_scale": 10000.0,
+ "mace_version": "0.3.16"
+}

@@ -1,0 +1,147 @@
+/home/shug7909/.local/lib/python3.13/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+2026-09-14 10:38:11.465 INFO: ===========VERIFYING SETTINGS===========
+2026-09-14 10:38:11.465 INFO: MACE version: 0.3.16
+2026-09-14 10:38:11.641 INFO: CUDA version: 12.6, CUDA device: 0
+/home/shug7909/.local/lib/python3.13/site-packages/mace/cli/run_train.py:181: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  model_foundation = torch.load(
+2026-09-14 10:38:13.335 INFO: Using foundation model /home/shug7909/fe_melt/MACE-matpes-pbe-omat-ft.model as initial checkpoint.
+2026-09-14 10:38:13.340 INFO: ===========LOADING INPUT DATA===========
+2026-09-14 10:38:13.340 INFO: Using heads: ['Default']
+2026-09-14 10:38:13.340 INFO: Using the key specifications to parse data:
+2026-09-14 10:38:13.340 INFO: Default: KeySpecification(info_keys={'energy': 'REF_energy', 'stress': 'REF_stress', 'virials': 'REF_virials', 'dipole': 'dipole', 'head': 'head', 'elec_temp': 'elec_temp', 'total_charge': 'total_charge', 'polarizability': 'polarizability', 'total_spin': 'total_spin'}, arrays_keys={'forces': 'REF_forces', 'charges': 'REF_charges'})
+2026-09-14 10:38:13.340 INFO: =============    Processing head Default     ===========
+2026-09-14 10:38:15.211 INFO: Training set 1/1 [energy: 2218, stress: 0, virials: 0, dipole components: 0, head: 2218, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 2218, charges: 0]
+2026-09-14 10:38:15.220 INFO: Total Training set [energy: 2218, stress: 0, virials: 0, dipole components: 0, head: 2218, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 2218, charges: 0]
+2026-09-14 10:38:15.220 INFO: No validation set provided, splitting training data instead.
+2026-09-14 10:38:15.223 INFO: Using random 5% of training set for validation with indices saved in: ./fe_ft_Tel6000_valid_indices_7.txt
+2026-09-14 10:38:15.233 INFO: Random Split Training set [energy: 2108, stress: 0, virials: 0, dipole components: 0, head: 2108, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 2108, charges: 0]
+2026-09-14 10:38:15.233 INFO: Random Split Validation set [energy: 110, stress: 0, virials: 0, dipole components: 0, head: 110, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 110, charges: 0]
+2026-09-14 10:38:15.234 INFO: Total number of configurations: train=2108, valid=110, tests=[],
+2026-09-14 10:38:15.263 INFO: Atomic Numbers used: [np.int64(26)]
+2026-09-14 10:38:15.264 INFO: Isolated Atomic Energies (E0s) not in training file, using command line argument
+2026-09-14 10:38:15.264 INFO: Computing average Atomic Energies using least squares regression
+2026-09-14 10:38:15.382 INFO: Atomic Energies used (z: eV) for head Default: {26: -4477.922343129061}
+2026-09-14 10:38:15.383 INFO: Processing datasets for head 'Default'
+2026-09-14 10:38:31.428 INFO: Combining 1 list datasets for head 'Default'
+2026-09-14 10:38:32.235 INFO: Head 'Default' training dataset size: 2108
+2026-09-14 10:38:32.236 INFO: Computing average number of neighbors
+2026-09-14 10:38:34.081 WARNING: Unusual average number of neighbors: 123.3
+2026-09-14 10:38:34.081 INFO: During training the following quantities will be reported: energy, forces
+2026-09-14 10:38:34.081 INFO: ===========MODEL DETAILS===========
+2026-09-14 10:38:35.739 INFO: Loading FOUNDATION model
+2026-09-14 10:38:35.740 INFO: Using filtered elements: [np.int64(26)]
+2026-09-14 10:38:35.740 INFO: Model configuration extracted from foundation model
+2026-09-14 10:38:35.740 INFO: Using weighted loss function for fine-tuning
+2026-09-14 10:38:35.740 INFO: Message passing with hidden irreps 128x0e+128x1o)
+2026-09-14 10:38:35.740 INFO: 2 layers, each with correlation order: 3 (body order: 4) and spherical harmonics up to: l=3
+2026-09-14 10:38:35.740 INFO: Radial cutoff: 6.0 A (total receptive field for each atom: 12.0 A)
+2026-09-14 10:38:35.740 INFO: Distance transform for radial basis functions: Agnesi
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+/apps/system/easybuild/software/Anaconda3/2025.06-1/lib/python3.13/ast.py:422: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  return visitor(node)
+2026-09-14 10:38:37.517 INFO: ===========OPTIMIZER INFORMATION===========
+2026-09-14 10:38:37.518 INFO: Using ADAM as parameter optimizer
+2026-09-14 10:38:37.518 INFO: Batch size: 4
+2026-09-14 10:38:37.518 INFO: Using Exponential Moving Average with decay: 0.999
+2026-09-14 10:38:37.518 INFO: Number of gradient updates: 79050
+2026-09-14 10:38:37.518 INFO: Learning rate: 0.0001, weight decay: 5e-07
+2026-09-14 10:38:37.518 INFO: WeightedEnergyForcesLoss(energy_weight=1.000, forces_weight=100.000)
+2026-09-14 10:38:37.519 INFO: === Layer's learning rates ===
+2026-09-14 10:38:37.519 INFO: Param group 0: lr = 0.0001
+2026-09-14 10:38:37.519 INFO: Param group 1: lr = 0.0001
+2026-09-14 10:38:37.519 INFO: Param group 2: lr = 0.0001
+2026-09-14 10:38:37.519 INFO: Param group 3: lr = 0.0001
+2026-09-14 10:38:37.519 INFO: Param group 4: lr = 0.0001
+2026-09-14 10:38:37.520 INFO: Using gradient clipping with tolerance=10.000
+2026-09-14 10:38:37.521 INFO: 
+2026-09-14 10:38:37.521 INFO: ===========TRAINING===========
+2026-09-14 10:38:37.521 INFO: Started training, reporting errors on validation set
+2026-09-14 10:38:37.521 INFO: Loss metrics on validation set
+2026-09-14 10:39:08.380 INFO: Initial: head: Default, loss=8.63091936, RMSE_E_per_atom= 2557.55 meV, RMSE_F=  785.47 meV / A
+2026-09-14 11:04:34.582 INFO: Epoch 0: head: Default, loss=0.68086694, RMSE_E_per_atom=  358.12 meV, RMSE_F=  229.48 meV / A
+2026-09-14 11:29:57.272 INFO: Epoch 1: head: Default, loss=0.44662966, RMSE_E_per_atom=  248.84 meV, RMSE_F=  186.56 meV / A
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/cli/run_train.py", line 1181, in <module>
+    main()
+    ~~~~^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/cli/run_train.py", line 85, in main
+    run(args)
+    ~~~^^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/cli/run_train.py", line 942, in run
+    tools.train(
+    ~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<23 lines>...
+        rank=rank,
+        ^^^^^^^^^^
+    )
+    ^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/tools/train.py", line 232, in train
+    train_one_epoch(
+    ~~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<11 lines>...
+        rank=rank,
+        ^^^^^^^^^^
+    )
+    ^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/tools/train.py", line 386, in train_one_epoch
+    _, opt_metrics = take_step(
+                     ~~~~~~~~~^
+        model=model_to_train,
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        device=device,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/tools/train.py", line 432, in take_step
+    loss = closure()
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/tools/train.py", line 425, in closure
+    loss = loss_fn(pred=output, ref=batch)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/shug7909/.local/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/modules/loss.py", line 262, in forward
+    loss_forces = mean_squared_error_forces(ref, pred, ddp)
+  File "/home/shug7909/.local/lib/python3.13/site-packages/mace/modules/loss.py", line 124, in mean_squared_error_forces
+    configs_weight = torch.repeat_interleave(
+                     ~~~~~~~~~~~~~~~~~~~~~~~^
+        ref.weight, ref.ptr[1:] - ref.ptr[:-1]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).unsqueeze(-1)
+    ^
+KeyboardInterrupt

@@ -1,0 +1,11 @@
+{
+ "tag": "hcp_v7.65_T3980",
+ "phase": "hcp",
+ "vat": 7.65,
+ "P_est": 176.87499999999994,
+ "T": 3980.504534375,
+ "frames": 32,
+ "msd_final": 0.12232841561935415,
+ "FLAG_decay": false,
+ "note": "fill run, tethered k=2.0"
+}

@@ -1,0 +1,45 @@
+=============================================================================
+This module includes execution of the conda shell function.
+There is no need to run conda init. For more details, see:
+https://arc-software-guide.readthedocs.io/en/latest/python/anaconda_venv.html
+=============================================================================
+NVIDIA L40S, 46068 MiB
+task 25 -> coex_hcp_250GPa tinit=0.92 seed=1 elec_temp=5760
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[coex] elec_temp = 5760 K
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/shug7909/tel-mace-src/mace/calculators/mace.py:266: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/torch/jit/_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+/home/shug7909/tel-mace-src/mace/modules/models.py:87: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  "atomic_numbers", torch.tensor(atomic_numbers, dtype=torch.int64)
+[coex] resumed coex_hcp_250GPa_ti0.92_s1 at 138 ps
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/ase/md/md.py:128: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  self.masses.shape = (-1, 1)
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/ase/atoms.py:432: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  a.shape = (-1,) + shape
+/data/phys-plasma-dft/shug7909/tel_env/lib/python3.13/site-packages/ase/atoms.py:432: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  a.shape = (-1,) + shape
+   140 ps  T=  5719 K  P= 245.2 GPa  solid_frac=0.77
+   145 ps  T=  5739 K  P= 245.0 GPa  solid_frac=0.76
+   150 ps  T=  5696 K  P= 245.3 GPa  solid_frac=0.77
+/home/shug7909/fe_melt/phaseE_coex_tel.py:103: ResourceWarning: unclosed file <_io.TextIOWrapper name='phaseE/runs_tel/coex_hcp_250GPa_ti0.92_s1.json' mode='w' encoding='UTF-8'>
+  json.dump(dict(tag=tag, status="partial", ps_done=b + 1,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+[coex] wall reached at 151/200 ps — checkpointed
+segment done, resubmitting task 25
+Submitted batch job 9036891

@@ -1,0 +1,11 @@
+{
+ "tag": "hcp_v7.4_T4245_sf",
+ "phase": "stackfault",
+ "vat": 7.4,
+ "P_est": 210.04999999999995,
+ "T": 4245.287101180001,
+ "frames": 30,
+ "msd_final": 0.630274136206282,
+ "FLAG_decay": false,
+ "note": "post-decay stacking-fault class"
+}
