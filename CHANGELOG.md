@@ -222,3 +222,4 @@ The first full run on an ARC H100 (80 GB; torch 2.12.0+cu126, mace-torch 0.3.16)
   edge, so a GPU failure there would mean the printed digit is not reproducible on a GPU. A third test,
   `test_gpu_tolerance_below_printed_precision` (any machine), checks the bound on every one of the 94
   report numbers concerned, one value at a time, propagated through `ledger.summary`.
+- **ARC GPU run passed** at `19a52f7` (1 Nov, H100, torch 2.12.0+cu126, mace-torch 0.3.16): 69 passed, 0 skipped; the runs_tel runs loaded stage two (`coex_hcp_350GPa_ti1.08_s1`: stage two reproduces the logged P to 9.2e-5 GPa, stage one is off by −1.04 GPa).
