@@ -198,3 +198,24 @@ Entries from 20 Oct onwards follow `HANDOFF.md` of the iron chat.
     Sec. IV A, Appendix B).
   - "Within about 40 K of zero" is the larger |δT_m(LDA − PBE)| plus its standard error,
     `summary.lda_dTm_max_abs_within_1se_K` = 41.7 K.
+
+## 2026-11-01 — tests fixed after the ARC GPU run
+
+The first full run on an ARC H100 (80 GB; torch 2.12.0+cu126, mace-torch 0.3.16) gave 65 passed and
+2 failed; on ARC CPU both pass. The tests changed, not the numbers:
+- **`tests/test_runs_tel_model.py`** ran out of GPU memory. It now evaluates as `phaseE_coex_tel.py` did:
+  float32 with the cuEquivariance kernels (e3nn if cuequivariance is missing; the output records which),
+  `PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True`, and one model on the GPU at a time (all
+  checkpoints with stage two, then the model is freed, then stage one). The pressure still comes from
+  the stress, which needs the autograd pass, so the evaluation is not energies-only. The assertion is
+  unchanged, and the files are opened with `with open`.
+- **`test_static_compare_reproduces`** gave `eos[0][3]` = 0.24710 GPa on CUDA against 0.24738 GPa (CPU,
+  float32) in `out/static_compare.json`. It now always runs on CPU, at 2e-4 relative as before. A new
+  test, `test_static_compare_reproduces_on_gpu` (CUDA only), allows max(2e-4 |b|, 2e-3). That bound
+  is not below half the last printed digit for 31 report numbers taken or derived from
+  `out/static_compare.json`. The 2e-3 floor fails for c/a (printed to 1e-4); the 2e-4 relative term
+  fails for pressures near 270 GPa printed to 0.01 GPa, for phase energies and for the MACE − DFT
+  differences. Those values get absolute tolerances (`GPU_TIGHT`): 2e-3 for `eos`, `tel_response`,
+  `*-hcp_*` and `*_P_*`, 1e-3 for v_s and 2e-5 for `coa_min`. A third test,
+  `test_gpu_tolerance_below_printed_precision` (any machine), checks the bound on every one of the 94
+  report numbers concerned, one value at a time, propagated through `ledger.summary`.

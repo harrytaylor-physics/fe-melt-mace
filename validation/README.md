@@ -86,8 +86,12 @@ rewritten to `./pseudo` and `./tmp` (they pointed at directories of the machine 
 ## Tests
 
 `python -m pytest validation/tests -q`, or the whole repository from its root. Producers whose
-inputs are absent skip. The model test runs `val_mace.py` and compares with `out/static_compare.json`
-to 2e-4 relative. `out/static_compare.json` sections `tel_response`, `fcc_P_*`, `bcc_P_*` and
+inputs are absent skip. The model test runs `val_mace.py` on CPU (CUDA hidden) and compares with
+`out/static_compare.json` to 2e-4 relative. On a CUDA machine a second test runs it on the GPU and
+allows max(2e-4 |b|, 2e-3), with smaller absolute tolerances (`GPU_TIGHT`) for the values whose report
+numbers are printed finer than that; `test_gpu_tolerance_below_printed_precision` checks that no report
+number taken or derived from `out/static_compare.json` can move by half its last printed digit within
+those tolerances. `out/static_compare.json` sections `tel_response`, `fcc_P_*`, `bcc_P_*` and
 `coa_min` were added on 26 Oct 2026 from a run on a Mac (CPU, float32); the other values are from the
 20-23 Oct run, which that run reproduces to 9e-5 relative. `stats_test.py` matches pytest's
 `*_test.py` pattern; the root `conftest.py` keeps pytest from importing (and so running) it.

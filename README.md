@@ -105,10 +105,14 @@ The root `conftest.py` limits collection to `validation/tests/` and `tests/`. Te
 inputs are absent:
 - tests needing the LFS files skip until `git lfs pull` has run;
 - the model tests skip without torch and mace-torch;
-- `tests/test_runs_tel_model.py` needs a CUDA GPU.
+- `tests/test_runs_tel_model.py` and the GPU run of `val_mace.py` need a CUDA GPU.
+
+A full run on a GPU node with the LFS files (ARC H100): 69 passed. On a Mac with the LFS files: 67 passed,
+2 skipped (the two GPU tests).
 
 What the suites cover:
-- **`validation/tests/`:** the producers reproduce their committed outputs, and the ledger matches them.
+- **`validation/tests/`:** the producers reproduce their committed outputs, and the ledger matches them;
+  `val_mace.py` also on a GPU, to tolerances below the printed precision of its report numbers.
 - **`tests/`:**
   - the new producers and `pn_correct.py` reproduce their outputs;
   - `ldashift.lda_input()` reproduces the committed LDA inputs from the PBE ones;
