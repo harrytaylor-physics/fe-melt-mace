@@ -103,20 +103,24 @@ def test_static_compare_reproduces(tmp_path):
 # GPU float32 kernels against the CPU reference: |a - b| <= max(2e-4 |b|, 2e-3), except where that is
 # not below half the last printed digit of a report number taken from (or derived from) the value;
 # there the absolute tolerance below applies (test_gpu_tolerance_below_printed_precision checks this).
+# The stored MACE energies are float32, quantized at 1/512 meV/atom, so energies get 0.02 meV/atom
+# (about 10 steps; the check fails from 0.025). The one GPU difference seen, eos[0][3], is 2.7e-4 GPa.
 GPU_REL, GPU_ABS = 2e-4, 2e-3
 GPU_TIGHT = {
-    ".eos": 2e-3,                 # P to 0.01 GPa at 350 GPa; summary dP and dE maxima, P range
-    ".tel_response": 2e-3,        # P to 0.01 GPa at 263-281 GPa, dF to 0.1 meV/atom at 325 meV/atom
-    ".fcc-hcp_": 2e-3, ".bcc-hcp_": 2e-3,     # 0.1 meV/atom at 250-355 meV/atom; MACE - DFT differences
-    ".fcc_P_": 2e-3, ".bcc_P_": 2e-3,         # 0.1 GPa at 290 GPa; MACE - DFT differences to 0.01 GPa
-    ".voigt.dft.vs_km_s": 1e-3, ".voigt.mace.vs_km_s": 1e-3,   # v_s relative error to 0.1 %
-    ".coa_min": 2e-5,             # c/a to 1e-4
+    r"\.eos\[\d+\]\[[0-3]\]": 2e-3,            # V, P_dft, P_mace, dP (GPa): P to 0.01 GPa at 350 GPa
+    r"\.eos\[\d+\]\[[45]\]": 0.02,             # dE_dft, dE_mace (meV/atom): summary dE maximum to 0.1
+    r"\.tel_response\.\d+\.P_": 2e-3,           # P to 0.01 GPa at 263-281 GPa
+    r"\.tel_response\.\d+\.dF_": 0.02,          # dF to 0.1 meV/atom at 325 meV/atom
+    r"\.(fcc|bcc)-hcp_": 0.02,                    # 0.1 meV/atom at 250-355 meV/atom; MACE - DFT differences
+    r"\.(fcc|bcc)_P_": 2e-3,                      # 0.1 GPa at 290 GPa; MACE - DFT differences to 0.01 GPa
+    r"\.voigt\.(dft|mace)\.vs_km_s": 1e-3,       # v_s relative error to 0.1 %
+    r"\.coa_min\.": 2e-5,                        # c/a to 1e-4 (1.5978 is 2.8e-5 from a rounding edge)
 }
 
 
 def gpu_tol(path, b):
-    for prefix, t in GPU_TIGHT.items():
-        if path.startswith(prefix):
+    for pattern, t in GPU_TIGHT.items():
+        if re.match(pattern, path):
             return t
     return max(GPU_REL * abs(b), GPU_ABS)
 

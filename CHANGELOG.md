@@ -215,7 +215,10 @@ The first full run on an ARC H100 (80 GB; torch 2.12.0+cu126, mace-torch 0.3.16)
   is not below half the last printed digit for 31 report numbers taken or derived from
   `out/static_compare.json`. The 2e-3 floor fails for c/a (printed to 1e-4); the 2e-4 relative term
   fails for pressures near 270 GPa printed to 0.01 GPa, for phase energies and for the MACE − DFT
-  differences. Those values get absolute tolerances (`GPU_TIGHT`): 2e-3 for `eos`, `tel_response`,
-  `*-hcp_*` and `*_P_*`, 1e-3 for v_s and 2e-5 for `coa_min`. A third test,
+  differences. Those values get absolute tolerances (`GPU_TIGHT`): 2e-3 GPa for the `eos`,
+  `tel_response` and `*_P_*` pressures (the check fails from about 2.5e-3), 0.02 meV/atom for the `eos`,
+  `tel_response` and `*-hcp_*` energies (stored float32 energies step by 1/512 meV/atom; the check fails
+  from 0.025), 1e-3 km/s for v_s and 2e-5 for `coa_min`. The printed c/a 1.5978 is 2.8e-5 from a rounding
+  edge, so a GPU failure there would mean the printed digit is not reproducible on a GPU. A third test,
   `test_gpu_tolerance_below_printed_precision` (any machine), checks the bound on every one of the 94
   report numbers concerned, one value at a time, propagated through `ledger.summary`.
