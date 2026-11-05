@@ -233,3 +233,4 @@ The first full run on an ARC H100 (80 GB; torch 2.12.0+cu126, mace-torch 0.3.16)
   The paths in `ledger_inputs.tsv` were rewritten; its hashes and dates are unchanged.
 - **Docs.** New: `docs/METHODS.md`, `TESTING.md`, and READMEs for `production_campaign/`, `melt_curve/`,
   `studies/`, `tests/` and `docs/`.
+- **ARC GPU run passed** at `75c2974` after the layout change (5 Nov, job 9272282, torch 2.12.0+cu126, mace-torch 0.3.16): 69 passed, 0 skipped.
