@@ -6,11 +6,11 @@ slurm-*.out
 *.save/
 tmp*/
 wfc*
-labels/*.out
+production_campaign/fe_melt/labels/*.out
 *.traj
 *.dcd
 *.lammpstrj
 *.nc
 *.pt
 tests/out/
-analysis/figures/inputs/q6_330.npy
+melt_curve/figures/inputs/q6_330.npy

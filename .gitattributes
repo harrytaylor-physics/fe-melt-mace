@@ -1,7 +1,7 @@
 # Git LFS: models, binary arrays, and the production training and test sets
 *.model filter=lfs diff=lfs merge=lfs -text
 *.npz filter=lfs diff=lfs merge=lfs -text
-phaseD/train_e3.xyz filter=lfs diff=lfs merge=lfs -text
-phaseD/test_Tel*.xyz filter=lfs diff=lfs merge=lfs -text
-labels/inputs_as_run.tgz filter=lfs diff=lfs merge=lfs -text
-results/fe_tel_e3_run-7_train.txt filter=lfs diff=lfs merge=lfs -text
+data/training/train_e3.xyz filter=lfs diff=lfs merge=lfs -text
+data/training/test_Tel*.xyz filter=lfs diff=lfs merge=lfs -text
+production_campaign/fe_melt/labels/inputs_as_run.tgz filter=lfs diff=lfs merge=lfs -text
+production_campaign/fe_melt/results/fe_tel_e3_run-7_train.txt filter=lfs diff=lfs merge=lfs -text
