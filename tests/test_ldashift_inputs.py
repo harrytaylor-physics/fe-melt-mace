@@ -5,8 +5,9 @@ import glob, os, re, sys
 import pytest
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, ROOT)
-PBE = sorted(glob.glob(os.path.join(ROOT, "labels", "ldaX_*_PBE_Tel*.in")))
+ARC = os.path.join(ROOT, "production_campaign", "fe_melt")
+sys.path.insert(0, ARC)
+PBE = sorted(glob.glob(os.path.join(ARC, "labels", "ldaX_*_PBE_Tel*.in")))
 
 
 def test_forty_pairs():
@@ -20,7 +21,7 @@ def test_lda_input_reproduces_committed(pbe):
     ldashift = pytest.importorskip("ldashift")
     stem_p = os.path.basename(pbe)[:-3]
     stem_l = stem_p.replace("_PBE_", "_LDA_")
-    lda = open(os.path.join(ROOT, "labels", stem_l + ".in")).read()
+    lda = open(os.path.join(ARC, "labels", stem_l + ".in")).read()
     assert ldashift.lda_input(open(pbe).read().replace(stem_p, stem_l)) == lda
     assert re.search(r"&SYSTEM\ninput_dft = 'PZ'\n", lda)
     assert "Fe.pbe-spn-kjpaw_psl.1.0.0.UPF" in lda and "Fe.pz-spn" not in lda

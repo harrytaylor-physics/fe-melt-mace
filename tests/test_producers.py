@@ -1,12 +1,12 @@
-"""The producers added for the ledger (validation/train_table.py, tel_check.py, coex_cells.py,
+"""The producers added for the ledger (melt_curve/validation/train_table.py, tel_check.py, coex_cells.py,
 melting_point.py, settings.py) and pn_correct.py reproduce their committed outputs.
 Producers whose LFS inputs are absent (git lfs pull not run) skip."""
 import json, os, shutil, subprocess, sys
 import pytest
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VAL = os.path.join(ROOT, "validation")
-sys.path.insert(0, ROOT)
+VAL = os.path.join(ROOT, "melt_curve", "validation")
+sys.path.insert(0, os.path.join(ROOT, "melt_curve"))
 import layout  # noqa: E402
 
 
@@ -42,7 +42,7 @@ def test_producer_reproduces(script, out, tmp_path):
     close(json.load(open(tmp_path / out)), json.load(open(os.path.join(layout.VAL_OUT, out))), 1e-9)
 
 
-@pytest.mark.skipif(not (lfs(layout.TRAIN_SET) and lfs(layout.MODEL)), reason="phaseD/train_e3.xyz or the model not present (LFS)")
+@pytest.mark.skipif(not (lfs(layout.TRAIN_SET) and lfs(layout.MODEL)), reason="data/training/train_e3.xyz or the model not present (LFS)")
 def test_train_table_reproduces(tmp_path):
     run("train_table.py", tmp_path)
     close(json.load(open(tmp_path / "training.json")), json.load(open(os.path.join(layout.VAL_OUT, "training.json"))), 1e-12)
@@ -53,7 +53,7 @@ def test_pn_correct_reproduces(tmp_path):
     (tmp_path / "phaseE").mkdir()
     for f in ("decomp_tel_tel.json", "analysis_live_all.json", "analysis_live_all_runs_tel.json"):
         shutil.copy(os.path.join(layout.PHASEE, f), tmp_path / "phaseE" / f)
-    r = subprocess.run([sys.executable, os.path.join(ROOT, "pn_correct.py")], cwd=tmp_path, capture_output=True, text=True)
+    r = subprocess.run([sys.executable, os.path.join(layout.ARC, "pn_correct.py")], cwd=tmp_path, capture_output=True, text=True)
     assert r.returncode == 0, r.stderr[-2000:]
     close(json.load(open(tmp_path / "phaseE" / "pn_correct.json")), json.load(open(layout.PN_CORRECT)), 1e-6)
 

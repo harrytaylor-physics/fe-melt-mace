@@ -1,7 +1,23 @@
-# data/ — what was left out, and how to check a copy
+# data/
 
-The iron campaign's raw data stay on ARC in `~/fe_melt` (and its backups); this repository holds the
-inputs, the processed datasets, the models and the results. `excluded_sha256.tsv` lists every file of
+Derived data products of the iron campaign. Raw production output stays on ARC in `~/fe_melt` and its
+backups; it is fingerprinted instead (below).
+
+| Where | What | Format |
+|---|---|---|
+| `training/` | training and test sets, spot-check frames, held-out predictions, gate reports (`phaseD/` on ARC) | extxyz (`train_e3.xyz` and `test_Tel*.xyz` in LFS), `.npz` (LFS), text |
+| `coexistence/` | coexistence cells, runs, final configurations, analysis, Simon fit (`phaseE/` on ARC) | json, extxyz, `.npz` (LFS) |
+| [`excluded_sha256.tsv`](excluded_sha256.tsv) | SHA-256 manifest of every file left out | TSV |
+
+The models are in [`../models/`](../models/). The binaries are git-LFS objects: after cloning, run
+`git lfs install --local && git lfs pull`.
+
+## What was left out, and how to check a copy
+
+Paths in this section are those of `~/fe_melt`. [`../production_campaign/README.md`](../production_campaign/README.md)
+maps them to this repository.
+
+`excluded_sha256.tsv` lists every file of
 the 25 Oct 2026 snapshot of `~/fe_melt` that is **not** in the repository, with its size, sha256 and the
 reason. Use it to check that a file found elsewhere is the one the campaign used:
 `shasum -a 256 <file>` and look the hash up in the third column.

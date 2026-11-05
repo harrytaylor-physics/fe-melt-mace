@@ -1,10 +1,55 @@
 # MIGRATION — ~/fe_melt on ARC into fe-melt-mace
 
+## 5 Nov 2026: layout matched to water-scw-mace
+
+The repository first kept the paths of `~/fe_melt` at its root (73 files), so that the ARC scripts could run
+from a clone. On 5 Nov 2026 it moved to the layout of `water-scw-mace`, on the branch `water-layout`. The ARC
+scripts are now provenance, as `production_campaign/` is there. `~/fe_melt` on ARC was not changed.
+
+    production_campaign/     the ARC pipeline, verbatim (fe_melt/, arc_scripts/)
+    models/                  the potentials (LFS) and their provenance
+    data/                    training and test sets, coexistence output, the SHA-256 manifest
+    melt_curve/              layout.py, validation/, figures/ (the role of subneptune/ in water-scw-mace)
+    studies/                 lda_shift/, dmft_pilot/
+    docs/                    METHODS.md, figures/
+    tests/                   repository tests
+
+| Source | Destination | Reason |
+|---|---|---|
+| root `*.py`, `*.txt`, `parity_tel.out` | `production_campaign/fe_melt/` | the ARC working directory, verbatim |
+| `labels/`, `pseudo/`, `traj/`, `results/` | `production_campaign/fe_melt/` (same names) | keeps their relative paths to the scripts |
+| root `*.sbatch`, `tools/stage_fe_melt.sh` | `production_campaign/arc_scripts/` | where water-scw-mace keeps Slurm scripts |
+| `logs/` | `production_campaign/arc_scripts/logs/` | the same |
+| `phaseD/models/*.model` | `models/` | models sit with their provenance |
+| `phaseD/` (other files) | `data/training/` | derived data products |
+| `phaseE/` | `data/coexistence/` | derived data products |
+| `layout.py`, `validation/`, `analysis/figures/` | `melt_curve/layout.py`, `melt_curve/validation/`, `melt_curve/figures/` | one self-contained component that runs on any machine |
+| `phaseX/ldashift/`, `RUN_LDASHIFT.md` | `studies/lda_shift/` (`RUN_LDASHIFT.md` becomes its `README.md`) | satellite study |
+| `exploratory/dmft_pilot/` | `studies/dmft_pilot/` | satellite study |
+| `exploratory/README.md` | removed; its text is in `studies/README.md` | |
+
+What changed besides the paths:
+- **Unchanged content.** Everything in `production_campaign/` except its new README, the models, datasets, coexistence output, `ledger.json` and
+  `validation/out/*.json` are byte-identical to `main` before the move. No number changed.
+- **`ledger_inputs.tsv`.** Paths rewritten; every sha256 and date is unchanged.
+- **Edited.** `layout.py` (the new paths, plus `ARC` and `LABELS`), `conftest.py`, `.gitattributes`,
+  `.gitignore`, the import paths in `tests/` and `melt_curve/`, and the path references in the READMEs and
+  docstrings. Text quoting an ARC command, log or gate file keeps the ARC path.
+- **Moved text.** The README's method description is now `docs/METHODS.md`, its stage table is in
+  `production_campaign/README.md`, and its test section is in `TESTING.md`.
+- **History.** No commit was rewritten. `git log --follow` traces a file across the move.
+
+Water-scw-mace has `benchmarks/` and `convergence/`. Here their contents are in
+`melt_curve/validation/` (`refs/dft/`, `refs/convergence/`), as `subneptune/validation/` holds that
+component's gates.
+
+The rest of this file describes the import of 26 Oct 2026 and uses the paths of that time.
+
 On 26 Oct 2026 the iron melting-curve project was brought into this repository on the branch
 `import/fe_melt`. Its working directory on ARC, `~/fe_melt`, **was not under version control**: it
 contains no `.git`, and no git repository sits inside it (`nested_git_repos.txt` is empty). The
 repository therefore starts from a **snapshot without history**, staged read-only on ARC at
-2026-10-25T17:46:37Z by [`tools/stage_fe_melt.sh`](tools/stage_fe_melt.sh) (`SUMMARY.txt` of the
+2026-10-25T17:46:37Z by [`tools/stage_fe_melt.sh`](production_campaign/arc_scripts/stage_fe_melt.sh) (`SUMMARY.txt` of the
 stage). `~/fe_melt` itself was not moved or changed. Jobs were still running in `~/fe_melt/labels`
 (80 LDA-shift snapshot calculations, 28 EOS-anchor calculations). The snapshot calculations finished on
 29 Oct and came in with the follow-up below. The EOS-anchor calculations were cancelled: `eos_anchor.py`
@@ -50,7 +95,7 @@ The paths of `~/fe_melt` are kept at the repository root, so the ARC scripts' re
     layout.py, conftest.py   the one layout module; pytest collection (new)
 
 Every location that the analysis, validation and figure code reads or writes is named once, in
-[`layout.py`](layout.py). The ARC scripts at the root do not import it.
+[`layout.py`](melt_curve/layout.py). The ARC scripts at the root do not import it.
 
 ## Mapping
 
