@@ -1,7 +1,7 @@
 """repro_check.py - re-evaluate the held-out test frames with the production potential and compare
 with the predictions stored on ARC (parity_tel.npz, from parity_tel.py with the tel-mace build).
 
-Same frames and order as parity_tel.py: phaseD/test_Tel{4000,6000,8000}.xyz, each frame at its own
+Same frames and order as parity_tel.py: data/training/test_Tel{4000,6000,8000}.xyz, each frame at its own
 T_el (load_model.py: upstream mace-torch takes elec_temp = T_el / 1e4), float32.
 Output: out/repro_check.json - largest |dE| (meV/atom) and |dF| (eV/A, per component) between this
 evaluation and the stored one, overall and per T_el; and the float64 - float32 energy difference

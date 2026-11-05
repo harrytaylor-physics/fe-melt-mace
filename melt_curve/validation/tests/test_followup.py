@@ -32,8 +32,8 @@ def test_reproduces_committed_output(script, out, tmp_path):
 
 def test_ldashift_summary(tmp_path):
     import paths
-    src = getattr(paths, "LDASHIFT", os.path.join(paths.ROOT, "phaseX", "ldashift"))
+    src = getattr(paths, "LDASHIFT", os.path.join(paths.ROOT, "studies", "lda_shift"))
     if not os.path.exists(os.path.join(src, "ldashift_result.json")):
-        pytest.skip("phaseX/ldashift/ldashift_result.json absent")
+        pytest.skip("studies/lda_shift/ldashift_result.json absent")
     run("ldashift_summary.py", tmp_path)
     same(json.load(open(tmp_path / "ldashift.json")), json.load(open(os.path.join(HERE, "out", "ldashift.json"))))

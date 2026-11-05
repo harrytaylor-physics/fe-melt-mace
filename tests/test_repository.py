@@ -3,7 +3,7 @@ matches the ledger; the layout module's paths exist."""
 import csv, json, os, re, subprocess, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, ROOT)
+sys.path.insert(0, os.path.join(ROOT, "melt_curve"))
 import layout  # noqa: E402
 
 ABS = re.compile(r"/(Users|home|tmp|data|scratch)/[\w.-]+")

@@ -1,16 +1,16 @@
 """build_figures.py - rebuild docs/figures/ (PDF + 200-dpi PNG) and the intermediate json in inputs/.
 
-Runs the producers below in order and checks that validation/ledger.json and validation/out/*.json
+Runs the producers below in order and checks that melt_curve/validation/ledger.json and melt_curve/validation/out/*.json
 are byte-for-byte unchanged afterwards (the figures read the ledger's sources; they never write them).
-  python analysis/figures/build_figures.py            # from the repository root, about 2 min
-Needs the LFS files (phaseD/train_e3.xyz, test sets, parity_tel.npz, phaseE/runs_tel/*_ckpt.npz).
+  python melt_curve/figures/build_figures.py            # from the repository root, about 2 min
+Needs the LFS files (data/training/train_e3.xyz, test sets, parity_tel.npz, data/coexistence/runs_tel/*_ckpt.npz).
 figs_coex.py, figs_phase.py, figs_triple.py, figs_lit.py, figs_dft.py, figs_stack.py, figs_illus.py and
 compare_curves_v1.py made illustrations for a talk; they are wired to the layout but not part of this build.
 """
 import glob, hashlib, os, subprocess, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(HERE, "..", ".."))
+sys.path.insert(0, os.path.join(HERE, ".."))
 import layout  # noqa: E402
 
 STEPS = ["parse_train.py", "figs_parity.py", "figs_results.py", "figs_train.py", "figs_validation.py"]

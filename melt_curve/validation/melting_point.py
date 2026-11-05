@@ -1,6 +1,6 @@
 """melting_point.py - T_m(330 GPa) and dT_m/dP from the Simon fit of the T_el-conditioned campaign.
 
-Input: phaseE/pn_correct.json, runs_tel (pn_correct.py): per-cell P_n (interface-normal pressure),
+Input: data/coexistence/pn_correct.json, runs_tel (pn_correct.py): per-cell P_n (interface-normal pressure),
 T_m, standard error, and the Simon fit T_m(P) = T1 (1 + (P - 100 GPa)/a)^(1/c).
 The fit is repeated here (same weights as pn_correct.py: sigma = max(sem, 10 K), absolute) to check
 it reproduces the stored parameters and to give its covariance, which pn_correct.json does not store.

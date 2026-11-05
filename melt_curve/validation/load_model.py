@@ -9,7 +9,7 @@ Raw kelvin gives energies that are wrong by orders of magnitude. float32 reprodu
 stored test-set predictions exactly; float64 shifts every energy by a uniform +2.27 meV/atom.
 Production scripts on ARC (tel-mace fork, commit 5168bc0) set atoms.info["elec_temp"] = T_el in
 kelvin; the fork applies the 10^4 scaling itself. The checkpoint stores it: the elec_temp embedding
-spec has scale = 1e-4 (logs/fe_tel_e3_run-7.log, "Embedding specifications"), and the fork's
+spec has scale = 1e-4 (production_campaign/arc_scripts/logs/fe_tel_e3_run-7.log, "Embedding specifications"), and the fork's
 mace/calculators/elec_temp.py says the Tel/10000 scale lives in that spec (provenance/
 tel_mace_elec_temp_lines.txt of the snapshot). Upstream 0.3.16 does not apply the stored scale.
 """

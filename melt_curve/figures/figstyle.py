@@ -12,10 +12,10 @@ plt.rcParams.update({
     "savefig.dpi": 220, "savefig.bbox": "tight", "savefig.facecolor": "white", "figure.facecolor": "white",
 })
 import os, sys
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 import layout  # noqa: E402
 
-FIG = layout.FIG_INPUTS + "/"       # intermediate json (analysis/figures/inputs)
+FIG = layout.FIG_INPUTS + "/"       # intermediate json (melt_curve/figures/inputs)
 DATA = layout.PHASEE + "/"          # coexistence analysis outputs (phaseE)
 OUT = layout.FIGURES + "/"          # figures (docs/figures)
 plt.rcParams.update({"pdf.fonttype": 42, "svg.fonttype": "none"})

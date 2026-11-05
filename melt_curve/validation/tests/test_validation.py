@@ -1,4 +1,4 @@
-"""Tests for validation/: committed outputs reproduce from their producers, and the ledger
+"""Tests for melt_curve/validation/: committed outputs reproduce from their producers, and the ledger
 matches the committed outputs. Producers whose inputs are not present skip."""
 import copy, csv, glob, json, math, os, re, subprocess, sys
 import numpy as np

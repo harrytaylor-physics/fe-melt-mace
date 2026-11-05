@@ -1,11 +1,11 @@
 """train_table.py - architecture, data and final errors of the production potential.
 
 Inputs (paths from ../layout.py):
-  logs/fe_tel_e3_run-7.log         MACE training log: model details, split sizes, final error tables
-  logs/fe_tel_e3_run-7_debug.log   the run's full argument namespace (dtype, embedding spec, weights)
-  phaseD/dataset_report.txt        frames per T_el (train / held-out test) and per phase
-  phaseD/train_e3.xyz              the training file: frames per T_el and per phase (LFS; header lines only)
-  phaseD/models/fe_tel_e3_stagetwo.model   model class name, read from the archive (LFS; optional)
+  production_campaign/arc_scripts/logs/fe_tel_e3_run-7.log         MACE training log: model details, split sizes, final error tables
+  production_campaign/arc_scripts/logs/fe_tel_e3_run-7_debug.log   the run's full argument namespace (dtype, embedding spec, weights)
+  data/training/dataset_report.txt        frames per T_el (train / held-out test) and per phase
+  data/training/train_e3.xyz              the training file: frames per T_el and per phase (LFS; header lines only)
+  models/fe_tel_e3_stagetwo.model   model class name, read from the archive (LFS; optional)
 Output: out/training.json.
 """
 import ast, json, os, re, sys, zipfile

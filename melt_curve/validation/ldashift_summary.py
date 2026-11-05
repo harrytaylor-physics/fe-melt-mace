@@ -1,6 +1,6 @@
 """ldashift_summary.py - report numbers from the 330 GPa snapshot test (ldashift.py eval on ARC).
 
-Input: phaseX/ldashift/ldashift_result.json and md_meta.json, written on ARC by
+Input: studies/lda_shift/ldashift_result.json and md_meta.json, written on ARC by
 `python ldashift.py eval` from 80 QE 7.5 runs (40 snapshots x PBE, LDA; raw outputs not committed,
 sha256 in data/). Energies in the input are eV/atom, pressures GPa, volumes A^3/atom.
 Output: out/ldashift.json, in meV/atom and K.
@@ -20,7 +20,7 @@ import paths
 KB = 8.617333262e-5                  # eV/K
 DS = 0.80 * KB                       # eV/K per atom
 EV_A3_PER_GPA = 1.0 / 160.21766208   # eV/A^3 per GPa
-SRC = getattr(paths, "LDASHIFT", os.path.join(paths.ROOT, "phaseX", "ldashift"))
+SRC = getattr(paths, "LDASHIFT", os.path.join(paths.ROOT, "studies", "lda_shift"))
 
 
 def a3(V, B, dP):

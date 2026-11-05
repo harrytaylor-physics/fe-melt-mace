@@ -1,4 +1,4 @@
-"""Which model did the T_el-conditioned coexistence runs (phaseE/runs_tel) load?
+"""Which model did the T_el-conditioned coexistence runs (data/coexistence/runs_tel) load?
 
 No run record names the model, and no log holds a potential energy of a saved configuration.
 Each checkpoint does hold one model-dependent number for its final configuration: the last entry
@@ -29,7 +29,7 @@ import numpy as np
 import pytest
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, ROOT)
+sys.path.insert(0, os.path.join(ROOT, "melt_curve"))
 import layout  # noqa: E402
 
 TOL_GPA = 0.02          # GPU float32 / kernel differences at 12,096 atoms are far below this

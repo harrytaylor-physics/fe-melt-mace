@@ -64,6 +64,7 @@ json.dump(dict(Tm=float(Tm), sem=float(sem), sig_meas=float(w.std(ddof=1)), sig_
           open(FIG + "f_T_extract.json", "w"), indent=1)
 
 # ---------- F3: cell snapshot coloured by qbar6 + profile ----------
+sys.path.insert(0, layout.Q6_MODULE_DIR)
 from phaseE_q6 import q6_per_atom
 at = read(DATA + "cells/coex_hcp_330GPa.extxyz")
 z = np.load(R + "coex_hcp_330GPa_ti1.00_s0_ckpt.npz", allow_pickle=True)

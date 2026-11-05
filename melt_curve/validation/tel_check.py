@@ -1,6 +1,6 @@
 """tel_check.py - the same-frame electronic-temperature check of the production potential.
 
-Input: logs/e3_test_final.out (layout.TEL_CHECK_LOG), part 2, written on ARC by tel_diff_check.py
+Input: production_campaign/arc_scripts/logs/e3_test_final.out (layout.TEL_CHECK_LOG), part 2, written on ARC by tel_diff_check.py
 --tel-model phaseD/models/fe_tel_e3_stagetwo.model. Frames labelled at all three T_el; for each
 pressure bin (+-25 GPa) the liquid-minus-hcp mean of dU = F(T_el) - F(6,000 K), DFT and model,
 at T_el = 4,000 and 8,000 K.

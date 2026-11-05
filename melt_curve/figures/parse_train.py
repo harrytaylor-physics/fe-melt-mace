@@ -1,6 +1,6 @@
 """parse_train.py - per-frame metadata of the training, test and spot-check frames -> inputs/train_meta.json.
 
-The training frames come from phaseD/train_e3.xyz (the production training file, every frame
+The training frames come from data/training/train_e3.xyz (the production training file, every frame
 stamped with its elec_temp), split by T_el into train_Tel4000/6000/8000; this replaces the
 per-T_el files train_Tel*.xyz the script first read (same frames, not kept in the repository).
 """
@@ -8,7 +8,7 @@ import json, os, sys
 import numpy as np
 from ase.io import iread
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 import layout  # noqa: E402
 
 

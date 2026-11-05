@@ -1,4 +1,4 @@
-"""figs_validation.py - figures of the validation producers' outputs (validation/out/*.json).
+"""figs_validation.py - figures of the validation producers' outputs (melt_curve/validation/out/*.json).
 
 f_heldout_errors   energy and force RMSE of the held-out test set by phase and T_el   (test_stats.json)
 f_eos_error        MACE minus PBE pressure along the hcp EOS, and the energy error     (static_compare.json)

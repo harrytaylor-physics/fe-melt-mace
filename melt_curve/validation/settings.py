@@ -3,15 +3,15 @@
 Each value comes from the input or code that used it, not from a hand-written list:
   refs/dft/*.in, refs/eos_pbe_cold/*.in   QE cut-offs, smearing, k-meshes, volumes, c/a, T_el
   val_dft.py docstring                     QE version of the references
-  pseudo/*.UPF                             valence electrons of the PAW datasets
+  production_campaign/fe_melt/pseudo/*.UPF                             valence electrons of the PAW datasets
   val_mace.py, cc_check.py, pbe_vs_exp.py  strain, phonon displacement, slab and q-bar-6 settings,
                                            vibrational pressure and its uncertainty
-  phaseE/cells/*.json                      atoms per coexistence cell
-  phaseE/runs_tel/ file names              starting temperatures and seeds of the coexistence runs
-  labels/ldaX_*.in                         the 330 GPa direct-test snapshots (phase, functional, T_el,
+  data/coexistence/cells/*.json                      atoms per coexistence cell
+  data/coexistence/runs_tel/ file names              starting temperatures and seeds of the coexistence runs
+  production_campaign/fe_melt/labels/ldaX_*.in                         the 330 GPa direct-test snapshots (phase, functional, T_el,
                                            atoms, PAW file, input_dft of the LDA runs)
-  labels/ldaX*.sbatch                      QE version of the direct-test runs
-  ../ldashift.py                           state point, runs and snapshots per phase, bulk-modulus strain
+  production_campaign/fe_melt/labels/ldaX*.sbatch                      QE version of the direct-test runs
+  production_campaign/fe_melt/ldashift.py                           state point, runs and snapshots per phase, bulk-modulus strain
   refs/lda_setup/*.json                    volume of the mixed-setup (LDA with the PBE PAW file) check
 Output: out/settings.json.
 """
@@ -97,11 +97,11 @@ def main():
     out["coexistence"] = dict(atoms_per_cell=sorted(set(cells.values())), tinit_frac=ti,
                               n_start_T=len(ti), seeds=seeds, n_seeds=len(seeds))
     lx = [re.match(r"ldaX_([hl])\d+_(PBE|LDA)_Tel(\d+)\.in", os.path.basename(f)).groups()
-          for f in glob.glob(os.path.join(layout.ROOT, "labels", "ldaX_*.in"))]
-    lin = {fn: [open(f).read() for f in glob.glob(os.path.join(layout.ROOT, "labels", f"ldaX_*_{fn}_Tel*.in"))]
+          for f in glob.glob(os.path.join(layout.LABELS, "ldaX_*.in"))]
+    lin = {fn: [open(f).read() for f in glob.glob(os.path.join(layout.LABELS, f"ldaX_*_{fn}_Tel*.in"))]
            for fn in ("PBE", "LDA")}
     upf = lambda txts: sorted({re.search(r"ATOMIC_SPECIES\s*\n\s*\S+\s+\S+\s+(\S+)", x).group(1) for x in txts})
-    ls_txt = open(os.path.join(layout.ROOT, "ldashift.py")).read()
+    ls_txt = open(os.path.join(layout.ARC, "ldashift.py")).read()
     P, T = (float(x) for x in re.search(r"^P_GPA, T_K = ([\d.]+), ([\d.]+)", ls_txt, re.M).groups())
     runs, snaps = (int(x) for x in re.search(r"^RUNS, SNAPS = (\d+), (\d+)", ls_txt, re.M).groups())
     out["direct_test_330GPa"] = dict(
@@ -112,7 +112,7 @@ def main():
         P_GPa=P, T_K=T, runs_per_phase=runs, snapshots_per_run=snaps,
         snapshot_gap_ps=float(re.search(r"\((\d+) ps apart\)", ls_txt).group(1)),
         bulk_modulus_strain=float(re.search(r"cell \* \(1 \+ s \* ([\d.]+)\)", ls_txt).group(1)),
-        qe_version=sorted({m for f in glob.glob(os.path.join(layout.ROOT, "labels", "ldaX*.sbatch"))
+        qe_version=sorted({m for f in glob.glob(os.path.join(layout.LABELS, "ldaX*.sbatch"))
                            for m in re.findall(r"QuantumESPRESSO/([\d.]+)", open(f).read())}),
         upf_PBE=upf(lin["PBE"]), upf_LDA=upf(lin["LDA"]),
         input_dft_LDA=sorted({m.group(1) if m else "" for m in (re.search(r"input_dft\s*=\s*'([^']+)'", x) for x in lin["LDA"])}))

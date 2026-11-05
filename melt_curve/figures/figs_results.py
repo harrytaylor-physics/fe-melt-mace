@@ -66,7 +66,7 @@ out["curve"] = dict(Pn=Pn.round(1).tolist(), Tm=Tm.round(0).tolist(), sem=sem.ro
 from refs import r
 fig, (ax, axi) = plt.subplots(1, 2, figsize=(12.8, 5.6), gridspec_kw=dict(width_ratios=[1.3, 1], wspace=0.22))
 PP = np.linspace(90, 375, 300)
-LIT = {x["id"]: x for x in json.load(open(layout.LITERATURE))["melting_curve_figure"]}   # validation/refs/literature.json
+LIT = {x["id"]: x for x in json.load(open(layout.LITERATURE))["melting_curve_figure"]}   # melt_curve/validation/refs/literature.json
 pt = lambda k, i=0: LIT[k]["points"][i]
 wc = LIT["Wu2024"]["fit_coeffs"]; rc = LIT["Rao2025"]["fit_coeffs"]
 wu = lambda P: wc[0] + wc[1] * P + wc[2] * P ** 2

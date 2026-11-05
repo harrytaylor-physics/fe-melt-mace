@@ -4,8 +4,8 @@ compare_curves.py — Tel-6000 curve against the T_el-conditioned curve (A26).
 
 Inputs (written by phaseE_analyze_live.py --include-drifting, which already adds
 the kinetic pressure term, A27):
-  phaseE/analysis_live_all.json           Tel-6000 campaign (phaseE/runs)
-  phaseE/analysis_live_all_runs_tel.json  Tel-model campaign (phaseE/runs_tel)
+  data/coexistence/analysis_live_all.json           Tel-6000 campaign (data/coexistence/runs)
+  data/coexistence/analysis_live_all_runs_tel.json  Tel-model campaign (data/coexistence/runs_tel)
 
 Reports, per cell:
   1. both melting points, and the difference at matching pressure (the Tel-6000
@@ -18,7 +18,7 @@ Reports, per cell:
      exceeds 15 K;
   4. the DFT-bin expectation of the shift (A23, liquid-minus-hcp energy change
      on training frames near coexistence), where available.
-Then compares both fits with published values and writes phaseE/compare_curves.png.
+Then compares both fits with published values and writes docs/figures/compare_curves.png.
 
 Run (login node): python3.13 compare_curves.py
 """
@@ -26,7 +26,7 @@ import json, os
 import numpy as np
 
 import sys
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 import layout  # noqa: E402
 
 A6, AT = layout.ANALYSIS_T6000, layout.ANALYSIS_TEL
@@ -126,7 +126,7 @@ def main():
         ax.set_xlabel("P (GPa)"); ax.set_ylabel("T$_m$ (K)")
         ax.legend(fontsize=6, loc="lower right")
         fig.tight_layout(); fig.savefig(os.path.join(layout.FIGURES, "compare_curves.png"), dpi=200)
-        print("\nwritten phaseE/compare_curves.png")
+        print("\nwritten docs/figures/compare_curves.png")
     except Exception as e:
         print(f"plot skipped: {e}")
 

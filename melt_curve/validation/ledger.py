@@ -10,17 +10,17 @@ Producers (run from this directory):
   stats_test.py   -> out/test_stats.json     needs parity_tel.npz
   val_dft.py      -> refs/dft/*.json         needs pw.x and the PBE PAW file (about 3 core-hours per structure)
   val_mace.py     -> out/static_compare.json needs torch, mace-torch, the model file
-  cc_check.py     -> out/cc_check.json       needs phaseE/ (analysis json, cells, runs_tel checkpoints)
-  pbe_vs_exp.py   -> out/pbe_vs_exp.json     needs refs/eos_pbe_cold/*.json (and phaseE/pn_correct.json)
-  train_table.py  -> out/training.json       needs the e3 training logs, phaseD/dataset_report.txt, phaseD/train_e3.xyz
-  tel_check.py    -> out/tel_check.json      needs logs/e3_test_final.out
-  coex_cells.py   -> out/coex_cells.json     needs phaseE/analysis_live_all_runs_tel.json
-  melting_point.py -> out/melting_point.json needs phaseE/pn_correct.json
-  repro_check.py  -> out/repro_check.json    needs torch, mace-torch, the model, phaseD/test_Tel*.xyz, parity_tel.npz
-  settings.py     -> out/settings.json       needs refs/*/*.in, the producers' sources, pseudo/, phaseE/cells, labels/ldaX_*.in
+  cc_check.py     -> out/cc_check.json       needs data/coexistence/ (analysis json, cells, runs_tel checkpoints)
+  pbe_vs_exp.py   -> out/pbe_vs_exp.json     needs refs/eos_pbe_cold/*.json (and data/coexistence/pn_correct.json)
+  train_table.py  -> out/training.json       needs the e3 training logs, data/training/dataset_report.txt, data/training/train_e3.xyz
+  tel_check.py    -> out/tel_check.json      needs production_campaign/arc_scripts/logs/e3_test_final.out
+  coex_cells.py   -> out/coex_cells.json     needs data/coexistence/analysis_live_all_runs_tel.json
+  melting_point.py -> out/melting_point.json needs data/coexistence/pn_correct.json
+  repro_check.py  -> out/repro_check.json    needs torch, mace-torch, the model, data/training/test_Tel*.xyz, parity_tel.npz
+  settings.py     -> out/settings.json       needs refs/*/*.in, the producers' sources, production_campaign/fe_melt/pseudo/, data/coexistence/cells, production_campaign/fe_melt/labels/ldaX_*.in
   conv_check.py   -> out/convergence.json    needs refs/convergence/*.json (QE 6.6 runs)
   lda_setup_check.py -> out/lda_setup.json   needs refs/lda_setup/*.json (QE 6.6 runs)
-  ldashift_summary.py -> out/ldashift.json   needs phaseX/ldashift/ldashift_result.json, md_meta.json (ldashift.py eval on ARC)
+  ldashift_summary.py -> out/ldashift.json   needs studies/lda_shift/ldashift_result.json, md_meta.json (ldashift.py eval on ARC)
 Committed constants (no producer): refs/literature.json -> keys "literature.*".
 """
 import hashlib, json, math, os

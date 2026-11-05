@@ -1,6 +1,6 @@
 """coex_cells.py - the coexistence-cell table of the T_el-conditioned campaign.
 
-Input: phaseE/analysis_live_all_runs_tel.json (phaseE_analyze_live.py --rundir phaseE/runs_tel
+Input: data/coexistence/analysis_live_all_runs_tel.json (phaseE_analyze_live.py --rundir phaseE/runs_tel
 --include-drifting), cells and runs. P is the cell-mean pressure (kinetic term included), before
 the interface-normal correction of pn_correct.py; T_m and its standard error over the runs of a cell;
 dS_m in k_B (cell value; per-run values where the analysis could form them).
