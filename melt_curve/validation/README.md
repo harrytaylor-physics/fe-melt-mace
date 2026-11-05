@@ -1,4 +1,4 @@
-# validation/ — accuracy of the production potential against PBE and against experiment
+# melt_curve/validation/ — accuracy of the production potential against PBE and against experiment
 
 Checks of `fe_tel_e3_stagetwo.model` (T_el-conditioned MACE) made in October 2026, outside
 the training pipeline. Every number is written to `ledger.json` by `ledger.py`.
@@ -10,22 +10,22 @@ the training pipeline. Every number is written to `ledger.json` by `ledger.py`.
 | `stats_test.py` | `out/test_stats.json` | `parity_tel.npz` (346 held-out frames, from `parity_tel.py`) | seconds |
 | `val_dft.py` | `refs/dft/<tag>.json` | `pw.x`, PBE PAW file | 26 runs, 1.5-12 min each on 2 cores |
 | `val_mace.py` | `out/static_compare.json` | `refs/dft/*.json`, model file, torch, mace-torch | about 6 min on 2 CPU threads |
-| `cc_check.py` | `out/cc_check.json` | `phaseE/analysis_live_all_runs_tel.json`, `phaseE/cells/*.json`, `phaseE/runs_tel/*_ckpt.npz`, `phaseE_q6.py` | about 1 min |
-| `pbe_vs_exp.py` | `out/pbe_vs_exp.json` | `refs/eos_pbe_cold/*.json`, `phaseE/pn_correct.json` (optional) | seconds |
-| `train_table.py` | `out/training.json` | `logs/fe_tel_e3_run-7.log`, `logs/fe_tel_e3_run-7_debug.log`, `phaseD/dataset_report.txt`, `phaseD/train_e3.xyz`, the model file (class name) | 10 s |
-| `tel_check.py` | `out/tel_check.json` | `logs/e3_test_final.out` (same-frame T_el check) | seconds |
-| `coex_cells.py` | `out/coex_cells.json` | `phaseE/analysis_live_all_runs_tel.json` | seconds |
-| `melting_point.py` | `out/melting_point.json` | `phaseE/pn_correct.json` (Simon fit, refitted for its covariance) | seconds |
-| `repro_check.py` | `out/repro_check.json` | the model, `phaseD/test_Tel*.xyz`, `phaseD/parity_tel.npz`; torch, mace-torch | about 8 min on 4 CPU threads |
+| `cc_check.py` | `out/cc_check.json` | `data/coexistence/analysis_live_all_runs_tel.json`, `data/coexistence/cells/*.json`, `data/coexistence/runs_tel/*_ckpt.npz`, `phaseE_q6.py` | about 1 min |
+| `pbe_vs_exp.py` | `out/pbe_vs_exp.json` | `refs/eos_pbe_cold/*.json`, `data/coexistence/pn_correct.json` (optional) | seconds |
+| `train_table.py` | `out/training.json` | `production_campaign/arc_scripts/logs/fe_tel_e3_run-7.log`, `production_campaign/arc_scripts/logs/fe_tel_e3_run-7_debug.log`, `data/training/dataset_report.txt`, `data/training/train_e3.xyz`, the model file (class name) | 10 s |
+| `tel_check.py` | `out/tel_check.json` | `production_campaign/arc_scripts/logs/e3_test_final.out` (same-frame T_el check) | seconds |
+| `coex_cells.py` | `out/coex_cells.json` | `data/coexistence/analysis_live_all_runs_tel.json` | seconds |
+| `melting_point.py` | `out/melting_point.json` | `data/coexistence/pn_correct.json` (Simon fit, refitted for its covariance) | seconds |
+| `repro_check.py` | `out/repro_check.json` | the model, `data/training/test_Tel*.xyz`, `data/training/parity_tel.npz`; torch, mace-torch | about 8 min on 4 CPU threads |
 | `conv_check.py` | `out/convergence.json` | `refs/convergence/*.json` (QE 6.6, hcp at 7.0 A^3/atom) | seconds |
 | `lda_setup_check.py` | `out/lda_setup.json` | `refs/lda_setup/*.json` (QE 6.6, hcp and fcc at 7.0 A^3/atom) | seconds |
-| `ldashift_summary.py` | `out/ldashift.json` | `phaseX/ldashift/ldashift_result.json`, `md_meta.json` (`ldashift.py eval` on ARC) | seconds |
-| `settings.py` | `out/settings.json` | `refs/*/*.in`, the producers' sources, `pseudo/*.UPF`, `phaseE/cells/*.json`, `phaseE/runs_tel/` file names, `labels/ldaX_*`, `../ldashift.py`, `refs/lda_setup/*.json` | seconds |
+| `ldashift_summary.py` | `out/ldashift.json` | `studies/lda_shift/ldashift_result.json`, `md_meta.json` (`ldashift.py eval` on ARC) | seconds |
+| `settings.py` | `out/settings.json` | `refs/*/*.in`, the producers' sources, `production_campaign/fe_melt/pseudo/*.UPF`, `data/coexistence/cells/*.json`, `data/coexistence/runs_tel/` file names, `production_campaign/fe_melt/labels/ldaX_*`, `production_campaign/fe_melt/ldashift.py`, `refs/lda_setup/*.json` | seconds |
 | `ledger.py` | `ledger.json` | `out/*.json`, `refs/literature.json` (committed constants) | seconds |
 | `record_inputs.py` | `ledger_inputs.tsv` | the committed inputs that no producer here rebuilds | seconds |
 
-Paths: `paths.py`, a thin wrapper over the repository's `layout.py` (paths relative to the repository
-root, which keeps the layout of `~/fe_melt`; each overridable by an environment variable).
+Paths: `paths.py`, a thin wrapper over `../layout.py` (paths relative to the repository root; each
+overridable by an environment variable).
 
 `report_numbers.tsv` lists every number of the October 2026 validation report (text at rev 47,
 29 Oct 2026) with the ledger key it comes from (columns: number as printed, unit, key, ledger value; `keys:` for producer outputs,
@@ -85,7 +85,7 @@ rewritten to `./pseudo` and `./tmp` (they pointed at directories of the machine 
 
 ## Tests
 
-`python -m pytest validation/tests -q`, or the whole repository from its root. Producers whose
+`python -m pytest melt_curve/validation/tests -q`, or the whole repository from its root. Producers whose
 inputs are absent skip. The model test runs `val_mace.py` on CPU (CUDA hidden) and compares with
 `out/static_compare.json` to 2e-4 relative. On a CUDA machine a second test runs it on the GPU and
 allows max(2e-4 |b|, 2e-3), with smaller absolute tolerances (`GPU_TIGHT`) for the values whose report

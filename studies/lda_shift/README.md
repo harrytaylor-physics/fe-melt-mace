@@ -1,5 +1,11 @@
 # LDA − PBE shift of T_m at 330 GPa (step X1)
 
+Status: complete. The results are in this folder (`phaseX/ldashift/` on ARC): `frames.xyz`, `md_meta.json`,
+`ldashift_result.json`, `ldashift_eval.txt`. The report numbers come from
+`melt_curve/validation/ldashift_summary.py`. The scripts are `production_campaign/fe_melt/ldashift.py` and
+`production_campaign/arc_scripts/ldashift_md.sbatch`; the inputs are `production_campaign/fe_melt/labels/ldaX_*`.
+The commands below ran in `~/fe_melt` on ARC and are kept as they ran.
+
 **Question.** How much of the 104 K gap between Rao & Zhu (LDA+DMFT, 6,225 ± 42 K) and this
 work (PBE, 6,329 ± 6 K) comes from LDA versus PBE, and how much remains for the correlation
 (DMFT) correction plus their other differences (4–8-atom training cells, potential, protocol)?
@@ -12,7 +18,7 @@ work (PBE, 6,329 ± 6 K) comes from LDA versus PBE, and how much remains for the
    Both use the same cutoffs, k-points, smearing and PAW file, the official pslibrary 1.0.0 PBE
    dataset; the LDA runs add `input_dft = 'PZ'`. (Until 27 Oct the LDA inputs used the PZ dataset of
    step 0, generated with ld1.x; it gives a divergent SCF in these configurations and is not used,
-   see `pseudo/lda_generation/README.md`.)
+   see `production_campaign/fe_melt/pseudo/lda_generation/README.md`.)
 3. Per phase:
    - first-order term ⟨ΔU⟩/N;
    - configurational second-order term −(β/2)·var(ΔU)/N;

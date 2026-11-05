@@ -223,3 +223,13 @@ The first full run on an ARC H100 (80 GB; torch 2.12.0+cu126, mace-torch 0.3.16)
   `test_gpu_tolerance_below_printed_precision` (any machine), checks the bound on every one of the 94
   report numbers concerned, one value at a time, propagated through `ledger.summary`.
 - **ARC GPU run passed** at `19a52f7` (1 Nov, H100, torch 2.12.0+cu126, mace-torch 0.3.16): 69 passed, 0 skipped; the runs_tel runs loaded stage two (`coex_hcp_350GPa_ti1.08_s1`: stage two reproduces the logged P to 9.2e-5 GPa, stage one is off by −1.04 GPa).
+
+## 2026-11-05: layout matched to water-scw-mace
+
+- **Layout.** The ARC pipeline moved to `production_campaign/`, the models to `models/`, the datasets and
+  coexistence output to `data/`, `layout.py`, `validation/` and `analysis/figures/` to `melt_curve/`, and
+  the LDA test and the DMFT pilot to `studies/`. Mapping and reasons: [MIGRATION.md](MIGRATION.md).
+- **No results changed.** The ARC scripts, models, datasets, outputs and the ledger are byte-identical.
+  The paths in `ledger_inputs.tsv` were rewritten; its hashes and dates are unchanged.
+- **Docs.** New: `docs/METHODS.md`, `TESTING.md`, and READMEs for `production_campaign/`, `melt_curve/`,
+  `studies/`, `tests/` and `docs/`.
