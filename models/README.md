@@ -1,5 +1,7 @@
 # models/ — the potentials and where they came from
 
+MACE potentials with T_el input, and their provenance.
+
 The model files are here (git LFS). On ARC they are in `~/fe_melt/phaseD/models/`, the path the scripts,
 logs and gate files name. This file records which file each run loaded and how that file was made. Superseded models are not in the repository;
 their sha256 are in [`../data/excluded_sha256.tsv`](../data/excluded_sha256.tsv).
