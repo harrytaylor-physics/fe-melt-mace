@@ -1,5 +1,7 @@
 # MIGRATION — ~/fe_melt on ARC into fe-melt-mace
 
+How ~/fe_melt on ARC was imported here.
+
 ## 5 Nov 2026: layout matched to water-scw-mace
 
 The repository first kept the paths of `~/fe_melt` at its root (73 files), so that the ARC scripts could run
