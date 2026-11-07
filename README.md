@@ -33,17 +33,17 @@ Every number quoted from this work has a ledger key; the list is
 Without the LFS files the binaries are 132-byte pointers and the tests that need them skip. To fetch them:
 `git lfs install --local && git lfs pull`. Conditions of use are in [TESTING.md](TESTING.md).
 
-## Map
+## Repository layout
 
 | Where | What |
 |---|---|
-| [models/](models/README.md) | trained potentials (LFS) and which model each run loaded |
-| [melt_curve/](melt_curve/README.md) | validation against PBE and experiment, the ledger, figure producers, `layout.py` |
-| [production_campaign/](production_campaign/README.md) | the ARC production pipeline, kept as run |
-| [data/](data/README.md) | training and test sets, coexistence output, SHA-256 manifest of what was left out |
-| [studies/](studies/README.md) | satellite studies: the 330 GPa LDA - PBE test, the DFT+DMFT pilot |
-| [tests/](tests/README.md) | repository test suite |
-| [docs/](docs/README.md) | methods reference; figures (PDF + 200-dpi PNG) |
+| [models/](models/README.md) | MACE potentials with T_el input, and their provenance. |
+| [melt_curve/](melt_curve/README.md) | Validation against PBE and experiment, ledger and figures. |
+| [production_campaign/](production_campaign/README.md) | ARC pipeline as run: QE labels, training, coexistence runs. |
+| [data/](data/README.md) | Training and test sets with QE labels, and coexistence runs. |
+| [studies/](studies/README.md) | Side studies: the 330 GPa LDA - PBE test, a DFT+DMFT pilot. |
+| [tests/](tests/README.md) | Test suite for the producers, the ledger and the layout. |
+| [docs/](docs/README.md) | Methods reference and figures of the iron melting curve. |
 | [MIGRATION.md](MIGRATION.md) · [CHANGELOG.md](CHANGELOG.md) | how `~/fe_melt` came in and what moved where; what was done when |
 | [TESTING.md](TESTING.md) | how to run the tests, what they cover, conditions of use |
 
