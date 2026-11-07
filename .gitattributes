@@ -1,3 +1,4 @@
+# Which files Git LFS stores
 # Git LFS: models, binary arrays, and the production training and test sets
 *.model filter=lfs diff=lfs merge=lfs -text
 *.npz filter=lfs diff=lfs merge=lfs -text
