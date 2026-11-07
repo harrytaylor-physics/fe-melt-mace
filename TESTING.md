@@ -1,5 +1,7 @@
 # Testing: how to run, what is covered, conditions of use
 
+How to run the tests and what they check.
+
 ## Running the tests
 
     python -m pytest -q -p no:cacheprovider          # from the repository root
