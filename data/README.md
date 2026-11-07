@@ -1,5 +1,7 @@
 # data/
 
+Training and test sets with QE labels, and coexistence runs.
+
 Derived data products of the iron campaign. Raw production output stays on ARC in `~/fe_melt` and its
 backups; it is fingerprinted instead (below).
 
