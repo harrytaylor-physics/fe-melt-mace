@@ -1,5 +1,7 @@
 # melt_curve/
 
+Validation against PBE and experiment, ledger and figures.
+
 The code that turns the campaign's output into the reported numbers and figures. It runs on any machine.
 
     layout.py     every location this code reads or writes, in one place
