@@ -1,3 +1,4 @@
+# Caches and run outputs kept out of git
 __pycache__/
 *.pyc
 .pytest_cache/
