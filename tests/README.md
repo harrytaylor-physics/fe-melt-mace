@@ -1,5 +1,7 @@
 # tests/
 
+Test suite for the producers, the ledger and the layout.
+
 Repository test suite. How to run it and when tests skip: [`../TESTING.md`](../TESTING.md).
 
 | File | Covers |
