@@ -1,5 +1,7 @@
 # studies/
 
+Side studies: the 330 GPa LDA - PBE test, a DFT+DMFT pilot.
+
 Satellite studies that reuse the validated pipeline. One folder per study, each with a README (question,
 design, status) and its results.
 
