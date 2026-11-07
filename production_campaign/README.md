@@ -1,5 +1,7 @@
 # production_campaign/
 
+ARC pipeline as run: QE labels, training, coexistence runs.
+
 The pipeline that produced the iron melting curve, as it ran on ARC: sampling, QE labels, training,
 coexistence and the snapshot test. **Kept unmodified, as provenance.** Paths inside the scripts are those of
 `~/fe_melt` on ARC and are left as they ran. Slurm headers use the `phys-plasma-dft` account,
