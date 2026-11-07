@@ -1,4 +1,6 @@
-"""Root pytest configuration: `pytest` from the repository root collects the test suites
+"""Limits pytest to the two test suites.
+
+Root pytest configuration: `pytest` from the repository root collects the test suites
 (melt_curve/validation/tests/ and tests/) only.
 
 - melt_curve/validation/stats_test.py is a producer script whose name matches pytest's *_test.py
