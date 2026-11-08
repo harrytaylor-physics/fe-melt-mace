@@ -558,3 +558,4 @@ two	runs per phase	keys:settings.direct_test_330GPa.runs_per_phase	2
 104	GPa	keys:melting_point.cells.coex_hcp_100GPa.P_n	104.3468801
 371	GPa	keys:melting_point.cells.coex_hcp_350GPa.P_n	370.7875192
 3,658	K	keys:coex_cells.cells.coex_fcc_100GPa.Tm	3657.574252
+91	GPa	keys:coex_cells.cells.coex_fcc_100GPa.P	91.04993279

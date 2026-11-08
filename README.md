@@ -1,26 +1,63 @@
 # fe-melt-mace
 
-The melting curve of iron to 370 GPa from two-phase coexistence simulations with a MACE potential
-trained on PBE (Mermin free energies) whose input includes the electronic temperature T_el.
+The melting curve of hcp iron from 100 to 370 GPa, from 12,096-atom solid–liquid coexistence
+simulations with a MACE potential fine-tuned to PBE. The potential takes the electronic temperature
+T_el as an input, so one model covers the Mermin free-energy surface from 4,000 to 8,000 K.
 
-**Result** (keys of [`melt_curve/validation/ledger.json`](melt_curve/validation/ledger.json)):
-- **T_m(330 GPa) = 6,329 ± 6 K from the potential.** The value is `keys.melting_point.Tm_330`, from the
-  Simon fit in `data/coexistence/pn_correct.json`. The error is statistical, the fit's standard error at
-  330 GPa: `summary.Tm_330_stat_err_K`. dT_m/dP = 8.41 K/GPa (`keys.melting_point.dTdP_330`).
-- **T_m(330 GPa) = 6,306 ± 8 K for PBE.** A direct PBE test on 40 snapshots at 330 GPa and 6,329 K puts the
-  potential's T_m 23 ± 6 K above PBE (`keys.ldashift.mace_Tm_total_K`). The PBE value is
-  `summary.Tm_PBE_330_K`. Its error, `summary.Tm_PBE_330_err_K`, is the Simon-fit error and the
-  direct test's error added in quadrature.
+## Result
 
-Every number quoted from this work has a ledger key; the list is
-[`melt_curve/validation/report_numbers.tsv`](melt_curve/validation/report_numbers.tsv).
+**T_m(330 GPa) = 6,329 ± 6 K** from the potential, with dT_m/dP = 8.41 K/GPa.
+
+Value: `keys.melting_point.Tm_330`, from the Simon fit in `data/coexistence/pn_correct.json`.
+Error: statistical, the standard error of the fit at 330 GPa (`summary.Tm_330_stat_err_K`).
+Slope: `keys.melting_point.dTdP_330`.
+
+How far this value can move, and why:
+
+| Test | Shift of T_m(330 GPa) | Ledger key |
+|---|---|---|
+| Potential against PBE: free-energy perturbation on 40 snapshots (20 hcp, 20 liquid, 128 atoms) relabelled with PBE | potential is 19.4 ± 4.8 K above PBE (PBE: 6,310 ± 8 K) | `keys.ldashift.mace_Tm_total_K` |
+| PBE pressure against three 300 K experimental equations of state at 7.0 Å³/atom | −110 to +60 K | `summary.Tm_true_minus_pbe_K` |
+| LDA instead of PBE, same 40 snapshots | +11 ± 14 K | `keys.ldashift.lda_dTm_K` |
+
+Melting entropy and volume at 330 GPa: the PBE snapshot enthalpies give ΔS_m = 0.95 ± 0.04 k_B
+(`keys.melting_entropy.dS_kB`, `keys.melting_entropy.dS_err_kB`) and the bulk volumes give ΔV_m/V = 1.6%
+(`keys.melting_entropy.dV_over_V_330_pct`).
+
+Melting curve: Simon fit T_m = T_1 [1 + (P − 100 GPa)/a]^(1/c) to seven hcp cells between 104 and
+371 GPa, with T_1 = 3,846 ± 11 K, a = 120 ± 6 GPa, c = 2.15 ± 0.06 (`keys.melting_point.fit`, errors
+`keys.melting_point.fit_param_se`). fcc at 91 GPa melts at 3,658 K
+(`keys.coex_cells.cells.coex_fcc_100GPa.Tm`).
+
+Every number in this section has a ledger key in `melt_curve/validation/ledger.json`; the list
+is `melt_curve/validation/report_numbers.tsv`.
+
+## What is in the repository
+
+- **The potential** (`models/`). MACE, fine-tuned from the foundation model `MACE-matpes-pbe-omat-ft`.
+  Trained on hcp, fcc, bcc, liquid and stacking-faulted iron at 55–458 GPa and 2,200–9,400 K, with T_el from 4,000 to 8,000 K.
+  Validation errors 1.5 meV/atom (energy) and 92 meV/Å (forces).
+- **The training data** (`data/`). 6,955 PBE calculations (Mermin free energy and forces) on 2,422
+  structures of 108–128 atoms, at T_el = 4,000, 6,000 and 8,000 K, with the held-out test split.
+- **The coexistence results** (`data/coexistence/`). 48 NVE runs of 12,032–12,096 atoms, 9.1 ns in
+  total: temperature, pressure and solid fraction of every run, the interface-normal pressure of each
+  cell, and the Simon fit.
+- **The pipeline as run** (`production_campaign/`). Foundation-model sampling, Quantum ESPRESSO inputs,
+  training, coexistence build and analysis, as run on the ARC cluster.
+- **The checks** (`melt_curve/`, `studies/`). Free-energy perturbation of the potential and of LDA
+  against PBE, PBE against experimental equations of state, the response to T_el, the ledger and the
+  figures.
 
 ## What you can do with it
 
-- Evaluate the T_el-conditioned iron potential at a chosen T_el (`melt_curve/validation/load_model.py`)
-- Reproduce the Simon fit from the coexistence analysis
-- Rerun the checks of the potential against PBE and of PBE against experiment
-- Rebuild the ledger and the figures from the committed inputs
+- Run molecular dynamics of solid or liquid iron at core conditions, at any T_el in the trained range,
+  including T_el = T (`melt_curve/validation/load_model.py`).
+- Train another potential on the PBE labels, or extend them to other electronic temperatures.
+- Test another potential or functional against PBE at 330 GPa with the same snapshots and
+  free-energy-perturbation script.
+- Extend the melting curve to other pressures with the coexistence build and analysis scripts.
+- Check the ledger against its committed inputs (`pytest`, see [`TESTING.md`](TESTING.md)) and rebuild the
+  figures (`python melt_curve/figures/build_figures.py`).
 
 ## Quick start
 
