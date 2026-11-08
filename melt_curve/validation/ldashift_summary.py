@@ -11,14 +11,16 @@ Two results:
 - LDA - PBE shift of T_m by free-energy perturbation (a1 + a2 + a3 per phase). a3 = -V dP^2 / (2B)
   depends on the two bulk moduli of the potential (NVT at V(1 +- 0.01)); the equal-modulus variant
   uses their mean for both phases and shows how much of the result rests on their difference.
-Conversion to K at dS_m = 0.80 k_B, as in ldashift.py.
+Conversion to K at the measured dS_m (melting_entropy.py), with its relative error added in quadrature to the
+total shifts. ldashift.py on ARC used 0.80 k_B: values taken from its output are rescaled.
 """
 import json, os
 import numpy as np
 import paths
+import melting_entropy
 
 KB = 8.617333262e-5                  # eV/K
-DS = 0.80 * KB                       # eV/K per atom
+ARC_DS_KB = 0.80                     # dS_m used by ldashift.py for the values in its output
 EV_A3_PER_GPA = 1.0 / 160.21766208   # eV/A^3 per GPa
 SRC = getattr(paths, "LDASHIFT", os.path.join(paths.ROOT, "studies", "lda_shift"))
 
@@ -31,7 +33,12 @@ def main():
     r = json.load(open(os.path.join(SRC, "ldashift_result.json")))
     meta = json.load(open(os.path.join(SRC, "md_meta.json")))
     h, l, m = r["results"]["hcp"], r["results"]["liquid"], r["mace_validation"]
+    me = melting_entropy.compute()
+    DS = me["dS_kB"] * KB                # eV/K per atom
+    rel_ds = me["dS_err_kB"] / me["dS_kB"]
+    rescale = ARC_DS_KB / me["dS_kB"]
     K = lambda e: e / DS
+    total_err = lambda dT, se_K: float(np.hypot(se_K, dT * rel_ds))
     d1, d2, d3 = l["a1"] - h["a1"], l["a2"] - h["a2"], l["a3"] - h["a3"]
     se1 = float(np.hypot(l["a1_se"], h["a1_se"]))
     Bc = 0.5 * (h["B"] + l["B"])
@@ -47,18 +54,19 @@ def main():
         mace_F_rel_hcp_pct=100 * m["hcp"]["F_rmse"] / m["hcp"]["F_rms_pbe"],
         mace_F_rel_liquid_pct=100 * m["liquid"]["F_rmse"] / m["liquid"]["F_rms_pbe"],
         mace_dE_liq_hcp_meV=1e3 * m["dE_bias"], mace_dE_liq_hcp_se_meV=1e3 * m["dE_bias_se"],
-        mace_Tm_first_order_K=m["T_m_shift_K"], mace_Tm_se_K=m["T_m_shift_se_K"],
-        mace_Tm_pressure_part_K=m["T_m_pressure_part_K"], mace_Tm_equal_volume_part_K=m["T_m_structure_part_K"],
-        mace_Tm_second_order_K=-m["second_order"] / DS, mace_Tm_total_K=m["T_m_shift_total_K"],
+        mace_Tm_first_order_K=rescale * m["T_m_shift_K"],
+        mace_Tm_pressure_part_K=rescale * m["T_m_pressure_part_K"], mace_Tm_equal_volume_part_K=rescale * m["T_m_structure_part_K"],
+        mace_Tm_second_order_K=-m["second_order"] / DS, mace_Tm_total_K=rescale * m["T_m_shift_total_K"],
+        mace_Tm_se_K=total_err(rescale * m["T_m_shift_total_K"], rescale * m["T_m_shift_se_K"]),
         # LDA - PBE
         lda_dP_hcp=h["dP"], lda_dP_liquid=l["dP"],
         lda_d_a1_meV=1e3 * d1, lda_d_a1_se_meV=1e3 * se1, lda_d_a2_meV=1e3 * d2, lda_d_a3_meV=1e3 * d3,
         lda_dG_meV=1e3 * (d1 + d2 + d3),
         lda_dTm_first_order_K=K(d1), lda_dTm_a2_K=K(d2), lda_dTm_a3_K=K(d3),
-        lda_dTm_K=K(d1 + d2 + d3), lda_dTm_se_K=K(se1),
-        lda_pressure_part_K=r["dT_pressure_part"], lda_equal_volume_part_K=r["dT_structure_part"],
+        lda_dTm_K=K(d1 + d2 + d3), lda_dTm_se_K=total_err(K(d1 + d2 + d3), K(se1)),
+        lda_pressure_part_K=rescale * r["dT_pressure_part"], lda_equal_volume_part_K=rescale * r["dT_structure_part"],
         lda_B_common=Bc, lda_d_a3_equalB_meV=1e3 * d3c, lda_dTm_equalB_K=K(d1 + d2 + d3c))
-    assert abs(out["lda_dTm_K"] - r["dT"]) < 1e-6 and abs(out["lda_dTm_se_K"] - r["dT_se"]) < 1e-6
+    assert abs(out["lda_dTm_K"] - rescale * r["dT"]) < 1e-6 and abs(K(se1) - rescale * r["dT_se"]) < 1e-6
     assert abs(meta["hcp"]["B_GPa"] - h["B"]) < 1e-9 and abs(meta["liquid"]["B_GPa"] - l["B"]) < 1e-9
     os.makedirs(paths.OUT, exist_ok=True)
     json.dump(out, open(os.path.join(paths.OUT, "ldashift.json"), "w"), indent=1)

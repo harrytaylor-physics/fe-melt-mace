@@ -12,7 +12,7 @@ their inputs are absent:
 - the model tests skip without torch and mace-torch;
 - `tests/test_runs_tel_model.py` and the GPU run of `val_mace.py` need a CUDA GPU.
 
-A full run on a GPU node with the LFS files (ARC H100): 69 passed. On a Mac with the LFS files: 67 passed,
+A full run on a GPU node with the LFS files (ARC H100): 69 passed. On a Mac with the LFS files: 68 passed,
 2 skipped (the two GPU tests).
 
 ## What the suites cover

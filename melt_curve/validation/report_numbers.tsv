@@ -2,12 +2,12 @@ number_as_printed	unit	key	ledger_value
 0.5	GPa	summary:eos_max_abs_dP_GPa	0.4231872559
 1	meV/atom	summary:test_liquid_minus_hcp_mean_meV	1.015044564
 330	GPa	keys:settings.direct_test_330GPa.P_GPa	330
-23	K	keys:ldashift.mace_Tm_total_K	22.93916915
-6	K	keys:ldashift.mace_Tm_se_K	5.578433282
+19	K	keys:ldashift.mace_Tm_total_K	19.42410855
+5	K	keys:ldashift.mace_Tm_se_K	4.805960068
 6,329	K	keys:melting_point.Tm_330	6329.038941
 6	K	summary:Tm_330_stat_err_K	6.250504077
-6,306	K	summary:Tm_PBE_330_K	6306.099772
-8	K	summary:Tm_PBE_330_err_K	8.377811116
+6,310	K	summary:Tm_PBE_330_K	6309.614832
+8	K	summary:Tm_PBE_330_err_K	7.884545225
 346	frames	summary:test_n_frames	346
 108-128	atoms	keys:training.train_file.atoms_per_frame	[108, 128]
 4,000-8,000	K	keys:training.T_el_K	[4000, 6000, 8000]
@@ -25,8 +25,8 @@ number_as_printed	unit	key	ledger_value
 +0.44	GPa	keys:ldashift.mace_dP_liquid	0.4437570557
 1.5-2.5	%	keys:ldashift.mace_F_rel_hcp_pct	1.536175088
 1.5-2.5	%	keys:ldashift.mace_F_rel_liquid_pct	2.484455405
-23	K	keys:ldashift.mace_Tm_total_K	22.93916915
-6	K	keys:ldashift.mace_Tm_se_K	5.578433282
+19	K	keys:ldashift.mace_Tm_total_K	19.42410855
+5	K	keys:ldashift.mace_Tm_se_K	4.805960068
 0.42	GPa	summary:eos_max_abs_dP_GPa	0.4231872559
 70 to 350	GPa	summary:eos_P_range_GPa	[70.76, 350.831]
 0.6	GPa	summary:tel_response_max_abs_dP_GPa	0.5611745605
@@ -40,9 +40,9 @@ number_as_printed	unit	key	ledger_value
 1.0	%	summary:E2g_rel_err	0.009789520939
 -13 to +7	GPa	summary:pbe_minus_exp_core_GPa	[-13.345181072904495, 7.266101937801352]
 -110 to +60	K	summary:Tm_true_minus_pbe_K	[-112.20802965331872, 61.09433639354903]
-+13	K	keys:ldashift.lda_dTm_K	13.32566197
-17	K	keys:ldashift.lda_dTm_se_K	17.09651228
--25	K	keys:ldashift.lda_dTm_equalB_K	-24.55502325
++11	K	keys:ldashift.lda_dTm_K	11.28371751
+14	K	keys:ldashift.lda_dTm_se_K	14.4858871
+-21	K	keys:ldashift.lda_dTm_equalB_K	-20.79235887
 -37	GPa	summary:lda_dP_mean_GPa	-36.92675
 4,000-8,000	K	keys:training.T_el_K	[4000, 6000, 8000]
 2	interaction layers	keys:training.model.interactions	2
@@ -300,12 +300,12 @@ number_as_printed	unit	key	ledger_value
 1,233	GPa	keys:static_compare.voigt.dft.K_V	1233.061737
 1,232	GPa	keys:static_compare.bulk_modulus.dft.K_GPa.7.00	1231.85791
 330	GPa	keys:settings.direct_test_330GPa.P_GPa	330
-23	K	keys:ldashift.mace_Tm_total_K	22.93916915
-6	K	keys:ldashift.mace_Tm_se_K	5.578433282
+19	K	keys:ldashift.mace_Tm_total_K	19.42410855
+5	K	keys:ldashift.mace_Tm_se_K	4.805960068
 6,329	K	keys:melting_point.Tm_330	6329.038941
-23	K	keys:ldashift.mace_Tm_total_K	22.93916915
-6,306	K	summary:Tm_PBE_330_K	6306.099772
-8	K	summary:Tm_PBE_330_err_K	8.377811116
+19	K	keys:ldashift.mace_Tm_total_K	19.42410855
+6,310	K	summary:Tm_PBE_330_K	6309.614832
+8	K	summary:Tm_PBE_330_err_K	7.884545225
 20	hcp snapshots	keys:settings.direct_test_330GPa.n_hcp	20
 20	liquid snapshots	keys:settings.direct_test_330GPa.n_liquid	20
 128	atoms	keys:settings.direct_test_330GPa.atoms	[128]
@@ -330,10 +330,10 @@ number_as_printed	unit	key	ledger_value
 +1.0	meV/atom	summary:test_liquid_minus_hcp_mean_meV	1.015044564
 0.2	meV/atom	summary:test_liquid_minus_hcp_mean_se_meV	0.1732280345
 0.80	k_B	summary:K_per_meV_at_dS_0.80	14.50564765
-+22	K	keys:ldashift.mace_Tm_equal_volume_part_K	22.16264198
--3	K	keys:ldashift.mace_Tm_pressure_part_K	-3.253104955
++19	K	keys:ldashift.mace_Tm_equal_volume_part_K	18.76657174
+-3	K	keys:ldashift.mace_Tm_pressure_part_K	-2.754618676
 0.095	A^3/atom	keys:ldashift.dV_m	0.09457679939
-+4	K	keys:ldashift.mace_Tm_second_order_K	4.029632126
++3	K	keys:ldashift.mace_Tm_second_order_K	3.412155484
 12,096	atoms	keys:settings.coexistence.atoms_per_cell	[12032, 12096]
 six	runs per pressure	keys:coex_cells.hcp_runs_per_cell	[6]
 three	starting temperatures	keys:settings.coexistence.n_start_T	3
@@ -391,8 +391,8 @@ two	random seeds	keys:settings.coexistence.n_seeds	2
 6,329	K	keys:melting_point.Tm_330	6329.038941
 330	GPa	keys:coex_cells.cells.coex_hcp_330GPa.P_nominal	330
 12,096	atoms	keys:settings.coexistence.atoms_per_cell	[12032, 12096]
-6,306	K	summary:Tm_PBE_330_K	6306.099772
-8	K	summary:Tm_PBE_330_err_K	8.377811116
+6,310	K	summary:Tm_PBE_330_K	6309.614832
+8	K	summary:Tm_PBE_330_err_K	7.884545225
 6,329	K	keys:melting_point.Tm_330	6329.038941
 6	K	summary:Tm_330_stat_err_K	6.250504077
 1.5	%	keys:cc_check.cells.coex_hcp_330GPa.dV_pct	1.502611527
@@ -425,10 +425,10 @@ two	random seeds	keys:settings.coexistence.n_seeds	2
 16	valence electrons	keys:settings.pseudopotentials.Fe.pbe-spn-kjpaw_psl.1.0.0.UPF	16
 5.0	eV (U, DMFT)	keys:literature.melting_330GPa.Rao2025.dmft_U_eV	5
 0.93	eV (J, DMFT)	keys:literature.melting_330GPa.Rao2025.dmft_J_eV	0.93
-+13	K	keys:ldashift.lda_dTm_K	13.32566197
-17	K	keys:ldashift.lda_dTm_se_K	17.09651228
-81	K	summary:RaoZhu_minus_Tm_PBE_330_K	-81.09977163
-43	K	summary:RaoZhu_minus_Tm_PBE_330_err_K	42.82741784
++11	K	keys:ldashift.lda_dTm_K	11.28371751
+14	K	keys:ldashift.lda_dTm_se_K	14.4858871
+85	K	summary:RaoZhu_minus_Tm_PBE_330_K	-84.61483224
+43	K	summary:RaoZhu_minus_Tm_PBE_330_err_K	42.73366417
 69.2	meV/atom (mean absolute)	keys:literature.melting_330GPa.Rao2025.potential_energy_mae_meV_atom	69.2
 4-8	atoms (label cells)	keys:literature.melting_330GPa.Rao2025.label_cell_atoms	[4, 8]
 -13 to +7	GPa	summary:pbe_minus_exp_core_GPa	[-13.345181072904495, 7.266101937801352]
@@ -462,24 +462,24 @@ two	random seeds	keys:settings.coexistence.n_seeds	2
 9-11	GPa		
 130	GPa		
 40	snapshots	keys:settings.direct_test_330GPa.n_LDA	40
-+13	K	keys:ldashift.lda_dTm_K	13.32566197
-17	K	keys:ldashift.lda_dTm_se_K	17.09651228
++11	K	keys:ldashift.lda_dTm_K	11.28371751
+14	K	keys:ldashift.lda_dTm_se_K	14.4858871
 37.2	GPa	keys:ldashift.lda_dP_hcp	-37.2454
 36.6	GPa	keys:ldashift.lda_dP_liquid	-36.6081
 330	GPa	keys:settings.direct_test_330GPa.P_GPa	330
 -2.84	meV/atom	keys:ldashift.lda_d_a1_meV	-2.843355855
 1.18	meV/atom	keys:ldashift.lda_d_a1_se_meV	1.178610752
--41	K	keys:ldashift.lda_dTm_first_order_K	-41.24471819
-17	K	keys:ldashift.lda_dTm_se_K	17.09651228
+-35	K	keys:ldashift.lda_dTm_first_order_K	-34.92462512
+14	K	keys:ldashift.lda_dTm_se_K	14.4858871
 +0.62	meV/atom	keys:ldashift.lda_d_a2_meV	0.6206609859
-+9	K	keys:ldashift.lda_dTm_a2_K	9.003089573
++8	K	keys:ldashift.lda_dTm_a2_K	7.623510162
 +3.14	meV/atom	keys:ldashift.lda_d_a3_meV	3.14134823
-+46	K	keys:ldashift.lda_dTm_a3_K	45.56729058
++39	K	keys:ldashift.lda_dTm_a3_K	38.58483246
 +0.92	meV/atom	keys:ldashift.lda_dG_meV	0.9186533609
-+13	K	keys:ldashift.lda_dTm_K	13.32566197
-17	K	keys:ldashift.lda_dTm_se_K	17.09651228
-+316	K	keys:ldashift.lda_pressure_part_K	316.1931365
--357	K	keys:ldashift.lda_equal_volume_part_K	-357.4378546
++11	K	keys:ldashift.lda_dTm_K	11.28371751
+14	K	keys:ldashift.lda_dTm_se_K	14.4858871
++268	K	keys:ldashift.lda_pressure_part_K	267.741598
+-303	K	keys:ldashift.lda_equal_volume_part_K	-302.6662231
 -110 to +60	K	summary:Tm_true_minus_pbe_K	[-112.20802965331872, 61.09433639354903]
 330	GPa	keys:settings.direct_test_330GPa.P_GPa	330
 6,329	K	keys:settings.direct_test_330GPa.T_K	6329
@@ -487,8 +487,8 @@ two	random seeds	keys:settings.coexistence.n_seeds	2
 1,254	GPa	keys:ldashift.B_liquid	1253.974915
 1	% volume	keys:settings.direct_test_330GPa.bulk_modulus_strain	0.01
 +0.53	meV/atom	keys:ldashift.lda_d_a3_equalB_meV	0.5299043204
--25	K	keys:ldashift.lda_dTm_equalB_K	-24.55502325
-40	K	summary:lda_dTm_max_abs_within_1se_K	41.65153554
+-21	K	keys:ldashift.lda_dTm_equalB_K	-20.79235887
+40	K	summary:lda_dTm_max_abs_within_1se_K	35.27824596
 0.3.16	mace-torch version	keys:repro_check.mace_version	"0.3.16"
 10,000	K	keys:repro_check.tel_scale	10000
 0.0	meV/atom	keys:repro_check.max_abs_dE_meV_atom	0
@@ -536,3 +536,25 @@ two	runs per phase	keys:settings.direct_test_330GPa.runs_per_phase	2
 159.27	GPa	keys:literature.pressure_scales_300K.Hirao2022.K0_GPa	159.27
 5.86		keys:literature.pressure_scales_300K.Hirao2022.Kp	5.86
 1	GPa	keys:settings.pbe_vs_exp.P_vib_uncertainty_GPa	1
+19.4	K	keys:ldashift.mace_Tm_total_K	19.42410855
+4.8	K	keys:ldashift.mace_Tm_se_K	4.805960068
+0.945	k_B	keys:melting_entropy.dS_kB	0.9447710445
+0.043	k_B	keys:melting_entropy.dS_err_kB	0.04308320256
+0.95	k_B	keys:melting_entropy.dS_kB	0.9447710445
+0.04	k_B	keys:melting_entropy.dS_err_kB	0.04308320256
+320	meV/atom	keys:melting_entropy.dE_meV	320.47
+515	meV/atom	keys:melting_entropy.dH_meV	515.2696456
+1.35	%	keys:melting_entropy.dV_over_V_pct	1.352244059
+1.6	%	keys:melting_entropy.dV_over_V_330_pct	1.591915077
+330.0	GPa	keys:melting_entropy.P_total_hcp_GPa	330.0051593
+332.97	GPa	keys:melting_entropy.P_total_liq_GPa	332.9710525
+8.41	K/GPa	keys:melting_point.dTdP_330	8.408130923
+3,846	K	keys:melting_point.fit.T1	3845.813531
+11	K	keys:melting_point.fit_param_se.T1	10.62349641
+120	GPa	keys:melting_point.fit.a	119.6143585
+6	GPa	keys:melting_point.fit_param_se.a	6.007868278
+2.15		keys:melting_point.fit.c	2.153024847
+0.06		keys:melting_point.fit_param_se.c	0.0599263086
+104	GPa	keys:melting_point.cells.coex_hcp_100GPa.P_n	104.3468801
+371	GPa	keys:melting_point.cells.coex_hcp_350GPa.P_n	370.7875192
+3,658	K	keys:coex_cells.cells.coex_fcc_100GPa.Tm	3657.574252
