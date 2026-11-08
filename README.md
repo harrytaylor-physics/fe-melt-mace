@@ -33,19 +33,22 @@ Every number quoted from this work has a ledger key; the list is
 Without the LFS files the binaries are 132-byte pointers and the tests that need them skip. To fetch them:
 `git lfs install --local && git lfs pull`. Conditions of use are in [TESTING.md](TESTING.md).
 
-## Repository layout
+## Map
 
 | Where | What |
 |---|---|
 | [models/](models/README.md) | MACE potentials with T_el input, and their provenance. |
+| [benchmarks/](benchmarks/README.md) | Rerunnable checks of the potential against held-out data, PBE and experiment. |
+| [tests/](tests/README.md) | Test suite for the producers, the ledger and the layout. |
+| [convergence/](convergence/README.md) | Convergence checks: what was converged, how, and the result. |
+| [studies/](studies/README.md) | Side studies: the 330 GPa LDA - PBE test, a DFT+DMFT pilot. |
+| [docs/](docs/README.md) | Methods reference and figures of the iron melting curve. |
 | [melt_curve/](melt_curve/README.md) | Validation against PBE and experiment, ledger and figures. |
 | [production_campaign/](production_campaign/README.md) | ARC pipeline as run: QE labels, training, coexistence runs. |
 | [data/](data/README.md) | Training and test sets with QE labels, and coexistence runs. |
-| [studies/](studies/README.md) | Side studies: the 330 GPa LDA - PBE test, a DFT+DMFT pilot. |
-| [tests/](tests/README.md) | Test suite for the producers, the ledger and the layout. |
-| [docs/](docs/README.md) | Methods reference and figures of the iron melting curve. |
-| [MIGRATION.md](MIGRATION.md) · [CHANGELOG.md](CHANGELOG.md) | how `~/fe_melt` came in and what moved where; what was done when |
-| [TESTING.md](TESTING.md) | how to run the tests, what they cover, conditions of use |
+| [MIGRATION.md](MIGRATION.md) | how `~/fe_melt` came in and what moved where |
+| [TODO.md](TODO.md) | technical task list |
+| [TESTING.md](TESTING.md) | how to run the tests, what they cover, conditions of use, dependencies, reproducing |
 
 ## Status
 
@@ -67,45 +70,36 @@ valence electrons); fine-tuning of the foundation model with T_el as a learned p
 12,096-atom hcp-liquid coexistence at 100-350 GPa, each cell at the T_el of its melting temperature;
 interface-normal pressure correction and a Simon fit. Full details: [docs/METHODS.md](docs/METHODS.md).
 
-## Dependencies
+## References
 
-- **Analysis, validation, figures and tests:** Python ≥ 3.11 with numpy, scipy, ase ≥ 3.23,
-  matplotlib and pytest (`pip install -r requirements.txt`). For the model checks, also torch and
-  upstream `mace-torch` 0.3.16. The validation evaluated the production model with upstream 0.3.16:
-  `atoms.info["elec_temp"] = T_el / 1e4` (see `melt_curve/validation/load_model.py`).
-- **The ARC pipeline (training, MD with the T_el-conditioned model):** the T_el-conditioned MACE fork
-  **tel-mace**, a separate private repository pinned by commit:
+**MACE (architecture and foundation models)**
+- I. Batatia, D. P. Kovács, G. N. C. Simm, C. Ortner and G. Csányi, Adv. Neural Inf. Process. Syst. 35, 11423 (2022)
+- I. Batatia et al., J. Chem. Phys. 163, 184110 (2025)
+- A. D. Kaplan et al., arXiv:2503.04070 (2025) - MatPES
 
-  | | |
-  |---|---|
-  | remote | `git@github.com:harrytaylor-physics/tel-mace.git` |
-  | branch | `tel-conditioning` |
-  | commit | `5168bc0d08bfb0d85ac4504710ee00792d2da04c` (22 Sep 2026, "Tel conditioning: elec_temp stamping, scale-in-checkpoint, zero-init, tests"; `v0.3.16-114-g5168bc0`) |
-  | uncommitted changes | none (ARC, 25 Oct 2026) |
-  | installed version | `mace 0.3.17`, editable install in `~/tel_env` (Python 3.13.5, torch 2.14.0+cu130, ase 3.29.0, cuequivariance 0.12.0) |
+**Electronic structure**
+- N. D. Mermin, Phys. Rev. 137, A1441 (1965) - finite-temperature DFT
+- P. Giannozzi et al., J. Phys.: Condens. Matter 21, 395502 (2009); 29, 465901 (2017) - Quantum ESPRESSO
+- J. P. Perdew, K. Burke and M. Ernzerhof, Phys. Rev. Lett. 77, 3865 (1996) - PBE
+- P. E. Blöchl, Phys. Rev. B 50, 17953 (1994) - PAW
+- A. Dal Corso, Comput. Mater. Sci. 95, 337 (2014) - pslibrary
+- H. J. Monkhorst and J. D. Pack, Phys. Rev. B 13, 5188 (1976) - k-point meshes
 
-      pip install git+ssh://git@github.com/harrytaylor-physics/tel-mace.git@5168bc0d08bfb0d85ac4504710ee00792d2da04c
+**Coexistence and analysis**
+- J. R. Morris, C. Z. Wang, K. M. Ho and C. T. Chan, Phys. Rev. B 49, 3109 (1994) - two-phase coexistence
+- P. J. Steinhardt, D. R. Nelson and M. Ronchetti, Phys. Rev. B 28, 784 (1983) - bond-order parameters
+- W. Lechner and C. Dellago, J. Chem. Phys. 129, 114707 (2008) - averaged bond-order parameters
+- F. Simon and G. Glatzel, Z. Anorg. Allg. Chem. 178, 309 (1929) - Simon fit
 
-  The checkpoint stores the T_el input scale: the `elec_temp` embedding spec has `scale = 1e-4`. The
-  fork applies it inside the model, so the ARC scripts pass T_el in kelvin. Upstream mace-torch does not
-  apply the stored scale, so callers pass T_el / 1e4. With the fork installed, set `FE_TEL_SCALE=1` for
-  `melt_curve/validation/` and `tests/`.
-- **QE:** 7.5 on ARC for the labels (`provenance/qe_version.txt`); 6.6 for the validation references.
-- **Foundation model:** `MACE-matpes-pbe-omat-ft.model`. It is not in this repository; its source and
-  sha256 are in `models/README.md`.
-- **LFS:** models, coexistence checkpoints, the training and test sets, `inputs_as_run.tgz`.
+**Iron melting: comparisons**
+- S. Anzellini, A. Dewaele, M. Mezouar, P. Loubeyre and G. Morard, Science 340, 464 (2013)
+- D. Alfè, Phys. Rev. B 79, 060101(R) (2009)
+- E. Sola and D. Alfè, Phys. Rev. Lett. 103, 078501 (2009)
+- Y. Sun et al., Geophys. Res. Lett. 50, e2022GL102447 (2023)
+- R. Rao and L. Zhu, arXiv:2512.25061 (v1 Dec 2025; v4 Aug 2026)
 
-## Reproducing
-
-These run on any machine, from the repository root. The ARC stages are in
-[production_campaign/README.md](production_campaign/README.md).
-
-| Stage | Command |
-|---|---|
-| Simon fit | see [melt_curve/README.md](melt_curve/README.md) |
-| Validation producers and ledger | `cd melt_curve/validation && python stats_test.py && python cc_check.py && python pbe_vs_exp.py && python train_table.py && python tel_check.py && python coex_cells.py && python melting_point.py && python conv_check.py && python lda_setup_check.py && python ldashift_summary.py && python settings.py && python ledger.py` (`val_mace.py` and `repro_check.py` need mace-torch, `val_dft.py` needs `pw.x`) |
-| Figures | `python melt_curve/figures/build_figures.py` (about 2 min) |
-| Tests | `python -m pytest -q -p no:cacheprovider` |
+The full list used in the figures and the report is in
+[`melt_curve/figures/refs.py`](melt_curve/figures/refs.py).
 
 ---
 Maintainer: Harry Taylor (Oxford).
