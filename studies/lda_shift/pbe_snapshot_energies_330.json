@@ -1,0 +1,305 @@
+{
+ "_description": "PBE internal energies of the 40 direct-test snapshots at 330 GPa and 6,329 K (T_el = 6,329 K), with the potential's static pressure on each snapshot and the NVT/NPT metadata. E_int = F - (smearing contrib. -TS) from labels/ldaX_*_PBE_Tel6329.out; P_mace_static_GPa, solid_frac, msd from phaseX/ldashift/frames.xyz; volumes and bulk moduli from phaseX/ldashift/md_meta.json. Extracted on ARC on 7 Nov 2026.",
+ "T_K": 6329.0,
+ "P_target_GPa": 330.0,
+ "natoms": 128,
+ "md_meta": {
+  "hcp": {
+   "V_at": 6.994062850815347,
+   "B_GPa": 1130.4885864257812,
+   "P_plus": 317.4479675292969,
+   "P_minus": 340.0577392578125,
+   "n": 20
+  },
+  "liquid": {
+   "V_at": 7.088639650208927,
+   "B_GPa": 1253.9749145507812,
+   "P_plus": 323.126220703125,
+   "P_minus": 348.2057189941406,
+   "n": 20
+  }
+ },
+ "snapshots": {
+  "hcp": [
+   {
+    "name": "ldaX_h00",
+    "E_int_eV_per_atom": -4476.4311,
+    "solid_frac": 1.0,
+    "msd_A2": 0.24126795641631754,
+    "P_mace_static_GPa": 321.4587097167969
+   },
+   {
+    "name": "ldaX_h01",
+    "E_int_eV_per_atom": -4476.6867,
+    "solid_frac": 1.0,
+    "msd_A2": 0.1441849169744835,
+    "P_mace_static_GPa": 310.8132629394531
+   },
+   {
+    "name": "ldaX_h02",
+    "E_int_eV_per_atom": -4476.4831,
+    "solid_frac": 1.0,
+    "msd_A2": 0.17883019743388695,
+    "P_mace_static_GPa": 319.6995544433594
+   },
+   {
+    "name": "ldaX_h03",
+    "E_int_eV_per_atom": -4476.578,
+    "solid_frac": 1.0,
+    "msd_A2": 0.1871697760162281,
+    "P_mace_static_GPa": 314.9195556640625
+   },
+   {
+    "name": "ldaX_h04",
+    "E_int_eV_per_atom": -4476.6104,
+    "solid_frac": 1.0,
+    "msd_A2": 0.1949149374368658,
+    "P_mace_static_GPa": 313.5516662597656
+   },
+   {
+    "name": "ldaX_h05",
+    "E_int_eV_per_atom": -4476.4099,
+    "solid_frac": 1.0,
+    "msd_A2": 0.21788086472970272,
+    "P_mace_static_GPa": 321.9200744628906
+   },
+   {
+    "name": "ldaX_h06",
+    "E_int_eV_per_atom": -4476.3677,
+    "solid_frac": 0.984375,
+    "msd_A2": 0.2448806330994009,
+    "P_mace_static_GPa": 324.4091796875
+   },
+   {
+    "name": "ldaX_h07",
+    "E_int_eV_per_atom": -4476.5921,
+    "solid_frac": 1.0,
+    "msd_A2": 0.1808625700470992,
+    "P_mace_static_GPa": 314.85797119140625
+   },
+   {
+    "name": "ldaX_h08",
+    "E_int_eV_per_atom": -4476.529,
+    "solid_frac": 1.0,
+    "msd_A2": 0.17720138873765262,
+    "P_mace_static_GPa": 317.3951416015625
+   },
+   {
+    "name": "ldaX_h09",
+    "E_int_eV_per_atom": -4476.549,
+    "solid_frac": 1.0,
+    "msd_A2": 0.1697360604406679,
+    "P_mace_static_GPa": 315.909423828125
+   },
+   {
+    "name": "ldaX_h10",
+    "E_int_eV_per_atom": -4476.5652,
+    "solid_frac": 1.0,
+    "msd_A2": 0.17491536722566103,
+    "P_mace_static_GPa": 315.83880615234375
+   },
+   {
+    "name": "ldaX_h11",
+    "E_int_eV_per_atom": -4476.6106,
+    "solid_frac": 1.0,
+    "msd_A2": 0.169660573299997,
+    "P_mace_static_GPa": 313.69659423828125
+   },
+   {
+    "name": "ldaX_h12",
+    "E_int_eV_per_atom": -4476.5034,
+    "solid_frac": 1.0,
+    "msd_A2": 0.173237455380379,
+    "P_mace_static_GPa": 318.9158630371094
+   },
+   {
+    "name": "ldaX_h13",
+    "E_int_eV_per_atom": -4476.3977,
+    "solid_frac": 0.9921875,
+    "msd_A2": 0.1931055891109815,
+    "P_mace_static_GPa": 322.92333984375
+   },
+   {
+    "name": "ldaX_h14",
+    "E_int_eV_per_atom": -4476.5065,
+    "solid_frac": 1.0,
+    "msd_A2": 0.18060297664985947,
+    "P_mace_static_GPa": 318.1068115234375
+   },
+   {
+    "name": "ldaX_h15",
+    "E_int_eV_per_atom": -4476.6059,
+    "solid_frac": 1.0,
+    "msd_A2": 0.14807428772166226,
+    "P_mace_static_GPa": 313.923583984375
+   },
+   {
+    "name": "ldaX_h16",
+    "E_int_eV_per_atom": -4476.6123,
+    "solid_frac": 1.0,
+    "msd_A2": 0.1700158680420911,
+    "P_mace_static_GPa": 313.9612121582031
+   },
+   {
+    "name": "ldaX_h17",
+    "E_int_eV_per_atom": -4476.5124,
+    "solid_frac": 1.0,
+    "msd_A2": 0.180314966807511,
+    "P_mace_static_GPa": 317.7313537597656
+   },
+   {
+    "name": "ldaX_h18",
+    "E_int_eV_per_atom": -4476.569,
+    "solid_frac": 1.0,
+    "msd_A2": 0.17961961886145594,
+    "P_mace_static_GPa": 315.8229064941406
+   },
+   {
+    "name": "ldaX_h19",
+    "E_int_eV_per_atom": -4476.3806,
+    "solid_frac": 1.0,
+    "msd_A2": 0.1593592763651233,
+    "P_mace_static_GPa": 324.3754577636719
+   }
+  ],
+  "liquid": [
+   {
+    "name": "ldaX_l00",
+    "E_int_eV_per_atom": -4476.2397,
+    "solid_frac": 0.0078125,
+    "P_mace_static_GPa": 318.6613464355469
+   },
+   {
+    "name": "ldaX_l01",
+    "E_int_eV_per_atom": -4476.1685,
+    "solid_frac": 0.0859375,
+    "P_mace_static_GPa": 322.1179504394531
+   },
+   {
+    "name": "ldaX_l02",
+    "E_int_eV_per_atom": -4476.1405,
+    "solid_frac": 0.0,
+    "P_mace_static_GPa": 323.6530456542969
+   },
+   {
+    "name": "ldaX_l03",
+    "E_int_eV_per_atom": -4476.1729,
+    "solid_frac": 0.0,
+    "P_mace_static_GPa": 321.3577880859375
+   },
+   {
+    "name": "ldaX_l04",
+    "E_int_eV_per_atom": -4476.2455,
+    "solid_frac": 0.015625,
+    "P_mace_static_GPa": 318.24456787109375
+   },
+   {
+    "name": "ldaX_l05",
+    "E_int_eV_per_atom": -4476.2223,
+    "solid_frac": 0.0,
+    "P_mace_static_GPa": 319.55633544921875
+   },
+   {
+    "name": "ldaX_l06",
+    "E_int_eV_per_atom": -4476.236,
+    "solid_frac": 0.03125,
+    "P_mace_static_GPa": 319.1870422363281
+   },
+   {
+    "name": "ldaX_l07",
+    "E_int_eV_per_atom": -4476.1791,
+    "solid_frac": 0.015625,
+    "P_mace_static_GPa": 322.2486267089844
+   },
+   {
+    "name": "ldaX_l08",
+    "E_int_eV_per_atom": -4476.2138,
+    "solid_frac": 0.0,
+    "P_mace_static_GPa": 319.8106994628906
+   },
+   {
+    "name": "ldaX_l09",
+    "E_int_eV_per_atom": -4476.2896,
+    "solid_frac": 0.0,
+    "P_mace_static_GPa": 317.3119812011719
+   },
+   {
+    "name": "ldaX_l10",
+    "E_int_eV_per_atom": -4476.249,
+    "solid_frac": 0.0,
+    "P_mace_static_GPa": 318.4112854003906
+   },
+   {
+    "name": "ldaX_l11",
+    "E_int_eV_per_atom": -4476.2671,
+    "solid_frac": 0.1875,
+    "P_mace_static_GPa": 317.84283447265625
+   },
+   {
+    "name": "ldaX_l12",
+    "E_int_eV_per_atom": -4476.1589,
+    "solid_frac": 0.015625,
+    "P_mace_static_GPa": 322.1719970703125
+   },
+   {
+    "name": "ldaX_l13",
+    "E_int_eV_per_atom": -4476.0821,
+    "solid_frac": 0.0,
+    "P_mace_static_GPa": 326.0893249511719
+   },
+   {
+    "name": "ldaX_l14",
+    "E_int_eV_per_atom": -4476.2233,
+    "solid_frac": 0.0,
+    "P_mace_static_GPa": 321.0528869628906
+   },
+   {
+    "name": "ldaX_l15",
+    "E_int_eV_per_atom": -4476.2352,
+    "solid_frac": 0.1328125,
+    "P_mace_static_GPa": 318.7688293457031
+   },
+   {
+    "name": "ldaX_l16",
+    "E_int_eV_per_atom": -4476.2454,
+    "solid_frac": 0.015625,
+    "P_mace_static_GPa": 319.2254333496094
+   },
+   {
+    "name": "ldaX_l17",
+    "E_int_eV_per_atom": -4476.2155,
+    "solid_frac": 0.0,
+    "P_mace_static_GPa": 320.8874816894531
+   },
+   {
+    "name": "ldaX_l18",
+    "E_int_eV_per_atom": -4476.0944,
+    "solid_frac": 0.015625,
+    "P_mace_static_GPa": 326.0781555175781
+   },
+   {
+    "name": "ldaX_l19",
+    "E_int_eV_per_atom": -4476.2124,
+    "solid_frac": 0.0078125,
+    "P_mace_static_GPa": 320.20452880859375
+   }
+  ]
+ },
+ "expected_results": {
+  "dE_meV": 320,
+  "dH_uncorrected_meV": 515,
+  "dS_kB": 0.945,
+  "dS_err_kB": 0.043,
+  "dS_electronic_kB": 0.051,
+  "dV_over_V_uncorrected_pct": 1.35,
+  "P_total_GPa": {
+   "hcp": 330.0,
+   "liquid": 332.97
+  },
+  "liquid_V_at_330GPa": 7.1054,
+  "dV_over_V_corrected_pct": 1.59,
+  "dS_corrected_kB": 0.956,
+  "clapeyron_dTdP_K_per_GPa": 8.43,
+  "note": "Electronic entropy term T_el*S_el per atom: hcp 992.1, liquid 1020.0 meV (not per snapshot in this file)."
+ }
+}
