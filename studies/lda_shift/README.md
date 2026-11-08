@@ -24,7 +24,8 @@ work (PBE, 6,329 ± 6 K) comes from LDA versus PBE, and how much remains for the
    - configurational second-order term −(β/2)·var(ΔU)/N;
    - volume term −V·ΔP²/(2B), which converts fixed volume to fixed pressure (ΔP = P_LDA − P_PBE
      at the snapshot volume; B from the potential).
-4. Shift: δT_m = +(ΔG_liq − ΔG_hcp)/ΔS_m, with ΔS_m = 0.80 k_B. A correction that raises the
+4. Shift: δT_m = +(ΔG_liq − ΔG_hcp)/ΔS_m, with ΔS_m = 0.80 k_B in `ldashift.py` on ARC. The ledger
+   rescales to the measured ΔS_m (`melt_curve/validation/melting_entropy.py`). A correction that raises the
    liquid's free energy relative to the solid raises T_m.
 
 Cost: 80 pw.x calculations, about 3,600 core-hours, plus one GPU job of under 3 h.

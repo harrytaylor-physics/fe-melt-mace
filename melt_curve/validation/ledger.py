@@ -20,7 +20,8 @@ Producers (run from this directory):
   settings.py     -> out/settings.json       needs refs/*/*.in, the producers' sources, production_campaign/fe_melt/pseudo/, data/coexistence/cells, production_campaign/fe_melt/labels/ldaX_*.in
   conv_check.py   -> out/convergence.json    needs refs/convergence/*.json (QE 6.6 runs)
   lda_setup_check.py -> out/lda_setup.json   needs refs/lda_setup/*.json (QE 6.6 runs)
-  ldashift_summary.py -> out/ldashift.json   needs studies/lda_shift/ldashift_result.json, md_meta.json (ldashift.py eval on ARC)
+  melting_entropy.py -> out/melting_entropy.json needs studies/lda_shift/pbe_snapshot_energies_330.json
+  ldashift_summary.py -> out/ldashift.json   needs studies/lda_shift/ldashift_result.json, md_meta.json (ldashift.py eval on ARC), pbe_snapshot_energies_330.json
 Committed constants (no producer): refs/literature.json -> keys "literature.*".
 """
 import hashlib, json, math, os
@@ -30,7 +31,8 @@ PRODUCER = {"test_stats": "stats_test.py", "static_compare": "val_mace.py",
             "cc_check": "cc_check.py", "pbe_vs_exp": "pbe_vs_exp.py",
             "training": "train_table.py", "tel_check": "tel_check.py", "coex_cells": "coex_cells.py",
             "melting_point": "melting_point.py", "repro_check": "repro_check.py", "settings": "settings.py",
-            "convergence": "conv_check.py", "lda_setup": "lda_setup_check.py", "ldashift": "ldashift_summary.py"}
+            "convergence": "conv_check.py", "lda_setup": "lda_setup_check.py", "ldashift": "ldashift_summary.py",
+            "melting_entropy": "melting_entropy.py"}
 CONSTANTS = {"literature": paths.LITERATURE}
 KB_MEV = 8.617333262e-2                                   # k_B in meV/K
 

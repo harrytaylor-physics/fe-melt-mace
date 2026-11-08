@@ -19,7 +19,8 @@ the training pipeline. Every number is written to `ledger.json` by `ledger.py`.
 | `repro_check.py` | `out/repro_check.json` | the model, `data/training/test_Tel*.xyz`, `data/training/parity_tel.npz`; torch, mace-torch | about 8 min on 4 CPU threads |
 | `conv_check.py` | `out/convergence.json` | `refs/convergence/*.json` (QE 6.6, hcp at 7.0 A^3/atom) | seconds |
 | `lda_setup_check.py` | `out/lda_setup.json` | `refs/lda_setup/*.json` (QE 6.6, hcp and fcc at 7.0 A^3/atom) | seconds |
-| `ldashift_summary.py` | `out/ldashift.json` | `studies/lda_shift/ldashift_result.json`, `md_meta.json` (`ldashift.py eval` on ARC) | seconds |
+| `melting_entropy.py` | `out/melting_entropy.json` | `studies/lda_shift/pbe_snapshot_energies_330.json` | seconds |
+| `ldashift_summary.py` | `out/ldashift.json` | `studies/lda_shift/ldashift_result.json`, `md_meta.json` (`ldashift.py eval` on ARC), `pbe_snapshot_energies_330.json` | seconds |
 | `settings.py` | `out/settings.json` | `refs/*/*.in`, the producers' sources, `production_campaign/fe_melt/pseudo/*.UPF`, `data/coexistence/cells/*.json`, `data/coexistence/runs_tel/` file names, `production_campaign/fe_melt/labels/ldaX_*`, `production_campaign/fe_melt/ldashift.py`, `refs/lda_setup/*.json` | seconds |
 | `ledger.py` | `ledger.json` | `out/*.json`, `refs/literature.json` (committed constants) | seconds |
 | `record_inputs.py` | `ledger_inputs.tsv` | the committed inputs that no producer here rebuilds | seconds |
@@ -65,6 +66,10 @@ against `ledger.json`.
   (first and second order). LDA - PBE gives the T_m shift by free-energy perturbation (a1 + a2 + a3),
   with an equal-bulk-modulus variant of a3. The ledger derives T_m(PBE, 330 GPa) = T_m(330 GPa) minus
   the potential's error.
+  Energy differences are converted to K at the measured dS_m, with its relative error added in quadrature.
+- **Melting entropy at 330 GPa** (`melting_entropy.py`): dH = <E_int>_liq - <E_int>_hcp + 330 GPa x (V_liq - V_hcp)
+  from the PBE snapshot energies, dS_m = dH / (k_B T) at 6,329 K, error from the standard errors of the two means.
+  Volumes at 330 GPa: V' = V (1 + (P_total - 330) / B), P_total = <P_mace_static> + k_B T / V.
 - **PBE against experiment** (`pbe_vs_exp.py`): static non-magnetic PBE (k 16x16x10,
   Marzari-Vanderbilt 0.01 Ry) plus a 2.5-3.5 GPa vibrational pressure (Debye-Grueneisen estimate,
   +-1 GPa), minus the 300 K EOS of Dewaele et al. 2006, Fei et al. 2016 and Hirao et al. 2022.
